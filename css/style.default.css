@@ -1,10 +1,10 @@
-/* 
-========================================= 
-========================================= 
+/*
+=========================================
+=========================================
 
 Bootstrapious Boilerplate Template
 
-========================================= 
+=========================================
 ========================================= */
 /*
 *
@@ -80,6 +80,21 @@ section {
 .section-inverse h6 {
   color: #fff;
 }
+
+.section-inverse a,
+.section-inverse a:hover,
+.section-inverse a:focus
+{
+  color: #fff;
+}
+
+
+/*.section-inverse a{
+  text-decoration: underline;
+  text-decoration-color: #555;
+  text-decoration-style: dashed;
+}*/
+
 
 .section-inverse .heading:after {
   background: #fff;
@@ -1661,54 +1676,7 @@ code {
   color: #e83e8c;
 }
 
-/*
-* 8. NAV
-*/
-.nav-link {
-  padding: 0.5rem 1rem;
-}
 
-.nav-link.disabled {
-  color: #6c757d;
-}
-
-.nav-tabs .nav-item {
-  margin-bottom: -1px;
-}
-
-.nav-tabs .nav-link {
-  border: 1px solid transparent;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-}
-
-.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
-  border-color: #eee #eee #dee2e6;
-}
-
-.nav-tabs .nav-link.disabled {
-  color: #6c757d;
-}
-
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
-  color: #555;
-  background-color: #fff;
-}
-
-.nav-tabs .dropdown-menu {
-  margin-top: -1px;
-}
-
-.nav-pills .nav-link {
-  border-radius: 0.25rem;
-}
-
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #333;
-}
 
 /*
 * 9. CARD
