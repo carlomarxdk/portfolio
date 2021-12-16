@@ -125,8 +125,7 @@ html{
 
 /* LINKS */
 #over img {
-  margin-left: auto;
-  margin-right: auto;
-	vertical-align:middle;
+  margin: auto;
   display: block;
+	max-width: 15rem;
 }
