@@ -34,7 +34,7 @@ body {
 }
 
 section {
-  padding: 50px 0;
+  padding: 2.75em 0;
 }
 
 @media (max-width: 767.98px) {
@@ -55,7 +55,7 @@ section {
 }
 
 .heading {
-  margin-bottom: 40px;
+  margin-bottom: 1rem;
 }
 
 .heading:after {
@@ -101,7 +101,7 @@ section {
 }
 
 .box {
-  margin-bottom: 30px;
+  margin-bottom: 1.5em;
 }
 
 /*
@@ -117,7 +117,7 @@ INTRO SECTION
   height: 100%;
   color: #fff;
   background-color: #111;
-  min-height: 600px;
+  min-height: 5em;
   padding: 0;
   background-size: cover;
   background-position: center center;
@@ -129,13 +129,16 @@ INTRO SECTION
 .intro h3,
 .intro p {
   color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.6);
   font-family: 'Press Start 2P', "Montserrat", Arial, sans-serif;
 
 }
-
+.intro h1,
+.intro h2 {
+  font-size: 2.5em;
+}
 .intro p {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .content {
@@ -152,7 +155,7 @@ INTRO SECTION
 @media (max-width: 767.98px) {
   .content {
     position: relative;
-    padding: 80px 0;
+    padding: 5rem 0;
     top: 0;
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
@@ -167,13 +170,13 @@ SERVICES SECTION
 *
 */
 .services .box {
-  margin-top: 20px;
+  margin-top: 1.25em;
 }
 
 .services .icon {
-  font-size: 50px;
+  font-size: 2.53em;
   color: #262626;
-  margin-bottom: 10px;
+  margin-bottom: 0.75em;
 }
 
 
@@ -1028,7 +1031,7 @@ mark,
   padding: 0.5rem 1rem;
   margin-bottom: 2rem;
   font-size: 1.25rem;
-  border-left: 5px solid #333;
+  border-left: 0.25em solid #333;
 }
 
 .blockquote-footer {
@@ -1077,7 +1080,7 @@ a.text-primary:hover, a.text-primary:focus {
   line-height: 1.25;
   color: #333;
   background-color: #fff;
-  border: 1px solid #dee2e6;
+  border: 0.1em solid #dee2e6;
 }
 
 .page-link:hover, .page-link:focus {
@@ -1395,7 +1398,7 @@ a.text-dark:hover, a.text-dark:focus {
   line-height: 1.5;
   color: #555;
   background-color: #fff;
-  border: 1px solid #ced4da;
+  border: 0.1em solid #ced4da;
   border-radius: 0rem;
   -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
