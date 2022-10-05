@@ -6,3 +6,5 @@
 .vs/slnx.sqlite
 .vs/portfolio/v16/.suo
 *.sqlite
+*.sqlite
+.vs/portfolio/v16/.suo
