@@ -4,12 +4,12 @@ html{
 
 
 #canvas{
-		background-color: #333;
+		background-color: #282A3A;
 		position: absolute;
 		width: 100%;
 		height: 100%;
 		opacity: 0.6;
-		z-index: 5;
+		z-index: 7;
 		top:0;
 		left:0;
 		overflow:hidden;
@@ -61,7 +61,7 @@ html{
 
 @keyframes move {
   25% {
-    opacity: 1;
+    opacity: 0.9;
 
   }
   33% {
@@ -112,7 +112,7 @@ html{
   border-radius: 50%;
   border: 6px solid  #fff;
   border-color:  #fff transparent  #fff transparent;
-  animation: lds-dual-ring 1.2s linear infinite;
+  animation: lds-dual-ring 1.0s linear infinite;
 }
 @keyframes lds-dual-ring {
   0% {

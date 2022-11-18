@@ -1,11 +1,11 @@
-/*          *     .        *  .    *    *   . 
+/*          *     .        *  .    *    *   .
  .  *  move your mouse to over the stars   .
  *  .  .   change these values:   .  *
    .      * .        .          * .       */
 const STAR_COLOR = '#fff';
-const STAR_SIZE = 3;
-const STAR_MIN_SCALE = 0.2;
-const OVERFLOW_THRESHOLD = 50;
+const STAR_SIZE = 3.5;
+const STAR_MIN_SCALE = 0.1;
+const OVERFLOW_THRESHOLD = 60;
 const STAR_COUNT = ( window.innerWidth + window.innerHeight ) / 8;
 
 const canvas = document.querySelector( 'canvas' ),
@@ -20,7 +20,7 @@ let stars = [];
 let pointerX,
     pointerY;
 
-let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0005 };
+let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.001 };
 
 let touchInput = false;
 
@@ -77,7 +77,7 @@ function recycleStar( star ) {
       direction = velocity.y > 0 ? 't' : 'b';
     }
   }
-  
+
   star.z = STAR_MIN_SCALE + Math.random() * ( 1 - STAR_MIN_SCALE );
 
   if( direction === 'z' ) {
@@ -145,7 +145,7 @@ function update() {
     star.x += ( star.x - width/2 ) * velocity.z * star.z;
     star.y += ( star.y - height/2 ) * velocity.z * star.z;
     star.z += velocity.z;
-  
+
     // recycle when out of bounds
     if( star.x < -OVERFLOW_THRESHOLD || star.x > width + OVERFLOW_THRESHOLD || star.y < -OVERFLOW_THRESHOLD || star.y > height + OVERFLOW_THRESHOLD ) {
       recycleStar( star );
@@ -227,4 +227,3 @@ function onMouseLeave() {
 
 
 //MENU
-
