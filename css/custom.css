@@ -110,8 +110,8 @@ html{
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid  #fff;
-  border-color:  #fff transparent  #fff transparent;
+  border: 6px solid  #333;
+  border-color:  #333 transparent  #333 transparent;
   animation: lds-dual-ring 1.0s linear infinite;
 }
 @keyframes lds-dual-ring {
