@@ -19,14 +19,6 @@
       window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
       cronitor('config', { clientKey: 'fe37ec63505ecf3df10aaac32f8135ec' });
     </script>
-
-    <script>
-      let button = document.getElementById("scroll_down");
-
-      button.addEventListener("click", function () {
-        cronitor("track", "scroll");
-      });
-    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
@@ -66,7 +58,7 @@
         <div class="content">
           <div class="row mt-auto">
             <div class="arrowcontainer mx-auto">
-              <a href="#about"  onclick='cronitor("track", "scroll")' class="nav-link">
+              <a href="#about" class="nav-link">
                 <div class="chevron"></div>
                 <div class="chevron"></div>
                 <div class="chevron"></div>
@@ -104,7 +96,7 @@
             <p><img src="img/me.jpg" alt="" class="img-fluid rounded-circle"></p>
             <p style="font-family:'Courier New'">🔊<a href="http://ipa-reader.xyz/?text=%C9%A1%CA%B2%CB%88irm%C9%99n%20saft%CD%A1%CA%83%CB%88i%CA%82%C9%9Bn&voice=Maxim" target="_blank">
               [ɡʲˈirmən saft͡ʃˈiʂɛn]</a></p>
-            <p> <a href="docs/Resume.pdf"  target="_blank" class="btn"> <button type="button" onclick="pa.track({name: 'cv'})" class="btn btn-lg btn-primary">Open CV</button></a></p>
+            <p> <a href="docs/Resume.pdf"  target="_blank" class="btn"> <button type="button" class="btn btn-lg btn-primary">Open CV</button></a></p>
 
           </div>
         </div>
