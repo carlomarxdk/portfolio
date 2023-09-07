@@ -19,6 +19,14 @@
       window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
       cronitor('config', { clientKey: 'fe37ec63505ecf3df10aaac32f8135ec' });
     </script>
+
+    <script>
+      let button = document.getElementById("scroll_down");
+
+      button.addEventListener("click", function () {
+        cronitor("track", "scroll");
+      });
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
@@ -58,7 +66,7 @@
         <div class="content">
           <div class="row mt-auto">
             <div class="arrowcontainer mx-auto">
-              <a href="#about" onclick="pa.track({name: 'scroll'})" class="nav-link">
+              <a href="#about" id="scroll_down" onclick="pa.track({name: 'scroll'})" class="nav-link">
                 <div class="chevron"></div>
                 <div class="chevron"></div>
                 <div class="chevron"></div>
