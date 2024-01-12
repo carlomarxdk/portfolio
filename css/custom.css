@@ -1,18 +1,17 @@
-html{
-	scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-
-#canvas{
-		background-color: #282A3A;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		opacity: 0.6;
-		z-index: 7;
-		top:0;
-		left:0;
-		overflow:hidden;
+#canvas {
+  background-color: #282a3a;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  z-index: 7;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
 
 .arrowcontainer {
@@ -40,7 +39,7 @@ html{
 
 .chevron:before,
 .chevron:after {
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 0;
   height: 100%;
@@ -62,7 +61,6 @@ html{
 @keyframes move {
   25% {
     opacity: 0.9;
-
   }
   33% {
     opacity: 1;
@@ -82,12 +80,12 @@ html{
   display: block;
   margin-top: 65px;
   margin-left: -15px;
-  font-family: 'Press Start 2P', "Montserrat", Arial, sans-serif;
+  font-family: "Press Start 2P", "Montserrat", Arial, sans-serif;
   font-size: 10px;
   color: #fff;
   text-transform: uppercase;
   white-space: nowrap;
-  opacity: .25;
+  opacity: 0.25;
   animation: pulse 2s linear alternate infinite;
 }
 
@@ -110,9 +108,9 @@ html{
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid  #333;
-  border-color:  #333 transparent  #333 transparent;
-  animation: lds-dual-ring 1.0s linear infinite;
+  border: 6px solid #333;
+  border-color: #333 transparent #333 transparent;
+  animation: lds-dual-ring 1s linear infinite;
 }
 @keyframes lds-dual-ring {
   0% {
@@ -127,5 +125,5 @@ html{
 #over img {
   margin: auto;
   display: block;
-	max-width: 15rem;
+  max-width: 15rem;
 }
