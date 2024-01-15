@@ -12,6 +12,7 @@ As of Jan'24, I am a Research Assistant @ DTU (Social Complexity Lab). I am work
 1. Different data modalities
 2. Social environments
 3. Trying to clean up [life2vec github](https://github.com/SocialComplexityLab/life2vec).
+
 Plus, I am focusing on my *dream* project connected to the National Library Use Data, aka how books change our life trajectories?
 
 We can always chat more about the potential ideas.
