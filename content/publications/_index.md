@@ -19,7 +19,11 @@ hidden = true
 
 
 ### PhD Thesis
-- [Life Trajectories as Symbolic Language: Exploring Human Behaviour with Language Models](https://github.com/carlomarxdk/portfolio/blob/main/docs/thesis_excerpt.pdf)  
-  *Details:* Full version will be published in July 2024. [First 20 pages are here](https://github.com/carlomarxdk/portfolio/blob/main/docs/thesis_excerpt.pdf).  
+- [Life Trajectories as Symbolic Language: Exploring Human Behaviour with Language Models](https://github.com/carlomarxdk/portfolio/blob/main/static/docs/thesis_excerpt.pdf)  
+  *Details:* Full version will be published in July 2024. [First 20 pages are here](https://github.com/carlomarxdk/portfolio/blob/main/static/docs/thesis_excerpt.pdf).  
   *Note:* A copy of the full thesis could be requested for *personal use*.  
   *Submission:* Thesis submitted to DTU Compute (18th December 2023)
+
+### MSc Thesis
+- [Analyzing Health Data Records Using Neural Networks: Predicting Diabetes-Related Clinical Outcomes](https://findit.dtu.dk/en/catalog/5ece4aecd9001d01696236a1)  
+  *Details:* Collaboration with the [Novo Nordisk](https://www.novonordisk.com/) Data Science department (April 2020).

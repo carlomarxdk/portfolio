@@ -12,7 +12,6 @@ hasCJKLanguage = false
 	author = "arhen and modified by Germans Savcisens"
 	description = "Germans Savcisens - Ph.D. Personal Academic Portfolio"
 	bio = "PhD Candidate @ DTU Compute"
-
 	twitter = "germansave"
 
 	enableRSS = false
@@ -21,15 +20,14 @@ hasCJKLanguage = false
 	enableDisqus = false
 	disqusShortname = "" #disqus shortname here
 
-
 	enableSummary = false
 	# Set the value to true if use description in post front matter replace content summary
 	useDescriptionReplaceSummary = false
-
-
 	enableGoogleAnalytics = false
+	enableMicroAnalytics  = true
+	MicroAnalyticsID = "ZwSg9rf6GA"
 
-	enableTwitterCard = true
+	enableTwitterCard = false
 	# The url for twitter card image, default is avatar.png in static/images directory
 	twitterCardImage = "images/avatar.jpg"
 

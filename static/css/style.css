@@ -242,6 +242,10 @@ nav.main-nav a.cta {
     padding: 60px 20px 100px 20px;
 }
 
+#wrapper a {
+    font-weight: 700;
+}
+
 #wrapper.home {
     max-width: 50em;
     margin: 0 auto;
@@ -264,16 +268,14 @@ a,
 #post-list a:hover,
 #title:hover {
     text-decoration: none;
-    color: #06599D;
-    color: #0D53B5;
-    font-weight: 700;
+    color: #595959;
+    color: #595959;
 
 }
 
 p a {
-    color: #0D53B5;
+    color: #595959;
     text-decoration: underline dotted 0.05em;
-    font-weight: 700;
 }
 
 /*Transitions*/
@@ -317,8 +319,7 @@ p {
 
 b,
 strong {
-    font-weight: 500;
-    font-style: bold;
+    font-weight: 700;
     color: #1E2025;
 }
 

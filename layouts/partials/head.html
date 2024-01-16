@@ -4,7 +4,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="origin" />
+    <meta name="language" content="English" />
+    <meta
+      http-equiv="cache-control"
+      content="no-cache, no-store, must-revalidate"
+    />
+
+
 	{{ if .Site.Params.enableTwitterCard }}
 	{{ partial "twitter-cards.html" . }}
 	{{ end }}
@@ -18,7 +27,6 @@
 	<!-- performances -->
 	<link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="crossorigin">
 	<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="crossorigin">
-	<link href="https://www.google-analytics.com" rel="preconnect" crossorigin="crossorigin">
 	<link href="https://maxcdn.bootstrapcdn.com" rel="preconnect" crossorigin="crossorigin">
 	<link rel="stylesheet" href="https://use.typekit.net/gau8zpy.css" rel="preload" as=>
 
@@ -36,7 +44,6 @@
 	<noscript>
 		<link rel="stylesheet" href="{{ .Site.BaseURL }}css/style.css"></noscript> -->
 
-	<script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="ZwSg9rf6GA" async defer></script>	<!-- static -->
 	<link rel="preload" href="{{ .Site.BaseURL }}css/highlight.css" as="style"
 		onload="this.onload=null; this.rel='stylesheet'">
 	<noscript>
@@ -69,11 +76,27 @@
 	{{ end }}
 
 	<link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon.ico">
-	<!-- {{ with (or .Params.menu "home") }}
-	{{ if eq "about" . }} -->
-	<!-- netlify identity widget -->
-	<script async src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-	<!-- {{ end }}
-		{{ end }} -->
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="{{ .Site.BaseURL }}images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{{ .Site.BaseURL }}images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{{ .Site.BaseURL }}images/favicon-16x16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="{{ .Site.BaseURL }}images/safari-pinned-tab.svg"
+      color="#ffffff"
+    />
 
 </head>
