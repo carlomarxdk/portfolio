@@ -1,7 +1,7 @@
 +++
 title = "Talks & Press"
 date = 2024-01-15T19:43:41+02:00
-description = "Taks and coverage in press."
+description = "Talks and coverage in press."
 hidden = true
 +++
 
@@ -10,9 +10,11 @@ hidden = true
 ### Upcoming Talks
 - **30 January 2024**: [TBA](https://sites.google.com/view/rossella-arcucci/home/calendar-datalearning)  
   *Details:* [DataLearning Working Group](https://sites.google.com/view/rossella-arcucci/home/calendar-datalearning) | Imperial College London, UK (Online)
+- **20 February 2024**: [TBA](#)  
+  *Details:* Deep Causal Inference Journal Club |UT MD Anderson Cancer Center (Online)  
 - **TBA**: [PhD Defence](#)  
   *Details:* TBA | Copenhagen, Denmark
-- **17 March 2024**: [TBA](#)  
+- **19 March 2024**: [TBA](#)  
   *Details:* Social event that I cannot announce yet | Copenhagen, Denmark
 
 ### Previous Talks
