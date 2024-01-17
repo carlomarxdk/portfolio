@@ -17,7 +17,6 @@ hidden = true
 - [An Industrial West? A Quantitative Analysis of Newspapers Discourses about Technology over Ninety Years](https://zenodo.org/record/8255722)  
   *Authors:* Emmanuelle Denove, Elisa Michelet, Germans Savcisens, Elena Fernández Fernández (2023)
 
-
 ### PhD Thesis
 - [Life Trajectories as Symbolic Language: Exploring Human Behaviour with Language Models](https://github.com/carlomarxdk/portfolio/blob/main/static/docs/thesis_excerpt.pdf)  
   *Details:* Full version will be published in July 2024. [First 20 pages are here](https://github.com/carlomarxdk/portfolio/blob/main/static/docs/thesis_excerpt.pdf).  
