@@ -5,10 +5,10 @@
             class="arrow">←</span>{{ with .Site.Params.home }}{{ . }}{{ else }}Home{{ end }}</a>
     {{ end }}
     <a href='{{ .Site.BaseURL }}publications'>{{ with .Site.Params.publications }}{{ . }}{{ else }}Publications{{ end }}</a>
-    <a href='{{ .Site.BaseURL }}talks'>{{ with .Site.Params.talks }}{{ . }}{{ else }}Talks & Press{{ end }}</a>
+    <a href='{{ .Site.BaseURL }}talks'>{{ with .Site.Params.talks }}{{ . }}{{ else }}Talks{{ end }}</a>
     <a href='{{ .Site.BaseURL }}teaching'>{{ with .Site.Params.teaching }}{{ . }}{{ else }}Teaching{{ end }}</a>
-    <a href='{{ .Site.BaseURL }}contact'>{{ with .Site.Params.contact }}{{ . }}{{ else }}Contact{{ end }}</a>
     <a href='{{ .Site.BaseURL }}now'>{{ with .Site.Params.now }}{{ . }}{{ else }}Now{{ end }}</a>
+    <a href='{{ .Site.BaseURL }}contact'>{{ with .Site.Params.contact }}{{ . }}{{ else }}Contact{{ end }}</a>
 
     <a class="cta" href="{{ .Site.BaseURL }}docs/Resume.pdf" target="_blank">Resume</a>
 
