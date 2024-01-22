@@ -15,6 +15,7 @@
 {{ if .Site.Params.enableMicroAnalytics }}
 <script data-host="https://app.microanalytics.io" data-dnt="false" src="https://app.microanalytics.io/js/script.js" id="{{.Site.Params.MicroAnalyticsID }}" async defer>
 </script>	
+{{ end }}
 {{ if .Site.Params.enablePlausible }}
 <script defer data-domain="{{.Site.Params.PlausibleID }}" src="https://plausible.io/js/script.js"></script>
 <!-- static -->
