@@ -19,7 +19,9 @@ hidden = true
   *Teaching Assistant* at Technical University of Denmark
 
 ### Supervision
+If you are a student looking for a term or thesis project, feel free to contact me.
 
+- [Predictive modelling of mobile app usage](#)| now (**MSc Thesis**)
 - [Compliance Rule Detection from Unstructured Documents](https://findit.dtu.dk/en/catalog/64111ad76db2563abbc2013d) | 2023 (**MSc Thesis**)
 - [Automating the Identification of Compliance Rules from Investment Mandates using NLP](https://findit.dtu.dk/en/catalog/6569324256db831316a7c444) | 2023 (**MSc Thesis**)
 - [Exploring, Modelling and Forecasting Smartphone App Usage Behaviour](https://orbit.dtu.dk/en/activities/exploring-modelling-and-forecasting-smartphone-app-usage-behaviou) | 2022 (**MSc Thesis**)

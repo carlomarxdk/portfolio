@@ -6,7 +6,7 @@ hidden = true
 +++
 
 ### Published
-- [Using Sequences of Life-events to Predict Human Lives](https://www.nature.com/articles/s43588-023-00573-5) aka [life2vec](https://life2vec.dk/)
+- [Using Sequences of Life-events to Predict Human Lives](https://www.nature.com/articles/s43588-023-00573-5) aka [life2vec](https://life2vec.dk/)  
   *Authors:* Germans Savcisens, Tina Eliassi-Rad, Lars Kai Hansen, Laust Mortensen, Lau Lilleholt, Anna Rogers, Ingo Zettler, Sune Lehmann  
   *Published in:* Nature Computational Science (2023)
 - [A Sustainable West? Analyzing Clusters of Public Opinion in Sustainability Western Discourses](https://journals.uio.no/dhnbpub/article/view/10660)  

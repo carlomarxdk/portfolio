@@ -8,14 +8,14 @@ hidden = true
 **Still working on this page**
 
 ### Upcoming Talks
-- **30 January 2024**: [Life trajectories in high dimensional spaces](https://sites.google.com/view/rossella-arcucci/home/calendar-datalearning)  
-  *Details:* [DataLearning Working Group](https://sites.google.com/view/rossella-arcucci/home/calendar-datalearning) | Imperial College London, UK (Online)
 - **20 February 2024**: [TBA](#)  
   *Details:* Deep Causal Inference Journal Club |UT MD Anderson Cancer Center (Online)  
 - **TBA**: [PhD Defence](#)  
-  *Details:* [What is life2vec? From striking ducks to doomcalculators to telechargers.](#) | Copenhagen, Denmark
-- **19 March 2024**: [TBA](#)  
-  *Details:* Social event that I cannot announce yet | Copenhagen, Denmark
+  *Details:* [TBA](#) | Copenhagen, Denmark
+- **12 March 2024**: [Life trajectories in high dimensional spaces](https://sites.google.com/view/rossella-arcucci/home/calendar-datalearning)  
+  *Details:* [DataLearning Working Group](https://sites.google.com/view/rossella-arcucci/home/calendar-datalearning) | Imperial College London, UK (Online, 4pm GMT)
+- **19 March 2024**: [What is life2vec? From striking ducks to doomcalculators to telechargers.](#)  
+  *Details:* DataBeers | Copenhagen, Denmark
 
 ### Previous Talks
 - **26 September 2023**: [Using Life-Sequences to Predict Human Lives](https://odissei-data.nl/en/2023/09/odissei-lecture-using-sequences-of-life-events-to-predict-human-lives/)  

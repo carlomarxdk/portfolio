@@ -5,6 +5,8 @@ description = "How to find me in the digital world?"
 hidden = true
 +++
 
+I am a bit slow with the replies in January. 
+
 ### Socials
 * DTU Orbit: [Germans Savčišens](https://orbit.dtu.dk/en/persons/germans-sav%C4%8Di%C5%A1ens)
 * Twitter/X: [germansave](https://twitter.com/germansave)
