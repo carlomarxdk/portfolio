@@ -1,9 +1,12 @@
 <div id="social">
 {{ if eq .Site.Params.iconFont "font-awesome" }}
-	
 	{{ range $key, $val := .Site.Social }}
     <a class="symbol" href="{{ $val }}" aria-label="{{ $key }}" target="_blank" alt="view {{ $key }} profile">
-        <i class="fa fa-{{ $key }}"></i>
+        {{if eq $key "envelope"}}
+            <i class="fa fa-{{ $key }}"></i>
+        {{else}}
+            <i class="fa-brands fa-{{ $key }}"></i>
+        {{end}}
     </a>
     {{ end }}
 

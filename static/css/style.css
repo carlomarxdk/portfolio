@@ -194,7 +194,7 @@ nav.main-nav {
 }
 
 nav.main-nav a {
-    top: 8px;
+    top: 0.5em;
     right: 6px;
     padding: 8px 12px;
     color: #06599D;
@@ -222,10 +222,10 @@ nav.main-nav a.cta {
     nav.main-nav a {
         top: 8px;
         right: 6px;
-        padding: 8px 8px;
+        padding: 0.5em 0.5em;
         color: #06599D;
         font-size: 13px;
-        line-height: 1.35;
+        line-height: 1.4;
         border-radius: 3px;
     }
 }
@@ -428,7 +428,7 @@ h6 {
 p.small {
     color: #2E2E2E;
     font-size: 0.75em;
-    line-height: 0.5em;
+    line-height: 1.2em;
     display: block;
     text-align: center;
     margin-top: 1em;

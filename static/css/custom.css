@@ -12,12 +12,6 @@
         url(//fonts.gstatic.com/s/dancingscript/v10/If2RXTr6YS-zF4S-kcSWSVi_szLgiuEHiC4W.woff2) format('woff2');
 }
 
-@font-face {
-    font-family: "FontAwesome";
-    font-display: swap;
-    src: local('FontAwesome'),
-        url(//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0) format("woff2")
-}
 
 body {
     font: 1em 'Noto Sans', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Georgia, "Times New Roman", Times, sans-serif;
@@ -260,11 +254,11 @@ nav.main-nav {
 }
 
 nav.main-nav a {
-    padding: 8px 4px;
+    padding: 0.4em 0.4em;
 }
 
 nav.main-nav a.cta {
-    padding: 8px 8px;
+    padding: 0.2em 0.4em;
 }
 
 /* disqus */
@@ -292,4 +286,8 @@ nav.main-nav a.cta {
 
 #disqus_thread {
     margin-top: 0px;
+}
+
+.event-item h4{
+    margin: 0;
 }
