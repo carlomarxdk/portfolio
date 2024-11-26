@@ -1,0 +1,29 @@
+<section id="wrapper">
+    <div class="container max-w-screen-md">
+        <div class="inline-flex w-full">
+            <h2 class="font-bold text-xl my-2 md:my-5">Lecturing</h2>
+        </div>
+        {{ range sort .Pages.ByDate.Reverse}}
+        {{ if eq .Params.course_type 0}}
+        {{partial "teaching/course.html" .}}
+        {{end}}
+        {{ end }}
+        <div class="inline-flex w-full">
+            <h2 class="font-bold text-xl my-2 md:my-5">Supervision</h2>
+        </div>
+        {{ range sort .Pages.ByDate.Reverse}}
+        {{ if eq .Params.course_type 1}}
+        {{partial "teaching/project.html" .}}
+        {{end}}
+        {{ end }}
+
+        <div class="inline-flex w-full">
+            <h2 class="font-bold text-xl my-2 md:my-5">Community Service</h2>
+        </div>
+        {{ range sort .Pages.ByDate.Reverse}}
+        {{ if eq .Params.course_type 2}}
+        {{partial "teaching/community.html" .}}
+        {{end}}
+        {{ end }}
+    </div>
+</section>

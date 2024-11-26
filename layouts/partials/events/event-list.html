@@ -1,0 +1,30 @@
+<section id="wrapper">
+    <div class="container max-w-screen-md">
+        <div class="inline-flex w-full">
+            <h2 class="font-bold text-xl my-2 md:my-5 font-cabin">Upcoming Talks</h2>
+        </div>
+    {{ $hasUpcoming := false }} <!-- Initialize a flag to check for upcoming talks -->
+    {{ range sort .Pages.ByDate}}
+        {{$date := time .Params.event_date}}
+        {{$today := time.Now.AddDate 0 0 -1}}
+        {{ if $date.After $today }}
+            {{ $hasUpcoming = true }} <!-- Set flag to true if there is at least one upcoming talk -->
+            {{ partial "events/event.html" .}}
+        {{ end }}
+    {{ end }}
+    {{ if not $hasUpcoming }} <!-- Check if no talks were found -->
+        <p class="mb-2 md:mb-4 italic font-cabin">No talks planned at the moment. Stay tuned.</p> <!-- Display message if there are no upcoming talks -->
+    {{ end }}
+    
+    <div class="inline-flex w-full">
+        <h2 class="font-bold text-xl my-2 md:my-5 font-cabin">Past Talks</h2>
+    </div>    
+    {{ range sort .Pages.ByDate.Reverse}}
+        {{$date := time .Params.event_date}}
+        {{$today := time.Now}}
+        {{ if $date.Before $today }}
+            {{partial "events/prev-event.html" .}}
+        {{end}}
+    {{ end }}
+    </div>
+</section>

@@ -1,0 +1,26 @@
+<div id="social" class="no-underline justify-items-center mb-0 md:mb-4">
+    {{ if eq .Site.Params.iconFont "font-awesome" }}
+    {{ range $key, $val := .Site.Social }}
+    <a class="no-underline symbol mx-1 md:mx-1.5 text-zinc-500 hover:text-purple-500 text-4xl md:text-3xl"
+        href="{{ $val }}" aria-label="{{ $key }}" target="_blank" alt="view {{ $key }} profile">
+        {{if eq $key "envelope"}}
+        <i class="fa fa-{{ $key }}"></i>
+        {{else if eq $key "file"}}
+        <i class="fa fa-{{ $key }}"></i>
+        {{else}}
+        <i class="fa-brands fa-{{ $key }}"></i>
+        {{end}}
+    </a>
+    {{ end }}
+
+    {{ else }}
+
+    {{ $iconStyle := .Site.Params.socialIconStyle }}
+    {{ range $key, $val := .Site.Social }}
+    <!-- <a class="symbol" href="{{ $val }}" target="_blank">
+        {{ $iconStyle }}{{ if eq $key "twitter" }}twitterbird{{ else }}{{ $key }}{{ end }}
+    </a> -->
+    {{ end }}
+
+    {{ end }}
+</div>

@@ -1,0 +1,19 @@
+{{ partial "head.html" . }}
+<body class="bg-stone-50 scroll-smooth focus:scroll-auto">
+    {{ partial "nav.html" . }}
+    <div class="grid max-w-screen-lg px-4 py-8 mx-auto gap-4 md:gap-8 xl:gap-16 md:py-16 md:grid-cols-12">
+        <div class="md:col-span-4 col-span-full">
+        {{ partial "profile.html" . }}
+        </div>
+        <div class="md:col-span-8 col-span-full">
+
+            {{ partial "welcome.html" . }}
+
+        </div>
+    </div>
+    {{ partial "footer.html" . }}
+</div>
+
+  {{ partial "js.html" . }}
+  </body>
+</html>
