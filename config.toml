@@ -73,6 +73,13 @@ hasCJKLanguage = false
     socialIconStyle = "rounded"
 
 	githubRepo = "https://github.com/carlomarxdk/portfolio"
+	[params.social]
+		bluesky = "https://bsky.app/profile/converge.bsky.social"
+		github = "https://github.com/carlomarxdk"
+		linkedin = "https://www.linkedin.com/in/germans-savcisens"
+		envelope = "mailto:germans@savcisens.com"
+		google-scholar = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
+		file = "/docs/Resume.pdf"
 
 [menus]
   [[menus.main]]
@@ -98,14 +105,6 @@ hasCJKLanguage = false
 
 [outputs]
   home = ["HTML", "robotsTXT"]
-
-[social]
-	bluesky = "https://bsky.app/profile/converge.bsky.social"
-	github = "https://github.com/carlomarxdk"
-	linkedin = "https://www.linkedin.com/in/germans-savcisens"
-	envelope = "mailto:germans@savcisens.com"
-	google-scholar = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
-	file = "/docs/Resume.pdf"
 
 [sitemap]
 	changeFreq = ""  # Default change frequency (empty string)

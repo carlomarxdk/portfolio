@@ -1,7 +1,7 @@
 <footer class=" m-4 p-4 max-w-screen-lg mx-auto text-center flex flex-col items-center prose font-cabin">
 
     <div>
-        {{ if .Site.Social }}
+        {{ if .Site.Params.Social }}
         {{ partial "social.html" . }}
         {{ end }}
         <p class="my-4 md:my-1 text-opacity-60 text-sm tracking-wide">
