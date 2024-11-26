@@ -2,6 +2,7 @@
 baseURL = "https://savcisens.com/"
 languageCode = "en-us"
 title = "Germans Savcisens - Academic Portfolio"
+publishDir = "public"
 
 #Set googleAnalytics ID
 googleAnalytics = ""
