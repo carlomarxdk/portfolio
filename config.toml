@@ -11,7 +11,7 @@ hasCJKLanguage = false
 enableRobotsTXT = false
 
 dissabeRSS = true
-disableKinds = ['RSS', 'tags']
+disableKinds = ['RSS']
 
 
 [params]
