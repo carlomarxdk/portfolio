@@ -11,7 +11,7 @@ hasCJKLanguage = false
 enableRobotsTXT = false
 
 dissabeRSS = true
-disableKinds = ['RSS']
+disableKinds = ['RSS', 'taxonomy', 'term']
 
 
 [params]
@@ -108,6 +108,9 @@ disableKinds = ['RSS']
     pageRef = '/contact'
     weight = 50
 
+[taxonomies]
+    category = "categories"
+    tag = "tags"
   
 [sitemap]
 	changeFreq = ""  # Default change frequency (empty string)
