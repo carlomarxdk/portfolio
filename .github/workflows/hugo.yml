@@ -57,8 +57,5 @@ jobs:
           local_folder: 'public'
           cleanup: false
           include: '[ "*", "**/*" ]'
-          exclude: |
-            [
-              ".DS_STORE",
-            ]
+          exclude: '[ ".DS_STORE" ]'
           passive: true
