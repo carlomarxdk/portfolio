@@ -41,24 +41,34 @@ jobs:
       - name: List public directory
         run: ls -la public
 
-  # # Deployment job
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   steps:
-  #     - name: Checkout Repository
-  #       uses: actions/checkout@v4
-  #     - name: FTP Deployer
-  #       uses: sand4rt/ftp-deployer@v1.8
-  #       with:
-  #         sftp: true
-  #         host: ssh.savcisens.com
-  #         port: 22
-  #         username: ${{ secrets.USERNAME }}
-  #         password: ${{ secrets.PASSWORD }}
-  #         remote_folder: '.'
-  #         local_folder: 'public'
-  #         cleanup: false
-  #         include: '[ "*", "**/*" ]'
-  #         exclude: '[ ".DS_STORE" ]'
-  #         passive: true
+      # Upload public folder as an artifact
+      - name: Upload Public folder
+        uses: actions/upload-artifact@v3
+        with:
+          name: public
+          path: ./public
+
+  # Deployment job
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      # Download public folder artifact
+      - name: Download Public Folder
+        uses: actions/download-artifact@v3
+        with:
+          name: public
+      - name: FTP Deployer
+        uses: sand4rt/ftp-deployer@v1.8
+        with:
+          sftp: true
+          host: ssh.savcisens.com
+          port: 22
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          remote_folder: '.'
+          local_folder: 'public'
+          cleanup: false
+          include: '[ "*", "**/*" ]'
+          exclude: '[ ".DS_STORE" ]'
+          passive: true
