@@ -1,18 +1,24 @@
-	{{ partial "head.html" . }}
-	<body>
+{{ partial "head.html" . }}
+
+<body class="bg-stone-50">
     {{ partial "nav.html" . }}
-
-    <section class="wrapper" id="home">
-        <article class="post prose font-cabin">
-            <header>
-                <h1>{{ with .Site.Params.title404 }}{{ . }}{{ else }}404 - Page not found{{ end }}</h1>
-                <h3>{{ with .Site.Params.subtitle404 }}{{ . }}{{ else }}The content you're looking for doesn't seem to exist.{{ end }}</h3>
-            </header>
-
-            {{ partial "latest-posts.html" . }}
-        </article>
-
+    <div class="max-w-screen-lg px-4 py-8 mx-auto">
+        <div class="max-auto text-center">
+            <h1 class="page-title text-center">{{ with .Site.Params.title404 }}{{ . }}{{ else }}404 - Page not found{{
+                end }}</h1>
+        </div>
+        <section id="wrapper">
+            <div class="container max-w-screen-md">
+                <div class="justify-items-center w-full">
+                    <h3 class="text-center">{{ with .Site.Params.subtitle404 }}{{ . }}{{ else }}The content you're looking for doesn't seem
+                        to exist.{{ end }}</h3>
+                </div>
+            </div>
+        </section>
         {{ partial "footer.html" . }}
-    </section>
-    </body>
+    </div>
+
+    {{ partial "js.html" . }}
+</body>
+
 </html>

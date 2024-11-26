@@ -8,6 +8,11 @@ publishDir = "public"
 googleAnalytics = ""
 # Set the value to true if your site include CJK (Chinese, Japanese, and Korean languages) characters
 hasCJKLanguage = false
+enableRobotsTXT = false
+
+dissabeRSS = true
+disableKinds = ['RSS']
+
 
 [params]
 	author = "Germans Savcisens"
@@ -102,9 +107,6 @@ hasCJKLanguage = false
     name = 'Contact'
     pageRef = '/contact'
     weight = 50
-
-[outputs]
-  home = ["HTML", "robotsTXT"]
 
 [sitemap]
 	changeFreq = ""  # Default change frequency (empty string)
