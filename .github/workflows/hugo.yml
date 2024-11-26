@@ -38,6 +38,8 @@ jobs:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
         run: hugo build --gc --minify -d public
+      - name: List public directory
+        run: ls -la public
 
   # # Deployment job
   # deploy:
