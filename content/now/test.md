@@ -6,7 +6,7 @@ sitemap:
 title: What am I doing now?
 description: Information about my activities
 date: 2024-07-20
-hidden: false
+hidden: true
 ---
 
 Last on updated on *25th February 2024*, while visiting my parents in *Liepaja, Latvia*.
