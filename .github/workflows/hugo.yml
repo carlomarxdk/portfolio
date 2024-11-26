@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.138.0
+      HUGO_VERSION: 0.139.2
     steps:
       - name: Install Hugo CLI
         run: |
@@ -37,7 +37,7 @@ jobs:
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
-        run: hugo --gc --minify
+        run: hugo --gc --minify --verbose
 
   # Deployment job
   deploy:
