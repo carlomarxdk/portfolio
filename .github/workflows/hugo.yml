@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.139.2
+      HUGO_VERSION: 0.125.7
     steps:
       - name: Install Hugo CLI
         run: |
@@ -57,8 +57,5 @@ jobs:
           local_folder: 'public'
           cleanup: false
           include: '[ "*", "**/*" ]'
-          exclude: |
-            [
-              ".DS_STORE",
-            ]
+          exclude: '[ ".DS_STORE" ]'
           passive: true
