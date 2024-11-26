@@ -58,6 +58,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: public
+
+      - name:  List root directory
+        run: ls -la
+  
+      - name: Check public folder
+        run: ls -la ./public
+  
       - name: FTP Deployer
         uses: sand4rt/ftp-deployer@v1.8
         with:
@@ -67,7 +74,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           remote_folder: '.'
-          local_folder: 'public'
+          local_folder: './public'
           cleanup: false
           include: '[ "*", "**/*" ]'
           exclude: '[ ".DS_STORE" ]'
