@@ -37,8 +37,11 @@ jobs:
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
-        run: hugo --gc --minify
-
+        run: hugo build --gc --minify
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
   # # Deployment job
   # deploy:
   #   runs-on: ubuntu-latest
