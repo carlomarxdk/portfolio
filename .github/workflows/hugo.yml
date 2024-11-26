@@ -37,7 +37,7 @@ jobs:
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
-        run: hugo --debug --gc --minify
+        run: hugo build --gc --minify
 
   # Deployment job
   deploy:
