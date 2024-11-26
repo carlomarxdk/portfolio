@@ -1,7 +1,11 @@
 ---
+sitemap:
+  changefreq: monthly
+  disable: false
+  priority: 0.8
 title: What am I doing now?
 description: Here I write about the things that I am doing in the meantime (away from work).
-date: 2024-10-11
+date: 2024-11-25
 hidden: false
 ---
 

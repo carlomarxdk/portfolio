@@ -1,7 +1,11 @@
 ---
+sitemap:
+  changefreq: monthly
+  disable: false
+  priority: 0.8
 title: Contacts
 description: Get in touch with me for collaborations, research inquiries, or general questions. Find my contact details and connect through email or social platforms.
-date: 2024-10-11
+date: 2024-11-25
 hidden: false
 ---
 

@@ -1,4 +1,8 @@
 ---
+sitemap:
+  changefreq: monthly
+  disable: true
+  priority: 0.8
 title: What am I doing now?
 description: Information about my activities
 date: 2024-07-20
