@@ -2,7 +2,7 @@
 <html {{ with .Site.LanguageCode }}lang="{{ . }}" {{ end }} class="scroll-smooth focus:scroll-auto">
 
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,8 +16,8 @@
   <title>{{ .Site.Title | default "" }}</title>
   {{else}}
   <meta name="description" content='{{ .Params.description | default .Summary | default "" }}' />
-  <meta name="title" content='{{ .Site.Params.Author | default "" }} - {{.Params.Title | default "Academic Portfolio"}}' />
-  <title>{{ .Site.Params.Author | default "" }} - {{.Params.Title | default "Academic Portfolio"}}</title>
+  <meta name="title" content='{{.Params.Title | default "Academic Portfolio"}} - {{ .Site.Params.Author | default "" }}' />
+  <title>{{.Params.Title | default "Academic Portfolio"}} - {{ .Site.Params.Author | default "" }}</title>
   {{end}}
   <meta name="keywords" content='{{ .Site.Params.Keywords}}' />
   <meta name="robots" content="index, follow" />

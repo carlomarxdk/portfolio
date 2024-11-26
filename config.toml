@@ -73,7 +73,31 @@ hasCJKLanguage = false
 
 	githubRepo = "https://github.com/carlomarxdk/portfolio"
 
-# Add additional social link entries underneath
+[menus]
+  [[menus.main]]
+    name = 'Publications'
+    pageRef = '/publications'
+    weight = 10
+  [[menus.main]]
+    name = 'Talks & Media'
+    pageRef = '/talks'
+    weight = 20
+  [[menus.main]]
+    name = 'Teaching & Services'
+    pageRef = '/teaching'
+    weight = 30
+  [[menus.main]]
+    name = 'Now'
+    pageRef = '/now'
+    weight = 40
+  [[menus.main]]
+    name = 'Contact'
+    pageRef = '/contact'
+    weight = 50
+
+[outputs]
+  home = ["HTML", "robotsTXT"]
+
 [social]
 	bluesky = "https://bsky.app/profile/converge.bsky.social"
 	github = "https://github.com/carlomarxdk"
