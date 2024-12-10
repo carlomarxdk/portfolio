@@ -8,6 +8,7 @@ venue: "PhD Thesis (Technical University of Denmark, Cognitive Systems)"
 abstract: ""
 pub_link: https://orbit.dtu.dk/en/publications/life-trajectories-as-symbolic-language
 hidden: true
+highlight: false
 misc:
 - name: Abstract
   background: secondary

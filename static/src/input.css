@@ -17,7 +17,7 @@
         @apply relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12
     }
     .page-title {
-        @apply box-decoration-clone bg-gradient-to-l from-rose-400 via-fuchsia-500 to-indigo-500;
+        @apply box-decoration-clone bg-gradient-to-l from-rose-400 via-fuchsia-500 to-indigo-500; 
         @apply text-white font-extrabold;
         @apply text-xl md:text-4xl;
         @apply inline-block px-2 py-2 mb-6;

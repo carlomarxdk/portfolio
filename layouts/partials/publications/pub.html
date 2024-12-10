@@ -1,4 +1,8 @@
-<div class="card">
+{{if .Params.highlight}}
+  <div class="card bg-gray-50 shadow-md">
+{{else}}
+  <div class="card">
+{{end}}
   <div class="card-date">
     <p class="text-center tracking-tight text-gray-700 text-sm font-semibold">{{ .Params.publishDate.Format "Jan 2006" }}</p>
   </div>

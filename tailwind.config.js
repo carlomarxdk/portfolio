@@ -2,7 +2,8 @@
 module.exports = {
   content: ["content/**/*.md", 
     "layouts/*.html",
-    "layouts/**/*.html"],
+    "layouts/**/*.html",
+    "layouts/partials/**/*.html"],
   theme: {
     container: {
       center: true,

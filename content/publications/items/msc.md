@@ -8,6 +8,7 @@ venue: "Master Thesis (Technical University of Denmark)"
 abstract: ""
 pub_link: https://findit.dtu.dk/en/catalog/5ece4aecd9001d01696236a1
 hidden: true
+highlight: false
 misc:
 - name: Novo Nordisk
   background: secondary
