@@ -16,11 +16,7 @@ misc:
 - name: Official Page
   background: success
   link: https://www.life2vec.dk
-featured:
-- name: Code
-  background: primary
-  link: https://www.github.com/SocialComplexityLab/life2vec
-- name: Official Page
+- name: Slides
   background: success
-  link: https://www.life2vec.dk
+  link: /docs/slides/Thesis_defense.pdf
 ---

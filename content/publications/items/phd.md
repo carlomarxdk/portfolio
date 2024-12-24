@@ -13,4 +13,7 @@ misc:
 - name: Abstract
   background: secondary
   link: https://findit.dtu.dk/en/catalog/6675796ce1f9ed17d3fb1a5f
+- name: Slides
+  background: success
+  link: /docs/slides/Thesis_defense.pdf
 ---

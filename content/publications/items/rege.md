@@ -9,4 +9,11 @@ highlight: false
 venue: ArXiv.2412.05735
 abstract: ""
 pub_link: https://arxiv.org/abs/2412.05735
+misc:
+- name: Code
+  background: primary
+  link: https://github.com/zohairshafi/REGE
+- name: Poster
+  background: primary
+  link: https://graphex.mit.edu/sites/default/files/images/2024%20GraphEx%20Poster%20-%20Shafi.pdf
 ---
