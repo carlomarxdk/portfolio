@@ -1,32 +1,40 @@
-<footer class=" m-4 p-4 max-w-screen-lg mx-auto text-center flex flex-col items-center prose font-cabin">
-
-    <div>
-        {{ if .Site.Params.Social }}
-        {{ partial "social.html" . }}
-        {{ end }}
-        <p class="my-4 md:my-1 text-opacity-60 text-sm tracking-wide">
-            {{ with .Site.Params.copyright }}
-            {{ . | markdownify }}
-            {{ else }}
-            © {{ now.Format "2006"}}. Crafted with <i class="fa fa-heart" aria-hidden="true"> </i>  by Germans Savcisens. 
-            Powered by <a href="https://gohugo.io" target="_blank" class="a-hov">Hugo</a> (<a href="https://github.com/arhen/hugo-cereus-pro-theme" target="_blank" class="a-hov">Ceres-Pro</a>) and <a href="https://tailwindcss.com" target="_blank" class="a-hov">TailwindCSS</a>.
-            <!-- {{ .Site.Params.Author }} -->
-            {{ end }}
-        </p>
-        <!-- <p class="small my-0">
+<footer class="m-4 p-4 max-w-screen-lg mx-auto text-center flex flex-col items-center prose font-cabin">
+  <div class="justify-items-center mb-4 leading-tight" id="navbar-footer">
+    {{ $url := replace .Permalink .Site.BaseURL "" }} 
+    {{ if not .IsHome }}
+      <a href="{{ .Site.BaseURL }}" class="font-light px-1 text-sm decoration-dotted a-hov">{{ with .Site.Params.home }}{{ . }}{{ else }}About{{ end }}</a>
+    {{ end }} 
+    {{ range .Site.Menus.main.ByWeight }}
+      <a href="{{ .URL }}" class="font-light px-1 text-sm decoration-dotted a-hov">{{ .Name }}</a> 
+    {{ end }} 
+  </div>
+  <div class="mb-1">
+    {{ if .Site.Params.Social }} {{ partial "social.html" . }} {{ end }}
+    <p class="my-4 md:my-2 text-opacity-60 text-sm tracking-wide">
+      {{ with .Site.Params.copyright }} {{ . | markdownify }} {{ else }} © {{
+      now.Format "2006"}}. Crafted with
+      <i class="fa fa-heart" aria-hidden="true"> </i> by Germans Savcisens.
+      Powered by
+      <a href="https://gohugo.io" target="_blank" class="a-hov">Hugo</a> (<a
+        href="https://github.com/arhen/hugo-cereus-pro-theme" target="_blank" class="a-hov">Ceres-Pro</a>) and
+      <a href="https://tailwindcss.com" target="_blank" class="a-hov">TailwindCSS</a>.
+      <!-- {{ .Site.Params.Author }} -->
+      {{ end }}
+    </p>
+    <!-- <p class="small my-0">
         This website is fully open source. Fork now via <a
             href="https://github.com/arhen/hugo-cereus-pro-theme">github</a>
     </p> -->
-    </div>
+  </div>
 </footer>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const menuToggle = document.getElementById("menu-toggle");
-      const navbar = document.getElementById("navbar-default");
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuToggle = document.getElementById("menu-toggle");
+    const navbar = document.getElementById("navbar-default");
 
-      menuToggle.addEventListener("click", () => {
-        navbar.classList.toggle("hidden");
-      });
+    menuToggle.addEventListener("click", () => {
+      navbar.classList.toggle("hidden");
     });
-  </script>
+  });
+</script>

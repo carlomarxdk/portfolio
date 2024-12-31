@@ -79,7 +79,7 @@ disableKinds = ['RSS', 'taxonomy', 'term']
     pageRef = '/publications'
     weight = 10
   [[menus.main]]
-    name = 'Talks & Media'
+    name = 'Talks & Events'
     pageRef = '/talks'
     weight = 20
   [[menus.main]]
