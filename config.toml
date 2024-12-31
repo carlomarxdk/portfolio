@@ -65,7 +65,7 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 
 	githubRepo = "https://github.com/carlomarxdk/portfolio"
 	[params.social]
-		bluesky = "https://bsky.app/profile/converge.bsky.social"
+		bluesky = "https://bsky.app/profile/savcisens.com"
 		github = "https://github.com/carlomarxdk"
 		linkedin = "https://www.linkedin.com/in/germans-savcisens"
 		envelope = "mailto:germans@savcisens.com"

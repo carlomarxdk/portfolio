@@ -10,6 +10,7 @@ hidden: false
 ---
 
 ### Socials
+* BlueSky: [savcisens.com](https://bsky.app/profile/savcisens.com)
 * Twitter/X: [germansave](https://twitter.com/germansave)
 * LinkedIn: [Germans Savcisens](https://www.linkedin.com/in/germans-savcisens/)
 * Google Scholar: [Germans Savcisens](https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en)
