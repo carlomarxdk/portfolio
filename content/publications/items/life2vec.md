@@ -18,5 +18,5 @@ misc:
   link: https://www.life2vec.dk
 - name: Slides
   background: success
-  link: /docs/slides/Thesis_defense.pdf
+  link: https://doi.org/10.5281/zenodo.14580405
 ---
