@@ -39,7 +39,7 @@ Here are the **four** tracks that kept me rocking while I finished the paper:
 
 <p>(3) 
   <a href="https://youtu.be/K2l-GKWBbtw?si=4qlKbPOBYaD2OgHm" target="_blank" rel="noreferrer">
-    <u><strong>Succession - Adante Resoluto</strong></u>
+    <u><strong>Succession - Andante Resoluto</strong></u>
   </a> by Nicholas Britel
 </p>
 
