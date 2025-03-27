@@ -5,7 +5,7 @@ sitemap:
   priority: 0.8
 title: Contacts
 description: Get in touch with me for collaborations, research inquiries, or general questions. Find my contact details and connect through email or social platforms.
-date: 2024-12-30
+date: 2025-03-27
 hidden: false
 ---
 
