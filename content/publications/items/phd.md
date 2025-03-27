@@ -29,6 +29,7 @@ Here are the **five** tracks that kept me rocking while I finished the thesis:
     <u><strong>Purpose is Glorious</strong></u>
   </a> by Natalie Holt
 </p>
+<p>(2) 
   <a href="https://youtu.be/U85AY5o189Y?si=n9I5fJWwRhPWHlZG" target="_blank" rel="noreferrer">
     <u><strong>The Constant</strong></u>
   </a> by Michael Giacchino
@@ -46,7 +47,7 @@ Here are the **five** tracks that kept me rocking while I finished the thesis:
   </a> by Lorne Balfe
 </p>
 
-<p> (5)
+<p>(5)
   <a href="https://youtu.be/2_acc0n2PhY?si=1vXA2KzggKyNss7e" target="_blank" rel="noreferrer">
     <u><strong>Pyramid Song</strong></u>
   </a> by Ramin Djawadi
