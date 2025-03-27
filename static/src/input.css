@@ -35,6 +35,10 @@
         @apply hover:bg-indigo-400 hover:text-white;
     }
 
+    .a-hov {
+        @apply decoration-dotted;
+        @apply transition duration-300 ease-in-out;
+    }
     .a-hov:hover {
         @apply hover:bg-indigo-400 hover:text-white;
     }
@@ -44,6 +48,9 @@
         @apply transition duration-300 ease-in-out;
     }
 
+    .rand-fact.a{
+        @apply font-bold text-indigo-500;
+    }
     .card {
         @apply grid md:grid-cols-7 gap-1 md:gap-6 border border-stone-200 shadow-sm hover:bg-stone-100 mb-4 py-3 transition-all duration-150;
         @apply font-cabin;

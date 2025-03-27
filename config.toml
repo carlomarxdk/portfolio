@@ -104,3 +104,8 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 	filename = "sitemap.xml"  # Sitemap file name
 	priority = -1  # Default priority (-1 means omitted from rendered sitemap)
 
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
