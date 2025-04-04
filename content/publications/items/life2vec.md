@@ -10,6 +10,9 @@ pub_link:  https://www.nature.com/articles/s43588-023-00573-5
 hidden: true
 highlight: true
 misc:
+- name: PDF
+  background: primary
+  link: https://rdcu.be/egpwe
 - name: Code
   background: primary
   link: https://www.github.com/SocialComplexityLab/life2vec
