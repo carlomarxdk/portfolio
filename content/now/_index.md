@@ -5,24 +5,27 @@ sitemap:
   priority: 0.8
 title: What am I doing now?
 description: Here I write about the things that I am doing in the meantime (away from work).
-date: 2024-11-25
+date: 2025-04-14
 hidden: false
 ---
 
-Last on updated on *1st November 2024*, while in *Cambridge (MA), USA*.
+Last on updated on *14th April 2025*, while in *Cambridge (MA), USA*.
 
 
 ### Boston 
-I started my Postdoc position in [RADLAB](https://eliassi.org/) (Network Science Institute, Northeastern University) not so long time ago: 
-* Currently, working on the follow up stuff to *life2vec* project (soon to come),
-* Looking into how LLMs react to truthfull and malicious inputs, focusing on the embeddings ofc 
-* Writing couple of articles on LLMs in social science (should I post them on medium.com?)
+Well, it is finaly sunny and warm-ish in Boston, so I am excited to restart my sand volleyball practice.
+On the professional side, I'm wrapping up a project on *veracity tracking in LLMs* and slowly picking up some paused threads:
+1. Foundation models for predicting gene mutations
+2. Epistemic stability in LLMs
 
-### Travel Plans
-Going to be in Europe (Latvia) from 5th November till 19th November (and maybe sometime in February, I'll drop by Finland and Denmark).
+And planning some hiking trips for the late summer: Grand Canyon, maybe? 
 
 ### Books
-The list of cool books, I have read this year and *recommend* to read (btw, my [GoodReads Profile](https://www.goodreads.com/converge)):
+Honestly, I couldn’t get myself to finish a book in the past six months. 
+Every time I picked one up, it felt like too much — maybe because of all the heavy work-related reading.
+But [On Writing: A Memoir of the Craft](https://www.goodreads.com/book/show/10569.On_Writing) by *Stephen King* is slowly pulling me out of that weird slump.
+
+The list of cool books (from 2024), and *recommend* to read (btw, my [GoodReads Profile](https://www.goodreads.com/converge)):
 1. [Stolen Focus: Why You Can't Pay Attention](https://www.goodreads.com/book/show/57472384-stolen-focus) by *Johann Hari*,
 2. [The MANIAC](https://www.goodreads.com/en/book/show/75665931) by *Benjamín Labatut*,
 3. [Homage to Catalonia](https://www.goodreads.com/book/show/9646.Homage_to_Catalonia) by *George Orwell*
