@@ -9,4 +9,8 @@ venue: "NordicAI Meet"
 location: "Copenhagen, Denmark"
 description: ""
 hidden: true
+updates:
+    post_updates: true
+    tag_line: "Presented a talk"
+
 ---
