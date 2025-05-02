@@ -1,12 +1,12 @@
 ---
 title: "REGE: A Method for Incorporating Uncertainty in Graph Embeddings"
-date: 2024-12-09
-publishDate: 2024-12-09
+date: 2025-04-28
+publishDate: 2025-04-28
 authors: [Zohair Shafi, Germans Savcisens, Tina Eliassi-Rad]
-publication_type: 3
+publication_type: 1
 hidden: true
 highlight: false
-venue: ArXiv.2412.05735
+venue:  Proceedings of the 2025 SIAM International Conference on Data Mining (SDM)
 abstract: ""
 pub_link: https://arxiv.org/abs/2412.05735
 misc:
