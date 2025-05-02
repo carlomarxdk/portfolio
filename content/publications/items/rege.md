@@ -5,10 +5,10 @@ publishDate: 2025-04-28
 authors: [Zohair Shafi, Germans Savcisens, Tina Eliassi-Rad]
 publication_type: 1
 hidden: true
-highlight: false
+highlight: true
 venue:  Proceedings of the 2025 SIAM International Conference on Data Mining (SDM)
 abstract: ""
-pub_link: https://arxiv.org/abs/2412.05735
+pub_link: https://doi.org/10.1137/1.9781611978520.40
 misc:
 - name: Code
   background: primary
