@@ -1,14 +1,6 @@
 <section id="wrapper">
     <div class="container max-w-screen-md">
         <div class="inline-flex w-full">
-            <h2 class="font-bold text-xl my-2 md:my-5 font-cabin">Published</h2>
-        </div>
-        {{ range sort .Pages.ByDate.Reverse}}
-            {{ if eq .Params.publication_type 1}}
-                {{partial "publications/pub.html" .}}
-            {{ end }}
-        {{ end }}
-        <div class="inline-flex w-full">
             <h2 class="font-bold text-xl my-5 font-cabin">Pre-prints</h2>
         </div>
         {{$hasPreprints :=false}}
@@ -21,6 +13,14 @@
         {{ if not $hasPreprints }} <!-- Check if no talks were found -->
         <p class="mb-2 md:mb-4 italic font-cabin">Working on the new projects. Stay tuned!</p> <!-- Display message if there are no upcoming talks -->
     {{ end }}
+        <div class="inline-flex w-full">
+            <h2 class="font-bold text-xl my-2 md:my-5 font-cabin">Published</h2>
+        </div>
+        {{ range sort .Pages.ByDate.Reverse}}
+            {{ if eq .Params.publication_type 1}}
+                {{partial "publications/pub.html" .}}
+            {{ end }}
+        {{ end }}
         <div class="inline-flex w-full">
             <h2 class="font-bold text-xl my-5 font-cabin">Theses</h2>
         </div>
