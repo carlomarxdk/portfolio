@@ -4,12 +4,12 @@ run_date: Summer 2024
 hidden: true
 
 
-title: "Association for Computational Linguistics (ACL), Rolling Review"
+title: "Conference on Empirical Methods in Natural Language Processing 2024"
 url: 
 course_url: https://aclanthology.org/2024.emnlp-main.0.pdf
 course_type: 2
 
-role: EMNLP 2024 Reviewer
+role: Reviewer
 
 venue: 
 venue_url: 
