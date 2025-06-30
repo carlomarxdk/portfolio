@@ -3,7 +3,7 @@ title: "The Trilemma of Truth in Large Language Models"
 date: 2025-06-30
 publishDate: 2025-06-30
 authors: [Germans Savcisens, Tina Eliassi-Rad]
-publication_type: 2
+publication_type: 0
 venue: "SSNR"
 pub_link:  https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5331504
 hidden: true
