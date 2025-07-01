@@ -4,38 +4,37 @@ date: 2025-06-30
 publishDate: 2025-06-30
 authors: [Germans Savcisens, Tina Eliassi-Rad]
 publication_type: 3
-venue: "SSNR"
-pub_link:  https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5331504
+venue: "arXiv:2506.23921"
+pub_link:  https://arxiv.org/abs/2506.23921
 hidden: true
 highlight: true
+misc:
+- name: Code
+  background: primary
+  link: https://github.com/carlomarxdk/trilemma-of-truth
+- name: Data
+  background: success
+  link: https://huggingface.co/datasets/carlomarxx/trilemma-of-truth
 
-
-allow_fact: false
-fact_id: "1"
+allow_fact: true
+fact_id: "3"
 ---
-Here are the **four** tracks that kept me rocking while I finished the paper:
+Here are the some tracks that kept me up:
 
 <p>(1) 
-  <a href="https://youtu.be/ZE5zXLOyEOQ?si=_ZbDwbo4FaLIlwtO" target="_blank" rel="noreferrer">
-    <u><strong>Posterity</strong></u>
-  </a> by Ludwig Göransson
+  <a href="https://youtu.be/oOjNnOKDutY?si=Yy4iZhhCOQ1Rg5g_" target="_blank" rel="noreferrer">
+    <u><strong>Full Moon Party</strong></u>
+  </a> by Cristobal Tapia de Veer
 </p>
 
 <p>(2) 
-  <a href="https://youtu.be/qlQMBZxkIW0?si=Db4O6JBNsWUIu4-6" target="_blank" rel="noreferrer">
-    <u><strong>Everyone is Special</strong></u>
-  </a> by Lorne Balfe
+  <a href="https://youtu.be/mTGN4WHpwK0?si=yZjT9cL9CfBudQRd" target="_blank" rel="noreferrer">
+    <u><strong>Corridor of Love</strong></u>
+  </a> by Jung Jaeil
 </p>
 
 <p>(3) 
-  <a href="https://youtu.be/K2l-GKWBbtw?si=4qlKbPOBYaD2OgHm" target="_blank" rel="noreferrer">
-    <u><strong>Succession - Andante Resoluto</strong></u>
+  <a href="https://youtu.be/WxLBOwdTKjI?si=8IFNYtippBXNW6GB" target="_blank" rel="noreferrer">
+    <u><strong>Niamos!</strong></u>
   </a> by Nicholas Britel
 </p>
-
-<p>(4) 
-  <a href="https://youtu.be/1dhzT0-R8B0?si=KNjxDS3eQk1OyWOw" target="_blank" rel="noreferrer">
-    <u><strong>Perfect Day</strong></u>
-  </a> by Ramin Djawadi
-</p>
-
