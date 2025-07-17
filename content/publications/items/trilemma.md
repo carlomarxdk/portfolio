@@ -15,6 +15,8 @@ misc:
 - name: Data
   background: success
   link: https://huggingface.co/datasets/carlomarxx/trilemma-of-truth
+- name: Poster
+  link: https://zenodo.org/records/16039539
 
 allow_fact: true
 fact_id: "3"
