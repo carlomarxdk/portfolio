@@ -1,7 +1,7 @@
 ---
 date: 2025-03-02
 event_date: 2025-09-01
-title: "AI and National Register Data"
+title: "From life-courses to representations: Foundation models for registry data"
 url:
 event_url: https://swecov.se/
 subtitle: Keynote Speaker
