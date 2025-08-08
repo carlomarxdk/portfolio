@@ -1,5 +1,5 @@
 ---
-date: 2025-03-02
+date: 2025-08-08
 event_date: 2025-09-01
 title: "From life-courses to representations: Foundation models for registry data"
 url:
