@@ -1,6 +1,6 @@
 ---
-date: 2025-06-10
-run_date: 2025
+date: 2025-08-20
+run_date: Autumn 2025
 hidden: true
 
 
