@@ -14,7 +14,7 @@ misc:
   link: https://github.com/carlomarxdk/sawmil
 - name: Documentation
   background: primary 
-  link: https://carlomarxdk.github.io/sawmil/
+  link: https://sawmil.readthedocs.io/en/latest/
 - name: DOI
   background: primary 
   link: https://zenodo.org/records/17055044
