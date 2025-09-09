@@ -22,6 +22,15 @@
             {{ end }}
         {{ end }}
         <div class="inline-flex w-full">
+            <h2 class="font-bold text-xl my-5 font-cabin">Software</h2>
+        </div>
+        {{ range sort .Pages.ByDate.Reverse}}
+            {{ if eq .Params.publication_type 4}}
+                {{partial "publications/pub.html" .}}
+            {{ end }}
+        {{ end }}
+        
+        <div class="inline-flex w-full">
             <h2 class="font-bold text-xl my-5 font-cabin">Theses</h2>
         </div>
         {{ range sort .Pages.ByDate.Reverse}}
