@@ -4,7 +4,7 @@ date: 2025-06-30
 publishDate: 2025-06-30
 authors: [Germans Savcisens, Tina Eliassi-Rad]
 publication_type: 3
-venue: "arXiv:2506.23921"
+venue: "NeurIPS 2025 Workshop MechInterp | arXiv:2506.23921"
 pub_link:  https://arxiv.org/abs/2506.23921
 hidden: true
 highlight: true
@@ -17,6 +17,8 @@ misc:
   link: https://huggingface.co/datasets/carlomarxx/trilemma-of-truth
 - name: Poster
   link: https://zenodo.org/records/16053456
+- name: NeurIPS MechInterp
+  link: https://openreview.net/forum?id=z7dLG2ycRf
 
 allow_fact: true
 fact_id: "3"
