@@ -16,11 +16,11 @@ hidden: false
 * ResearchGate: [Germans Savcisens](https://www.researchgate.net/profile/Germans_Savcisens2)
 * GitHub: [carlomarxdk](https://github.com/carlomarxdk)
 * ORCID: [0000-0002-5811-3230](https://orcid.org/0000-0002-5811-3230)
-* email: germans@savcisens.com
+* email: germans\(at\)savcisens.com
 
 ### Address
 
-Network Science Institute, 
+Network Science Institute,
 
 Northeastern University
 
