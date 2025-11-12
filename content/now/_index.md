@@ -9,11 +9,11 @@ date: 2025-04-14
 hidden: false
 ---
 
-Last on updated on *14th April 2025*, while in *Cambridge (MA), USA*.
+Last updated on *14th April 2025*, while in *Cambridge (MA), USA*.
 
 
 ### Boston 
-Well, it is finaly sunny and warm-ish in Boston, so I am excited to restart my sand volleyball practice.
+Well, it is finally sunny and warm-ish in Boston, so I am excited to restart my sand volleyball practice.
 On the professional side, I'm wrapping up a project on *veracity tracking in LLMs* and slowly picking up some paused threads:
 1. Foundation models for predicting gene mutations
 2. Epistemic stability in LLMs
