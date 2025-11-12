@@ -47,6 +47,13 @@
   <link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
   {{ end }}
 
+  <!-- Open Graph / Facebook -->
+  {{ partial "opengraph.html" . }}
+  
+  {{ if .Site.Params.enableTwitterCard }}
+  <!-- Twitter Cards -->
+  {{ partial "twitter-cards.html" . }}
+  {{ end }}
 
   <!-- ICON / FAVICON-->
   <link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon.ico" />

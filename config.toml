@@ -7,7 +7,7 @@ publishDir = "public"
 hasCJKLanguage = false
 enableRobotsTXT = true
 
-dissabeRSS = true
+disableRSS = true
 disableKinds = ['RSS', 'taxonomy', 'term']
 
 
@@ -30,7 +30,7 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 	enablePlausible = true
 	PlausibleID = "savcisens.com"
 
-	enableTwitterCard = false
+	enableTwitterCard = true
 	# The url for twitter card image, default is avatar.png in static/images directory
 	twitterCardImage = "images/avatar.jpg"
 
@@ -100,9 +100,9 @@ disableKinds = ['RSS', 'taxonomy', 'term']
     tag = "tags"
   
 [sitemap]
-	changeFreq = ""  # Default change frequency (empty string)
+	changeFreq = "monthly"  # Default change frequency
 	filename = "sitemap.xml"  # Sitemap file name
-	priority = -1  # Default priority (-1 means omitted from rendered sitemap)
+	priority = 0.5  # Default priority for pages
 
 
 [markup]
