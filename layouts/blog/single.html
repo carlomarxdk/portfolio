@@ -5,6 +5,11 @@
     <div class="max-w-screen-lg px-4 py-8 mx-auto">
         <div class="mx-auto text-center">
             <h1 class="page-title text-center">{{.Title}}</h1>
+            <p class="text-sm text-gray-600 mt-2">
+                {{ .Date.Format "Jan 2, 2006" }}
+                · {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
+                · {{ .ReadingTime }} minute read
+            </p>
         </div>
         <section id="wrapper"  class="prose mx-auto items-center font-cabin">
             {{ .Content }}
