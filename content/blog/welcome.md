@@ -1,7 +1,9 @@
 ---
 title: "Welcome to My Blog"
-date: 2025-12-10
+date: 2025-12-07
 description: "Introducing a new space for sharing thoughts on research, technology, and the journey of a computational social scientist."
+tags: ["meta", "blogging"]
+categories: ["announcements"]
 hidden: false
 sitemap:
   changefreq: monthly
