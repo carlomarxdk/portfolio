@@ -2,13 +2,13 @@
 
 {{ if eq .Site.Params.iconFont "font-awesome" }}
 	{{ range $key, $val := .Site.Params.Social }}
-    <a class="soc-symbol" href="{{ $val }}" aria-label="{{ $key }}" target="_blank" alt="view {{ $key }} profile">
+    <a class="soc-symbol" href="{{ $val }}" aria-label="Visit {{ $key }} profile" target="_blank" rel="noopener">
         {{if eq $key "envelope"}}
-            <i class="fa fa-{{ $key }} fa-fade has-text-warning-on-scheme" style=" font-size: 1.5rem; --fa-animation-duration: 2s; --fa-fade-opacity: 0.6;"></i>
+            <i class="fa fa-{{ $key }} fa-fade has-text-warning-on-scheme" style=" font-size: 1.5rem; --fa-animation-duration: 2s; --fa-fade-opacity: 0.6;" aria-hidden="true"></i>
         {{else if eq $key "file"}}
-            <i class="fa fa-{{ $key }} fa-fade has-text-warning-on-scheme" style=" font-size: 1.5rem; --fa-animation-duration: 2s; --fa-fade-opacity: 0.6;"></i>
+            <i class="fa fa-{{ $key }} fa-fade has-text-warning-on-scheme" style=" font-size: 1.5rem; --fa-animation-duration: 2s; --fa-fade-opacity: 0.6;" aria-hidden="true"></i>
         {{else}}
-            <i class="fa-brands fa-{{ $key }} fa-fade has-text-warning-on-scheme" style="font-size: 1.5rem; --fa-animation-duration: 2s; --fa-fade-opacity: 0.6;"></i>
+            <i class="fa-brands fa-{{ $key }} fa-fade has-text-warning-on-scheme" style="font-size: 1.5rem; --fa-animation-duration: 2s; --fa-fade-opacity: 0.6;" aria-hidden="true"></i>
         {{end}}
     </a>
     {{ end }}
@@ -17,7 +17,7 @@
 	 
 	{{ $iconStyle := .Site.Params.socialIconStyle }}
     {{ range $key, $val := .Site.Params.Social }}
-    <!-- <a class="soc-symbol" href="{{ $val }}" target="_blank">
+    <!-- <a class="soc-symbol" href="{{ $val }}" target="_blank" rel="noopener">
         {{ $iconStyle }}{{ if eq $key "twitter" }}twitterbird{{ else }}{{ $key }}{{ end }}
     </a> -->
     {{ end }}
