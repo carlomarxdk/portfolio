@@ -1,5 +1,5 @@
 <div class="mt-6 md:mt-8">
-  <h2 class="page-title my-1 text-center md:text-left">Latest Blog Posts</h2>
+  <h2 class="page-title my-4 text-center md:text-left">Latest Blog Posts</h2>
   <div class="container max-w-screen-md mt-4">
     {{ $blogPages := where .Site.RegularPages "Section" "blog" }}
     {{ $blogPages = where $blogPages "Params.hidden" "ne" true }}
