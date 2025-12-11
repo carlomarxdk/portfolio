@@ -33,10 +33,14 @@
     const menuToggle = document.getElementById("menu-toggle");
     const navbar = document.getElementById("navbar-default");
 
-    menuToggle.addEventListener("click", () => {
-      navbar.classList.toggle("hidden");
-    });
+    if (menuToggle && navbar) {
+      menuToggle.addEventListener("click", () => {
+        const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", !isExpanded);
+        navbar.classList.toggle("hidden");
+      });
+    }
   });
 </script>
 
-<script src="https://unpkg.com/flowbite@1.6.3/dist/flowbite.js"></script>
+<script src="https://unpkg.com/flowbite@1.6.3/dist/flowbite.js" defer></script>

@@ -1,20 +1,20 @@
 {{$date := time .Params.event_date}}
 {{$today := time.Now.AddDate 0 0 -1}}
-<div
+<article
   class="card md:grid-cols-6 shadow-inner">
   <div class="card-date md:justify-end">
-    <p class="text-center tracking-tighter text-zinc-500 text-sm font-semibold">{{ $date.Format "Jan 2, 2006" }}</p>
+    <time datetime="{{ $date.Format "2006-01-02" }}" class="text-center tracking-tighter text-zinc-500 text-sm font-semibold">{{ $date.Format "Jan 2, 2006" }}</time>
   </div>
   <div class="card-content md:col-span-5">
-    <h1 class="mb-0.5 text-lg font-semibold tracking-normal text-zinc-600">
+    <h3 class="mb-0.5 text-lg font-semibold tracking-normal text-zinc-600">
       {{ if .Params.event_url }}
-      <a href="{{ .Params.event_url }}" target="_blank" class="a-hov">{{ .Title }} </a>
+      <a href="{{ .Params.event_url }}" target="_blank" rel="noopener" class="a-hov">{{ .Title }} </a>
       {{ else }}
       {{ .Title }}
       {{ end }}
-    </h1>
+    </h3>
     <p class=" text-sm tracking-tight text-zinc-500">
-      {{ .Params.venue }} | <i>{{ .Params.location }}</i> </p>
+      {{ .Params.venue }} | <em>{{ .Params.location }}</em> </p>
     {{if .Params.misc}}
     <p class="mt-1">
       {{range .Params.misc}} {{if or (eq .name "Slides") (eq .name
@@ -24,13 +24,15 @@
       hover:bg-clip-text hover:text-transparent bg-gradient-to-tr from-blue-500 to-pink-500
       transition-all duration-200
       bg-clip-border text-white hover:shadow-sm"
-      target="_blank">
+      target="_blank"
+      rel="noopener"
+      aria-label="{{.name}} for {{ $.Title }}">
         {{.name}}
-        <i class="fa-solid fa-link"></i></a>
+        <i class="fa-solid fa-link" aria-hidden="true"></i></a>
       {{end}} 
       {{end}}
     </p>
 
     {{end}}
   </div>
-</div>
+</article>

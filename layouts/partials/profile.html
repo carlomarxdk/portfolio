@@ -33,14 +33,14 @@
         aria-label="Profile Picture" />      
     </picture>
 
-    <h1 class="text-2xl mt-4 font-bold font-cabin">
+    <h2 class="text-2xl mt-4 font-bold font-cabin">
         {{ .Site.Params.Author }}
-    </h1>
-    <h2 class="text-base text-zinc-600 font-medium mb-2 font-cabin">
+    </h2>
+    <p class="text-base text-zinc-600 font-medium mb-2 font-cabin">
         {{ with .Site.Params.bio }}
         {{ . | markdownify }}
         {{ end }}
-    </h2>
+    </p>
     <span class="text-sm text-center font-cabin text-zinc-400">Germans Savčišens</br>
       Герман Савчiшен </br>
       Герман Савчишен </br> 
