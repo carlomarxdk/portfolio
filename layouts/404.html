@@ -11,8 +11,8 @@
         <section id="wrapper">
             <div class="container max-w-screen-md">
                 <div class="justify-items-center w-full">
-                    <p class="text-center text-lg">{{ with .Site.Params.subtitle404 }}{{ . }}{{ else }}The content you're looking for doesn't seem
-                        to exist.{{ end }}</p>
+                    <h2 class="text-center text-lg font-semibold">{{ with .Site.Params.subtitle404 }}{{ . }}{{ else }}The content you're looking for doesn't seem
+                        to exist.{{ end }}</h2>
                     <p class="text-center mt-4">
                         <a href="{{ .Site.BaseURL }}" class="inline-block px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition">Go to Homepage</a>
                     </p>
