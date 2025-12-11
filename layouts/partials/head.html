@@ -26,24 +26,27 @@
   {{ hugo.Generator }}
   <!-- Style-->
   <link rel="stylesheet" href="{{ .Site.BaseURL }}src/output.css" />
-  <!-- performances -->
-  <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin="crossorigin" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Performance optimizations -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Funnel+Display:wght@300..800&display=swap"
     rel="stylesheet">
   <link rel="preload" href="{{ .Site.BaseURL }}css/highlight.css" as="style"
     onload="this.onload=null; this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/highlight.css" />
+  </noscript>
 
   {{ if eq .Site.Params.iconFont "font-awesome" }}
-  <script src="https://kit.fontawesome.com/e9bdeff7b2.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/e9bdeff7b2.js" crossorigin="anonymous" defer></script>
   {{ else }}
   <link rel="preload" href="{{ .Site.BaseURL }}css/monosocialiconsfont.css" as="style"
     onload="this.onload=null; this.rel='stylesheet'" />
   <noscript>
     <link rel="stylesheet" href="{{ .Site.BaseURL }}css/monosocialiconsfont.css" />
   </noscript>
-  {{ end }} {{ if .Site.Params.enableRSS }}
+  {{ end }}{{ if .Site.Params.enableRSS }}
   <link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
   {{ end }}
 

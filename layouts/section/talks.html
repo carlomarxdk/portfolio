@@ -1,7 +1,8 @@
 {{ partial "head.html" . }}
 <body class="bg-stone-50 scroll-smooth focus:scroll-auto">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white">Skip to main content</a>
     {{ partial "nav.html" . }}
-    <div class="max-w-screen-lg px-4 py-8 mx-auto">
+    <main id="main-content" class="max-w-screen-lg px-4 py-8 mx-auto">
         <div class="max-auto text-center">
             <h1 class="page-title text-center">{{.Title}}</h1>
         </div>
@@ -9,8 +10,9 @@
             {{ .Content }}
             {{ partial "events/event-list.html" . }}
         </section>
-        {{ partial "footer.html" . }}
-    </div>
+    </main>
+    {{ partial "footer.html" . }}
+
     {{ partial "js.html" . }}
 </body>
 </html>
