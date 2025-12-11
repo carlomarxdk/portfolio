@@ -43,6 +43,72 @@ A change is acceptable only if:
 * No navigation, metadata, or layouts break.
 
 ---
+## Linting & Formatting Requirements
+
+Before creating or updating a pull request, Copilot must ensure all Markdown, HTML, Hugo templates, and styles follow formatting and linting conventions.
+
+### Markdown Linting (markdownlint-cli2)
+
+Copilot must run:
+
+```
+npx markdownlint-cli2 "**/*.md"
+npx markdownlint-cli2 --fix "**/*.md"
+```
+
+Markdown requirements:
+
+* No trailing whitespace
+* Proper heading structure
+* Valid front matter
+* No broken links or shortcodes
+* Inline HTML allowed where needed for Hugo
+
+### HTML, Hugo Templates, CSS, JS Formatting (Prettier)
+
+Copilot must run:
+
+```
+npx prettier --write .
+```
+
+Prettier must be used on:
+
+* `layouts/**/*.html` (Go templates included)
+* `content/**/*.md`
+* `assets/css/**/*.css`
+* Any JavaScript in `static/`
+
+Prettier rules:
+
+* Do not remove Hugo template expressions (e.g., `{{ .Title }}`).
+* Preserve attribute order unless formatting requires consistency.
+* Avoid breaking semantic HTML.
+
+### Optional HTML Linting (if installed)
+
+```
+npx htmlhint "layouts/**/*.html"
+```
+
+### Hugo Content Validation (optional)
+
+If `hugo-lint` is available:
+
+```
+hugo-lint ./content
+```
+
+Copilot should correct:
+
+* Missing alt text
+* Missing front matter fields
+* Broken Markdown link syntax
+* Inconsistent metadata
+
+These linters must pass before Copilot submits a pull request.
+
+---
 
 ## Repository Structure
 
@@ -183,4 +249,4 @@ A PR must:
 4. Be scoped to the task or issue assigned.
 5. Maintain clean and readable content.
 6. Preserve site consistency in structure and metadata.
-
+7. Pass all linting and formatting checks.
