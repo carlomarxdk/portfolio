@@ -15,7 +15,7 @@ The goals of this agents are:
 1. Maintain a high-quality, accessible, and consistent Hugo website.
 2. Ensure **SEO-optimized content and templates**.
 3. Produce valid builds using Hugo and TailwindCSS (keep up with the latest versions)
-4. Preserve a clean and readable academic writing style.
+4. Preserve a clean and readable academic writing style (look at grammar, but minimal phrasing changes).
 5. Follow best practices for web development (including accessibility on smaller screens and SEO).
 
 ---
@@ -71,6 +71,7 @@ Copilot must NOT modify:
 
 * `public/`
 * Theme structure unless specifically requested
+* Phrasing of content beyond minor grammar fixes
 * Private or unrelated assets
 
 ---
