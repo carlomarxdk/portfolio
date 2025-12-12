@@ -90,7 +90,6 @@
           {{ end }}
         {{ end }}
       {{end}}
-      
       {{if .Params.allow_fact}}
         {{ $factPopoverId := printf "popover-fact-%s" .Params.fact_id }}
         <button data-popover-target="{{ $factPopoverId }}" type="button" class="inline-block px-2 py-1.5 text-xs font-semibold border hover:border-gray-200 rounded-xl 
