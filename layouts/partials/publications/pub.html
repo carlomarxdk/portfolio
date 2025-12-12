@@ -34,35 +34,30 @@
         {{ $.Scratch.Delete "groupNames" }}
         {{ $.Scratch.Set "groupNames" slice }}
         {{ range $index, $item := .Params.misc }}
-          {{ $baseName := "" }}
-          {{ if or (hasPrefix $item.name "Poster") (hasPrefix $item.name "Slides") (hasPrefix $item.name "Presentation") }}
-            {{ $baseName = index (split $item.name " ") 0 }}
-          {{ else }}
-            {{ $baseName = $item.name }}
-          {{ end }}
-          {{ $scratchKey := printf "list-%s" $baseName }}
+          {{ $itemType := $item.type | default $item.name }}
+          {{ $scratchKey := printf "list-%s" $itemType }}
           {{ if $.Scratch.Get $scratchKey }}
             {{ $.Scratch.Add $scratchKey (slice $item) }}
           {{ else }}
             {{ $.Scratch.Set $scratchKey (slice $item) }}
-            {{ $.Scratch.Add "groupNames" (slice $baseName) }}
+            {{ $.Scratch.Add "groupNames" (slice $itemType) }}
           {{ end }}
         {{ end }}
 
         {{ $groupNames := $.Scratch.Get "groupNames" }}
-        {{ range $groupIdx, $baseName := $groupNames }}
-          {{ $scratchKey := printf "list-%s" $baseName }}
+        {{ range $groupIdx, $groupType := $groupNames }}
+          {{ $scratchKey := printf "list-%s" $groupType }}
           {{ $items := $.Scratch.Get $scratchKey }}
           {{ if gt (len $items) 1 }}
             {{ $popoverId := printf "popover-misc-%s-%d" $.Params.fact_id $groupIdx }}
-            {{ $pluralName := $baseName }}
-            {{ if not (or (hasSuffix $baseName "s") (hasSuffix $baseName "x") (hasSuffix $baseName "z")) }}
-              {{ $pluralName = printf "%ss" $baseName }}
+            {{ $pluralName := $groupType }}
+            {{ if not (or (hasSuffix $groupType "s") (hasSuffix $groupType "x") (hasSuffix $groupType "z")) }}
+              {{ $pluralName = printf "%ss" $groupType }}
             {{ end }}
             <button data-popover-target="{{ $popoverId }}" type="button" class="inline-block px-2 py-1.5 text-xs font-semibold border hover:border-gray-200 rounded-xl 
             hover:bg-clip-text hover:text-transparent bg-gradient-to-tr from-blue-500 to-pink-500
             transition-all duration-200
-            bg-clip-border text-white hover:shadow-sm" aria-label="View {{ $baseName }} options for {{ $.Title }}">
+            bg-clip-border text-white hover:shadow-sm" aria-label="View {{ $groupType }} options for {{ $.Title }}">
               {{ $pluralName }}
             </button>
             <div data-popover id="{{ $popoverId }}" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0">
@@ -70,9 +65,9 @@
                 <h4 class="font-semibold text-white">{{ $pluralName }}</h4>
               </div>
               <div class="px-3 py-2">
-                {{ range $idx, $item := $items }}
+                {{ range $item := $items }}
                   <a href="{{ $item.link }}" target="_blank" rel="noopener" class="block py-1.5 text-gray-700 hover:text-blue-600 hover:underline">
-                    {{ if $item.name }}{{ $item.name }}{{ else }}{{ $baseName }} {{ add $idx 1 }}{{ end }}
+                    {{ $item.name }}
                   </a>
                 {{ end }}
               </div>
