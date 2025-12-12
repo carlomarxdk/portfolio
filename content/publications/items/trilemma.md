@@ -16,8 +16,13 @@ misc:
   background: success
   link: https://huggingface.co/datasets/carlomarxx/trilemma-of-truth
 - name: Poster
+  type: Poster
+  link: https://zenodo.org/records/16053456
+- name: Poster 1
+  type: Poster
   link: https://zenodo.org/records/16053456
 - name: NeurIPS MechInterp
+  type: Poster
   link: https://openreview.net/forum?id=z7dLG2ycRf
 
 allow_fact: true
