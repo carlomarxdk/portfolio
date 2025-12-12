@@ -50,13 +50,11 @@
         {{ end }}
 
         {{ $groupNames := $.Scratch.Get "groupNames" }}
-        {{ $uniqueId := 0 }}
-        {{ range $baseName := $groupNames }}
+        {{ range $groupIdx, $baseName := $groupNames }}
           {{ $scratchKey := printf "list-%s" $baseName }}
           {{ $items := $.Scratch.Get $scratchKey }}
           {{ if gt (len $items) 1 }}
-            {{ $popoverId := printf "popover-misc-%s-%d" $.Params.fact_id $uniqueId }}
-            {{ $uniqueId = add $uniqueId 1 }}
+            {{ $popoverId := printf "popover-misc-%s-%d" $.Params.fact_id $groupIdx }}
             {{ $pluralName := $baseName }}
             {{ if not (or (hasSuffix $baseName "s") (hasSuffix $baseName "x") (hasSuffix $baseName "z")) }}
               {{ $pluralName = printf "%ss" $baseName }}
