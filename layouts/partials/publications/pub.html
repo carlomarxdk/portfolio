@@ -60,19 +60,6 @@
             bg-clip-border text-white hover:shadow-sm" aria-label="View {{ $groupType }} options for {{ $.Title }}">
               {{ $pluralName }}
             </button>
-            <div data-popover id="{{ $popoverId }}" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0">
-              <div class="px-3 py-2 bg-gradient-to-tr from-blue-500 to-pink-500 border-b border-gray-200 rounded-t-lg">
-                <h4 class="font-semibold text-white">{{ $pluralName }}</h4>
-              </div>
-              <div class="px-3 py-2">
-                {{ range $item := $items }}
-                  <a href="{{ $item.link }}" target="_blank" rel="noopener" class="block py-1.5 text-gray-700 hover:text-blue-600 hover:underline">
-                    {{ $item.name }}
-                  </a>
-                {{ end }}
-              </div>
-              <div data-popper-arrow></div>
-            </div>
           {{ else }}
             {{ range $items }}
               <a
@@ -96,16 +83,46 @@
         hover:bg-clip-text hover:text-transparent bg-gradient-to-tr from-blue-500 to-pink-500
         transition-all duration-200
         bg-clip-border text-white hover:shadow-sm" aria-label="Show random information about this publication">Random Info</button>
-        <div data-popover id="{{ $factPopoverId }}" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0">
-          <div class="px-3 py-2 bg-gradient-to-tr from-blue-500 to-pink-500 border-b border-gray-200 rounded-t-lg">
-            <h4 class="font-semibold text-white">Random Facts</h4>
-          </div>
-          <div class="px-3 py-2 pt-0.5">
-            <p>{{.Content}}</p>
-          </div>
-          <div data-popper-arrow></div>
-        </div>
       {{end}}
     </p>
+    {{if .Params.misc}}
+      {{ $groupNames := $.Scratch.Get "groupNames" }}
+      {{ range $groupIdx, $groupType := $groupNames }}
+        {{ $scratchKey := printf "list-%s" $groupType }}
+        {{ $items := $.Scratch.Get $scratchKey }}
+        {{ if gt (len $items) 1 }}
+          {{ $popoverId := printf "popover-misc-%s-%d" $.Params.fact_id $groupIdx }}
+          {{ $pluralName := $groupType }}
+          {{ if not (or (hasSuffix $groupType "s") (hasSuffix $groupType "x") (hasSuffix $groupType "z")) }}
+            {{ $pluralName = printf "%ss" $groupType }}
+          {{ end }}
+          <div data-popover id="{{ $popoverId }}" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0">
+            <div class="px-3 py-2 bg-gradient-to-tr from-blue-500 to-pink-500 border-b border-gray-200 rounded-t-lg">
+              <h4 class="font-semibold text-white">{{ $pluralName }}</h4>
+            </div>
+            <div class="px-3 py-2">
+              {{ range $item := $items }}
+                <a href="{{ $item.link }}" target="_blank" rel="noopener" class="block py-1.5 text-gray-700 hover:text-blue-600 hover:underline">
+                  {{ $item.name }}
+                </a>
+              {{ end }}
+            </div>
+            <div data-popper-arrow></div>
+          </div>
+        {{ end }}
+      {{ end }}
+    {{end}}
+    {{if .Params.allow_fact}}
+      {{ $factPopoverId := printf "popover-fact-%s" .Params.fact_id }}
+      <div data-popover id="{{ $factPopoverId }}" role="tooltip" class="absolute z-10 invisible inline-block w-64 text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0">
+        <div class="px-3 py-2 bg-gradient-to-tr from-blue-500 to-pink-500 border-b border-gray-200 rounded-t-lg">
+          <h4 class="font-semibold text-white">Random Facts</h4>
+        </div>
+        <div class="px-3 py-2 pt-0.5">
+          <p>{{.Content}}</p>
+        </div>
+        <div data-popper-arrow></div>
+      </div>
+    {{end}}
   </div>
 </article>
