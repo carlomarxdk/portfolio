@@ -1,0 +1,63 @@
+{{ if and (eq .Section "blog") (not .IsHome) (not .IsNode) }}
+{{ $person := dict 
+  "@type" "Person"
+  "@id" "https://savcisens.com/#person"
+  "name" "Germans Savcisens"
+  "url" "https://savcisens.com"
+  "sameAs" (slice "https://orcid.org/0000-0002-5811-3230" "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en" "https://www.linkedin.com/in/germans-savcisens/")
+  "jobTitle" "Postdoctoral Researcher"
+  "affiliation" (dict "@type" "Organization" "name" "Northeastern University")
+}}
+{{ $keywords := slice }}
+{{ if .Params.keywords }}
+  {{ range (split .Params.keywords ",") }}
+    {{ $keywords = $keywords | append (trim . " ") }}
+  {{ end }}
+{{ end }}
+{{ if .Params.tags }}
+  {{ range .Params.tags }}
+    {{ $keywords = $keywords | append . }}
+  {{ end }}
+{{ end }}
+{{ $image := "" }}
+{{ if .Params.images }}
+  {{ $image = index .Params.images 0 | absURL }}
+{{ else if .Site.Params.twitterCardImage }}
+  {{ $image = .Site.Params.twitterCardImage | absURL }}
+{{ else }}
+  {{ $image = printf "%simages/avatar.jpg" .Site.BaseURL }}
+{{ end }}
+{{ $blogPosting := dict
+  "@type" "BlogPosting"
+  "headline" .Title
+  "description" (cond .Params.description .Params.description (.Summary | plainify))
+  "author" (dict "@id" "https://savcisens.com/#person")
+  "publisher" (dict "@id" "https://savcisens.com/#person")
+  "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
+  "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
+  "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+  "image" $image
+  "url" .Permalink
+  "inLanguage" (.Site.LanguageCode | default "en-us")
+  "wordCount" .WordCount
+  "articleBody" .Plain
+}}
+{{ if gt (len $keywords) 0 }}
+  {{ $blogPosting = merge $blogPosting (dict "keywords" $keywords) }}
+{{ end }}
+{{ $breadcrumbList := dict
+  "@type" "BreadcrumbList"
+  "itemListElement" (slice
+    (dict "@type" "ListItem" "position" 1 "name" "Home" "item" (.Site.BaseURL | absURL))
+    (dict "@type" "ListItem" "position" 2 "name" "Blog" "item" (printf "%sblog/" .Site.BaseURL | absURL))
+    (dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink)
+  )
+}}
+{{ $schema := dict
+  "@context" "https://schema.org"
+  "@graph" (slice $person $blogPosting $breadcrumbList)
+}}
+<script type="application/ld+json">
+{{ $schema | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+{{ end }}
