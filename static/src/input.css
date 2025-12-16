@@ -189,6 +189,11 @@
   --animate-blob: blob 8s infinite;
 }
 
+/* Container customization (was center: true in v3 config) */
+@utility container {
+  margin-inline: auto;
+}
+
 /* Custom keyframes */
 @keyframes blob {
   0% {
