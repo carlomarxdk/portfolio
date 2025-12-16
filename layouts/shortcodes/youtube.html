@@ -1,0 +1,20 @@
+{{- /* 
+YouTube embed shortcode for accessible video embeds
+Usage: {{< youtube id="VIDEO_ID" title="Video description" >}}
+*/ -}}
+{{- $id := .Get "id" -}}
+{{- $title := .Get "title" | default "YouTube video" -}}
+{{- $class := .Get "class" | default "my-6" -}}
+
+<div class="{{ $class }} aspect-w-16 aspect-h-9">
+  <iframe 
+    src="https://www.youtube-nocookie.com/embed/{{ $id }}" 
+    title="{{ $title }}"
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen
+    loading="lazy"
+    class="w-full rounded shadow-md"
+    style="aspect-ratio: 16 / 9;">
+  </iframe>
+</div>

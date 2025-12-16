@@ -120,3 +120,20 @@ disableKinds = ['RSS', 'taxonomy', 'term']
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+    [markup.goldmark.extensions]
+      # Enable useful Goldmark extensions
+      table = true
+      strikethrough = true
+      linkify = true
+      taskList = true
+      typographer = true
+      definitionList = true
+      footnote = true
+    [markup.goldmark.parser]
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false

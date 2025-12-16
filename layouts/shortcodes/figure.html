@@ -1,0 +1,35 @@
+{{- /* 
+Figure shortcode for accessible images with captions
+Usage: {{< figure src="image.jpg" alt="Description" caption="Optional caption" >}}
+*/ -}}
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+  {{- $src := .Get "src" -}}
+  {{- $alt := .Get "alt" | default "" -}}
+  {{- $caption := .Get "caption" | default "" -}}
+  {{- $link := .Get "link" | default "" -}}
+  {{- $target := .Get "target" | default "_blank" -}}
+  {{- $rel := .Get "rel" | default "noopener noreferrer" -}}
+  {{- $width := .Get "width" -}}
+  {{- $height := .Get "height" -}}
+  
+  {{- if $link -}}
+    <a href="{{ $link }}" target="{{ $target }}" rel="{{ $rel }}">
+  {{- end -}}
+  
+  <img src="{{ $src | safeURL }}" 
+       alt="{{ $alt }}"
+       {{- with $width }} width="{{ . }}"{{ end }}
+       {{- with $height }} height="{{ . }}"{{ end }}
+       loading="lazy"
+       class="rounded shadow-md">
+  
+  {{- if $link -}}
+    </a>
+  {{- end -}}
+  
+  {{- with $caption -}}
+    <figcaption class="text-center text-sm text-gray-600 mt-2 italic">
+      {{ . | markdownify }}
+    </figcaption>
+  {{- end -}}
+</figure>
