@@ -12,12 +12,12 @@
 @layer base {
   .prose {
     max-width: 75ch;
-    color: theme(colors.gray.700);
+    color: var(--color-gray-700);
     line-height: 1.75;
   }
 
   .prose a {
-    color: theme(colors.indigo.600);
+    color: var(--color-indigo-600);
     text-decoration: underline;
     text-decoration-style: dotted;
     text-decoration-thickness: 1px;
@@ -25,15 +25,15 @@
   }
 
   .prose a:hover {
-    color: theme(colors.indigo.800);
+    color: var(--color-indigo-800);
     text-decoration: none;
-    background-color: theme(colors.indigo.50);
+    background-color: var(--color-indigo-50);
   }
 
   .prose :is(h1, h2, h3, h4, h5, h6) {
     font-family: var(--font-funnel);
     font-weight: 700;
-    color: theme(colors.gray.900);
+    color: var(--color-gray-900);
     scroll-margin-top: 5rem;
   }
 
@@ -63,8 +63,8 @@
   }
 
   .prose code {
-    color: theme(colors.pink.600);
-    background-color: theme(colors.gray.100);
+    color: var(--color-pink-600);
+    background-color: var(--color-gray-100);
     padding: 0.125rem 0.375rem;
     border-radius: 0.25rem;
     font-weight: 500;
@@ -76,8 +76,8 @@
   }
 
   .prose pre {
-    background-color: theme(colors.gray.900);
-    color: theme(colors.gray.100);
+    background-color: var(--color-gray-900);
+    color: var(--color-gray-100);
     border-radius: 0.5rem;
     padding: 1rem;
     overflow-x: auto;
@@ -92,12 +92,12 @@
   .prose blockquote {
     font-style: italic;
     border-left-width: 4px;
-    border-left-color: theme(colors.indigo.400);
+    border-left-color: var(--color-indigo-400);
     padding-left: 1rem;
     margin-left: 0;
     margin-right: 0;
-    color: theme(colors.gray.600);
-    background-color: theme(colors.gray.50);
+    color: var(--color-gray-600);
+    background-color: var(--color-gray-50);
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     border-radius: 0.25rem;
@@ -116,31 +116,31 @@
   }
 
   .prose thead th {
-    background-color: theme(colors.gray.100);
+    background-color: var(--color-gray-100);
     font-weight: 600;
     padding: 0.75rem;
     text-align: left;
-    border-bottom: 2px solid theme(colors.gray.300);
+    border-bottom: 2px solid var(--color-gray-300);
   }
 
   .prose tbody td {
     padding: 0.75rem;
-    border-bottom: 1px solid theme(colors.gray.200);
+    border-bottom: 1px solid var(--color-gray-200);
   }
 
   .prose tbody tr:hover {
-    background-color: theme(colors.gray.50);
+    background-color: var(--color-gray-50);
   }
 
   .prose img {
     border-radius: 0.5rem;
-    box-shadow: theme(boxShadow.md);
+    box-shadow: var(--shadow-md);
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
   }
 
   .prose hr {
-    border-color: theme(colors.gray.300);
+    border-color: var(--color-gray-300);
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
   }
@@ -169,7 +169,7 @@
     font-size: 0.875rem;
     margin-top: 3rem;
     padding-top: 1.5rem;
-    border-top: 1px solid theme(colors.gray.300);
+    border-top: 1px solid var(--color-gray-300);
   }
 }
 
@@ -208,84 +208,90 @@
   }
 }
 
-@layer utilities {
-    .animation-delay-2000 {
-        animation-delay: 2.1s;
-    }
-
-    .animation-delay-4000 {
-        animation-delay: 4.3s;
-    }
+/* Custom utility classes */
+@utility animation-delay-2000 {
+  animation-delay: 2.1s;
 }
-@layer components {
-    .blurred-bg {
-        @apply relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12
-    }
-    .page-title {
-        @apply box-decoration-clone bg-gradient-to-l from-rose-400 via-fuchsia-500 to-indigo-500; 
-        @apply text-white font-extrabold;
-        @apply text-xl md:text-4xl;
-        @apply inline-block px-2 py-2 mb-6;
-        @apply font-funnel;
-    }
 
-    .sub-title {
-        @apply text-lg font-funnel font-semibold;
-        @apply text-center py-2 mb-2;
-    }
+@utility animation-delay-4000 {
+  animation-delay: 4.3s;
+}
 
-    .nav-item {
-        /* @apply block py-2 px-3 text-white bg-indigo-400 rounded; */
-        @apply md:bg-transparent md:text-slate-700 md:p-0 font-bold;
-        @apply hover:bg-indigo-400 hover:text-white rounded px-2 py-2 md:py-1;
-        @apply transition duration-200 ease-in-out;
-    }
+/* Custom component utilities */
+@utility blurred-bg {
+  @apply relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12;
+}
 
-    .a-hov {
-        @apply decoration-dotted;
-        @apply transition duration-300 ease-in-out;
-    }
-    .a-hov:hover {
-        @apply hover:bg-indigo-400 hover:text-white;
-    }
+@utility page-title {
+  @apply box-decoration-clone bg-gradient-to-l from-rose-400 via-fuchsia-500 to-indigo-500; 
+  @apply text-white font-extrabold;
+  @apply text-xl md:text-4xl;
+  @apply inline-block px-2 py-2 mb-6;
+  @apply font-funnel;
+}
 
-    .soc-symbol {
-        @apply no-underline mx-0.5 text-zinc-500 hover:text-purple-500 text-2xl md:text-4xl;
-        @apply transition duration-300 ease-in-out;
-    }
+@utility sub-title {
+  @apply text-lg font-funnel font-semibold;
+  @apply text-center py-2 mb-2;
+}
 
-    .rand-fact.a{
-        @apply font-bold text-indigo-500;
-    }
-    .card {
-        @apply grid md:grid-cols-7 gap-1 md:gap-6 border border-stone-200 shadow-sm hover:bg-stone-100 mb-4 py-3 transition-all duration-150;
-        @apply font-cabin;
-    }
+@utility nav-item {
+  /* @apply block py-2 px-3 text-white bg-indigo-400 rounded; */
+  @apply md:bg-transparent md:text-slate-700 md:p-0 font-bold;
+  @apply hover:bg-indigo-400 hover:text-white rounded px-2 py-2 md:py-1;
+  @apply transition duration-200 ease-in-out;
+}
 
-    .card-date {
-        @apply md:col-span-1 flex items-center md:justify-end px-2 md:px-0;
-        @apply font-cabin;
-    }
+@utility a-hov {
+  @apply decoration-dotted;
+  @apply transition duration-300 ease-in-out;
+  
+  &:hover {
+    @apply bg-indigo-400 text-white;
+  }
+}
 
-    .card-content {
-        @apply md:col-span-6 px-2 md:px-3 md:border-l md:border-gray-200;
-        @apply font-cabin;
-    }
+@utility soc-symbol {
+  @apply no-underline mx-0.5 text-zinc-500 hover:text-purple-500 text-2xl md:text-4xl;
+  @apply transition duration-300 ease-in-out;
+}
 
-    /* Table of Contents styling */
-    .toc ul {
-        @apply list-none pl-0;
-    }
+@utility rand-fact {
+  &.a {
+    @apply font-bold text-indigo-500;
+  }
+}
 
-    .toc li {
-        @apply mb-1;
-    }
+@utility card {
+  @apply grid md:grid-cols-7 gap-1 md:gap-6 border border-stone-200 shadow-sm hover:bg-stone-100 mb-4 py-3 transition-all duration-150;
+  @apply font-cabin;
+}
 
-    .toc a {
-        @apply text-gray-700 hover:text-indigo-600 hover:underline transition-colors;
-    }
+@utility card-date {
+  @apply md:col-span-1 flex items-center md:justify-end px-2 md:px-0;
+  @apply font-cabin;
+}
 
-    .toc ul ul {
-        @apply pl-4 mt-1;
-    }
+@utility card-content {
+  @apply md:col-span-6 px-2 md:px-3 md:border-l md:border-gray-200;
+  @apply font-cabin;
+}
+
+/* Table of Contents styling */
+@utility toc {
+  & ul {
+    @apply list-none pl-0;
+  }
+  
+  & li {
+    @apply mb-1;
+  }
+  
+  & a {
+    @apply text-gray-700 hover:text-indigo-600 hover:underline transition-colors;
+  }
+  
+  & ul ul {
+    @apply pl-4 mt-1;
+  }
 }

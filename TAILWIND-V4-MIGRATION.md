@@ -16,7 +16,9 @@ Migrated from JavaScript-based config to CSS-based configuration:
 - **Content scanning**: Added `@source` directives to specify content paths
 - **Plugin loading**: Changed from JS `require()` to CSS `@plugin` directive
 - **Theme configuration**: Moved from `tailwind.config.js` to CSS `@theme` directive
-- **Typography customizations**: Moved from JS function to CSS `@layer base` rules
+- **Typography customizations**: Moved from JS function to CSS `@layer base` rules using CSS variables
+- **Custom utilities**: Changed from `@layer utilities` and `@layer components` to `@utility` directive
+- **Theme function**: Replaced `theme()` function calls with CSS variables using `var(--color-*)` syntax
 
 ### 3. Configuration File
 - **tailwind.config.js**: Renamed to `tailwind.config.js.v3-backup` (no longer needed)
@@ -31,6 +33,8 @@ Migrated from JavaScript-based config to CSS-based configuration:
 2. **Simplified imports**: Single `@import "tailwindcss"` replaces three separate `@tailwind` directives
 3. **Content scanning**: Use `@source` directives in CSS or CLI flags instead of `tailwind.config.js`
 4. **Plugin syntax**: Plugins use `@plugin` directive instead of JS `require()`
+5. **CSS variables**: Use `var(--color-red-500)` instead of `theme(colors.red.500)` for theme values
+6. **Custom utilities**: Use `@utility` directive instead of `@layer utilities` or `@layer components`
 
 ## Build Process
 
