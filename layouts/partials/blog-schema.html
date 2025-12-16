@@ -46,7 +46,7 @@
 {{ $blogPosting := dict
   "@type" "BlogPosting"
   "headline" .Title
-  "description" (cond .Params.description .Params.description (.Summary | plainify))
+  "description" (cond (and (isset .Params "description") (ne .Params.description "")) .Params.description (.Summary | plainify))
   "author" (dict "@id" (printf "%s#person" (.Site.BaseURL | absURL)))
   "publisher" (dict "@id" (printf "%s#person" (.Site.BaseURL | absURL)))
   "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
