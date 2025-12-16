@@ -66,4 +66,21 @@
         @apply md:col-span-6 px-2 md:px-3 md:border-l md:border-gray-200;
         @apply font-cabin;
     }
+
+    /* Table of Contents styling */
+    .toc ul {
+        @apply list-none pl-0;
+    }
+
+    .toc li {
+        @apply mb-1;
+    }
+
+    .toc a {
+        @apply text-gray-700 hover:text-indigo-600 hover:underline transition-colors;
+    }
+
+    .toc ul ul {
+        @apply pl-4 mt-1;
+    }
 }
