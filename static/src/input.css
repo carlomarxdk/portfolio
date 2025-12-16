@@ -16,7 +16,7 @@
     line-height: 1.75;
   }
 
-  .prose a {
+  /* .prose a {
     color: var(--color-indigo-600);
     text-decoration: underline;
     text-decoration-style: dotted;
@@ -35,32 +35,7 @@
     font-weight: 700;
     color: var(--color-gray-900);
     scroll-margin-top: 5rem;
-  }
-
-  .prose h1 {
-    font-size: 2.25em;
-    line-height: 1.2;
-    margin-top: 0;
-    margin-bottom: 0.8em;
-  }
-
-  .prose h2 {
-    font-size: 1.75em;
-    margin-top: 1.5em;
-    margin-bottom: 0.75em;
-  }
-
-  .prose h3 {
-    font-size: 1.4em;
-    margin-top: 1.5em;
-    margin-bottom: 0.6em;
-  }
-
-  .prose h4 {
-    font-size: 1.2em;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
+  } */
 
   .prose code {
     color: var(--color-pink-600);
@@ -232,6 +207,14 @@
   @apply text-white font-extrabold;
   @apply text-xl md:text-4xl;
   @apply inline-block px-2 py-2 mb-6;
+  @apply font-funnel;
+}
+
+@utility main-title {
+  @apply box-decoration-clone bg-gradient-to-l from-rose-400 to-indigo-500; 
+  @apply text-white font-extrabold;
+  @apply text-balance md:text-2xl;
+  @apply inline-block px-2 py-2 mb-4;
   @apply font-funnel;
 }
 

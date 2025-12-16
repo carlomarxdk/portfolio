@@ -1,5 +1,5 @@
 <footer class="m-4 p-4 max-w-screen-lg mx-auto text-center flex flex-col items-center prose font-cabin">
-  <div class="justify-items-center mb-4 leading-tight" id="navbar-footer">
+  <div class="justify-items-center mb-2 leading-tight" id="navbar-footer">
     {{ $url := replace .Permalink .Site.BaseURL "" }} 
     {{ if not .IsHome }}
       <a href="{{ .Site.BaseURL }}" class="font-light px-1 text-sm decoration-dotted a-hov">{{ with .Site.Params.home }}{{ . }}{{ else }}About{{ end }}</a>
@@ -20,11 +20,12 @@
       <a href="https://tailwindcss.com" target="_blank" class="a-hov">TailwindCSS</a>.
       <!-- {{ .Site.Params.Author }} -->
       {{ end }}
+      Licensed under
+      <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1"
+        class="a-hov"
+        target="_blank"
+        rel="license noopener noreferrer">CC BY 4.0</a>
     </p>
-    <!-- <p class="small my-0">
-        This website is fully open source. Fork now via <a
-            href="https://github.com/arhen/hugo-cereus-pro-theme">github</a>
-    </p> -->
   </div>
 </footer>
 

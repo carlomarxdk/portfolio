@@ -6,8 +6,8 @@
     <main id="main-content" class="max-w-screen-lg px-4 py-8 mx-auto">
         <article itemscope itemtype="https://schema.org/BlogPosting">
             <header class="mx-auto text-center mb-8">
-                <h1 class="page-title text-center" itemprop="headline">{{.Title}}</h1>
-                <p class="text-sm text-gray-600 mt-0.5">
+                <h1 class="main-title text-center" itemprop="headline">{{.Title}}</h1>
+                <p class="text-sm text-gray-600 mt-0.5"> Posted on
                     <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">{{ .Date.Format "Jan 2, 2006" }}</time>
                     <meta itemprop="dateModified" content="{{ .Lastmod.Format "2006-01-02" }}">
                     · {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}

@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "https://savcisens.com/"
 languageCode = "en-us"
-title = "Germans Savcisens - Academic Portfolio"
+title = "Scholar | Germans Savcisens"
 publishDir = "public"
 # Set the value to true if your site include CJK (Chinese, Japanese, and Korean languages) characters
 hasCJKLanguage = false
@@ -10,10 +10,9 @@ enableRobotsTXT = true
 disableRSS = true
 disableKinds = ['RSS', 'taxonomy', 'term']
 
-
 [params]
 	author = "Germans Savcisens"
-	description = "I am a Computational Social Scientist at Northeastern University. My research focuses on Algorithmic Fairness and Human Behaviour & Social Interaction."
+	description = "I am a Computational Social Scientist at Northeastern University. My research focuses on stability of beliefs and knowledge in Large Language Models."
 	keywords = "life2vec, germans, savcisens, савчишен, scholar, life2vec, academic, northeastern"
 	bio = "PhD, Computational Social Science"
 	twitter = "germansave"
@@ -22,7 +21,8 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 	[params.structuredData]
 		orcid = "https://orcid.org/0000-0002-5811-3230"
 		googleScholar = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
-		jobTitle = "Postdoctoral Researcher"
+		jobTitle = "Postdoctoral Research Associate"
+		scopusID = "58312119300"
 		affiliation = "Northeastern University"
 
 	enableRSS = false
@@ -50,14 +50,14 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 
 	olderPosts = ""
 	newerPosts = ""
-	copyright = ""
+	copyright = "CC BY 4.0"
 
 	# show latest posts in single page
 	showLatestPosts = false
 	readMore = ""
 
 	# Share
-	enableShare = true
+	enableShare = false
 	tweet = ""
 	share = ""
 
