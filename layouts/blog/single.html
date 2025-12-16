@@ -36,9 +36,13 @@
             {{ end }}
             {{ end }}
             
-            <div class="prose prose-lg lg:prose-lg mx-auto font-cabin" itemprop="articleBody">
+            <div class="prose prose-base lg:prose-lg mx-auto font-cabin" itemprop="articleBody">
                 {{ .Content }}
+            <p class="text-sm">
+                Written by <strong>{{ .Site.Author.name }}</strong>
+            </p>
             </div>
+            
             
             {{ if .Site.Params.enableShare }}
             <div class="mt-12 pt-8 border-t border-gray-200">
