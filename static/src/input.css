@@ -1,5 +1,11 @@
 /* CSS Document */
 @import "tailwindcss";
+
+/* Content sources for Tailwind scanning */
+@source "../../content/**/*.md";
+@source "../../layouts/*.html";
+@source "../../layouts/**/*.html";
+
 @plugin "@tailwindcss/typography";
 
 /* Typography plugin customizations */
