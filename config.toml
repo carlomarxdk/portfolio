@@ -17,6 +17,13 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 	keywords = "life2vec, germans, savcisens, савчишен, scholar, life2vec, academic, northeastern"
 	bio = "PhD, Computational Social Science"
 	twitter = "germansave"
+	
+	# Structured Data for schema.org
+	[params.structuredData]
+		orcid = "https://orcid.org/0000-0002-5811-3230"
+		googleScholar = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
+		jobTitle = "Postdoctoral Researcher"
+		affiliation = "Northeastern University"
 
 	enableRSS = false
 	enableToc = true

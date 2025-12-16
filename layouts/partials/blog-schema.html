@@ -1,12 +1,22 @@
 {{ if and (eq .Section "blog") (not .IsHome) (not .IsNode) }}
+{{ $sameAsLinks := slice }}
+{{ with .Site.Params.structuredData.orcid }}
+  {{ $sameAsLinks = $sameAsLinks | append . }}
+{{ end }}
+{{ with .Site.Params.structuredData.googleScholar }}
+  {{ $sameAsLinks = $sameAsLinks | append . }}
+{{ end }}
+{{ with .Site.Params.social.linkedin }}
+  {{ $sameAsLinks = $sameAsLinks | append . }}
+{{ end }}
 {{ $person := dict 
   "@type" "Person"
-  "@id" "https://savcisens.com/#person"
-  "name" "Germans Savcisens"
-  "url" "https://savcisens.com"
-  "sameAs" (slice "https://orcid.org/0000-0002-5811-3230" "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en" "https://www.linkedin.com/in/germans-savcisens/")
-  "jobTitle" "Postdoctoral Researcher"
-  "affiliation" (dict "@type" "Organization" "name" "Northeastern University")
+  "@id" (printf "%s#person" (.Site.BaseURL | absURL))
+  "name" .Site.Params.author
+  "url" (.Site.BaseURL | absURL)
+  "sameAs" $sameAsLinks
+  "jobTitle" (.Site.Params.structuredData.jobTitle | default "Researcher")
+  "affiliation" (dict "@type" "Organization" "name" (.Site.Params.structuredData.affiliation | default ""))
 }}
 {{ $keywords := slice }}
 {{ if .Params.keywords }}
@@ -37,8 +47,8 @@
   "@type" "BlogPosting"
   "headline" .Title
   "description" (cond .Params.description .Params.description (.Summary | plainify))
-  "author" (dict "@id" "https://savcisens.com/#person")
-  "publisher" (dict "@id" "https://savcisens.com/#person")
+  "author" (dict "@id" (printf "%s#person" (.Site.BaseURL | absURL)))
+  "publisher" (dict "@id" (printf "%s#person" (.Site.BaseURL | absURL)))
   "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
   "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
   "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
@@ -64,6 +74,6 @@
   "@graph" (slice $person $blogPosting $breadcrumbList)
 }}
 <script type="application/ld+json">
-{{ $schema | jsonify (dict "indent" "  ") | safeJS }}
+{{ $schema | jsonify | safeJS }}
 </script>
 {{ end }}
