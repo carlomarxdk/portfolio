@@ -42,7 +42,7 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 	twitterCardImage = "images/avatar.jpg"
 
 	# Add custom assets with their paths relative to the static folder
-	customCSS = ['css/custom_v1.6.css']
+	customCSS = []
 	customJS  = []
 
 	# The variables below are optionally too and can be used to

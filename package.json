@@ -6,9 +6,9 @@
     "dev": "hugo server -D"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "4.1.18",
+    "@tailwindcss/cli": "^4.1.18",
     "@tailwindcss/typography": "^0.5.19",
-    "tailwindcss": "4.1.18"
+    "tailwindcss": "^4.1.18"
   },
   "dependencies": {
     "bulma": "^1.0.2"
