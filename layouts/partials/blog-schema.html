@@ -10,8 +10,14 @@
 }}
 {{ $keywords := slice }}
 {{ if .Params.keywords }}
-  {{ range (split .Params.keywords ",") }}
-    {{ $keywords = $keywords | append (trim . " ") }}
+  {{ if reflect.IsSlice .Params.keywords }}
+    {{ range .Params.keywords }}
+      {{ $keywords = $keywords | append . }}
+    {{ end }}
+  {{ else }}
+    {{ range (split .Params.keywords ",") }}
+      {{ $keywords = $keywords | append (trim . " ") }}
+    {{ end }}
   {{ end }}
 {{ end }}
 {{ if .Params.tags }}

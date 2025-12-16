@@ -2,8 +2,10 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 description: "A short description of the post"
+keywords: []
 tags: []
 categories: []
+images: []
 hidden: false
 sitemap:
   changefreq: monthly

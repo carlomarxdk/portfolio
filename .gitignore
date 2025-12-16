@@ -1,6 +1,8 @@
 
 *.sqlite
 /public
+/public-debug
+/public-debug2
 node_modules/
 .DS_Store
 .hugo_build.lock
