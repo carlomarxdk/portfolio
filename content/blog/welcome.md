@@ -5,6 +5,7 @@ description: "Introducing a new space for sharing thoughts on research, technolo
 tags: ["meta", "blogging"]
 categories: ["announcements"]
 hidden: false
+author: Germans Savcisens
 sitemap:
   changefreq: monthly
   disable: false
