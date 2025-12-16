@@ -106,9 +106,6 @@ disableKinds = ['RSS', 'taxonomy', 'term']
     pageRef = '/contact'
     weight = 50
 
-[author]
-	name = "Germans Savcisens"
-
 [taxonomies]
     category = "categories"
     tag = "tags"

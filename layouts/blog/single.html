@@ -38,9 +38,18 @@
             
             <div class="prose prose-base lg:prose-lg mx-auto font-cabin" itemprop="articleBody">
                 {{ .Content }}
+            {{ with .Params.author }}
             <p class="text-sm">
-                Written by <strong>{{ .Site.Author.name }}</strong>
+            Written by
+            <strong>
+                {{ if reflect.IsSlice . }}
+                {{ delimit . ", " }}
+                {{ else }}
+                {{ . }}
+                {{ end }}
+            </strong>
             </p>
+            {{ end }}
             </div>
             
             
