@@ -1,12 +1,13 @@
 {{- /* 
 YouTube embed shortcode for accessible video embeds
 Usage: {{< youtube id="VIDEO_ID" title="Video description" >}}
+Note: Uses native CSS aspect-ratio for responsive video embedding
 */ -}}
 {{- $id := .Get "id" -}}
 {{- $title := .Get "title" | default "YouTube video" -}}
 {{- $class := .Get "class" | default "my-6" -}}
 
-<div class="{{ $class }} aspect-w-16 aspect-h-9">
+<div class="{{ $class }}">
   <iframe 
     src="https://www.youtube-nocookie.com/embed/{{ $id }}" 
     title="{{ $title }}"
@@ -15,6 +16,6 @@ Usage: {{< youtube id="VIDEO_ID" title="Video description" >}}
     allowfullscreen
     loading="lazy"
     class="w-full rounded shadow-md"
-    style="aspect-ratio: 16 / 9;">
+    style="aspect-ratio: 16 / 9; display: block;">
   </iframe>
 </div>

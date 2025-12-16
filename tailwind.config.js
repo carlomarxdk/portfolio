@@ -44,6 +44,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
+            // Increased from default 65ch for better reading experience on wider screens
             maxWidth: '75ch',
             color: theme('colors.gray.700'),
             lineHeight: '1.75',
@@ -96,6 +97,7 @@ module.exports = {
               borderRadius: '0.25rem',
               fontWeight: '500',
             },
+            // Remove default backticks from inline code for cleaner appearance
             'code::before': {
               content: '""',
             },
@@ -127,6 +129,7 @@ module.exports = {
               paddingBottom: '0.5rem',
               borderRadius: '0.25rem',
             },
+            // Remove default quotation marks for cleaner blockquote styling
             'blockquote p:first-of-type::before': {
               content: '""',
             },

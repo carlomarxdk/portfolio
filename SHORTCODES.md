@@ -2,6 +2,10 @@
 
 This document describes the available Hugo shortcodes for creating rich, accessible content in your blog posts.
 
+## Prerequisites
+
+- **Callout shortcode** requires FontAwesome icons to be loaded (already configured in the site's head.html)
+
 ## Figure Shortcode
 
 Use the `figure` shortcode to add images with captions and better accessibility.
