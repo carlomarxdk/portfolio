@@ -8,7 +8,7 @@
             <header class="mx-auto text-center mb-8">
                 <h1 class="main-title text-center" itemprop="headline">{{.Title}}</h1>
                     {{ with .Params.subtitle }}
-    <p class="mt-0 text-lg text-gray-700 max-w-2xl mx-auto leading-snug">
+    <p class="subtitle-title text-center mt-2">
         {{ . }}
     </p>
         {{ end }}
@@ -49,7 +49,7 @@
             {{ end }}
             {{ end }}
             
-            <div class="prose prose-sm md:prose mx-auto font-cabin" itemprop="articleBody"> 
+            <div class="prose prose-sm md:prose prose-blog mx-auto" itemprop="articleBody"> 
                 {{ .Content }}
             </div>
             
