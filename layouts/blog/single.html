@@ -8,7 +8,7 @@
             <header class="mx-auto text-center mb-8">
                 <h1 class="main-title text-center" itemprop="headline">{{.Title}}</h1>
                     {{ with .Params.subtitle }}
-    <p class="subtitle-title text-center mt-2">
+    <p class="subtitle-title mt-2">
         {{ . }}
     </p>
         {{ end }}
@@ -19,6 +19,9 @@
             {{ .Date.Format "Jan 2, 2006" }}
         </time>
         <meta itemprop="dateModified" content="{{ .Lastmod.Format "2006-01-02" }}">
+        {{ if ne (.Date.Format "2006-01-02") (.Lastmod.Format "2006-01-02") }}
+            · Updated <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time>
+        {{ end }}
 
         · {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
         · {{ .ReadingTime }} minute read

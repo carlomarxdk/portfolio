@@ -24,6 +24,14 @@
   & :where(h1, h2, h3, h4, h5, h6):not(:where([class~=not-prose],[class~=not-prose] *)) {
     font-family: var(--font-funnel);
   }
+  
+  & .footnote-ref {
+    text-decoration: none !important;
+  }
+  
+  & sup a {
+    text-decoration: none !important;
+  }
 }
 @layer components {
   .prose .footnotes {
@@ -146,10 +154,9 @@
 }
 
 @utility subtitle-title {
-  @apply box-decoration-clone bg-gradient-to-l from-rose-400 to-indigo-500; 
-  @apply text-white font-extrabold;
-  @apply text-balance text-base md:text-xl;
-  @apply inline-block px-2 py-1 mb-4;
+  @apply text-gray-900 font-semibold;
+  @apply text-balance text-lg md:text-xl;
+  @apply mb-4;
   @apply font-funnel;
 }
 
