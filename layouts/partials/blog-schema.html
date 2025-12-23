@@ -1,5 +1,11 @@
 {{ if and (eq .Section "blog") (not .IsHome) (not .IsNode) }}
 {{ $sameAsLinks := slice }}
+{{ $org := dict
+  "@type" "Organization"
+  "@id" (printf "%s#org" (.Site.BaseURL | absURL))
+  "name" (.Site.Title | default "Personal Blog")
+  "url" (.Site.BaseURL | absURL)
+}}
 {{ with .Site.Params.structuredData.orcid }}
   {{ $sameAsLinks = $sameAsLinks | append . }}
 {{ end }}
@@ -9,15 +15,19 @@
 {{ with .Site.Params.social.linkedin }}
   {{ $sameAsLinks = $sameAsLinks | append . }}
 {{ end }}
-{{ $person := dict 
+{{ $person := dict
   "@type" "Person"
   "@id" (printf "%s#person" (.Site.BaseURL | absURL))
   "name" .Site.Params.author
   "url" (.Site.BaseURL | absURL)
   "sameAs" $sameAsLinks
   "jobTitle" (.Site.Params.structuredData.jobTitle | default "Researcher")
-  "affiliation" (dict "@type" "Organization" "name" (.Site.Params.structuredData.affiliation | default ""))
 }}
+{{ with .Site.Params.structuredData.affiliation }}
+  {{ $person = merge $person (dict
+    "affiliation" (dict "@type" "Organization" "name" .)
+  ) }}
+{{ end }}
 {{ $keywords := slice }}
 {{ if .Params.keywords }}
   {{ if reflect.IsSlice .Params.keywords }}
@@ -46,17 +56,21 @@
 {{ $blogPosting := dict
   "@type" "BlogPosting"
   "headline" .Title
+  "alternativeHeadline" .Params.subtitle
   "description" (cond (and (isset .Params "description") (ne .Params.description "")) .Params.description (.Summary | plainify))
   "author" (dict "@id" (printf "%s#person" (.Site.BaseURL | absURL)))
-  "publisher" (dict "@id" (printf "%s#person" (.Site.BaseURL | absURL)))
+  "publisher" (dict "@id" (printf "%s#org" (.Site.BaseURL | absURL)))
   "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
   "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
   "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
-  "image" $image
+  "image" (slice $image)
   "url" .Permalink
   "inLanguage" (.Site.LanguageCode | default "en-us")
   "wordCount" .WordCount
-  "articleBody" .Plain
+  "isPartOf" (dict
+  "@type" "Blog"
+  "@id" (printf "%s#blog" (.Site.BaseURL | absURL))
+)
 }}
 {{ if gt (len $keywords) 0 }}
   {{ $blogPosting = merge $blogPosting (dict "keywords" $keywords) }}
@@ -71,7 +85,7 @@
 }}
 {{ $schema := dict
   "@context" "https://schema.org"
-  "@graph" (slice $person $blogPosting $breadcrumbList)
+  "@graph" (slice $person $org $blogPosting $breadcrumbList)
 }}
 <script type="application/ld+json">
 {{ $schema | jsonify | safeJS }}

@@ -21,3 +21,6 @@ min_version = 0.20
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+      footnote = true
+    [markup.goldmark.extensions]
+      fencedDiv = true

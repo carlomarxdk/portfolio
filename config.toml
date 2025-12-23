@@ -121,7 +121,6 @@ disableKinds = ['RSS', 'taxonomy', 'term']
     [markup.goldmark.renderer]
       unsafe = true
     [markup.goldmark.extensions]
-      # Enable useful Goldmark extensions
       table = true
       strikethrough = true
       linkify = true
@@ -129,6 +128,8 @@ disableKinds = ['RSS', 'taxonomy', 'term']
       typographer = true
       definitionList = true
       footnote = true
+	  fencedDiv = true
+
     [markup.goldmark.parser]
       [markup.goldmark.parser.attribute]
         block = true
