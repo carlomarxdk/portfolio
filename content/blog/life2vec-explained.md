@@ -46,7 +46,7 @@ By combining these sources, we can piece together detailed timelines of individu
 
 **Such simplifications, however, come at a cost.** They strip away context and temporal ordering. Having your tonsils removed in your twenties is not the same as having them removed in your forties. Returning to full-time work and then developing back pain tells a very different story from developing back pain first. When we collapse life histories into aggregates, we risk erasing these connections.
 
-## Context, Order and Language
+## Context, Order, and Language
 
 One of the central goals of the life2vec project was exactly to preserve the rich context and ordering of life sequences, while still enabling exploratory analysis. That is, both to uncover connections between events and, potentially, to make and interpret life-related predictions.
 
@@ -135,7 +135,7 @@ This post ended up being longer than I initially planned (and still did not cove
 
 Why talk about this now, long after the paper came out? This year, I had the chance to travel and share the project with the public, industry leaders, and scientists. I discovered that many genuinely believe these online models are tied to our research. There’s even a Life2vec crypto coin (again, not connected to our project) claiming fuel for the Life2vec ecosystem. Clearly, it’s time to set the record straight.
 
-Material in this blogpost is based on multiple deck of slides that I have presented over the past years[^9]. **Everything here reflects only my own views**, not those of any institution or co-author. Finally, I used Grammarly AI and ChatGPT to look for synonyms and phrases that streamline the flow.
+The material in this blog post is based on multiple slide decks I have presented over the past years.[^9] **Everything here reflects only my own views**, not those of any institution or co-author. Finally, I used Grammarly AI and ChatGPT to look for synonyms and phrases that streamline the flow.
 
 {{< callout type="tip" title="TL;DR: What life2vec is and isn’t" >}}
 
