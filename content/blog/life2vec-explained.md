@@ -11,7 +11,7 @@ image: "/images/life2vec-hero.svg"
 ---
 
 {{<quote author="Philip Pullman" source="The Amber Spyglass" >}}
-Tell them stories. They need the truth you must tell them true stories, and everything will be well, just tell them stories.
+Tell them stories. They need the truth, you must tell them true stories \[...\].
 {{< /quote >}}
 
 Over the past two years, online death calculators have flooded the internet. I think the craze really took off after the introduction of the [life2vec](https://www.nature.com/articles/s43588-023-00573-5),[^1] a model developed by a team of scientists, including myself, trained on life sequences from millions of Danish residents. Since then, life2vec has been often mentioned for its ability to predict “*when you are going to die with 78% accuracy,*” alongside the claims that it is powered by the same architecture as ChatGPT.
@@ -123,7 +123,7 @@ To summarise the arguments above, the **life2vec model cannot do the following**
 
 Let’s return to where we started.
 
-The online death calculators circulating today are not built with life2vec. They do not have access to the data, the representations, or the training setup of our project. They are not simplified versions of the model, nor are they rough deployments of the same ideas. They are entirely separate tools, borrowing a name and a narrative without the substance behind it. We do have a page online[^8] that answers additional questions on the aim, privacy and data, but again, it is not a calculator.
+The online death calculators circulating today are not built with life2vec. They do not have access to the data, the representations, or the training setup of our project. They are not simplified versions of the model, nor are they rough deployments of the same ideas. They are entirely separate tools, borrowing a name and a narrative without the substance behind it. We do have a page online[^8] that answers additional questions on the aim, privacy, and data, but again, it is not a calculator.
 
 Life2vec itself was never designed to predict individual death dates, and certainly not to be queried interactively online. It was a proof-of-concept: an exploration of whether rich, time-ordered life trajectories could be represented as sequences without flattening their structure, and whether Transformer-based models could learn meaningful representations from them. Death prediction was used in this work only as a validation task.
 
