@@ -146,16 +146,21 @@
 }
 
 @utility main-title {
-  @apply box-decoration-clone bg-gradient-to-l from-rose-400 to-indigo-500; 
-  @apply text-white font-extrabold;
-  @apply text-balance md:text-2xl;
-  @apply inline-block px-2 py-2 mb-4;
+  @apply text-gray-900 font-extrabold;
+  @apply text-balance text-3xl md:text-5xl;
+  @apply mb-3;
   @apply font-funnel;
 }
 
 @utility subtitle-title {
-  @apply text-gray-900 font-semibold;
-  @apply text-balance text-lg md:text-xl;
+  @apply text-gray-700 font-medium;
+  @apply text-balance text-xl md:text-2xl;
+  @apply mb-6;
+  @apply font-funnel;
+}
+
+@utility blog-label {
+  @apply text-xs uppercase tracking-wide text-gray-500 font-semibold;
   @apply mb-4;
   @apply font-funnel;
 }

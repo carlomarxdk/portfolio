@@ -2,7 +2,7 @@
 {{ $sameAsLinks := slice }}
 {{ $org := dict
   "@type" "Organization"
-  "@id" (printf "%s#org" (.Site.BaseURL | absURL))
+  "@id" (printf "%s#organization" (.Site.BaseURL | absURL))
   "name" (.Site.Title | default "Personal Blog")
   "url" (.Site.BaseURL | absURL)
 }}
@@ -13,6 +13,9 @@
   {{ $sameAsLinks = $sameAsLinks | append . }}
 {{ end }}
 {{ with .Site.Params.social.linkedin }}
+  {{ $sameAsLinks = $sameAsLinks | append . }}
+{{ end }}
+{{ with .Site.Params.social.github }}
   {{ $sameAsLinks = $sameAsLinks | append . }}
 {{ end }}
 {{ $person := dict
@@ -55,28 +58,37 @@
 {{ end }}
 {{ $blogPosting := dict
   "@type" "BlogPosting"
+  "@id" .Permalink
   "headline" .Title
-  "alternativeHeadline" .Params.subtitle
+  "name" .Title
   "description" (cond (and (isset .Params "description") (ne .Params.description "")) .Params.description (.Summary | plainify))
   "author" (dict "@id" (printf "%s#person" (.Site.BaseURL | absURL)))
-  "publisher" (dict "@id" (printf "%s#org" (.Site.BaseURL | absURL)))
+  "publisher" (dict "@id" (printf "%s#organization" (.Site.BaseURL | absURL)))
   "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")
   "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")
   "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
-  "image" (slice $image)
+  "image" (dict
+    "@type" "ImageObject"
+    "url" $image
+  )
   "url" .Permalink
   "inLanguage" (.Site.LanguageCode | default "en-us")
   "wordCount" .WordCount
   "isPartOf" (dict
-  "@type" "Blog"
-  "@id" (printf "%s#blog" (.Site.BaseURL | absURL))
-)
+    "@type" "Blog"
+    "@id" (printf "%sblog/" .Site.BaseURL | absURL)
+    "name" "Blog"
+  )
 }}
+{{ if .Params.subtitle }}
+  {{ $blogPosting = merge $blogPosting (dict "alternativeHeadline" .Params.subtitle) }}
+{{ end }}
 {{ if gt (len $keywords) 0 }}
   {{ $blogPosting = merge $blogPosting (dict "keywords" $keywords) }}
 {{ end }}
 {{ $breadcrumbList := dict
   "@type" "BreadcrumbList"
+  "@id" (printf "%s#breadcrumb" .Permalink)
   "itemListElement" (slice
     (dict "@type" "ListItem" "position" 1 "name" "Home" "item" (.Site.BaseURL | absURL))
     (dict "@type" "ListItem" "position" 2 "name" "Blog" "item" (printf "%sblog/" .Site.BaseURL | absURL))
