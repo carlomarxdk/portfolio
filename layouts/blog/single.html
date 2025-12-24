@@ -40,16 +40,29 @@
             </header>
             
             <div class="max-w-screen-lg mx-auto">
-                {{ $toc := .TableOfContents }}
-                {{ $hasToc := and .Site.Params.enableToc (gt (len $toc) 20) }}
+                {{/* Build TOC manually from page fragments */}}
+                {{ $headings := slice }}
+                {{ range .Fragments.Headings }}
+                    {{ if and (ge .Level 2) (le .Level 4) }}
+                        {{ $headings = $headings | append . }}
+                    {{ end }}
+                {{ end }}
+                {{ $hasToc := and .Site.Params.enableToc (gt (len $headings) 0) }}
+                
                 <div class="lg:grid lg:grid-cols-12 lg:gap-8">
                     {{ if $hasToc }}
                     <aside class="lg:col-span-3 mb-8 lg:mb-0">
-                        <nav class="toc bg-white border border-gray-200 rounded-lg p-4 lg:sticky lg:top-8 shadow-sm">
+                        <nav class="toc bg-white border border-gray-200 rounded-lg p-4 lg:sticky lg:top-8 shadow-sm" aria-label="Table of Contents">
                             <h2 class="text-base font-semibold text-gray-900 mb-3 font-funnel">Table of Contents</h2>
-                            <div class="text-sm toc-content">
-                                {{ $toc | safeHTML }}
-                            </div>
+                            <ul class="text-sm space-y-2 list-none pl-0">
+                                {{ range $headings }}
+                                <li class="{{ if eq .Level 2 }}{{ else if eq .Level 3 }}pl-4{{ else }}pl-8{{ end }}">
+                                    <a href="#{{ .ID }}" class="text-gray-700 hover:text-indigo-600 transition-colors no-underline hover:underline block py-1">
+                                        {{ .Title }}
+                                    </a>
+                                </li>
+                                {{ end }}
+                            </ul>
                         </nav>
                     </aside>
                     <div class="lg:col-span-9">
