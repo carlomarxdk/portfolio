@@ -1,16 +1,28 @@
 {
   "scripts": {
-    "format": "echo 'No formatter configured'",
-    "build:css": "npx tailwindcss -i ./static/src/input.css -o ./static/src/output.css --minify",
-    "build": "npm run build:css && hugo --gc --minify",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+
+    "build:css": "npx postcss static/src/input.css -o static/src/output.css",
+    "build:css:prod": "cross-env NODE_ENV=production npx postcss static/src/input.css -o static/src/output.css",
+    "build": "npm run build:css:prod && hugo --gc --minify",
+
+    "dev:css": "npx postcss static/src/input.css -o static/src/output.css --watch",
     "dev": "hugo server -D"
   },
-  "devDependencies": {
-    "@tailwindcss/cli": "^4.1.18",
-    "@tailwindcss/typography": "^0.5.19",
-    "tailwindcss": "^4.1.18"
+
+  "engines": {
+    "node": ">=20"
   },
-  "dependencies": {
-    "bulma": "^1.0.2"
+
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/typography": "^0.5.15",
+    "cross-env": "^10.1.0",
+    "cssnano": "^6.1.0",
+    "html-validate": "^10.4.0",
+    "postcss-cli": "^11.0.0",
+    "prettier": "^3.7.4",
+    "tailwindcss": "^4.1.18"
   }
 }
