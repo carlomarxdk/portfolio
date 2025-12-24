@@ -8,6 +8,9 @@ categories: ["science"]
 author: Germans Savcisens
 hidden: false
 ---
+{{<quote author="Philip Pullman" source="The Amber Spyglass" >}}
+tell them true stories, and everything will be well,
+{{< /quote >}}
 
 Over the past two years, online death calculators have flooded the internet. I think the craze really took off after the introduction of the [life2vec](https://www.nature.com/articles/s43588-023-00573-5),[^1] a model developed by a team of scientists, including myself, trained on life sequences from millions of Danish residents. Since then, life2vec has been often mentioned for its ability to predict “*when you are going to die with 78% accuracy,*” alongside the claims that it is powered by the same architecture as ChatGPT.
 
@@ -55,11 +58,11 @@ To demonstrate this, let’s look at a small example. Suppose I tell you that th
 
 All of these use the same words, yet their meanings differ a lot. The sentence I had in mind is a line from Kurt Vonnegut’s *Slaughterhouse-Five*: "*Everything was beautiful and nothing hurt.*" Did your reconstruction look anything like that? So... I hope it does show that counts alone are not enough.  Order and context shape meaning.
 
-For decades,  NLP researchers have focused on developing methods to represent human language so that machines can process, interpret, and generate it. Around 2016,  this line of work gave rise to a particularly powerful class of models: Transformers. These models forever changed the NLP field, and some might argue that they eventually broke it (that’s for another blog post).
+For decades,  NLP researchers have focused on developing methods to represent human language so that machines can process, interpret, and generate it. Around 2016,  this line of work gave rise to a particularly powerful class of models: Transformers.[^5] These models forever changed the NLP field, and some might argue that they eventually broke it (that’s for another blog post).
 
 Modern models such as ChatGPT or Gemma are built on the Transformer architecture. You have likely seen this for yourself: they can process quite complex information and generate coherent, human-like text. More importantly for our purposes, Transformers learn rich representations of language that encode how words are related to one another across context and position.
 
-You do not need to understand the inner workings of Transformers for this post (here is a [link to more technical explainers](https://jalammar.github.io/illustrated-transformer/)[^5] for interested readers). At a basic level, Transformer models convert an input sequence, such as "The dog runs after the," into a compact numerical representation that captures its content. It does so by combining mathematical operations; the important point is not how these operations work, but that they preserve order and context while producing numerical summaries that can be used for prediction and, to a limited extent, interpretation.
+You do not need to understand the inner workings of Transformers for this post (here is a [more technical explainers](https://jalammar.github.io/illustrated-transformer/)[^6] for interested readers). At a basic level, Transformer models convert an input sequence, such as "*The dog runs after the,*" into a compact numerical representation that captures its content. It does so by combining mathematical operations; the important point is not how these operations work, but that they preserve order and context while producing numerical summaries that can be used for prediction and, to a limited extent, interpretation.
 
 This combination of strong predictive performance on structured sequences and interpretability **led us to a simple but ambitious question**: What if we could represent life sequences in a form similar to human-written language, and further adapt the Transformer architecture to learn this life language?
 
@@ -88,7 +91,7 @@ As should already be clear from the synthetic language, **life2vec is not someth
 
 Most modern transformer-based chat systems (again, ChatGPT as an example) are trained to predict the next token in a sequence. This makes the most sense for the task ChatGPT has to accomplish, namely generating coherent replies.
 
-**Life2vec was trained very differently**. Instead of next-token predictions in a sequence, as in chat-based models, it used a masked modelling objective. In this setup, parts of the sequence are hidden, and the model is tasked with reconstructing the missing elements from the surrounding context.  Think of it like a puzzle where certain pieces are missing. This approach helps the model understand the relationships and patterns among events in a sequence, rather than focusing solely on what might come next. After seeing thousands of sequences, life2vec gradually learned how to encode life histories into numerical representations. That distinction is crucial: our goal was not to predict “what comes next,” but to learn compact numerical representations that summarise entire life trajectories.
+**Life2vec was trained very differently**. Instead of next-token predictions in a sequence, as in chat-based models, it used a masked modelling objective.[^7] In this setup, parts of the sequence are hidden, and the model is tasked with reconstructing the missing elements from the surrounding context.  Think of it like a puzzle where certain pieces are missing. This approach helps the model understand the relationships and patterns among events in a sequence, rather than focusing solely on what might come next. After seeing thousands of sequences, life2vec gradually learned how to encode life histories into numerical representations. That distinction is crucial: our goal was not to predict “what comes next,” but to learn compact numerical representations that summarise entire life trajectories.
 
 These representations can then be used for downstream analysis: to study how health and labour events are interconnected, to explore hidden structure in life trajectories, and to provide carefully defined prediction tasks. What they cannot do (and were never designed to do) is hold a conversation or generate a personalised life trajectory.
 
@@ -116,7 +119,7 @@ To summarise the arguments above, the **life2vec model cannot do the following**
 
 Let’s return to where we started.
 
-The online death calculators circulating today are not built with life2vec. They do not have access to the data, the representations, or the training setup of our project. They are not simplified versions of the model, nor are they rough deployments of the same ideas. They are entirely separate tools, borrowing a name and a narrative without the substance behind it. We do have a page online[^6] that answers additional questions on the aim, privacy and data, but again, it is not a calculator.
+The online death calculators circulating today are not built with life2vec. They do not have access to the data, the representations, or the training setup of our project. They are not simplified versions of the model, nor are they rough deployments of the same ideas. They are entirely separate tools, borrowing a name and a narrative without the substance behind it. We do have a page online[^8] that answers additional questions on the aim, privacy and data, but again, it is not a calculator.
 
 Life2vec itself was never designed to predict individual death dates, and certainly not to be queried interactively online. It was a proof-of-concept: an exploration of whether rich, time-ordered life trajectories could be represented as sequences without flattening their structure, and whether Transformer-based models could learn meaningful representations from them. Death prediction was used in this work only as a validation task.
 
@@ -128,7 +131,7 @@ This post ended up being longer than I initially planned (and still did not cove
 
 Why talk about this now, long after the paper came out? This year, I had the chance to travel and share the project with the public, industry leaders, and scientists. I discovered that many genuinely believe these online models are tied to our research. There’s even a Life2vec crypto coin (again, not connected to our project) claiming "*[to act] like fuel for the entire Life2vec ecosystem.*" Clearly, it’s time to set the record straight.
 
-Material in this blogpost is based on multiple deck of slides that I have presented over the past years[^7]. **Everything here reflects only my own views**, not those of any institution or co-author. Finally, I used Grammarly AI and ChatGPT to look for synonyms and phrases that streamline the flow.
+Material in this blogpost is based on multiple deck of slides that I have presented over the past years[^9]. **Everything here reflects only my own views**, not those of any institution or co-author. Finally, I used Grammarly AI and ChatGPT to look for synonyms and phrases that streamline the flow.
 
 {{< callout type="tip" title="TL;DR: What life2vec is and isn’t" >}}
 
@@ -148,7 +151,7 @@ Material in this blogpost is based on multiple deck of slides that I have presen
 4. **Not available for public use or deployment**, due to strict privacy rules governing the data.
 5. Not connected to any services, or products currently claiming to use life2vec.
 
-The only official page related to our project is [life2vec.dk](https://life2vec.dk).
+The only official page related to our project is [life2vec.dk](https://life2vec.dk). **Everything here reflects only my own views**, not those of any institution or co-author.
 
 {{< /callout >}}
 
@@ -160,8 +163,12 @@ The only official page related to our project is [life2vec.dk](https://life2vec.
 
 [^4]: Danmarks Statistik. "[Dansk Branchekode DB07 — Danish Industry Classification](https://www.dst.dk/en/Statistik/dokumentation/nomenklaturer/db07)."
 
-[^5]: Jay Alammar. "[The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)." *Blog post*, published June 27, 2018.
+[^5]: Ashish Vaswani, et al. “[Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf).” *NeurIPS*, 2017.
 
-[^6]: Germans Savcisens and Sune Lehmann. "[life2vec — Official Model and Publication Source](https://life2vec.dk/)." *Webpage*, Published January 6, 2024.
+[^6]: Jay Alammar. "[The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)." *Blog post*, published June 27, 2018.
 
-[^7]: Germans Savcisens. "[Life2vec: Foundation models for registry data @ Complexity Science Hub](https://doi.org/10.5281/zenodo.17639200)." *Zenodo record*, published November 18, 2025.
+[^7]: Jacob Devlin, et al. “[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805).” *NAACL*, 2019.
+
+[^8]: Germans Savcisens and Sune Lehmann. "[life2vec — Official Model and Publication Source](https://life2vec.dk/)." *Webpage*, Published January 6, 2024.
+
+[^9]: Germans Savcisens. "[Life2vec: Foundation models for registry data @ Complexity Science Hub](https://doi.org/10.5281/zenodo.17639200)." *Zenodo record*, published November 18, 2025.
