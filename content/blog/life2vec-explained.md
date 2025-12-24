@@ -8,6 +8,9 @@ categories: ["science"]
 author: Germans Savcisens
 hidden: false
 ---
+
+{{ .TableOfContents}}
+
 {{<quote author="Philip Pullman" source="The Amber Spyglass" >}}
 tell them true stories, and everything will be well,
 {{< /quote >}}
