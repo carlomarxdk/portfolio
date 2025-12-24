@@ -10,9 +10,10 @@ hidden: false
 image: "/images/life2vec-hero.png"
 ---
 
-<!-- {{<quote author="Philip Pullman" source="The Amber Spyglass" >}}
+{{<quote author="Philip Pullman" source="The Amber Spyglass" >}}
 Tell them stories. They need the truth, you must tell them true stories \[...\].
-{{< /quote >}} -->
+{{< /quote >}}
+
 Over the past two years, online death calculators have flooded the internet. I think the craze really took off after the introduction of the [life2vec](https://www.nature.com/articles/s43588-023-00573-5),[^1] a model developed by a team of scientists, including myself, trained on life sequences from millions of Danish residents. Since then, life2vec has been often mentioned for its ability to predict “*when you are going to die with 78% accuracy,*” alongside the claims that it is powered by the same architecture as ChatGPT.
 
 Chances are, you have stumbled across one of these calculators. They often claim to use life2vec under the hood, with names like "*Life2vec AI Death Calculator.*" They quite often appear at the top of the search results and even make their way into news coverage. Maybe you have even tried one. Perhaps it promised you a century of life, or informed you that your time is up tomorrow... In either case, it likely left you with questions: "*How accurate is it?*” “*Is this really THE death calculator everyone’s talking about?*" "*Is this the model with the 78% accuracy?*"
