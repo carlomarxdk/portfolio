@@ -13,7 +13,7 @@
   {{ end }}
   <!-- Twitter Card data -->
   {{ if and (eq .Section "blog") .Params.subtitle }}
-  <meta name="twitter:title" content="{{ .Title }}: {{ .Params.subtitle }}"/>
+  <meta name="twitter:title" content="{{ .Title }} - {{ .Params.subtitle }}"/>
   {{ else }}
   <meta name="twitter:title" content="{{ .Title }}"/>
   {{ end }}

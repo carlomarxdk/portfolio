@@ -6,7 +6,7 @@
 <meta property="og:description" content="{{ .Site.Params.Description }}" />
 {{else}}
 {{ if and (eq .Section "blog") .Params.subtitle }}
-<meta property="og:title" content="{{.Params.Title}}: {{ .Params.subtitle }} - {{ .Site.Params.Author }}" />
+<meta property="og:title" content="{{.Params.Title}} - {{ .Params.subtitle }} - {{ .Site.Params.Author }}" />
 {{ else }}
 <meta property="og:title" content="{{.Params.Title | default "Academic Portfolio"}} - {{ .Site.Params.Author }}" />
 {{ end }}
