@@ -1,7 +1,7 @@
 ---
 title: "Is life2vec a mess?"
 subtitle: "What the internet got wrong"
-date: 2025-12-23
+date: 2025-12-24
 description: "A public-facing explanation of life2vec: its data, design, and limits, and why claims about '78% accuracy' and online death prediction are deeply misleading."
 tags: ["life2vec", "research", "explainer"]
 categories: ["science"]
@@ -10,9 +10,9 @@ hidden: false
 image: "/images/life2vec-hero.svg"
 ---
 
-<!-- {{<quote author="Philip Pullman" source="The Amber Spyglass" >}}
-tell them true stories, and everything will be well,
-{{< /quote >}} -->
+{{<quote author="Philip Pullman" source="The Amber Spyglass" >}}
+Tell them stories. They need the truth you must tell them true stories, and everything will be well, just tell them stories.
+{{< /quote >}}
 
 Over the past two years, online death calculators have flooded the internet. I think the craze really took off after the introduction of the [life2vec](https://www.nature.com/articles/s43588-023-00573-5),[^1] a model developed by a team of scientists, including myself, trained on life sequences from millions of Danish residents. Since then, life2vec has been often mentioned for its ability to predict “*when you are going to die with 78% accuracy,*” alongside the claims that it is powered by the same architecture as ChatGPT.
 
