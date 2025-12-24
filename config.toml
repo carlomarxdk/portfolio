@@ -131,6 +131,8 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 	  fencedDiv = true
 
     [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = "github"
       [markup.goldmark.parser.attribute]
         block = true
         title = true

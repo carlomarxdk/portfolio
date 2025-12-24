@@ -17,6 +17,27 @@
     text-decoration: none;
   }
 }
+
+@utility prose-blog {
+  font-family: var(--font-merriweather);
+  
+  & :where(h1, h2, h3, h4, h5, h6):not(:where([class~=not-prose],[class~=not-prose] *)) {
+    font-family: var(--font-funnel);
+  }
+  
+  & .footnote-ref {
+    text-decoration: none !important;
+  }
+  
+  & sup a {
+    text-decoration: none !important;
+  }
+  
+  /* Ensure italic and emphasis tags render properly */
+  & :where(em, i):not(:where([class~=not-prose],[class~=not-prose] *)) {
+    font-style: italic;
+  }
+}
 @layer components {
   .prose .footnotes {
     @apply tracking-tight;
@@ -71,6 +92,7 @@
   /* Custom font families */
   --font-funnel: "Funnel Display", Helvetica, sans-serif;
   --font-cabin: "Cabin", Helvetica, sans-serif;
+  --font-merriweather: "Merriweather", Georgia, serif;
 
   /* Custom screen breakpoints */
   --breakpoint-sm: 480px;
@@ -129,10 +151,22 @@
 }
 
 @utility main-title {
-  @apply box-decoration-clone bg-gradient-to-l from-rose-400 to-indigo-500; 
-  @apply text-white font-extrabold;
-  @apply text-balance md:text-2xl;
-  @apply inline-block px-2 py-2 mb-4;
+  @apply text-gray-900 font-extrabold;
+  @apply text-balance text-3xl md:text-5xl;
+  @apply mb-3;
+  @apply font-funnel;
+}
+
+@utility subtitle-title {
+  @apply text-gray-700 font-medium;
+  @apply text-balance text-xl md:text-2xl;
+  @apply mb-6;
+  @apply font-funnel;
+}
+
+@utility blog-label {
+  @apply text-xs uppercase tracking-wide text-gray-500 font-semibold;
+  @apply mb-4;
   @apply font-funnel;
 }
 

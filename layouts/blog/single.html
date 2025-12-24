@@ -3,22 +3,26 @@
 <body class="bg-stone-50 scroll-smooth focus:scroll-auto">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white">Skip to main content</a>
     {{ partial "nav.html" . }}
-    <main id="main-content" class="max-w-screen-lg px-4 py-8 mx-auto">
+    <main id="main-content" class="max-w-screen-xl px-4 py-8 mx-auto">
         <article itemscope itemtype="https://schema.org/BlogPosting">
-            <header class="mx-auto text-center mb-8">
-                <h1 class="main-title text-center" itemprop="headline">{{.Title}}</h1>
+            <header class="mx-auto text-center mb-12 max-w-4xl">
+                <p class="blog-label">Blogpost</p>
+                <h1 class="main-title" itemprop="headline">{{.Title}}</h1>
                     {{ with .Params.subtitle }}
-    <p class="mt-0 text-lg text-gray-700 max-w-2xl mx-auto leading-snug">
+    <p class="subtitle-title">
         {{ . }}
     </p>
         {{ end }}
 
-    <p class="text-sm text-gray-600 mt-3">
+    <p class="text-sm text-gray-600 mt-8">
 
         <time datetime="{{ .Date.Format "2006-01-02" }}" itemprop="datePublished">
             {{ .Date.Format "Jan 2, 2006" }}
         </time>
         <meta itemprop="dateModified" content="{{ .Lastmod.Format "2006-01-02" }}">
+        {{ if ne (.Date.Format "2006-01-02") (.Lastmod.Format "2006-01-02") }}
+            · Updated <time datetime="{{ .Lastmod.Format "2006-01-02" }}">{{ .Lastmod.Format "Jan 2, 2006" }}</time>
+        {{ end }}
 
         · {{ if lt 1 .WordCount }}{{ .WordCount }} words{{ else }}{{ .WordCount }} word{{ end }}
         · {{ .ReadingTime }} minute read
@@ -33,29 +37,56 @@
             </strong>
             {{ end }}
     </p>
-                <!-- {{ if .Params.description }}
-                <p class="text-gray-700 mt-4 max-w-2xl mx-auto" itemprop="description">{{ .Params.description }}</p>
-                {{ end }} -->
             </header>
             
-            {{ if .Site.Params.enableToc }}
-            {{ if .TableOfContents }}
-            <nav class="toc bg-white border border-gray-200 rounded-lg p-4 mb-8 max-w-2xl mx-auto shadow-sm">
-                <h2 class="text-lg font-semibold text-gray-900 mb-2 font-funnel">Table of Contents</h2>
-                <div class="text-sm">
-                    {{ .TableOfContents }}
+            <div class="max-w-screen-lg mx-auto">
+                {{/* Build TOC manually from page fragments */}}
+                {{ $headings := slice }}
+                {{ with .Fragments }}
+                    {{ with .Headings }}
+                        {{ range . }}
+                            {{ if and (ge .Level 2) (le .Level 4) }}
+                                {{ $headings = $headings | append . }}
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+                {{ $hasToc := and .Site.Params.enableToc (gt (len $headings) 0) }}
+                
+                <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                    {{ if $hasToc }}
+                    <aside class="lg:col-span-3 mb-8 lg:mb-0">
+                        <nav class="toc bg-white border border-gray-200 rounded-lg p-4 lg:sticky lg:top-8 shadow-sm" aria-label="Table of Contents">
+                            <h2 class="text-base font-semibold text-gray-900 mb-3 font-funnel">Table of Contents</h2>
+                            <ul class="text-sm space-y-2 list-none pl-0">
+                                {{ range $headings }}
+                                <li class="{{ if eq .Level 2 }}{{ else if eq .Level 3 }}pl-4{{ else }}pl-8{{ end }}">
+                                    <a href="#{{ .ID }}" class="text-gray-700 hover:text-indigo-600 transition-colors no-underline hover:underline block py-1">
+                                        {{ .Title }}
+                                    </a>
+                                </li>
+                                {{ end }}
+                            </ul>
+                        </nav>
+                    </aside>
+                    <div class="lg:col-span-9">
+                        <div class="prose prose-sm md:prose prose-blog" itemprop="articleBody"> 
+                            {{ .Content }}
+                        </div>
+                    </div>
+                    {{ else }}
+                    <div class="lg:col-span-12">
+                        <div class="prose prose-sm md:prose prose-blog mx-auto" itemprop="articleBody"> 
+                            {{ .Content }}
+                        </div>
+                    </div>
+                    {{ end }}
                 </div>
-            </nav>
-            {{ end }}
-            {{ end }}
-            
-            <div class="prose prose-sm md:prose mx-auto font-cabin" itemprop="articleBody"> 
-                {{ .Content }}
             </div>
             
             
             {{ if .Site.Params.enableShare }}
-            <div class="mt-12 pt-8 border-t border-gray-200">
+            <div class="mt-12 pt-8 border-t border-gray-200 max-w-screen-lg mx-auto">
                 {{ partial "share.html" . }}
             </div>
             {{ end }}
