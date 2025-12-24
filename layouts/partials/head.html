@@ -12,6 +12,9 @@
   <title>{{ .Site.Title | default "" }}</title>
   {{else}}
   <meta name="description" content='{{ .Params.description | default .Summary | default "" }}' />
+    {{ if and (eq .Section "blog") .Params.image }}
+  <meta name="image" property="og:image" content="{{ .Params.image }}">
+    {{end}}
   {{ if and (eq .Section "blog") .Params.subtitle }}
   <meta name="title" content='{{.Params.Title}} {{ .Params.subtitle }}' />
   <title>{{.Params.Title}} {{ .Params.subtitle }}</title>
