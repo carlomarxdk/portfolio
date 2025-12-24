@@ -1,11 +1,20 @@
 {
   "scripts": {
-    "format": "echo 'No formatter configured'",
-    "build:css": "postcss static/src/input.css -o static/src/output.css",
-    "build:css:prod": "cross-env NODE_ENV=production postcss static/src/input.css -o static/src/output.css",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+
+    "build:css": "npx postcss static/src/input.css -o static/src/output.css",
+    "build:css:prod": "cross-env NODE_ENV=production npx postcss static/src/input.css -o static/src/output.css",
     "build": "npm run build:css:prod && hugo --gc --minify",
-    "dev:css": "postcss static/src/input.css -o static/src/output.css --watch",
-    "dev": "hugo server -D"  },
+
+    "dev:css": "npx postcss static/src/input.css -o static/src/output.css --watch",
+    "dev": "hugo server -D"
+  },
+
+  "engines": {
+    "node": ">=20"
+  },
+
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.15",
