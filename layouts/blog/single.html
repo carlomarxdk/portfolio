@@ -42,9 +42,13 @@
             <div class="max-w-screen-lg mx-auto">
                 {{/* Build TOC manually from page fragments */}}
                 {{ $headings := slice }}
-                {{ range .Fragments.Headings }}
-                    {{ if and (ge .Level 2) (le .Level 4) }}
-                        {{ $headings = $headings | append . }}
+                {{ with .Fragments }}
+                    {{ with .Headings }}
+                        {{ range . }}
+                            {{ if and (ge .Level 2) (le .Level 4) }}
+                                {{ $headings = $headings | append . }}
+                            {{ end }}
+                        {{ end }}
                     {{ end }}
                 {{ end }}
                 {{ $hasToc := and .Site.Params.enableToc (gt (len $headings) 0) }}
