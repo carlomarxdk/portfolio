@@ -8,3 +8,6 @@ node_modules/
 .hugo_build.lock
 .DS_Store
 *.tar.gz
+hugo
+LICENSE
+README

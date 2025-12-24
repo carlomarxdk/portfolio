@@ -5,7 +5,7 @@ description: "A short description of the post"
 keywords: []
 tags: []
 categories: []
-images: []
+image: ""
 hidden: false
 sitemap:
   changefreq: monthly
