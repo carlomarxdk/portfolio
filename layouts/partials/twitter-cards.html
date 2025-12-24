@@ -1,50 +1,49 @@
 {{ if .IsPage }}
-  {{ with .Params.images }}
-    <!-- Twitter summary card with large image must be at least 280x150px -->
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image:src" content="{{ index . 0 | absURL }}"/>
-    {{ else }}
-    <meta name="twitter:card" content="summary"/>
-    {{ if .Site.Params.twitterCardImage }}
-      <meta name="twitter:image" content="{{ .Site.Params.twitterCardImage | absURL }}" />
-      {{ else }}
-      <meta name="twitter:image" content="{{ .Site.BaseURL }}images/avatar.png" />
-    {{ end }}
-  {{ end }}
-  <!-- Twitter Card data -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+
   {{ if and (eq .Section "blog") .Params.subtitle }}
-  <meta name="twitter:title" content="{{ .Title }} - {{ .Params.subtitle }}"/>
+    <meta name="twitter:title" content="{{ .Title }} - {{ .Params.subtitle }}" />
   {{ else }}
-  <meta name="twitter:title" content="{{ .Title }}"/>
+    <meta name="twitter:title" content="{{ .Title }}" />
   {{ end }}
-  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}"/>
+
+  <meta name="twitter:description"
+        content="{{ .Description | default .Summary | default .Site.Params.description }}" />
+
   {{ with .Site.Params.twitter }}
-    <meta name="twitter:site" content="@{{ . }}"/>
+    <meta name="twitter:site" content="@{{ . }}" />
+    <meta name="twitter:creator" content="@{{ . }}" />
   {{ end }}
-  {{ with .Params.authors }}
-    {{ range . }}
-      <meta name="twitter:creator" content="{{ . }}"/>
-    {{ end }}
+
+  {{ if .Params.image }}
+    <meta name="twitter:image" content="{{ .Params.image | absURL }}" />
+  {{ else if .Params.images }}
+    <meta name="twitter:image" content="{{ index .Params.images 0 | absURL }}" />
+  {{ else if .Site.Params.twitterCardImage }}
+    <meta name="twitter:image" content="{{ .Site.Params.twitterCardImage | absURL }}" />
   {{ else }}
-    {{ with .Site.Params.twitter }}
-      <meta name="twitter:creator" content="@{{ . }}"/>
-    {{ end }}
+    <meta name="twitter:image" content="{{ "/images/avatar.png" | absURL }}" />
   {{ end }}
 
 {{ else }}
 
-  <meta name="twitter:card" content="summary" />
+  <!-- Twitter Card (homepage / list pages) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ .Site.Title }}" />
+  <meta name="twitter:description"
+        content="{{ .Site.Params.description }}" />
+
   {{ with .Site.Params.twitter }}
-    <meta name="twitter:site" content="@{{ . }}"/>
+    <meta name="twitter:site" content="@{{ . }}" />
+    <meta name="twitter:creator" content="@{{ . }}" />
   {{ end }}
-  {{ with .Site.Params.author }}
-    <meta name="twitter:creator" content="@{{ . }}"/>
-  {{ end }}
-  <meta name="twitter:title" content="{{ .Site.Title }}"/>
-  <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}"/>
+
   {{ if .Site.Params.twitterCardImage }}
     <meta name="twitter:image" content="{{ .Site.Params.twitterCardImage | absURL }}" />
-    {{ else }}
-    <meta name="twitter:image" content="{{ .Site.BaseURL }}images/avatar.png" />
+  {{ else }}
+    <meta name="twitter:image" content="{{ "/images/avatar.png" | absURL }}" />
   {{ end }}
+
 {{ end }}

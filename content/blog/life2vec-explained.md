@@ -7,7 +7,7 @@ tags: ["life2vec", "research", "explainer"]
 categories: ["science"]
 author: Germans Savcisens
 hidden: false
-image: "/images/life2vec-hero.svg"
+image: "/images/life2vec-hero.png"
 ---
 
 {{<quote author="Philip Pullman" source="The Amber Spyglass" >}}

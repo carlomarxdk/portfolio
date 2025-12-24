@@ -1,37 +1,56 @@
 {{ if and (eq .Section "blog") (not .IsHome) (not .IsNode) }}
-{{ $sameAsLinks := slice }}
+
+{{/* -----------------------------
+   Identity links
+----------------------------- */}}
+{{ $sameAs := slice }}
+
+{{ with .Site.Params.structuredData.orcid }}
+  {{ $sameAs = $sameAs | append . }}
+{{ end }}
+{{ with .Site.Params.structuredData.googleScholar }}
+  {{ $sameAs = $sameAs | append . }}
+{{ end }}
+{{ with .Site.Params.social.linkedin }}
+  {{ $sameAs = $sameAs | append . }}
+{{ end }}
+{{ with .Site.Params.social.github }}
+  {{ $sameAs = $sameAs | append . }}
+{{ end }}
+
+{{/* -----------------------------
+   Organization
+----------------------------- */}}
 {{ $org := dict
   "@type" "Organization"
   "@id" (printf "%s#organization" (.Site.BaseURL | absURL))
   "name" (.Site.Title | default "Personal Blog")
   "url" (.Site.BaseURL | absURL)
 }}
-{{ with .Site.Params.structuredData.orcid }}
-  {{ $sameAsLinks = $sameAsLinks | append . }}
-{{ end }}
-{{ with .Site.Params.structuredData.googleScholar }}
-  {{ $sameAsLinks = $sameAsLinks | append . }}
-{{ end }}
-{{ with .Site.Params.social.linkedin }}
-  {{ $sameAsLinks = $sameAsLinks | append . }}
-{{ end }}
-{{ with .Site.Params.social.github }}
-  {{ $sameAsLinks = $sameAsLinks | append . }}
-{{ end }}
+
+{{/* -----------------------------
+   Person (author)
+----------------------------- */}}
 {{ $person := dict
   "@type" "Person"
   "@id" (printf "%s#person" (.Site.BaseURL | absURL))
   "name" .Site.Params.author
   "url" (.Site.BaseURL | absURL)
-  "sameAs" $sameAsLinks
+  "sameAs" $sameAs
   "jobTitle" (.Site.Params.structuredData.jobTitle | default "Researcher")
 }}
+
 {{ with .Site.Params.structuredData.affiliation }}
   {{ $person = merge $person (dict
     "affiliation" (dict "@type" "Organization" "name" .)
   ) }}
 {{ end }}
+
+{{/* -----------------------------
+   Keywords
+----------------------------- */}}
 {{ $keywords := slice }}
+
 {{ if .Params.keywords }}
   {{ if reflect.IsSlice .Params.keywords }}
     {{ range .Params.keywords }}
@@ -43,12 +62,22 @@
     {{ end }}
   {{ end }}
 {{ end }}
+
 {{ if .Params.tags }}
   {{ range .Params.tags }}
     {{ $keywords = $keywords | append . }}
   {{ end }}
 {{ end }}
+
+{{/* -----------------------------
+   Image precedence (IMPORTANT)
+   1. Params.image
+   2. Params.images[0]
+   3. Site twitterCardImage
+   4. Default avatar
+----------------------------- */}}
 {{ $image := "" }}
+
 {{ if .Params.image }}
   {{ $image = .Params.image | absURL }}
 {{ else if .Params.images }}
@@ -56,8 +85,12 @@
 {{ else if .Site.Params.twitterCardImage }}
   {{ $image = .Site.Params.twitterCardImage | absURL }}
 {{ else }}
-  {{ $image = printf "%simages/avatar.jpg" .Site.BaseURL }}
+  {{ $image = "/images/avatar.jpg" | absURL }}
 {{ end }}
+
+{{/* -----------------------------
+   BlogPosting
+----------------------------- */}}
 {{ $blogPosting := dict
   "@type" "BlogPosting"
   "@id" .Permalink
@@ -72,6 +105,8 @@
   "image" (dict
     "@type" "ImageObject"
     "url" $image
+    "width" 1200
+    "height" 627
   )
   "url" .Permalink
   "inLanguage" (.Site.LanguageCode | default "en-us")
@@ -82,13 +117,19 @@
     "name" "Blog"
   )
 }}
+
 {{ if .Params.subtitle }}
   {{ $blogPosting = merge $blogPosting (dict "alternativeHeadline" .Params.subtitle) }}
 {{ end }}
+
 {{ if gt (len $keywords) 0 }}
   {{ $blogPosting = merge $blogPosting (dict "keywords" $keywords) }}
 {{ end }}
-{{ $breadcrumbList := dict
+
+{{/* -----------------------------
+   Breadcrumbs
+----------------------------- */}}
+{{ $breadcrumbs := dict
   "@type" "BreadcrumbList"
   "@id" (printf "%s#breadcrumb" .Permalink)
   "itemListElement" (slice
@@ -97,11 +138,17 @@
     (dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink)
   )
 }}
+
+{{/* -----------------------------
+   Final graph
+----------------------------- */}}
 {{ $schema := dict
   "@context" "https://schema.org"
-  "@graph" (slice $person $org $blogPosting $breadcrumbList)
+  "@graph" (slice $person $org $blogPosting $breadcrumbs)
 }}
+
 <script type="application/ld+json">
 {{ $schema | jsonify | safeJS }}
 </script>
+
 {{ end }}
