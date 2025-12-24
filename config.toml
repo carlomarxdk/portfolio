@@ -17,6 +17,19 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 	bio = "PhD, Computational Social Science"
 	twitter = "germansave"
 	
+	enableRSS = false
+	enableToc = true
+	enableDisqus = false
+	disqusShortname = "" #disqus shortname here
+	enableSummary = false
+	# Set the value to true if use description in post front matter replace content summary
+	useDescriptionReplaceSummary = false
+	enablePlausible = true
+	PlausibleID = "savcisens.com"
+	enableTwitterCard = true
+	# The url for twitter card image, default is avatar.png in static/images directory
+	twitterCardImage = "images/avatar.jpg"
+	
 	# Structured Data for schema.org
 	[params.structuredData]
 		orcid = "https://orcid.org/0000-0002-5811-3230"
@@ -24,22 +37,6 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 		jobTitle = "Postdoctoral Research Associate"
 		scopusID = "58312119300"
 		affiliation = "Northeastern University"
-
-	enableRSS = false
-	enableToc = true
-
-	enableDisqus = false
-	disqusShortname = "" #disqus shortname here
-
-	enableSummary = false
-	# Set the value to true if use description in post front matter replace content summary
-	useDescriptionReplaceSummary = false
-	enablePlausible = true
-	PlausibleID = "savcisens.com"
-
-	enableTwitterCard = true
-	# The url for twitter card image, default is avatar.png in static/images directory
-	twitterCardImage = "images/avatar.jpg"
 
 	# Add custom assets with their paths relative to the static folder
 	customCSS = []

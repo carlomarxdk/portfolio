@@ -12,7 +12,11 @@
     {{ end }}
   {{ end }}
   <!-- Twitter Card data -->
+  {{ if and (eq .Section "blog") .Params.subtitle }}
+  <meta name="twitter:title" content="{{ .Title }} - {{ .Params.subtitle }}"/>
+  {{ else }}
   <meta name="twitter:title" content="{{ .Title }}"/>
+  {{ end }}
   <meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}"/>
   {{ with .Site.Params.twitter }}
     <meta name="twitter:site" content="@{{ . }}"/>

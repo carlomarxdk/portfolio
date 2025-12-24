@@ -1,4 +1,9 @@
+<!DOCTYPE html>
+<html {{ with .Site.LanguageCode }}lang="{{ . }}" {{ end }} class="scroll-smooth focus:scroll-auto">
+<head>
 {{ partial "head.html" . }}
+</head>
+
    <body>
       {{ partial "nav.html" . }}
       {{ partial "profile.html" . }}
