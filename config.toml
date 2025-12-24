@@ -127,7 +127,6 @@ disableKinds = ['RSS', 'taxonomy', 'term']
       taskList = true
       typographer = true
       definitionList = true
-	  tableOfContents = true
       footnote = true
 	  fencedDiv = true
 

@@ -40,13 +40,15 @@
             </header>
             
             <div class="max-w-screen-lg mx-auto">
+                {{ $toc := .TableOfContents }}
+                {{ $hasToc := and .Site.Params.enableToc (gt (len $toc) 20) }}
                 <div class="lg:grid lg:grid-cols-12 lg:gap-8">
-                    {{ if and .Site.Params.enableToc .TableOfContents }}
+                    {{ if $hasToc }}
                     <aside class="lg:col-span-3 mb-8 lg:mb-0">
                         <nav class="toc bg-white border border-gray-200 rounded-lg p-4 lg:sticky lg:top-8 shadow-sm">
                             <h2 class="text-base font-semibold text-gray-900 mb-3 font-funnel">Table of Contents</h2>
-                            <div class="text-sm">
-                                {{ .TableOfContents }}
+                            <div class="text-sm toc-content">
+                                {{ $toc | safeHTML }}
                             </div>
                         </nav>
                     </aside>
