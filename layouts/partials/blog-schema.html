@@ -49,7 +49,9 @@
   {{ end }}
 {{ end }}
 {{ $image := "" }}
-{{ if .Params.images }}
+{{ if .Params.image }}
+  {{ $image = .Params.image | absURL }}
+{{ else if .Params.images }}
   {{ $image = index .Params.images 0 | absURL }}
 {{ else if .Site.Params.twitterCardImage }}
   {{ $image = .Site.Params.twitterCardImage | absURL }}

@@ -32,6 +32,11 @@
   & sup a {
     text-decoration: none !important;
   }
+  
+  /* Ensure italic and emphasis tags render properly */
+  & :where(em, i):not(:where([class~=not-prose],[class~=not-prose] *)) {
+    font-style: italic;
+  }
 }
 @layer components {
   .prose .footnotes {
