@@ -1,0 +1,21 @@
+{{- /* 
+Quote shortcode for styled quotations with optional attribution
+Usage: {{< quote author="Kurt Vonnegut" source="Slaughterhouse-Five" >}}
+Everything was beautiful and nothing hurt.
+{{< /quote >}}
+*/ -}}
+{{- $author := .Get "author" -}}
+{{- $source := .Get "source" -}}
+
+<blockquote class="my-8 mx-auto max-w-2xl lg:max-w-[50%]">
+  <p class="text-lg md:text-xl italic text-gray-700 leading-relaxed font-merriweather">
+    "{{ .Inner | markdownify | chomp }}"
+  </p>
+  {{- if or $author $source -}}
+    <footer class="mt-3 text-sm text-gray-600">
+      <cite class="not-italic">
+        — {{ $author }}{{ if and $author $source }}, {{ end }}{{ if $source }}<em>{{ $source }}</em>{{ end }}
+      </cite>
+    </footer>
+  {{- end -}}
+</blockquote>
