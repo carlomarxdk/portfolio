@@ -1553,9 +1553,6 @@
   .py-8 {
     padding-block: calc(var(--spacing) * 8);
   }
-  .pt-0 {
-    padding-top: calc(var(--spacing) * 0);
-  }
   .pt-0\.5 {
     padding-top: calc(var(--spacing) * 0.5);
   }
@@ -1602,6 +1599,9 @@
     }
     & sup a {
       text-decoration: none !important;
+    }
+    & :where(em, i):not(:where([class~=not-prose],[class~=not-prose] *)) {
+      font-style: italic;
     }
   }
   .font-cabin {
