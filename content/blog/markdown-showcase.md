@@ -128,7 +128,12 @@ Never commit sensitive credentials to your repository!
 
 The figure shortcode provides accessible images with captions:
 
-
+<!-- {{< figure
+src="/images/avatar.jpg"
+alt="Academic profile photo"
+caption="Images now support **captions with Markdown** for better context and accessibility"
+width="300"
+>}} -->
 
 ## Horizontal Rules
 

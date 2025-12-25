@@ -73,7 +73,9 @@ This combination of strong predictive performance on structured sequences and in
 
 To apply Transformers to life-related records, we had to define some sort of language. The language we developed is super simple, and, most importantly, it **bears little resemblance to human-written language**. This synthetic language is intentionally simple, with only a few basic rules. Unlike human languages, it does not include grammar in the traditional sense: there are no conjugations, inflectional endings, or function words. We left these elements out because they do not add much meaning for our purposes and would only introduce additional structure for the model to learn (i.e., things that are not connected to health or labour).
 
-Instead of words like `dog` or `beautiful`, the vocabulary consists of codes derived from the data, and we have something similar to sentences (each sentence represents a single record in the data). So, taking my previous example with the labour:
+Instead of words like `dog` or `beautiful`, the vocabulary consists of codes derived from the data (like `INDUSTRY-1814`), and we have something similar to sentences (each sentence represents a single record in the data). The vocabulary contains only of 2 000 words (way fewer than in English).
+
+So, taking my previous example with the labour record:
 
 - **Date**: January 2, 2011
 - **Income**: 32,000 DKK
@@ -84,19 +86,19 @@ In our language, this record becomes a sentence: `[INCOME-32] [INDUSTRY-1814] [O
 
 `[INCOME-32] [INDUSTRY-1814] [OCC-7323] . [AMBULANCE] [HEALTH-S60]. [INCOME-63] [INDUSTRY-1814] [OCC-7323] .`
 
-This is a slightly simplified example, since we had many more categories and code types, but you get the idea. You should also understand that, since we have used such detailed records, we cannot make them public (the same argument goes for the life2vec model), which would constitute a huge privacy violation.
+This is a slightly simplified example, since we have many more categories and code types, but you get the idea. You should also understand that, since we have used such detailed records, we cannot make the data public (the same argument goes for the life2vec model), which would constitute a huge privacy violation.
 
-Some have proposed representing life sequences directly in English and further using pretrained models such as ChatGPT or Llama to make predictions. At first glance, it might sound like a low-hanging fruit. However, it comes with a fundamental issue: we have no idea what went into the pretraining of these models, nor the biases they may have accumulated along the way. To put it into perspective, ask yourself the following: Would you want a model trained partly on posts from **r/WhatWrongWithYourDog** to make predictions about your future career?
+Some have proposed representing life sequences directly in English and further using pretrained models such as ChatGPT or [Llama](https://www.llama.com/) to make predictions. At first glance, it might sound like a low-hanging fruit. However, it comes with a **fundamental issue**: we have no idea what went into the pretraining of these models, nor the biases they may have accumulated along the way. To put it into perspective, ask yourself the following: Would you want a model trained partly on posts from **r/WhatWrongWithYourDog** to make predictions about your future career?
 
 ## The Model to Capture It All
 
-As should already be clear from the synthetic language, **life2vec is not something you can meaningfully chat with in English**. But there is another, more fundamental reason why chat-like conversations are impossible: the way we trained the model.
+As should already be clear from the synthetic language, **life2vec is not something you can meaningfully chat with in English**. But there is another, more crucial reason why chat-like conversations are impossible: the _way_ we trained the model.
 
 Most modern transformer-based chat systems (again, ChatGPT as an example) are trained to predict the next token in a sequence. This makes the most sense for the task ChatGPT has to accomplish, namely generating coherent replies.
 
-**Life2vec was trained very differently**. Instead of next-token predictions in a sequence, as in chat-based models, it used a masked modelling objective.[^7] In this setup, parts of the sequence are hidden, and the model is tasked with reconstructing the missing elements from the surrounding context. Think of it like a puzzle where certain pieces are missing. This approach helps the model understand the relationships and patterns among events in a sequence, rather than focusing solely on what might come next. After seeing thousands of sequences, life2vec gradually learned how to encode life histories into numerical representations. That distinction is crucial: our goal was not to predict “what comes next,” but to learn compact numerical representations that summarise entire life trajectories.
+**Life2vec was trained very differently**. Instead of next-token predictions in a sequence, as in chat-based models, it used a masked modelling objective.[^7] In this setup, parts of the sequence are hidden, and the model is tasked with reconstructing the missing elements from the surrounding context. Think of it like a puzzle where certain pieces are missing. This approach helps the model understand the relationships and patterns among events in a sequence, rather than focusing solely on what might come next. After seeing thousands of sequences, life2vec gradually learned how to encode life histories into numerical representations. That distinction is crucial: our goal was not to predict "_what comes next,_" but to learn compact numerical representations that summarise entire life trajectories.
 
-![Compating the training strategies](/images/training_exp.webp)
+![Comparing training strategies](/images/training_exp.webp)
 
 These representations can then be used for downstream analysis: to study how health and labour events are interconnected, to explore hidden structure in life trajectories, and to provide carefully defined prediction tasks. What they cannot do (and were never designed to do) is hold a conversation or generate a personalised life trajectory.
 
@@ -106,11 +108,11 @@ I will dedicate a separate blog post to explain what life2vec actually learned a
 
 That said, this post is about death predictions, so let’s get back to that.
 
-Now that life2vec was pretrained and learned to operate on sequences, we could provide complete life-sequences (without any masking). Life2vec, in turn, produces a numerical representation of that sequence. The question that remained: do these compressed representations of sequences carry any meaningful information? Death prediction entered the picture not as an end goal, but as a **validation task**. Mortality is a well-studied phenomenon, and if life2vec could provide insights that align with our knowledge and match (or outperform) existing approaches, it would support the idea that Transformer models and textual representations of life sequences can be useful for computational social science.
+Now that life2vec was pretrained and learned to operate on sequences, we could use it to summarize the input. Given a complete life-sequence, Life2vec produced a numerical representation of that sequence. The question that remained: do these compressed representations of sequences carry any meaningful information? 
 
-The task was quite simple. Given a life sequence (or rather its numerical summary) ending on December 31st, 2014, could the life2vec model identify individuals who would die within the following three years? It was a binary classification problem: no predicted dates, no fine-grained timing, a fixed prediction window ending in 2018. A small note: during pretraining, life2vec never saw any information about events that occurred after 2014.
+Death prediction entered the picture not as an end goal, but as a **validation task**. Mortality is a well-studied phenomenon, and if life2vec could provide insights that align with our knowledge and match (or outperform) existing approaches, it would support the idea that Transformer models and textual representations of life sequences can be useful for computational social science.  We settled on a simple downstream task: given a life sequence ending on December 31st, 2014, could the life2vec model identify individuals who would die within the following three years? It was a binary classification problem: no predicted dates, no fine-grained timing, a fixed prediction window ending in 2018 \(A small note: during pretraining, life2vec never saw any information about events that occurred after 2014/).
 
-Under this setup, the model performed well, outperforming several classical methods, and identified connections we know lead to higher mortality, such as working in a physically demanding position. Notably, the often-quoted figure of _78\% accuracy_ was never emphasised in the main paper. Accuracy is not always the most informative metric, and this number appeared only in the supplementary materials, consistent with reporting practices in our field. To be precise, what this number means is the following: if I take a group of 100 people that consists of 50 people who died within the prediction window and 50 who were still alive by the end of 2018 → life2vec would correctly classify 78 of them (on average).
+Under this setup, the model performed well, outperforming several classical methods, and identified connections we know lead to higher mortality, such as working in a physically demanding position. Notably, the often-quoted figure of _78\% accuracy_ was never emphasised in the main paper. Accuracy is not always the most informative metric, and this number appeared only in the supplementary materials, consistent with practices in our field. To be precise, what this number means is the following: if I take a group of 100 people that consists of 50 people who died within the prediction window and 50 who were still alive by the end of 2018 → life2vec would correctly classify 78 of them (on average).
 
 To summarise the arguments above, the **life2vec model cannot do the following**:
 
@@ -179,5 +181,3 @@ The only official page related to our project is [life2vec.dk](https://life2vec.
 [^8]: Germans Savcisens and Sune Lehmann. "[life2vec — Official Model and Publication Source](https://life2vec.dk/)." _Webpage_, Published January 6, 2024.
 
 [^9]: Germans Savcisens. "[Life2vec: Foundation models for registry data @ Complexity Science Hub](https://doi.org/10.5281/zenodo.17639200)." _Zenodo record_, published November 18, 2025.
-
-
