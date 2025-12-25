@@ -123,10 +123,7 @@
   href="{{ .Site.BaseURL }}images/safari-pinned-tab.svg"
   color="#ffffff"
 />
-{{ if and (eq .Section "blog") (not .IsNode) }}
-  {{/* Blog post pages get blog-specific schema */}}
-  {{ partial "blog-schema.html" . }}
-{{ else }}
-  {{/* All other pages (home, sections, list pages) get general schema */}}
-  {{ partial "schema.html" . }}
-{{ end }}
+{{ if and (eq .Section "blog") (not .IsNode) }} {{/* Blog post pages get
+blog-specific schema */}} {{ partial "blog-schema.html" . }} {{ else }} {{/* All
+other pages (home, sections, list pages) get general schema */}} {{ partial
+"schema.html" . }} {{ end }}

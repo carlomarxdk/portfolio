@@ -126,13 +126,13 @@ Key config.toml parameters used:
   description = "..."
   twitter = "germansave"
   twitterCardImage = "images/avatar.jpg"
-  
+
   [params.structuredData]
     orcid = "..."
     googleScholar = "..."
     jobTitle = "..."
     affiliation = "..."
-    
+
   [params.social]
     github = "..."
     linkedin = "..."

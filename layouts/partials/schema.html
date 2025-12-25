@@ -1,121 +1,60 @@
-{{/* General schema for non-blog pages (home, sections, list pages) */}}
-{{ $person := dict
-  "@type" "Person"
-  "@id" (printf "%s#person" (.Site.BaseURL | absURL))
-  "name" (.Site.Params.author | default "Germans Savcisens")
-  "alternateName" (slice "Germans Šavcišens" "Герман Савчишен")
-  "jobTitle" (.Site.Params.structuredData.jobTitle | default "Postdoctoral Associate Researcher")
-  "description" (.Site.Params.description | default "Germans Savcisens is a postdoctoral researcher at Northeastern University. His research focuses on enhancing the transparency and safety of machine learning algorithms.")
-  "url" (.Site.BaseURL | absURL)
-  "email" "mailto:germans@savcisens.com"
-  "image" ((.Site.Params.twitterCardImage | default "/images/avatar.webp") | absURL)
-}}
-
-{{/* Build sameAs array from config */}}
-{{ $sameAs := slice }}
-{{ with .Site.Params.structuredData.googleScholar }}
-  {{ $sameAs = $sameAs | append . }}
-{{ end }}
-{{ with .Site.Params.social.github }}
-  {{ $sameAs = $sameAs | append . }}
-{{ end }}
-{{ with .Site.Params.social.bluesky }}
-  {{ $sameAs = $sameAs | append . }}
-{{ end }}
-{{ with .Site.Params.social.linkedin }}
-  {{ $sameAs = $sameAs | append . }}
-{{ end }}
-{{ if gt (len $sameAs) 0 }}
-  {{ $person = merge $person (dict "sameAs" $sameAs) }}
-{{ end }}
-
-{{/* Add address if available */}}
-{{ $person = merge $person (dict "address" (dict
-  "@type" "PostalAddress"
-  "addressLocality" "Boston"
-  "addressRegion" "MA"
-  "addressCountry" "USA"
-)) }}
-
-{{/* Add alumni info */}}
-{{ $person = merge $person (dict "alumniOf" (dict
-  "@type" "CollegeOrUniversity"
-  "name" "Technical University of Denmark"
-  "url" "https://www.dtu.dk/english"
-)) }}
-
-{{/* Add knowledge areas */}}
-{{ $person = merge $person (dict "knowsAbout" (slice
-  "Machine Learning"
-  "Human Behavior Analysis"
-  "Algorithmic Fairness"
-  "Transformer Models"
-  "life2vec"
-  "Network Science"
-)) }}
-
-{{/* Add languages */}}
-{{ $person = merge $person (dict "knowsLanguage" (slice
-  (dict "@type" "Language" "name" "English")
-  (dict "@type" "Language" "name" "Latvian")
-  (dict "@type" "Language" "name" "Russian")
-)) }}
-
-{{/* Add affiliation */}}
-{{ $person = merge $person (dict "worksFor" (slice
-  (dict "@type" "EducationalOrganization" "name" "Northeastern University" "url" "https://www.northeastern.edu")
-  (dict "@type" "EducationalOrganization" "name" "Network Science Institute" "url" "https://www.networkscienceinstitute.org/")
-)) }}
-
-{{/* WebSite schema */}}
-{{ $website := dict
-  "@type" "WebSite"
-  "@id" (printf "%s#website" (.Site.BaseURL | absURL))
-  "url" (.Site.BaseURL | absURL)
-  "name" (.Site.Title | default "Germans Savcisens Portfolio")
-  "description" (.Site.Params.description | default "Portfolio website featuring research projects, publications, and professional achievements in computational social science.")
-  "publisher" (dict "@id" (printf "%s#person" (.Site.BaseURL | absURL)))
-}}
-
-{{/* WebPage schema for specific pages */}}
-{{ $webpage := dict
-  "@type" "WebPage"
-  "@id" .Permalink
-  "url" .Permalink
-  "name" (.Title | default .Site.Title)
-  "description" (cond (and (isset .Params "description") (ne .Params.description "")) .Params.description (.Site.Params.description | default ""))
-  "isPartOf" (dict "@id" (printf "%s#website" (.Site.BaseURL | absURL)))
-  "inLanguage" (.Site.LanguageCode | default "en-us")
-}}
-
-{{ if not .IsHome }}
-  {{ $webpage = merge $webpage (dict "breadcrumb" (dict "@id" (printf "%s#breadcrumb" .Permalink))) }}
-{{ end }}
-
-{{/* Build breadcrumb for non-home pages */}}
-{{ $breadcrumb := dict }}
-{{ if not .IsHome }}
-  {{ $items := slice (dict "@type" "ListItem" "position" 1 "name" "Home" "item" (.Site.BaseURL | absURL)) }}
-  {{ if .Section }}
-    {{ $items = $items | append (dict "@type" "ListItem" "position" 2 "name" (.Section | title) "item" (printf "%s%s/" .Site.BaseURL .Section | absURL)) }}
-    {{ if not .IsNode }}
-      {{ $items = $items | append (dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink) }}
-    {{ end }}
-  {{ end }}
-  {{ $breadcrumb = dict
-    "@type" "BreadcrumbList"
-    "@id" (printf "%s#breadcrumb" .Permalink)
-    "itemListElement" $items
-  }}
-{{ end }}
-
-{{/* Build final graph */}}
-{{ $graph := slice $person $website $webpage }}
-{{ if not .IsHome }}
-  {{ $graph = $graph | append $breadcrumb }}
-{{ end }}
-
-{{ $schema := dict "@context" "https://schema.org" "@graph" $graph }}
+{{/* General schema for non-blog pages (home, sections, list pages) */}} {{
+$person := dict "@type" "Person" "@id" (printf "%s#person" (.Site.BaseURL |
+absURL)) "name" (.Site.Params.author | default "Germans Savcisens")
+"alternateName" (slice "Germans Šavcišens" "Герман Савчишен") "jobTitle"
+(.Site.Params.structuredData.jobTitle | default "Postdoctoral Associate
+Researcher") "description" (.Site.Params.description | default "Germans
+Savcisens is a postdoctoral researcher at Northeastern University. His research
+focuses on enhancing the transparency and safety of machine learning
+algorithms.") "url" (.Site.BaseURL | absURL) "email"
+"mailto:germans@savcisens.com" "image" ((.Site.Params.twitterCardImage | default
+"/images/avatar.webp") | absURL) }} {{/* Build sameAs array from config */}} {{
+$sameAs := slice }} {{ with .Site.Params.structuredData.googleScholar }} {{
+$sameAs = $sameAs | append . }} {{ end }} {{ with .Site.Params.social.github }}
+{{ $sameAs = $sameAs | append . }} {{ end }} {{ with .Site.Params.social.bluesky
+}} {{ $sameAs = $sameAs | append . }} {{ end }} {{ with
+.Site.Params.social.linkedin }} {{ $sameAs = $sameAs | append . }} {{ end }} {{
+if gt (len $sameAs) 0 }} {{ $person = merge $person (dict "sameAs" $sameAs) }}
+{{ end }} {{/* Add address if available */}} {{ $person = merge $person (dict
+"address" (dict "@type" "PostalAddress" "addressLocality" "Boston"
+"addressRegion" "MA" "addressCountry" "USA" )) }} {{/* Add alumni info */}} {{
+$person = merge $person (dict "alumniOf" (dict "@type" "CollegeOrUniversity"
+"name" "Technical University of Denmark" "url" "https://www.dtu.dk/english" ))
+}} {{/* Add knowledge areas */}} {{ $person = merge $person (dict "knowsAbout"
+(slice "Machine Learning" "Human Behavior Analysis" "Algorithmic Fairness"
+"Transformer Models" "life2vec" "Network Science" )) }} {{/* Add languages */}}
+{{ $person = merge $person (dict "knowsLanguage" (slice (dict "@type" "Language"
+"name" "English") (dict "@type" "Language" "name" "Latvian") (dict "@type"
+"Language" "name" "Russian") )) }} {{/* Add affiliation */}} {{ $person = merge
+$person (dict "worksFor" (slice (dict "@type" "EducationalOrganization" "name"
+"Northeastern University" "url" "https://www.northeastern.edu") (dict "@type"
+"EducationalOrganization" "name" "Network Science Institute" "url"
+"https://www.networkscienceinstitute.org/") )) }} {{/* WebSite schema */}} {{
+$website := dict "@type" "WebSite" "@id" (printf "%s#website" (.Site.BaseURL |
+absURL)) "url" (.Site.BaseURL | absURL) "name" (.Site.Title | default "Germans
+Savcisens Portfolio") "description" (.Site.Params.description | default
+"Portfolio website featuring research projects, publications, and professional
+achievements in computational social science.") "publisher" (dict "@id" (printf
+"%s#person" (.Site.BaseURL | absURL))) }} {{/* WebPage schema for specific pages
+*/}} {{ $webpage := dict "@type" "WebPage" "@id" .Permalink "url" .Permalink
+"name" (.Title | default .Site.Title) "description" (cond (and (isset .Params
+"description") (ne .Params.description "")) .Params.description
+(.Site.Params.description | default "")) "isPartOf" (dict "@id" (printf
+"%s#website" (.Site.BaseURL | absURL))) "inLanguage" (.Site.LanguageCode |
+default "en-us") }} {{ if not .IsHome }} {{ $webpage = merge $webpage (dict
+"breadcrumb" (dict "@id" (printf "%s#breadcrumb" .Permalink))) }} {{ end }} {{/*
+Build breadcrumb for non-home pages */}} {{ $breadcrumb := dict }} {{ if not
+.IsHome }} {{ $items := slice (dict "@type" "ListItem" "position" 1 "name"
+"Home" "item" (.Site.BaseURL | absURL)) }} {{ if .Section }} {{ $items = $items
+| append (dict "@type" "ListItem" "position" 2 "name" (.Section | title) "item"
+(printf "%s%s/" .Site.BaseURL .Section | absURL)) }} {{ if not .IsNode }} {{
+$items = $items | append (dict "@type" "ListItem" "position" 3 "name" .Title
+"item" .Permalink) }} {{ end }} {{ end }} {{ $breadcrumb = dict "@type"
+"BreadcrumbList" "@id" (printf "%s#breadcrumb" .Permalink) "itemListElement"
+$items }} {{ end }} {{/* Build final graph */}} {{ $graph := slice $person
+$website $webpage }} {{ if not .IsHome }} {{ $graph = $graph | append
+$breadcrumb }} {{ end }} {{ $schema := dict "@context" "https://schema.org"
+"@graph" $graph }}
 
 <script type="application/ld+json">
   {{ $schema | jsonify | safeJS }}
