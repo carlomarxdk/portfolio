@@ -186,6 +186,105 @@ Term 2
 : Definition 2b
 ```
 
+## Sidenote Shortcode
+
+Use the `sidenote` shortcode to create margin notes that appear in the right margin on larger screens and inline on mobile devices. Inspired by Edward Tufte's design philosophy.
+
+### Basic Usage
+
+```markdown
+This is the main text{{< sidenote id="sn1" >}}This is a side note that appears in the right margin.{{< /sidenote >}} and it continues here.
+```
+
+### With Markdown Content
+
+```markdown
+Some text with a reference{{< sidenote id="note1" >}}
+This side note can contain **bold text**, *italics*, and even [links](https://example.com).
+{{< /sidenote >}} to additional context.
+```
+
+### Multiple Sidenotes
+
+```markdown
+First paragraph with a note{{< sidenote id="sn1" >}}First side note{{< /sidenote >}} continues here.
+
+Second paragraph{{< sidenote id="sn2" >}}Second side note with more details{{< /sidenote >}} with more content.
+```
+
+### Parameters
+
+- `id` (required): Unique identifier for the sidenote. This is used to link the marker to the note.
+
+### Behavior
+
+- **Desktop (>976px)**: Side notes appear in the right margin, automatically numbered
+- **Mobile (≤976px)**: Side notes appear inline when you click/tap the number, with a distinctive background
+- **Automatic numbering**: Side notes are numbered sequentially throughout the article
+- **Markdown support**: Content inside sidenotes supports full Markdown formatting
+
+### Best Practices for Sidenotes
+
+1. **Use for supplementary information**: Side notes are perfect for tangential thoughts, references, or additional context that shouldn't interrupt the main narrative
+2. **Keep them concise**: While they support Markdown, side notes work best when kept brief
+3. **Use unique IDs**: Always provide a unique `id` for each sidenote to avoid conflicts
+4. **Don't overuse**: Too many side notes can clutter the layout. Use them sparingly for maximum impact
+5. **Consider reading flow**: Place side notes near the relevant text in your main content
+
+### Example in Context
+
+```markdown
+## The History of Computing
+
+The ENIAC{{< sidenote id="eniac" >}}ENIAC stood for Electronic Numerical Integrator and Computer, completed in 1945{{< /sidenote >}} was one of the earliest electronic general-purpose computers. It was designed primarily to calculate artillery firing tables{{< sidenote id="military" >}}The military applications of early computers were crucial to their development and funding{{< /sidenote >}} for the United States Army's Ballistic Research Laboratory.
+```
+
+## Markdown Extensions
+
+The site also supports these Goldmark extensions:
+
+### Tables
+
+```markdown
+| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Cell 1   | Cell 2   | Cell 3   |
+| Cell 4   | Cell 5   | Cell 6   |
+```
+
+### Task Lists
+
+```markdown
+- [x] Completed task
+- [ ] Incomplete task
+- [ ] Another task
+```
+
+### Strikethrough
+
+```markdown
+This is ~~deleted text~~ and this is regular text.
+```
+
+### Footnotes
+
+```markdown
+Here's a sentence with a footnote[^1].
+
+[^1]: This is the footnote content.
+```
+
+### Definition Lists
+
+```markdown
+Term 1
+: Definition 1
+
+Term 2
+: Definition 2a
+: Definition 2b
+```
+
 ## Best Practices
 
 1. **Always provide alt text** for images to ensure accessibility
@@ -194,3 +293,4 @@ Term 2
 4. **Keep callout content concise** - they're meant to highlight important information
 5. **Test video embeds** to ensure they load correctly
 6. **Use heading hierarchy correctly** - don't skip levels (H1 → H2 → H3)
+7. **Use sidenotes sparingly** - they work best for supplementary information that enhances but doesn't interrupt the main text

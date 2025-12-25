@@ -9,11 +9,11 @@ hidden: true
 
 ## Introduction
 
-This post demonstrates the enhanced Markdown rendering capabilities of this Hugo site. We've improved visual quality, accessibility, and added several useful features.
+This post demonstrates the enhanced Markdown rendering capabilities of this Hugo site. We've improved visual quality, accessibility, and added several useful features.{{< sidenote id="intro-note" >}}This showcase is regularly updated with new features and improvements.{{< /sidenote >}}
 
 ## Typography Improvements
 
-Our typography system now uses **Tailwind Typography** with custom enhancements for better readability and visual hierarchy.
+Our typography system{{< sidenote id="typo-note" >}}Based on **Tailwind Typography** with extensive customizations for academic writing.{{< /sidenote >}} now uses **Tailwind Typography** with custom enhancements for better readability and visual hierarchy.
 
 ### Headings
 
@@ -100,7 +100,7 @@ Tables are now fully styled with hover effects and proper spacing:
 
 ## Callout Shortcodes
 
-We've added versatile callout shortcodes for highlighting important information:
+We've added versatile callout shortcodes{{< sidenote id="callout-note" >}}Callouts are inspired by GitHub's alert syntax and provide semantic highlighting.{{< /sidenote >}} for highlighting important information:
 
 {{< callout type="info" title="Information" >}}
 This is an informational callout. It's perfect for sharing helpful context or additional details.
@@ -138,6 +138,12 @@ The figure shortcode provides accessible images with captions:
 Horizontal rules provide visual separation between sections:
 
 ---
+
+## Sidenotes
+
+Sidenotes{{< sidenote id="tufte" >}}Inspired by Edward Tufte's design philosophy, sidenotes provide a elegant way to add supplementary information without breaking the reading flow.{{< /sidenote >}} are a powerful feature for academic and technical writing. They appear in the right margin on desktop and inline on mobile devices.
+
+Unlike footnotes{{< sidenote id="footnotes-vs-sidenotes" >}}Footnotes appear at the bottom of the page, requiring readers to scroll. Sidenotes keep related information adjacent to the text.{{< /sidenote >}}, sidenotes maintain context by appearing next to the relevant text. This creates a richer reading experience{{< sidenote id="reading-exp" >}}Studies have shown that margin notes can improve comprehension and retention of complex material.{{< /sidenote >}} especially for complex topics.
 
 ## Footnotes
 
