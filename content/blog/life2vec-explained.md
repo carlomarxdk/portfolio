@@ -22,6 +22,30 @@ I have to admit: the title was a bit of a tease, and for that, I owe you an apol
 
 This is written for **curious readers**, **journalists**, **policymakers**, and **scientists**. You might ask why this explanation should differ from similar pieces you have seen elsewhere. My answer is simple: I was the first author of the life2vec paper, and I spent three years, alongside brilliant co-authors, bringing this project to life.
 
+## TL;DR: What life2vec is and isn't
+
+{{< callout type="tip" >}}
+
+### What life2vec is
+
+1. A research prototype created by scientists to study the sequence of life events using national registry data.
+2. A Transformer-based model trained on coded health, labor, and demographic records (not natural language).
+3. A method for learning compact, numerical summaries of entire life histories.
+4. A tool evaluated on broad, population-level predictions (such as short-term mortality risk), strictly for research validation (not as a commercial product).
+5. A **proof-of-concept** showing how modern AI models can support social science without oversimplifying individual life histories.
+
+### What life2vec is not
+
+1. **Not an online tool**, app, or "_AI death calculator._"
+2. **Not a chatbot**, and not designed for interaction in English.
+3. **Not trained to predict personal death dates** or individual future life paths.
+4. **Not available for public use or deployment**, due to strict privacy rules governing the data.
+5. Not connected to any services, or products currently claiming to use life2vec.
+
+The only official page related to our project is [life2vec.dk](https://life2vec.dk). **Everything here reflects only my own views**, not those of any institution or co-author.
+
+{{< /callout >}}
+
 ## Data
 
 Our work on life2vec aimed to ultimately enhance understanding of life trajectories and their links to health and labour outcomes, opening the way to improve public health strategies and social policies. To make this concrete, it helps to start with the data, since it is easier to put life2vec into perspective once you understand what goes into it.
@@ -133,31 +157,17 @@ Life2vec itself was never designed to predict individual death dates, and certai
 
 This post ended up being longer than I initially planned (and still did not cover even half of what I originally intended). If all goes well, I will dive deeper into specific aspects of the life2vec model in future posts, including a more detailed discussion of death prediction and other tasks we explored, such as self-reported personality assessment.
 
-Why talk about this now, long after the paper came out? This year, I had the chance to travel and share the project with the public, industry leaders, and scientists. I discovered that many genuinely believe these online models are tied to our research. There’s even a Life2vec crypto coin (again, not connected to our project) claiming fuel for the Life2vec ecosystem. Clearly, it’s time to set the record straight.
+Why talk about this now, long after the paper came out? This year, I had the chance to travel and share the project with the public, industry leaders, and scientists. I discovered that many genuinely believe these online models are tied to our research. There's even a Life2vec crypto coin (again, not connected to our project) claiming fuel for the Life2vec ecosystem. Clearly, it's time to set the record straight.
 
 The material in this blog post is based on multiple slide decks I have presented over the past years.[^9] **Everything here reflects only my own views**, not those of any institution or co-author. Finally, I used Grammarly AI and ChatGPT to look for synonyms and phrases that streamline the flow.
 
-{{< callout type="tip" title="TL;DR: What life2vec is and isn’t" >}}
+[^6]: Jay Alammar. "[The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)." _Blog post_, published June 27, 2018.
 
-### What life2vec is
+[^7]: Jacob Devlin, et al. “[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805).” _NAACL_, 2019.
 
-1. A research prototype created by scientists to study the sequence of life events using national registry data.
-2. A Transformer-based model trained on coded health, labor, and demographic records (not natural language).
-3. A method for learning compact, numerical summaries of entire life histories.
-4. A tool evaluated on broad, population-level predictions (such as short-term mortality risk), strictly for research validation (not as a commercial product).
-5. A **proof-of-concept** showing how modern AI models can support social science without oversimplifying individual life histories.
+[^8]: Germans Savcisens and Sune Lehmann. "[life2vec — Official Model and Publication Source](https://life2vec.dk/)." _Webpage_, Published January 6, 2024.
 
-### What life2vec is not
-
-1. **Not an online tool**, app, or "_AI death calculator._"
-2. **Not a chatbot**, and not designed for interaction in English.
-3. **Not trained to predict personal death dates** or individual future life paths.
-4. **Not available for public use or deployment**, due to strict privacy rules governing the data.
-5. Not connected to any services, or products currently claiming to use life2vec.
-
-The only official page related to our project is [life2vec.dk](https://life2vec.dk). **Everything here reflects only my own views**, not those of any institution or co-author.
-
-{{< /callout >}}
+[^9]: Germans Savcisens. "[Life2vec: Foundation models for registry data @ Complexity Science Hub](https://doi.org/10.5281/zenodo.17639200)." _Zenodo record_, published November 18, 2025.
 
 [^1]: Germans Savcisens, et al. "[Using sequences of life-events to predict human lives](https://www.nature.com/articles/s43588-023-00573-5)." _Nature Computational Science_ 4.1, published January 17, 2024, 43–56.
 
@@ -169,10 +179,3 @@ The only official page related to our project is [life2vec.dk](https://life2vec.
 
 [^5]: Ashish Vaswani, et al. “[Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf).” _NeurIPS_, 2017.
 
-[^6]: Jay Alammar. "[The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)." _Blog post_, published June 27, 2018.
-
-[^7]: Jacob Devlin, et al. “[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805).” _NAACL_, 2019.
-
-[^8]: Germans Savcisens and Sune Lehmann. "[life2vec — Official Model and Publication Source](https://life2vec.dk/)." _Webpage_, Published January 6, 2024.
-
-[^9]: Germans Savcisens. "[Life2vec: Foundation models for registry data @ Complexity Science Hub](https://doi.org/10.5281/zenodo.17639200)." _Zenodo record_, published November 18, 2025.
