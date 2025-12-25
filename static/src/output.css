@@ -1581,10 +1581,7 @@
   }
   .prose-blog {
     font-family: var(--font-merriweather);
-    &
-    :where(h1, h2, h3, h4, h5, h6):not(
-      :where([class~="not-prose"], [class~="not-prose"] *)
-    ) {
+    & :where(h1, h2, h3, h4, h5, h6):not( :where([class~="not-prose"], [class~="not-prose"] *) ) {
       font-family: var(--font-funnel);
     }
     & .footnote-ref {
@@ -2748,8 +2745,7 @@
     font-size: 0.9em;
     line-height: 1.4;
   }
-  .prose .footnotes li,
-  .prose .footnotes li p {
+  .prose .footnotes li, .prose .footnotes li p {
     margin: 0;
     text-decoration: none;
   }
@@ -2768,8 +2764,7 @@
     padding-inline: calc(var(--spacing) * 6);
     padding-block: calc(var(--spacing) * 5);
   }
-  .info h2,
-  .info h3 {
+  .info h2, .info h3 {
     margin-top: calc(var(--spacing) * 0);
     margin-bottom: calc(var(--spacing) * 3);
     font-size: var(--text-base);
@@ -2785,8 +2780,7 @@
     --tw-leading: var(--leading-relaxed);
     line-height: var(--leading-relaxed);
   }
-  .info ul,
-  .info ol {
+  .info ul, .info ol {
     margin-left: calc(var(--spacing) * 5);
     list-style-type: decimal;
     :where(& > :not(:last-child)) {
@@ -2869,8 +2863,7 @@
   }
 }
 @layer components {
-  .sidenote,
-  .marginnote {
+  .sidenote, .marginnote {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
     --tw-leading: var(--leading-relaxed);
@@ -2887,8 +2880,7 @@
   .sidenote-number {
     counter-increment: sidenote-counter;
   }
-  .sidenote-number::after,
-  .sidenote::before {
+  .sidenote-number::after, .sidenote::before {
     position: relative;
     vertical-align: baseline;
   }
