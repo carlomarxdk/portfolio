@@ -8,10 +8,10 @@
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white">Skip to main content</a>
     {{ partial "nav.html" . }}
     <main id="main-content" class="max-w-screen-xl px-4 py-8 mx-auto">
-        <article itemscope itemtype="https://schema.org/BlogPosting">
+        <article>
             <header class="mx-auto text-center mb-12 max-w-4xl">
                 <p class="blog-label">Blogpost</p>
-                <h1 class="main-title" itemprop="headline">{{.Title}}</h1>
+                <h1 class="main-title">{{.Title}}</h1>
                     {{ with .Params.subtitle }}
     <p class="subtitle-title">
         {{ . }}
@@ -43,44 +43,28 @@
     </p>
             </header>
             
-            <div class="max-w-screen-lg mx-auto">
-                {{/* Build TOC manually from page fragments */}}
-                {{ $headings := slice }}
-                {{ with .Fragments }}
-                    {{ with .Headings }}
-                        {{ range . }}
-                            {{ if and (ge .Level 2) (le .Level 4) }}
-                                {{ $headings = $headings | append . }}
-                            {{ end }}
-                        {{ end }}
-                    {{ end }}
-                {{ end }}
-                {{ $hasToc := and .Site.Params.enableToc (gt (len $headings) 0) }}
+            <div class="max-w-screen-xl mx-auto px-4">
+                {{/* Check if TOC should be displayed */}}
+                {{ $hasToc := and .Site.Params.enableToc .TableOfContents }}
                 
                 <div class="lg:grid lg:grid-cols-12 lg:gap-8">
                     {{ if $hasToc }}
                     <aside class="lg:col-span-3 mb-8 lg:mb-0">
-                        <nav class="toc bg-white border border-gray-200 rounded-lg p-4 lg:sticky lg:top-8 shadow-sm" aria-label="Table of Contents">
+                        <nav class="toc bg-white border border-gray-200 rounded-lg p-4 lg:sticky lg:top-20 shadow-sm" aria-label="Table of Contents">
                             <h2 class="text-base font-semibold text-gray-900 mb-3 font-funnel">Table of Contents</h2>
-                            <ul class="text-sm space-y-2 list-none pl-0">
-                                {{ range $headings }}
-                                <li class="{{ if eq .Level 2 }}{{ else if eq .Level 3 }}pl-4{{ else }}pl-8{{ end }}">
-                                    <a href="#{{ .ID }}" class="text-gray-700 hover:text-indigo-600 transition-colors no-underline hover:underline block py-1">
-                                        {{ .Title }}
-                                    </a>
-                                </li>
-                                {{ end }}
-                            </ul>
+                            <div class="toc-content text-sm">
+                                {{ .TableOfContents }}
+                            </div>
                         </nav>
                     </aside>
-                    <div class="lg:col-span-9">
-                        <div class="prose prose-sm md:prose prose-blog" itemprop="articleBody"> 
+                    <div class="lg:col-span-9 overflow-visible">
+                        <div class="prose prose-sm md:prose prose-blog prose-with-sidenotes max-w-none">
                             {{ .Content }}
                         </div>
                     </div>
                     {{ else }}
-                    <div class="lg:col-span-12">
-                        <div class="prose prose-sm md:prose prose-blog mx-auto" itemprop="articleBody"> 
+                    <div class="lg:col-span-12 overflow-visible">
+                        <div class="prose prose-sm md:prose prose-blog prose-with-sidenotes mx-auto">
                             {{ .Content }}
                         </div>
                     </div>

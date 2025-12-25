@@ -1,74 +1,133 @@
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="referrer" content="origin" />
-  <meta name="author" content='{{ .Site.Params.Author | default "" }}' />
-  <meta name="language" {{ with .Site.LanguageCode }} content="{{ . }}" {{end}}  />
-  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
-  {{if .IsHome}}
-  <meta name="description" content='{{ .Site.Params.Description | default "" }}' />
-  <meta name="title" content='{{ .Site.Title | default "" }}' />
-  <title>{{ .Site.Title | default "" }}</title>
-  {{else}}
-  <meta name="description" content='{{ .Params.description | default .Summary | default "" }}' />
-    {{ if and (eq .Section "blog") .Params.image }}
-  <meta property="og:image" content="{{ .Params.image }}">
-    {{end}}
-  {{ if and (eq .Section "blog") .Params.subtitle }}
-  <meta name="title" content='{{.Params.Title}} {{ .Params.subtitle }}' />
-  <title>{{.Params.Title}} {{ .Params.subtitle }}</title>
-  {{ else }}
-  <meta name="title" content='{{.Params.Title | default "Academic Portfolio"}} - {{ .Site.Params.Author | default "" }}' />
-  <title>{{.Params.Title | default "Academic Portfolio"}} - {{ .Site.Params.Author | default "" }}</title>
-  {{ end }}
-  {{end}}
-  <meta name="keywords" content='{{ .Site.Params.Keywords}}' />
-  <meta name="robots" content="index, follow" />
-  <meta name="googlebot" content="index,follow" />
-  <link rel="canonical" href="{{ .Permalink }}">
-  {{ hugo.Generator }}
-  <!-- Style-->
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}src/output.css" />
-  <!-- Performance optimizations -->
-  <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="referrer" content="origin" />
+<meta name="author" content='{{ .Site.Params.Author | default "" }}' />
+<meta name="language" {{ with .Site.LanguageCode }} content="{{ . }}" {{end}} />
+<meta
+  http-equiv="cache-control"
+  content="no-cache, no-store, must-revalidate"
+/>
+{{if .IsHome}}
+<meta
+  name="description"
+  content='{{ .Site.Params.Description | default "" }}'
+/>
+<meta name="title" content='{{ .Site.Title | default "" }}' />
+<title>{{ .Site.Title | default "" }}</title>
+{{else}}
+<meta
+  name="description"
+  content='{{ .Params.description | default .Summary | default "" }}'
+/>
+{{ if and (eq .Section "blog") .Params.image }}
+<meta property="og:image" content="{{ .Params.image }}" />
+{{end}} {{ if and (eq .Section "blog") .Params.subtitle }}
+<meta name="title" content="{{.Params.Title}} {{ .Params.subtitle }}" />
+<title>{{.Params.Title}} {{ .Params.subtitle }}</title>
+{{ else }}
+<meta
+  name="title"
+  content='{{.Params.Title | default "Academic Portfolio"}} - {{ .Site.Params.Author | default "" }}'
+/>
+<title>
+  {{.Params.Title | default "Academic Portfolio"}} - {{ .Site.Params.Author |
+  default "" }}
+</title>
+{{ end }} {{end}}
+<meta name="keywords" content="{{ .Site.Params.Keywords}}" />
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index,follow" />
+<link rel="canonical" href="{{ .Permalink }}" />
+{{ hugo.Generator }}
+<!-- Style-->
+<link rel="stylesheet" href="{{ .Site.BaseURL }}src/output.css" />
+<!-- Performance optimizations -->
+<link href="https://fonts.googleapis.com" rel="preconnect" crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Funnel+Display:wght@300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="preload"
+  href="{{ .Site.BaseURL }}css/highlight.css"
+  as="style"
+  onload="
+    this.onload = null;
+    this.rel = 'stylesheet';
+  "
+/>
+<noscript>
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}css/highlight.css" />
+</noscript>
+
+{{ if eq .Site.Params.iconFont "font-awesome" }}
+<script
+  src="https://kit.fontawesome.com/e9bdeff7b2.js"
+  crossorigin="anonymous"
+  defer
+></script>
+{{ else }}
+<link
+  rel="preload"
+  href="{{ .Site.BaseURL }}css/monosocialiconsfont.css"
+  as="style"
+  onload="
+    this.onload = null;
+    this.rel = 'stylesheet';
+  "
+/>
+<noscript>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Funnel+Display:wght@300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
-    rel="stylesheet">
-  <link rel="preload" href="{{ .Site.BaseURL }}css/highlight.css" as="style"
-    onload="this.onload=null; this.rel='stylesheet'" />
-  <noscript>
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/highlight.css" />
-  </noscript>
+    rel="stylesheet"
+    href="{{ .Site.BaseURL }}css/monosocialiconsfont.css"
+  />
+</noscript>
+{{ end }}{{ if .Site.Params.enableRSS }}
+<link
+  href="{{ .Site.RSSLink }}"
+  rel="alternate"
+  type="application/rss+xml"
+  title="{{ .Site.Title }}"
+/>
+{{ end }}
 
-  {{ if eq .Site.Params.iconFont "font-awesome" }}
-  <script src="https://kit.fontawesome.com/e9bdeff7b2.js" crossorigin="anonymous" defer></script>
-  {{ else }}
-  <link rel="preload" href="{{ .Site.BaseURL }}css/monosocialiconsfont.css" as="style"
-    onload="this.onload=null; this.rel='stylesheet'" />
-  <noscript>
-    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/monosocialiconsfont.css" />
-  </noscript>
-  {{ end }}{{ if .Site.Params.enableRSS }}
-  <link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-  {{ end }}
+<!-- Open Graph / Facebook -->
+{{ partial "opengraph.html" . }} {{ if .Site.Params.enabletwittercard }}
+<!-- Twitter Cards -->
+{{ partial "twitter-cards.html" . }} {{ end }}
 
-  <!-- Open Graph / Facebook -->
-  {{ partial "opengraph.html" . }}
-  
-  {{ if .Site.Params.enabletwittercard }}
-  <!-- Twitter Cards -->
-  {{ partial "twitter-cards.html" . }}
-  {{ end }}
-
-  <!-- ICON / FAVICON-->
-  <link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="120x120" href="{{ .Site.BaseURL }}images/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ .Site.BaseURL }}images/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.BaseURL }}images/favicon-16x16.png" />
-  <link rel="mask-icon" href="{{ .Site.BaseURL }}images/safari-pinned-tab.svg" color="#ffffff" />
-  {{ if .IsHome }}
-  {{ partial "schema.html" . }}
-  {{ end }}
+<!-- ICON / FAVICON-->
+<link rel="shortcut icon" href="{{ .Site.BaseURL }}images/favicon.ico" />
+<link
+  rel="apple-touch-icon"
+  sizes="120x120"
+  href="{{ .Site.BaseURL }}images/apple-touch-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="{{ .Site.BaseURL }}images/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="{{ .Site.BaseURL }}images/favicon-16x16.png"
+/>
+<link
+  rel="mask-icon"
+  href="{{ .Site.BaseURL }}images/safari-pinned-tab.svg"
+  color="#ffffff"
+/>
+{{- /* Schema.org structured data */ -}}
+{{ if and (eq .Section "blog") (not .IsNode) }}
+  {{- /* Blog post pages get blog-specific schema */ -}}
   {{ partial "blog-schema.html" . }}
+{{ else }}
+  {{- /* All other pages (home, sections, list pages) get general schema */ -}}
+  {{ partial "schema.html" . }}
+{{ end }}

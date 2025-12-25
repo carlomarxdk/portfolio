@@ -9,7 +9,7 @@ pub_link: https://www.nature.com/articles/s43588-024-00750-0
 hidden: true
 highlight: false
 misc:
-- name: PDF
-  background: primary
-  link: https://rdcu.be/d5ovo
+  - name: PDF
+    background: primary
+    link: https://rdcu.be/d5ovo
 ---

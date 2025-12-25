@@ -1,15 +1,23 @@
 <div class="card">
   <div class="card-date">
-    <p class="text-left md:text-right tracking-tight text-gray-700 text-sm font-semibold">{{ .Date.Format "Jan 2, 2006" }}</p>
+    <p
+      class="text-left md:text-right tracking-tight text-gray-700 text-sm font-semibold"
+    >
+      {{ .Date.Format "Jan 2, 2006" }}
+    </p>
   </div>
   <div class="card-content">
     <h1 class="mb-1 md:mb-1.5 text-lg font-bold tracking-normal text-gray-950">
       <a href="{{ .Permalink }}" class="a-hov">{{ .Title }}</a>
     </h1>
     {{ if .Params.description }}
-      <p class="text-sm tracking-tight text-gray-600 mt-1">{{ .Params.description }}</p>
+    <p class="text-sm tracking-tight text-gray-600 mt-1">
+      {{ .Params.description }}
+    </p>
     {{ else if .Summary }}
-      <p class="text-sm tracking-tight text-gray-600 mt-1">{{ .Summary | plainify | truncate 200 }}</p>
+    <p class="text-sm tracking-tight text-gray-600 mt-1">
+      {{ .Summary | plainify | truncate 200 }}
+    </p>
     {{ end }}
   </div>
 </div>

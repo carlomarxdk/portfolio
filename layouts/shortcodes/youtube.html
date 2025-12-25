@@ -1,21 +1,27 @@
-{{- /* 
-YouTube embed shortcode for accessible video embeds
-Usage: {{< youtube id="VIDEO_ID" title="Video description" >}}
-Note: Uses native CSS aspect-ratio for responsive video embedding
-*/ -}}
-{{- $id := .Get "id" -}}
-{{- $title := .Get "title" | default "YouTube video" -}}
-{{- $class := .Get "class" | default "my-6" -}}
+{{- /* YouTube embed shortcode for accessible video embeds Usage: {{< youtube
+id="VIDEO_ID" title="Video description" >}} Note: Uses native CSS aspect-ratio
+for responsive video embedding */ -}} {{- $id := .Get "id" -}} {{- $title :=
+.Get "title" | default "YouTube video" -}} {{- $class := .Get "class" | default
+"my-6" -}}
 
 <div class="{{ $class }}">
-  <iframe 
-    src="https://www.youtube-nocookie.com/embed/{{ $id }}" 
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/{{ $id }}"
     title="{{ $title }}"
-    frameborder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    frameborder="0"
+    allow="
+      accelerometer;
+      autoplay;
+      clipboard-write;
+      encrypted-media;
+      gyroscope;
+      picture-in-picture;
+      web-share;
+    "
     allowfullscreen
     loading="lazy"
     class="w-full rounded shadow-md"
-    style="aspect-ratio: 16 / 9; display: block;">
+    style="aspect-ratio: 16 / 9; display: block"
+  >
   </iframe>
 </div>

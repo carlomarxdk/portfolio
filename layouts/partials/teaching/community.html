@@ -1,15 +1,21 @@
 <article class="card md:grid-cols-6">
   <div class="card-date md:col-span-1">
-    <p class="text-right tracking-tight text-zinc-600 text-sm font-semibold">{{ .Params.date.Format "2006" }}</p>
+    <p class="text-right tracking-tight text-zinc-600 text-sm font-semibold">
+      {{ .Params.date.Format "2006" }}
+    </p>
   </div>
   <div class="card-content md:col-span-5">
     <h3 class="mb-0.5 text-base font-semibold tracking-normal text-zinc-800">
       {{ if .Params.course_url }}
-      <a href="{{ .Params.course_url }}" target="_blank" rel="noopener" class="a-hov">{{ .Title }}</a>
+      <a
+        href="{{ .Params.course_url }}"
+        target="_blank"
+        rel="noopener"
+        class="a-hov"
+        >{{ .Title }}</a
+      >
       {{ else }} {{ .Title }} {{ end }}
     </h3>
-    <p class=" text-sm tracking-tight text-zinc-600">
-      {{ .Params.role }}
-    </p>
+    <p class="text-sm tracking-tight text-zinc-600">{{ .Params.role }}</p>
   </div>
 </article>

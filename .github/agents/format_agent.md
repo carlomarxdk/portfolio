@@ -36,13 +36,14 @@ hugo --gc --minify
 
 A change is acceptable only if:
 
-* The Hugo site builds cleanly with no errors or warnings.
-* TailwindCSS compiles correctly.
-* All modified files follow formatting conventions.
-* SEO rules defined below are satisfied.
-* No navigation, metadata, or layouts break.
+- The Hugo site builds cleanly with no errors or warnings.
+- TailwindCSS compiles correctly.
+- All modified files follow formatting conventions.
+- SEO rules defined below are satisfied.
+- No navigation, metadata, or layouts break.
 
 ---
+
 ## Linting & Formatting Requirements
 
 Before creating or updating a pull request, Copilot must ensure all Markdown, HTML, Hugo templates, and styles follow formatting and linting conventions.
@@ -58,11 +59,11 @@ npx markdownlint-cli2 --fix "**/*.md"
 
 Markdown requirements:
 
-* No trailing whitespace
-* Proper heading structure
-* Valid front matter
-* No broken links or shortcodes
-* Inline HTML allowed where needed for Hugo
+- No trailing whitespace
+- Proper heading structure
+- Valid front matter
+- No broken links or shortcodes
+- Inline HTML allowed where needed for Hugo
 
 ### HTML, Hugo Templates, CSS, JS Formatting (Prettier)
 
@@ -74,16 +75,16 @@ npx prettier --write .
 
 Prettier must be used on:
 
-* `layouts/**/*.html` (Go templates included)
-* `content/**/*.md`
-* `assets/css/**/*.css`
-* Any JavaScript in `static/`
+- `layouts/**/*.html` (Go templates included)
+- `content/**/*.md`
+- `assets/css/**/*.css`
+- Any JavaScript in `static/`
 
 Prettier rules:
 
-* Do not remove Hugo template expressions (e.g., `{{ .Title }}`).
-* Preserve attribute order unless formatting requires consistency.
-* Avoid breaking semantic HTML.
+- Do not remove Hugo template expressions (e.g., `{{ .Title }}`).
+- Preserve attribute order unless formatting requires consistency.
+- Avoid breaking semantic HTML.
 
 ### Optional HTML Linting (if installed)
 
@@ -101,10 +102,10 @@ hugo-lint ./content
 
 Copilot should correct:
 
-* Missing alt text
-* Missing front matter fields
-* Broken Markdown link syntax
-* Inconsistent metadata
+- Missing alt text
+- Missing front matter fields
+- Broken Markdown link syntax
+- Inconsistent metadata
 
 These linters must pass before Copilot submits a pull request.
 
@@ -113,11 +114,11 @@ These linters must pass before Copilot submits a pull request.
 ## Repository Structure
 
 ```
-content/        Markdown blog posts & pages  
-layouts/        Hugo templates, partials, list/single views  
-assets/css/     Tailwind input styles  
-static/         Images, JS, fonts (do not modify blindly)  
-config/         Hugo configuration  
+content/        Markdown blog posts & pages
+layouts/        Hugo templates, partials, list/single views
+assets/css/     Tailwind input styles
+static/         Images, JS, fonts (do not modify blindly)
+config/         Hugo configuration
 public/         Build output (never edit)
 ```
 
@@ -125,20 +126,20 @@ public/         Build output (never edit)
 
 Copilot may modify:
 
-* Markdown under `content/`
-* Hugo templates under `layouts/`
-* Tailwind input under `assets/css/`
-* `config/` files when required for SEO or metadata
-* `tailwind.config.js`, `config.toml`, `package.json` and `theme.toml`when necessary for styles or performance
+- Markdown under `content/`
+- Hugo templates under `layouts/`
+- Tailwind input under `assets/css/`
+- `config/` files when required for SEO or metadata
+- `tailwind.config.js`, `config.toml`, `package.json` and `theme.toml`when necessary for styles or performance
 
 ### Forbidden modifications
 
 Copilot must NOT modify:
 
-* `public/`
-* Theme structure unless specifically requested
-* Phrasing of content beyond minor grammar fixes
-* Private or unrelated assets
+- `public/`
+- Theme structure unless specifically requested
+- Phrasing of content beyond minor grammar fixes
+- Private or unrelated assets
 
 ---
 
@@ -148,33 +149,35 @@ Copilot must apply these SEO practices for **any** content, template, metadata, 
 
 ## 1. Titles & Meta Descriptions
 
-* Every page should have a **unique, descriptive title**.
-* Markdown content should include front matter with:
-  * `title`
-  * `description`
-  * (optional) `summary`
-* Meta descriptions must be **concise, readable, and ≤160 characters**.
-* Avoid keyword stuffing; use natural academic language.
+- Every page should have a **unique, descriptive title**.
+- Markdown content should include front matter with:
+  - `title`
+  - `description`
+  - (optional) `summary`
+- Meta descriptions must be **concise, readable, and ≤160 characters**.
+- Avoid keyword stuffing; use natural academic language.
 
 ## 2. Headings & Semantic Structure
 
-* Maintain a logical heading hierarchy:
-  * One **H1** per page
-  * H2/H3 nested meaningfully
-* Use semantic HTML (e.g., `<header>`, `<main>`, `<article>`, `<footer>`).
-* Avoid wrapping block elements in inline elements.
+- Maintain a logical heading hierarchy:
+  - One **H1** per page
+  - H2/H3 nested meaningfully
+- Use semantic HTML (e.g., `<header>`, `<main>`, `<article>`, `<footer>`).
+- Avoid wrapping block elements in inline elements.
 
 ## 3. Image SEO
+
 For every updated or added image:
-* Provide meaningful, descriptive `alt` text.
-* Use shortcodes or templates that support alt text.
-* Place images in appropriate `static/` folders with clean filenames.
+
+- Provide meaningful, descriptive `alt` text.
+- Use shortcodes or templates that support alt text.
+- Place images in appropriate `static/` folders with clean filenames.
 
 ## 4. Internal Linking
 
-* Suggest and add internal links between related pages when appropriate.
-* Do not link to non-existent pages.
-* Ensure canonical URLs are correct (via Hugo's `relURL` or `absURL` helpers).
+- Suggest and add internal links between related pages when appropriate.
+- Do not link to non-existent pages.
+- Ensure canonical URLs are correct (via Hugo's `relURL` or `absURL` helpers).
 
 ## 5. Front Matter Consistency
 
@@ -194,55 +197,57 @@ If missing, Copilot should **add it while preserving existing metadata**.
 
 Copilot should ensure templates include correct metadata:
 
-* `og:title`, `og:description`, `og:type`, `og:url`
-* `twitter:card`, `twitter:title`, `twitter:description`
-* `<link rel="canonical">` where appropriate
-* JSON-LD blocks for blog posts when present
+- `og:title`, `og:description`, `og:type`, `og:url`
+- `twitter:card`, `twitter:title`, `twitter:description`
+- `<link rel="canonical">` where appropriate
+- JSON-LD blocks for blog posts when present
 
 Copilot should **not** add conflicting metadata or harm existing structure.
 
 ## 7. URL & File Naming
 
-* Filenames should be lowercase, hyphenated, and descriptive.
-* Avoid renaming URLs unless explicitly required.
+- Filenames should be lowercase, hyphenated, and descriptive.
+- Avoid renaming URLs unless explicitly required.
 
 ## 8. Performance & Accessibility
 
-* Keep Tailwind classes minimal and valid.
-* Ensure ARIA attributes where needed.
-* Avoid inline styles unless intentional.
-* Prefer lightweight markup for faster rendering.
+- Keep Tailwind classes minimal and valid.
+- Ensure ARIA attributes where needed.
+- Avoid inline styles unless intentional.
+- Prefer lightweight markup for faster rendering.
 
 ---
 
 # Coding Guidelines
 
 ## For Markdown
-* Correct grammar.
-* Ensure code blocks use correct fencing (` ``` `).
+
+- Correct grammar.
+- Ensure code blocks use correct fencing (` ``` `).
 
 ## For Hugo Templates
 
-* Use `partials` where duplication appears.
-* Keep layouts modular and clean.
-* Prefer Hugo functions like:
-  * `.Title`, `.Description`, `.Summary`
-  * `.Permalink`
-  * `.RelPermalink`
-  * `default`, `with`, `index`, `range`
-  * `safeHTML` and `safeURL` only when necessary.
+- Use `partials` where duplication appears.
+- Keep layouts modular and clean.
+- Prefer Hugo functions like:
+  - `.Title`, `.Description`, `.Summary`
+  - `.Permalink`
+  - `.RelPermalink`
+  - `default`, `with`, `index`, `range`
+  - `safeHTML` and `safeURL` only when necessary.
 
 ## For TailwindCSS
 
-* Keep utility classes organized and non-duplicative.
-* Avoid unnecessary overrides and redundancies.
-* Maintain responsiveness and accessibility.
+- Keep utility classes organized and non-duplicative.
+- Avoid unnecessary overrides and redundancies.
+- Maintain responsiveness and accessibility.
 
 ---
 
 # Acceptance Criteria for Copilot PRs
 
 A PR must:
+
 1. Build successfully with Hugo & Tailwind.
 2. Improve (or at least maintain) SEO quality.
 3. Not break layouts, templates, or navigation.

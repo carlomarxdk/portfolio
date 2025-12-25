@@ -2,9 +2,8 @@
 date: 2021-02-01
 hidden: true
 
-
 title: "Visualizing Data for Plantations"
-url: 
+url:
 course_url: https://orbit.dtu.dk/en/activities/visualizing-data-for-plantations
 course_type: 1
 

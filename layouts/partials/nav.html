@@ -1,38 +1,62 @@
-<nav class="my-2 md:mt-6 md:mb-0 mx-auto flex justify-center z-50" role="navigation" aria-label="Main navigation">
-    <div class="max-w-screen-md flex flex-wrap items-center justify-between mx-auto p-4 md:flex-nowrap">
-        <button data-collapse-toggle="navbar-default" type="button"
-            class="inline-flex items-center p-3 w-12 h-12 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            aria-controls="navbar-default" aria-expanded="false" id="menu-toggle" aria-label="Toggle navigation menu">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 1h15M1 7h15M1 13h15" />
-            </svg>
-        </button>
-        <div class="hidden w-full md:w-auto md:block" id="navbar-default">
-            <ul
-                class="font-medium text-lg md:text-base flex flex-col p-3 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
-                {{ $url := replace .Permalink .Site.BaseURL "" }}
-                <li class="pb-3 md:pb-0">
-                    <a href='{{ .Site.BaseURL }}' class="nav-item">About</a>
-                </li>
+<nav
+  class="my-2 md:mt-6 md:mb-0 mx-auto flex justify-center z-50"
+  role="navigation"
+  aria-label="Main navigation"
+>
+  <div
+    class="max-w-screen-md flex flex-wrap items-center justify-between mx-auto p-4 md:flex-nowrap"
+  >
+    <button
+      data-collapse-toggle="navbar-default"
+      type="button"
+      class="inline-flex items-center p-3 w-12 h-12 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+      id="menu-toggle"
+      aria-label="Toggle navigation menu"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-6 h-6"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"
+        />
+      </svg>
+    </button>
+    <div class="hidden w-full md:w-auto md:block" id="navbar-default">
+      <ul
+        class="font-medium text-lg md:text-base flex flex-col p-3 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent"
+      >
+        {{ $url := replace .Permalink .Site.BaseURL "" }}
+        <li class="pb-3 md:pb-0">
+          <a href="{{ .Site.BaseURL }}" class="nav-item">About</a>
+        </li>
 
-                {{ range .Site.Menus.main.ByWeight }}
-                <li class="pb-3 md:pb-0">
-                    <a href="{{ .URL }}" class="nav-item whitespace-nowrap">{{ .Name }}</a>
-                </li>
-                {{ end }}
-            </ul>
+        {{ range .Site.Menus.main.ByWeight }}
+        <li class="pb-3 md:pb-0">
+          <a href="{{ .URL }}" class="nav-item whitespace-nowrap"
+            >{{ .Name }}</a
+          >
+        </li>
+        {{ end }}
+      </ul>
 
-
-            {{ range $key, $val := .Site.Params.Links }}
-            <a href="{{ $val }}">{{ $key }}</a>
-            {{ end }}
-
-            {{ if .Site.Params.enableRSS }}
-            <a class="cta" href="{{ .Site.RSSLink }}">{{ with .Site.Params.subscribe }}{{ . }}{{ else }}Subscribe{{ end
-                }}</a>
-            {{ end }}
-        </div>
+      {{ range $key, $val := .Site.Params.Links }}
+      <a href="{{ $val }}">{{ $key }}</a>
+      {{ end }} {{ if .Site.Params.enableRSS }}
+      <a class="cta" href="{{ .Site.RSSLink }}"
+        >{{ with .Site.Params.subscribe }}{{ . }}{{ else }}Subscribe{{ end }}</a
+      >
+      {{ end }}
     </div>
+  </div>
 </nav>

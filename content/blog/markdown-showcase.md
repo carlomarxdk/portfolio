@@ -9,23 +9,25 @@ hidden: true
 
 ## Introduction
 
-This post demonstrates the enhanced Markdown rendering capabilities of this Hugo site. We've improved visual quality, accessibility, and added several useful features.
+This post demonstrates the enhanced Markdown rendering capabilities of this Hugo site. We've improved visual quality, accessibility, and added several useful features.{{< sidenote id="intro-note" >}}This showcase is regularly updated with new features and improvements.{{< /sidenote >}}
 
 ## Typography Improvements
 
-Our typography system now uses **Tailwind Typography** with custom enhancements for better readability and visual hierarchy.
+Our typography system{{< sidenote id="typo-note" >}}Based on **Tailwind Typography** with extensive customizations for academic writing.{{< /sidenote >}} now uses **Tailwind Typography** with custom enhancements for better readability and visual hierarchy.
 
 ### Headings
 
 All heading levels are properly styled with the Funnel Display font:
 
 #### Level 4 Heading
+
 ##### Level 5 Heading
+
 ###### Level 6 Heading
 
 ## Text Formatting
 
-You can use **bold text**, *italic text*, and even ~~strikethrough~~ text. Inline `code` is highlighted with a pink accent color for better visibility.
+You can use **bold text**, _italic text_, and even ~~strikethrough~~ text. Inline `code` is highlighted with a pink accent color for better visibility.
 
 Here's a [link to the homepage](/) that uses dotted underline decoration.
 
@@ -70,7 +72,7 @@ function greet(name) {
   return `Welcome to the enhanced blog!`;
 }
 
-const message = greet('World');
+const message = greet("World");
 ```
 
 ```python
@@ -90,17 +92,17 @@ print(fib_sequence)
 
 Tables are now fully styled with hover effects and proper spacing:
 
-| Feature | Status | Priority |
-|---------|--------|----------|
-| Typography | ✅ Complete | High |
-| Shortcodes | ✅ Complete | High |
-| Tables | ✅ Complete | Medium |
+| Feature       | Status      | Priority |
+| ------------- | ----------- | -------- |
+| Typography    | ✅ Complete | High     |
+| Shortcodes    | ✅ Complete | High     |
+| Tables        | ✅ Complete | Medium   |
 | Accessibility | ✅ Complete | Critical |
-| Performance | ✅ Complete | Critical |
+| Performance   | ✅ Complete | Critical |
 
 ## Callout Shortcodes
 
-We've added versatile callout shortcodes for highlighting important information:
+We've added versatile callout shortcodes{{< sidenote id="callout-note" >}}Callouts are inspired by GitHub's alert syntax and provide semantic highlighting.{{< /sidenote >}} for highlighting important information:
 
 {{< callout type="info" title="Information" >}}
 This is an informational callout. It's perfect for sharing helpful context or additional details.
@@ -126,12 +128,12 @@ Never commit sensitive credentials to your repository!
 
 The figure shortcode provides accessible images with captions:
 
-{{< figure 
-  src="/images/avatar.jpg" 
-  alt="Academic profile photo" 
-  caption="Images now support **captions with Markdown** for better context and accessibility"
-  width="300"
->}}
+<!-- {{< figure
+src="/images/avatar.jpg"
+alt="Academic profile photo"
+caption="Images now support **captions with Markdown** for better context and accessibility"
+width="300"
+>}} -->
 
 ## Horizontal Rules
 
@@ -139,11 +141,18 @@ Horizontal rules provide visual separation between sections:
 
 ---
 
+## Sidenotes
+
+Sidenotes{{< sidenote id="tufte" >}}Inspired by Edward Tufte's design philosophy, sidenotes provide a elegant way to add supplementary information without breaking the reading flow.{{< /sidenote >}} are a powerful feature for academic and technical writing. They appear in the right margin on desktop and inline on mobile devices.
+
+Unlike footnotes{{< sidenote id="footnotes-vs-sidenotes" >}}Footnotes appear at the bottom of the page, requiring readers to scroll. Sidenotes keep related information adjacent to the text.{{< /sidenote >}}, sidenotes maintain context by appearing next to the relevant text. This creates a richer reading experience{{< sidenote id="reading-exp" >}}Studies have shown that margin notes can improve comprehension and retention of complex material.{{< /sidenote >}} especially for complex topics.
+
 ## Footnotes
 
 You can add footnotes[^1] to your content for additional references or explanations[^2].
 
 [^1]: This is the first footnote with additional information.
+
 [^2]: Footnotes are automatically numbered and styled at the bottom of the page.
 
 ## Definition Lists
@@ -166,7 +175,7 @@ Goldmark
 All improvements maintain strong accessibility:
 
 - ✅ Semantic HTML with proper elements
-- ✅ ARIA labels where appropriate  
+- ✅ ARIA labels where appropriate
 - ✅ Keyboard navigation support
 - ✅ Screen reader friendly
 - ✅ Proper heading hierarchy
@@ -201,4 +210,4 @@ These improvements create a better reading experience while maintaining the site
 
 ---
 
-*Last updated: December 16, 2025*
+_Last updated: December 16, 2025_

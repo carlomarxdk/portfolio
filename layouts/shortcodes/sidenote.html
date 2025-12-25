@@ -1,0 +1,11 @@
+{{- /* Sidenote shortcode for right margin notes Usage: {{< sidenote id="sn1"
+>}} Your side note content here {{< /sidenote >}} Or inline: Some text{{<
+sidenote id="sn1" >}}Side note text{{< /sidenote >}} continues... The side note
+appears in the right margin on larger screens and inline on mobile. ID is
+required to link the marker to the note. */ -}} {{- $id := .Get "id" -}} {{- if
+not $id -}} {{- errorf "sidenote shortcode requires an 'id' parameter at %s"
+.Position -}} {{- end -}}
+
+<label for="{{ $id }}" class="sidenote-toggle sidenote-number"></label>
+<input type="checkbox" id="{{ $id }}" class="sidenote-checkbox" />
+<span class="sidenote"> {{ .Inner | markdownify }} </span>

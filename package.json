@@ -2,25 +2,24 @@
   "scripts": {
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-
+    "lint:md": "markdownlint '**/*.md' --ignore node_modules --ignore public",
+    "lint:md:fix": "markdownlint '**/*.md' --ignore node_modules --ignore public --fix",
     "build:css": "npx postcss static/src/input.css -o static/src/output.css",
     "build:css:prod": "cross-env NODE_ENV=production npx postcss static/src/input.css -o static/src/output.css",
     "build": "npm run build:css:prod && hugo --gc --minify",
-
     "dev:css": "npx postcss static/src/input.css -o static/src/output.css --watch",
     "dev": "hugo server -D"
   },
-
   "engines": {
     "node": ">=20"
   },
-
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.15",
     "cross-env": "^10.1.0",
     "cssnano": "^6.1.0",
     "html-validate": "^10.4.0",
+    "markdownlint-cli": "^0.47.0",
     "postcss-cli": "^11.0.0",
     "prettier": "^3.7.4",
     "tailwindcss": "^4.1.18"
