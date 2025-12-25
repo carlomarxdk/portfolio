@@ -238,6 +238,29 @@
   }
 }
 
+/* TOC content wrapper - styles Hugo's generated TableOfContents */
+.toc-content {
+  & > nav {
+    @apply space-y-2;
+  }
+  
+  & ul {
+    @apply list-none pl-0 space-y-2;
+  }
+  
+  & li {
+    @apply text-sm;
+  }
+  
+  & a {
+    @apply text-gray-700 hover:text-indigo-600 transition-colors no-underline hover:underline block py-1;
+  }
+  
+  & ul ul {
+    @apply pl-4 mt-1;
+  }
+}
+
 /* Sidenote styling - Inspired by Tufte CSS */
 @layer components {
   .sidenote,
