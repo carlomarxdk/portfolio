@@ -2,6 +2,7 @@
 title: "Is life2vec a mess?"
 subtitle: "What the internet got wrong"
 date: 2025-12-24
+lastmod: 2025-12-25
 description: "A public-facing explanation of life2vec: its data, design, and limits, and why claims about '78% accuracy' and online death prediction are deeply misleading."
 tags: ["life2vec", "research", "explainer"]
 categories: ["science"]
@@ -10,9 +11,9 @@ hidden: false
 image: "/images/life2vec-hero.png"
 ---
 
-<!-- {{<quote author="Philip Pullman" source="The Amber Spyglass" >}}
+{{<quote author="Philip Pullman" source="The Amber Spyglass" >}}
 Tell them stories. They need the truth, you must tell them true stories \[...\].
-{{< /quote >}} -->
+{{< /quote >}}
 
 Over the past two years, online death calculators have flooded the internet. I think the craze really took off after the introduction of the [life2vec](https://www.nature.com/articles/s43588-023-00573-5),[^1] a model developed by a team of scientists, including myself, trained on life sequences from millions of Danish residents. Since then, life2vec has been often mentioned for its ability to predict “_when you are going to die with 78% accuracy,_” alongside the claims that it is powered by the same architecture as ChatGPT.
 
@@ -22,38 +23,14 @@ I have to admit: the title was a bit of a tease, and for that, I owe you an apol
 
 This is written for **curious readers**, **journalists**, **policymakers**, and **scientists**. You might ask why this explanation should differ from similar pieces you have seen elsewhere. My answer is simple: I was the first author of the life2vec paper, and I spent three years, alongside brilliant co-authors, bringing this project to life.
 
-## TL;DR: What life2vec is and isn't
-
-{{< callout type="tip" >}}
-
-### What life2vec is
-
-1. A research prototype created by scientists to study the sequence of life events using national registry data.
-2. A Transformer-based model trained on coded health, labor, and demographic records (not natural language).
-3. A method for learning compact, numerical summaries of entire life histories.
-4. A tool evaluated on broad, population-level predictions (such as short-term mortality risk), strictly for research validation (not as a commercial product).
-5. A **proof-of-concept** showing how modern AI models can support social science without oversimplifying individual life histories.
-
-### What life2vec is not
-
-1. **Not an online tool**, app, or "_AI death calculator._"
-2. **Not a chatbot**, and not designed for interaction in English.
-3. **Not trained to predict personal death dates** or individual future life paths.
-4. **Not available for public use or deployment**, due to strict privacy rules governing the data.
-5. Not connected to any services, or products currently claiming to use life2vec.
-
-The only official page related to our project is [life2vec.dk](https://life2vec.dk). **Everything here reflects only my own views**, not those of any institution or co-author.
-
-{{< /callout >}}
-
 ## Data
 
-Our work on life2vec aimed to ultimately enhance understanding of life trajectories and their links to health and labour outcomes, opening the way to improve public health strategies and social policies. To make this concrete, it helps to start with the data, since it is easier to put life2vec into perspective once you understand what goes into it.
+Our work on life2vec aimed to enhance understanding of life trajectories, opening the way to improve public health strategies and social policies. To make this concrete, it helps to start with the data, since it is easier to put life2vec into perspective once you understand what goes into it.
 
-Most online death calculators ask for basic details like your age or self-reported health information, such as whether you smoked in the past year. In contrast, life2vec was trained on sequences of records from national administrative registries[^2] covering millions of individuals. These records combine detailed medical events, such as diagnoses and hospital visits, with socio-economic data, including employment histories, residential mobility, and occupational skill profiles.
+Most online death calculators ask for basic details like your age or self-reported health information, such as whether you smoked in the past year. In contrast, **life2vec was trained on sequences of records** from national administrative registries[^2] covering millions of individuals. These records combine detailed medical events, such as diagnoses and hospital visits, with socio-economic data, including employment histories, residential mobility, and occupational skill profiles.
 Crucially, this **data is time-ordered for each individual**, capturing how health and social factors unfold across an entire life course rather than as isolated snapshots.
 
-Let's consider income records. Whenever a Danish resident receives taxable income (whether from a salary, pension, scholarship, social benefits, or sick pay), it is documented as a single record in a table. Each record includes basic demographic attributes such as age, sex, and place of residence, along with the type of income received. If the income comes from employment, the record further specifies the employer’s industry[^3] and the individual’s job role[^4], both encoded in a highly structured way.
+Let's consider income records. Whenever a Danish resident receives taxable income (whether from a salary, pension, social benefits, or sick pay), it is documented as a single record in a table. Each record includes basic demographic attributes such as age, sex, and place of residence, along with the type of income received. If the income comes from employment, the record further specifies the employer’s industry[^3] and the individual’s job role[^4], both encoded in a highly structured way.
 
 A typical record might look like this:
 
@@ -64,11 +41,11 @@ A typical record might look like this:
 
 This record can be interpreted as follows: on January 2, 2011, an individual working as a _Print Finishing and Binding Worker_ (occupation code `7323`) at a _Bookbinding Service_ (industry code `1814`) earned 32,000 DKK.
 
-Health records follow the same basic principle. In Denmark, the vast majority of doctor visits and hospital stays are also logged in a highly structured format. Each encounter is associated with one or more diagnoses encoded in the [ICD-10](https://www.who.int/standards/classifications/classification-of-diseases) classification system. A doctor can pinpoint a diagnosis down to an injury/disease that occurred during "_activities involving arts and handicrafts_" (ICD-10 code `Y93.D`). Yes, the data is that precise.
+Health records follow the same principle. In Denmark, the vast majority of doctor visits and hospital stays are also logged in a highly structured format. Each encounter is associated with one or more diagnoses encoded in the [ICD-10](https://www.who.int/standards/classifications/classification-of-diseases) classification system. A doctor can pinpoint a diagnosis down to an injury/disease that occurred during "_activities involving arts and handicrafts_" (ICD-10 code `Y93.D`). Yes, the data is that precise.
 
-By combining these sources, we can piece together detailed timelines of individual lives. However, there is an important catch: at the end of the day, these are still just records in a massive table... some events are rare, others repeat with various frequencies, and **many classical analysis methods require us to simplify this complexity**. For example, we can instead count hospital visits for a specific issue or average yearly salaries.
+By combining these two data sources, we can piece together detailed timelines of individual lives. However, there is an important catch: at the end of the day, these are still just records in a massive table... some events are rare, others repeat with various frequencies, and **many classical analysis methods require us to simplify this complexity**. For example, one might instead count hospital visits for a specific issue or average yearly salaries.
 
-**Such simplifications, however, come at a cost.** They strip away context and temporal ordering. Having your tonsils removed in your twenties is not the same as having them removed in your forties. Returning to full-time work and then developing back pain tells a very different story from developing back pain first. When we collapse life histories into aggregates, we risk erasing these connections.
+**Such simplifications, however, come at a cost**. They strip away context and temporal ordering. Having your tonsils removed in your twenties is not the same as having them removed in your forties. Returning to full-time work and then developing back pain tells a very different story from developing back pain first. When we collapse life histories into aggregates, we risk erasing these connections.
 
 ## Context, Order, and Language
 
@@ -82,19 +59,19 @@ To demonstrate this, let’s look at a small example. Suppose I tell you that th
 - "_Hurt was everything and nothing was beautiful._"
 - "_Everything hurt and nothing was beautiful._"
 
-All of these use the same words, yet their meanings differ a lot. The sentence I had in mind is a line from Kurt Vonnegut’s _Slaughterhouse-Five_: "_Everything was beautiful and nothing hurt._" Did your reconstruction look anything like that? So... I hope it does show that counts alone are not enough. Order and context shape meaning.
+All of these use the same words, yet their meanings differ a lot. The sentence I had in mind is a line from Kurt Vonnegut’s _Slaughterhouse-Five_: "_Everything was beautiful and nothing hurt._" Did your reconstruction look anything like that? So... I hope it does show that counts alone are not enough when it comes to English language: **order and context shape meaning**.
 
 For decades, NLP researchers have focused on developing methods to represent human language so that machines can process, interpret, and generate it. Around 2016, this line of work gave rise to a particularly powerful class of models: Transformers.[^5] These models forever changed the NLP field, and some might argue that they eventually broke it (that’s for another blog post).
 
-Modern models such as ChatGPT or Gemma are built on the Transformer architecture. You have likely seen this for yourself: they can process quite complex information and generate coherent, human-like text. More importantly for our purposes, Transformers learn rich representations of language that encode how words are related to one another across context and position.
+Modern models such as ChatGPT or [Gemma](https://deepmind.google/models/gemma/) are built on the Transformer architecture, and it makes them quite powerfull. You have likely seen this for yourself: they can process quite complex information and generate coherent, human-like text. More importantly for _our_ purposes, Transformers learn rich representations of language that encode how words are related to one another across context and position.
 
 You do not need to understand the inner workings of Transformers for this post (here is a [more technical explainers](https://jalammar.github.io/illustrated-transformer/)[^6] for interested readers). At a basic level, Transformer models convert an input sequence, such as "_The dog runs after the,_" into a compact numerical representation that captures its content. It does so by combining mathematical operations; the important point is not how these operations work, but that they preserve order and context while producing numerical summaries that can be used for prediction and, to a limited extent, interpretation.
 
-This combination of strong predictive performance on structured sequences and interpretability **led us to a simple but ambitious question**: What if we could represent life sequences in a form similar to human-written language, and further adapt the Transformer architecture to learn this life language?
+This combination of strong predictive performance on structured sequences and interpretability **led us to a simple but ambitious question**: _What if we could represent life sequences in a form similar to human-written language, and further adapt the Transformer architecture to learn this life language?_
 
 ## The Language to Encode Life
 
-To apply Transformers to life-related records, we had to define some sort of language. The language we developed is super simple, and, most importantly, it bears little resemblance to human-written language. This synthetic language is intentionally simple, with only a few basic rules. Unlike human languages, it does not include grammar in the traditional sense: there are no conjugations, inflectional endings, or function words. We left these elements out because they do not add much meaning for our purposes and would only introduce additional structure for the model to learn (i.e., things that are not connected to health or labour).
+To apply Transformers to life-related records, we had to define some sort of language. The language we developed is super simple, and, most importantly, it **bears little resemblance to human-written language**. This synthetic language is intentionally simple, with only a few basic rules. Unlike human languages, it does not include grammar in the traditional sense: there are no conjugations, inflectional endings, or function words. We left these elements out because they do not add much meaning for our purposes and would only introduce additional structure for the model to learn (i.e., things that are not connected to health or labour).
 
 Instead of words like `dog` or `beautiful`, the vocabulary consists of codes derived from the data, and we have something similar to sentences (each sentence represents a single record in the data). So, taking my previous example with the labour:
 
@@ -157,17 +134,33 @@ Life2vec itself was never designed to predict individual death dates, and certai
 
 This post ended up being longer than I initially planned (and still did not cover even half of what I originally intended). If all goes well, I will dive deeper into specific aspects of the life2vec model in future posts, including a more detailed discussion of death prediction and other tasks we explored, such as self-reported personality assessment.
 
-Why talk about this now, long after the paper came out? This year, I had the chance to travel and share the project with the public, industry leaders, and scientists. I discovered that many genuinely believe these online models are tied to our research. There's even a Life2vec crypto coin (again, not connected to our project) claiming fuel for the Life2vec ecosystem. Clearly, it's time to set the record straight.
+Why talk about this now, long after the paper came out? This year, I had the chance to travel and share the project with the public, industry leaders, and scientists. I discovered that many genuinely believe these online models are tied to our research. There’s even a Life2vec crypto coin (again, not connected to our project) claiming fuel for the Life2vec ecosystem. Clearly, it’s time to set the record straight.
 
 The material in this blog post is based on multiple slide decks I have presented over the past years.[^9] **Everything here reflects only my own views**, not those of any institution or co-author. Finally, I used Grammarly AI and ChatGPT to look for synonyms and phrases that streamline the flow.
 
-[^6]: Jay Alammar. "[The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)." _Blog post_, published June 27, 2018.
+## TL;DR: What life2vec is and isn't
 
-[^7]: Jacob Devlin, et al. “[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805).” _NAACL_, 2019.
+{{< callout type="tip" >}}
 
-[^8]: Germans Savcisens and Sune Lehmann. "[life2vec — Official Model and Publication Source](https://life2vec.dk/)." _Webpage_, Published January 6, 2024.
+### What life2vec is
 
-[^9]: Germans Savcisens. "[Life2vec: Foundation models for registry data @ Complexity Science Hub](https://doi.org/10.5281/zenodo.17639200)." _Zenodo record_, published November 18, 2025.
+1. A research prototype created by scientists to study the sequence of life events using national registry data.
+2. A Transformer-based model trained on coded health, labor, and demographic records (not natural language).
+3. A method for learning compact, numerical summaries of entire life histories.
+4. A tool evaluated on broad, population-level predictions (such as short-term mortality risk), strictly for research validation (not as a commercial product).
+5. A **proof-of-concept** showing how modern AI models can support social science without oversimplifying individual life histories.
+
+### What life2vec is not
+
+1. **Not an online tool**, app, or "_AI death calculator._"
+2. **Not a chatbot**, and not designed for interaction in English.
+3. **Not trained to predict personal death dates** or individual future life paths.
+4. **Not available for public use or deployment**, due to strict privacy rules governing the data.
+5. Not connected to any services, or products currently claiming to use life2vec.
+
+The only official page related to our project is [life2vec.dk](https://life2vec.dk). **Everything here reflects only my own views**, not those of any institution or co-author.
+
+{{< /callout >}}
 
 [^1]: Germans Savcisens, et al. "[Using sequences of life-events to predict human lives](https://www.nature.com/articles/s43588-023-00573-5)." _Nature Computational Science_ 4.1, published January 17, 2024, 43–56.
 
@@ -178,4 +171,13 @@ The material in this blog post is based on multiple slide decks I have presented
 [^4]: Danmarks Statistik. "[Dansk Branchekode DB07 — Danish Industry Classification](https://www.dst.dk/en/Statistik/dokumentation/nomenklaturer/db07)."
 
 [^5]: Ashish Vaswani, et al. “[Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf).” _NeurIPS_, 2017.
+
+[^6]: Jay Alammar. "[The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)." _Blog post_, published June 27, 2018.
+
+[^7]: Jacob Devlin, et al. “[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805).” _NAACL_, 2019.
+
+[^8]: Germans Savcisens and Sune Lehmann. "[life2vec — Official Model and Publication Source](https://life2vec.dk/)." _Webpage_, Published January 6, 2024.
+
+[^9]: Germans Savcisens. "[Life2vec: Foundation models for registry data @ Complexity Science Hub](https://doi.org/10.5281/zenodo.17639200)." _Zenodo record_, published November 18, 2025.
+
 
