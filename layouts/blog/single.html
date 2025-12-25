@@ -43,7 +43,7 @@
     </p>
             </header>
             
-            <div class="max-w-screen-lg mx-auto">
+            <div class="max-w-screen-xl mx-auto px-4">
                 {{/* Build TOC manually from page fragments */}}
                 {{ $headings := slice }}
                 {{ with .Fragments }}
@@ -73,13 +73,13 @@
                             </ul>
                         </nav>
                     </aside>
-                    <div class="lg:col-span-9">
-                        <div class="prose prose-sm md:prose prose-blog prose-with-sidenotes" itemprop="articleBody"> 
+                    <div class="lg:col-span-9 overflow-visible">
+                        <div class="prose prose-sm md:prose prose-blog prose-with-sidenotes max-w-none" itemprop="articleBody"> 
                             {{ .Content }}
                         </div>
                     </div>
                     {{ else }}
-                    <div class="lg:col-span-12">
+                    <div class="lg:col-span-12 overflow-visible">
                         <div class="prose prose-sm md:prose prose-blog prose-with-sidenotes mx-auto" itemprop="articleBody"> 
                             {{ .Content }}
                         </div>
