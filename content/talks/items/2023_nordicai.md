@@ -10,7 +10,6 @@ location: "Copenhagen, Denmark"
 description: ""
 hidden: true
 updates:
-    post_updates: true
-    tag_line: "Presented a talk"
-
+  post_updates: true
+  tag_line: "Presented a talk"
 ---

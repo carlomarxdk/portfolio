@@ -1,21 +1,21 @@
-    <div class="container">
-        {{ range first 7 (sort .Site.Pages.ByDate.Reverse) }}
-        {{ if .Params.updates.post_updates}}
-        
-        <div>{{ .Params.date.Format "Jan 2, 2006" }}</div>
-        <div>
-            {{ if eq .Section "talks"}}
-                <p>Presented "{{.Title}}" at 
-                {{ if .Params.event_url }}
-                    <a href="{{ .Params.event_url}}" target="_blank" class="a-hov">{{.Params.venue}}</a>
-                {{ else }}{{.Params.venue}} {{ end }}</p>
-            
-            {{ else if eq .Section "publications"}}
-            <p>Published in </p>
-            {{ else if eq .Section "projects"}}
-            {{end}}
-        </div>
-        {{ end }}
-        {{end }}
+<div class="container">
+  {{ range first 7 (sort .Site.Pages.ByDate.Reverse) }} {{ if
+  .Params.updates.post_updates}}
 
+  <div>{{ .Params.date.Format "Jan 2, 2006" }}</div>
+  <div>
+    {{ if eq .Section "talks"}}
+    <p>
+      Presented "{{.Title}}" at {{ if .Params.event_url }}
+      <a href="{{ .Params.event_url}}" target="_blank" class="a-hov"
+        >{{.Params.venue}}</a
+      >
+      {{ else }}{{.Params.venue}} {{ end }}
+    </p>
+
+    {{ else if eq .Section "publications"}}
+    <p>Published in</p>
+    {{ else if eq .Section "projects"}} {{end}}
+  </div>
+  {{ end }} {{end }}
 </div>

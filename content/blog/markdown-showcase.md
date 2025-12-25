@@ -20,12 +20,14 @@ Our typography system{{< sidenote id="typo-note" >}}Based on **Tailwind Typograp
 All heading levels are properly styled with the Funnel Display font:
 
 #### Level 4 Heading
+
 ##### Level 5 Heading
+
 ###### Level 6 Heading
 
 ## Text Formatting
 
-You can use **bold text**, *italic text*, and even ~~strikethrough~~ text. Inline `code` is highlighted with a pink accent color for better visibility.
+You can use **bold text**, _italic text_, and even ~~strikethrough~~ text. Inline `code` is highlighted with a pink accent color for better visibility.
 
 Here's a [link to the homepage](/) that uses dotted underline decoration.
 
@@ -70,7 +72,7 @@ function greet(name) {
   return `Welcome to the enhanced blog!`;
 }
 
-const message = greet('World');
+const message = greet("World");
 ```
 
 ```python
@@ -90,13 +92,13 @@ print(fib_sequence)
 
 Tables are now fully styled with hover effects and proper spacing:
 
-| Feature | Status | Priority |
-|---------|--------|----------|
-| Typography | ✅ Complete | High |
-| Shortcodes | ✅ Complete | High |
-| Tables | ✅ Complete | Medium |
+| Feature       | Status      | Priority |
+| ------------- | ----------- | -------- |
+| Typography    | ✅ Complete | High     |
+| Shortcodes    | ✅ Complete | High     |
+| Tables        | ✅ Complete | Medium   |
 | Accessibility | ✅ Complete | Critical |
-| Performance | ✅ Complete | Critical |
+| Performance   | ✅ Complete | Critical |
 
 ## Callout Shortcodes
 
@@ -126,12 +128,13 @@ Never commit sensitive credentials to your repository!
 
 The figure shortcode provides accessible images with captions:
 
-{{< figure 
-  src="/images/avatar.jpg" 
-  alt="Academic profile photo" 
-  caption="Images now support **captions with Markdown** for better context and accessibility"
-  width="300"
->}}
+{{< figure
+src="/images/avatar.jpg"
+alt="Academic profile photo"
+caption="Images now support **captions with Markdown** for better context and accessibility"
+width="300"
+
+> }}
 
 ## Horizontal Rules
 
@@ -150,6 +153,7 @@ Unlike footnotes{{< sidenote id="footnotes-vs-sidenotes" >}}Footnotes appear at 
 You can add footnotes[^1] to your content for additional references or explanations[^2].
 
 [^1]: This is the first footnote with additional information.
+
 [^2]: Footnotes are automatically numbered and styled at the bottom of the page.
 
 ## Definition Lists
@@ -172,7 +176,7 @@ Goldmark
 All improvements maintain strong accessibility:
 
 - ✅ Semantic HTML with proper elements
-- ✅ ARIA labels where appropriate  
+- ✅ ARIA labels where appropriate
 - ✅ Keyboard navigation support
 - ✅ Screen reader friendly
 - ✅ Proper heading hierarchy
@@ -207,4 +211,4 @@ These improvements create a better reading experience while maintaining the site
 
 ---
 
-*Last updated: December 16, 2025*
+_Last updated: December 16, 2025_

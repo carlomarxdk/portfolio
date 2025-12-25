@@ -13,28 +13,31 @@
     max-width: 65ch;
     text-wrap: pretty;
   }
-  .prose .footnote-ref{
+  .prose .footnote-ref {
     text-decoration: none;
   }
 }
 
 @utility prose-blog {
   font-family: var(--font-merriweather);
-  
-  & :where(h1, h2, h3, h4, h5, h6):not(:where([class~=not-prose],[class~=not-prose] *)) {
+
+  &
+    :where(h1, h2, h3, h4, h5, h6):not(
+      :where([class~="not-prose"], [class~="not-prose"] *)
+    ) {
     font-family: var(--font-funnel);
   }
-  
+
   & .footnote-ref {
     text-decoration: none !important;
   }
-  
+
   & sup a {
     text-decoration: none !important;
   }
-  
+
   /* Ensure italic and emphasis tags render properly */
-  & :where(em, i):not(:where([class~=not-prose],[class~=not-prose] *)) {
+  & :where(em, i):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-style: italic;
   }
 }
@@ -53,7 +56,6 @@
   .prose a.footnote-backref {
     text-decoration: none !important;
   }
-
 }
 @layer components {
   .info {
@@ -143,7 +145,7 @@
 }
 
 @utility page-title {
-  @apply box-decoration-clone bg-gradient-to-l from-rose-400 via-fuchsia-500 to-indigo-500; 
+  @apply box-decoration-clone bg-gradient-to-l from-rose-400 via-fuchsia-500 to-indigo-500;
   @apply text-white font-extrabold;
   @apply text-xl md:text-4xl;
   @apply inline-block px-2 py-2 mb-6;
@@ -185,7 +187,7 @@
 @utility a-hov {
   @apply decoration-dotted;
   @apply transition duration-300 ease-in-out;
-  
+
   &:hover {
     @apply bg-indigo-400 text-white;
   }
@@ -222,15 +224,15 @@
   & ul {
     @apply list-none pl-0;
   }
-  
+
   & li {
     @apply mb-1;
   }
-  
+
   & a {
     @apply text-gray-700 hover:text-indigo-600 hover:underline transition-colors;
   }
-  
+
   & ul ul {
     @apply pl-4 mt-1;
   }

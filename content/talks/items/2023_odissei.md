@@ -10,7 +10,7 @@ location: "Netherlands"
 description: ""
 hidden: true
 misc:
-- name: Recording
-  background: primary
-  link: https://eur.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?tid=b4e9c510-2253-4505-af6a-b08900d9a578
+  - name: Recording
+    background: primary
+    link: https://eur.cloud.panopto.eu/Panopto/Pages/Viewer.aspx?tid=b4e9c510-2253-4505-af6a-b08900d9a578
 ---

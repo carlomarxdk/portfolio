@@ -1,44 +1,53 @@
 @font-face {
-    font-family: 'Noto Sans';
-    font-display: swap;
-    src: local('Noto Sans'),
-        url(//fonts.gstatic.com/s/notosans/v8/o-0IIpQlx3QUlC5A4PNr5TRASf6M7Q.woff2) format('woff2');
+  font-family: "Noto Sans";
+  font-display: swap;
+  src:
+    local("Noto Sans"),
+    url(//fonts.gstatic.com/s/notosans/v8/o-0IIpQlx3QUlC5A4PNr5TRASf6M7Q.woff2)
+      format("woff2");
 }
 
 @font-face {
-    font-family: 'Dancing Script';
-    font-display: swap;
-    src: local('Dancing Script'),
-        url(//fonts.gstatic.com/s/dancingscript/v10/If2RXTr6YS-zF4S-kcSWSVi_szLgiuEHiC4W.woff2) format('woff2');
+  font-family: "Dancing Script";
+  font-display: swap;
+  src:
+    local("Dancing Script"),
+    url(//fonts.gstatic.com/s/dancingscript/v10/If2RXTr6YS-zF4S-kcSWSVi_szLgiuEHiC4W.woff2)
+      format("woff2");
 }
 
-#canvas{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0.6;
-    z-index: -1;
-    top:0;
-    left:0;
-    overflow:hidden;
+#canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
 
-#canvas1{
-    position: absolute;
-    top: 0; left:0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.2;
-    background-color: #fff;
-    z-index:-1;
-
+#canvas1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background-color: #fff;
+  z-index: -1;
 }
 
 body {
-    font-family: "zeitung", Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    text-rendering: optimizeLegibility;
+  font-family:
+    "zeitung",
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
 }
 
 h1,
@@ -47,38 +56,43 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: ysans-std, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    font-style: normal;
+  font-family:
+    ysans-std,
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 h1 {
-    font-size: 2em;
+  font-size: 2em;
 }
 
 h2 {
-    font-size: 1.65em;
+  font-size: 1.65em;
 }
 
 h3 {
-    font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 h4 {
-    font-size: 1.25em;
+  font-size: 1.25em;
 }
 
 h5 {
-    font-size: 1em;
+  font-size: 1em;
 }
 
 h6 {
-    font-size: 0.9em;
+  font-size: 0.9em;
 }
 
 p {
-    font-size: 1em;
-    letter-spacing: -.004em;
+  font-size: 1em;
+  letter-spacing: -0.004em;
 }
 
 .post h1,
@@ -87,108 +101,150 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .home h1 {
-    font-size: 2.25em;
-    line-height: 2em;
+  font-size: 2.25em;
+  line-height: 2em;
 }
 
 .home h2 {
-    font-size: 2em;
-    line-height: 1.5em;
+  font-size: 2em;
+  line-height: 1.5em;
 }
 
 .post header h1 {
-    font: 500 32px/1.8em 'Noto Sans', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, serif;
-    margin-bottom: 20px;
-    letter-spacing: -1px;
+  font:
+    500 32px/1.8em "Noto Sans",
+    "Lucida Grande",
+    "Lucida Sans Unicode",
+    "Lucida Sans",
+    Arial,
+    serif;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
 }
 
 .post h1 {
-    font: bold 24px/1.5em 'Noto Sans', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, serif;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+  font:
+    bold 24px/1.5em "Noto Sans",
+    "Lucida Grande",
+    "Lucida Sans Unicode",
+    "Lucida Sans",
+    Arial,
+    serif;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
 }
 
 .post h2 {
-    font: bold 20px/1.5em 'Noto Sans', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, serif;
+  font:
+    bold 20px/1.5em "Noto Sans",
+    "Lucida Grande",
+    "Lucida Sans Unicode",
+    "Lucida Sans",
+    Arial,
+    serif;
 }
 
 .post h3 {
-    font: normal 18px/1.5em 'Noto Sans', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, serif;
-    margin-top: 50px;
+  font:
+    normal 18px/1.5em "Noto Sans",
+    "Lucida Grande",
+    "Lucida Sans Unicode",
+    "Lucida Sans",
+    Arial,
+    serif;
+  margin-top: 50px;
 }
 
 .post h4 {
-    font: normal 16px/1.5em 'Noto Sans', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, serif;
-    margin-top: 50px;
+  font:
+    normal 16px/1.5em "Noto Sans",
+    "Lucida Grande",
+    "Lucida Sans Unicode",
+    "Lucida Sans",
+    Arial,
+    serif;
+  margin-top: 50px;
 }
 
 .profile h1 {
-    font-size: 2em;
-    color: #222;
-    font-weight: 400;
-
+  font-size: 2em;
+  color: #222;
+  font-weight: 400;
 }
 
-.profile h2 {   
-    font-weight: 400;
-    font-style: normal;
+.profile h2 {
+  font-weight: 400;
+  font-style: normal;
 }
 
-.profile span{
-    font-family: "zeitung",  Arial, sans-serif;
-    font-weight: 300;
-    font-style: normal;
+.profile span {
+  font-family: "zeitung", Arial, sans-serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 #post-list a {
-    color: #333;
-    display: block;
-    font: bolder 19px/1.7 'Noto Sans', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, serif;
+  color: #333;
+  display: block;
+  font:
+    bolder 19px/1.7 "Noto Sans",
+    "Lucida Grande",
+    "Lucida Sans Unicode",
+    "Lucida Sans",
+    Arial,
+    serif;
 }
 
 #post-list h2 {
-    font: normal 16px/1.5em 'Noto Sans', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, serif;
+  font:
+    normal 16px/1.5em "Noto Sans",
+    "Lucida Grande",
+    "Lucida Sans Unicode",
+    "Lucida Sans",
+    Arial,
+    serif;
 }
 
 #post-body p {
-    --x-height-multiplier: 0.375;
-    --baseline-multiplier: 0.17;
-    font-family: 'Noto Sans', "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial, serif;
-    letter-spacing: -.004em;
+  --x-height-multiplier: 0.375;
+  --baseline-multiplier: 0.17;
+  font-family:
+    "Noto Sans", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Arial,
+    serif;
+  letter-spacing: -0.004em;
 }
 
 .welcome-description {
-    background-color: #fff;
-    font-family: "zeitung", sans-serif;
-    font-weight: 300;
-    font-style: normal;
-    text-rendering: optimizeLegibility;
-    color: #595959;
-    margin-bottom: -20px;
+  background-color: #fff;
+  font-family: "zeitung", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+  color: #595959;
+  margin-bottom: -20px;
 }
 
 #page-title {
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-    padding-bottom: 0px;
-    max-width: 50em;
-    margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+  max-width: 50em;
+  margin: 0 auto;
 }
 
 #page-title hr {
-    margin: 20px auto;
+  margin: 20px auto;
 }
 
 #page-title h1 {
-    font-size: 2.3em;
-    margin-top: 1.5em;
-    font-weight: 400;
-
+  font-size: 2.3em;
+  margin-top: 1.5em;
+  font-weight: 400;
 }
 
 #page-content h2,
@@ -196,189 +252,189 @@ h3,
 h4,
 h5,
 h6 {
-    font-style: normal;
-    color: #333;
-    line-height: 1.5em;
-    margin-bottom: 0.7em;
-    margin-top: 1em;
-    font-weight: normal;
+  font-style: normal;
+  color: #333;
+  line-height: 1.5em;
+  margin-bottom: 0.7em;
+  margin-top: 1em;
+  font-weight: normal;
 }
 
 #page-content p {
-    --x-height-multiplier: 0.375;
-    --baseline-multiplier: 0.17;
-    letter-spacing: -.004em;
+  --x-height-multiplier: 0.375;
+  --baseline-multiplier: 0.17;
+  letter-spacing: -0.004em;
 }
 
 #page-container {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 #page-wrap {
-    flex: 1;
+  flex: 1;
 }
 
 #wrapper {
-    padding-bottom: 2rem;
+  padding-bottom: 2rem;
 }
 
 #wrapper.home {
-    padding: 0px 1rem 1rem 1rem;
+  padding: 0px 1rem 1rem 1rem;
 }
 
 #footer {
-    max-width: 600px;
-    margin: 0 auto;
-    margin-top: 40px;
-    padding: 0px 40px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 0px 40px;
 }
 
 #post-list li {
-    margin-left: 0px;
+  margin-left: 0px;
 }
 
 /* toq */
 
 #toc {
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 #TableOfContents ul li {
-    list-style-type: none;
-    line-height: 2.2em;
+  list-style-type: none;
+  line-height: 2.2em;
 }
 
 #TableOfContents ul li ul li {
-    list-style-type: none;
-    margin-bottom: 0px;
+  list-style-type: none;
+  margin-bottom: 0px;
 }
 
-
-ul>li {
-    margin-bottom: 5px;
-    line-height: 1.5em;
-
+ul > li {
+  margin-bottom: 5px;
+  line-height: 1.5em;
 }
 
 #post-body img {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
-    padding: 10px 10px;
-    margin: 20px 0px;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  padding: 10px 10px;
+  margin: 20px 0px;
 }
 
 #post-body a,
 #page-content a {
-    text-decoration: underline dotted 0.05em;
+  text-decoration: underline dotted 0.05em;
 }
 
 #post-body a:hover,
 #page-content a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /* nav */
 
 nav.main-nav {
-    padding: 1em 1em 0;
-    line-height: 1.2em;
-    text-align: center;
-    font-weight: bolder;
-    letter-spacing: 0.01em;
-    text-transform: uppercase;
+  padding: 1em 1em 0;
+  line-height: 1.2em;
+  text-align: center;
+  font-weight: bolder;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 nav.main-nav a {
-    padding: 0.4em 0.4em;
-    font-size: 1em;
-    color: #A4804A;
+  padding: 0.4em 0.4em;
+  font-size: 1em;
+  color: #a4804a;
 }
 
 nav.main-nav a.cta {
-    padding: 0.2em 0.4em;
-    background-color: #198754;
+  padding: 0.2em 0.4em;
+  background-color: #198754;
 }
 
 /* disqus */
 
 #disqus-container {
-    font-size: 0.85rem;
-    /* padding: 1.5rem; */
-    padding-top: 2em;
-    text-align: center;
+  font-size: 0.85rem;
+  /* padding: 1.5rem; */
+  padding-top: 2em;
+  text-align: center;
 }
 
 #disqus-button {
-    margin: 0 auto;
-    background: #333;
-    color: #fff;
-    padding: 8px 8px;
-    font-size: 13px;
-    line-height: 1.35;
-    border-radius: 3px;
+  margin: 0 auto;
+  background: #333;
+  color: #fff;
+  padding: 8px 8px;
+  font-size: 13px;
+  line-height: 1.35;
+  border-radius: 3px;
 }
 
 #disqus-comments {
-    display: none;
+  display: none;
 }
 
 #disqus_thread {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
-.event-item h4{
-    margin-bottom: 0.05em;
+.event-item h4 {
+  margin-bottom: 0.05em;
 }
 
-.event-item p.date{
-    margin-bottom: 0.1em;
+.event-item p.date {
+  margin-bottom: 0.1em;
 }
 
 .event-item p.title,
 .event-item a.title,
-.event-item span.title{
-    font-size: 1em;
-    margin-bottom: 0.5em;
-    line-height: 1;
-    text-decoration: none;
+.event-item span.title {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  line-height: 1;
+  text-decoration: none;
 }
 .event-item p.venue,
-.event-item span.venue{
-    font-size: 0.9em;
-    margin-bottom: 0.1em;
-    line-height: 1;
+.event-item span.venue {
+  font-size: 0.9em;
+  margin-bottom: 0.1em;
+  line-height: 1;
 }
-.event-item p.misc{
-    font-size: 0.9em;
-    margin-top: 0.5em;
-    margin-bottom: 0em;
-    line-height: 1.3;
+.event-item p.misc {
+  font-size: 0.9em;
+  margin-top: 0.5em;
+  margin-bottom: 0em;
+  line-height: 1.3;
 }
 
 /* Publications*/
 
-.pub-item p.title{
-    font-size: 1em;
-    line-height: 1.3 !important;
-    margin-bottom: 0.2rem;
+.pub-item p.title {
+  font-size: 1em;
+  line-height: 1.3 !important;
+  margin-bottom: 0.2rem;
 }
 
-.pub-item p.authors{
-    font-size: 0.9em;
-    line-height: 1.2rem;
-    font-style: italic;
-    margin-bottom: 0.2em;
+.pub-item p.authors {
+  font-size: 0.9em;
+  line-height: 1.2rem;
+  font-style: italic;
+  margin-bottom: 0.2em;
 }
 
-.pub-item p.venue{
-    font-size: 0.9em;
-    font-weight: 700;
-    margin-bottom: 0;
+.pub-item p.venue {
+  font-size: 0.9em;
+  font-weight: 700;
+  margin-bottom: 0;
 }
 
-.pub-item p.venue{
-    margin-top: 0;
-    margin-bottom: 0;
+.pub-item p.venue {
+  margin-top: 0;
+  margin-bottom: 0;
 }

@@ -25,12 +25,13 @@ Use the `figure` shortcode to add images with captions and better accessibility.
 ### With Link
 
 ```markdown
-{{< figure 
-  src="/images/thumbnail.jpg" 
-  alt="Click to view full size" 
-  link="/images/full-size.jpg"
-  caption="Click image to view full size"
->}}
+{{< figure
+src="/images/thumbnail.jpg"
+alt="Click to view full size"
+link="/images/full-size.jpg"
+caption="Click image to view full size"
+
+> }}
 ```
 
 ### All Parameters
@@ -148,7 +149,7 @@ The site also supports these Goldmark extensions:
 
 ```markdown
 | Header 1 | Header 2 | Header 3 |
-|----------|----------|----------|
+| -------- | -------- | -------- |
 | Cell 1   | Cell 2   | Cell 3   |
 | Cell 4   | Cell 5   | Cell 6   |
 ```
@@ -200,7 +201,7 @@ This is the main text{{< sidenote id="sn1" >}}This is a side note that appears i
 
 ```markdown
 Some text with a reference{{< sidenote id="note1" >}}
-This side note can contain **bold text**, *italics*, and even [links](https://example.com).
+This side note can contain **bold text**, _italics_, and even [links](https://example.com).
 {{< /sidenote >}} to additional context.
 ```
 
@@ -247,7 +248,7 @@ The site also supports these Goldmark extensions:
 
 ```markdown
 | Header 1 | Header 2 | Header 3 |
-|----------|----------|----------|
+| -------- | -------- | -------- |
 | Cell 1   | Cell 2   | Cell 3   |
 | Cell 4   | Cell 5   | Cell 6   |
 ```

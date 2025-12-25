@@ -14,11 +14,11 @@ image: "/images/life2vec-hero.png"
 Tell them stories. They need the truth, you must tell them true stories \[...\].
 {{< /quote >}} -->
 
-Over the past two years, online death calculators have flooded the internet. I think the craze really took off after the introduction of the [life2vec](https://www.nature.com/articles/s43588-023-00573-5),[^1] a model developed by a team of scientists, including myself, trained on life sequences from millions of Danish residents. Since then, life2vec has been often mentioned for its ability to predict “*when you are going to die with 78% accuracy,*” alongside the claims that it is powered by the same architecture as ChatGPT.
+Over the past two years, online death calculators have flooded the internet. I think the craze really took off after the introduction of the [life2vec](https://www.nature.com/articles/s43588-023-00573-5),[^1] a model developed by a team of scientists, including myself, trained on life sequences from millions of Danish residents. Since then, life2vec has been often mentioned for its ability to predict “_when you are going to die with 78% accuracy,_” alongside the claims that it is powered by the same architecture as ChatGPT.
 
-Chances are, you have stumbled across one of these calculators. They often claim to use life2vec under the hood, with names like "*Life2vec AI Death Calculator.*" They quite often appear at the top of the search results and even make their way into news coverage. Maybe you have even tried one. Perhaps it promised you a century of life, or informed you that your time is up tomorrow... In either case, it likely left you with questions: "*How accurate is it?*” “*Is this really THE death calculator everyone’s talking about?*" "*Is this the model with the 78% accuracy?*"
+Chances are, you have stumbled across one of these calculators. They often claim to use life2vec under the hood, with names like "_Life2vec AI Death Calculator._" They quite often appear at the top of the search results and even make their way into news coverage. Maybe you have even tried one. Perhaps it promised you a century of life, or informed you that your time is up tomorrow... In either case, it likely left you with questions: "_How accurate is it?_” “_Is this really THE death calculator everyone’s talking about?_" "_Is this the model with the 78% accuracy?_"
 
-I have to admit: the title was a bit of a tease, and for that, I owe you an apology. **Despite what these online tools claim, they have no connection to the life2vec we built in our research.** Instead, this post is my attempt to clarify our findings:  to explain what life2vec really is, why I believe it was a meaningful scientific project, and why it simply cannot be used online to predict anyone’s death date.
+I have to admit: the title was a bit of a tease, and for that, I owe you an apology. **Despite what these online tools claim, they have no connection to the life2vec we built in our research.** Instead, this post is my attempt to clarify our findings: to explain what life2vec really is, why I believe it was a meaningful scientific project, and why it simply cannot be used online to predict anyone’s death date.
 
 This is written for **curious readers**, **journalists**, **policymakers**, and **scientists**. You might ask why this explanation should differ from similar pieces you have seen elsewhere. My answer is simple: I was the first author of the life2vec paper, and I spent three years, alongside brilliant co-authors, bringing this project to life.
 
@@ -33,14 +33,14 @@ Let's consider income records. Whenever a Danish resident receives taxable incom
 
 A typical record might look like this:
 
-* **Date**: January 2, 2011
-* **Income**: 32,000 DKK
-* **Industry**: 1814
-* **Occupation**: 7323
+- **Date**: January 2, 2011
+- **Income**: 32,000 DKK
+- **Industry**: 1814
+- **Occupation**: 7323
 
-This record can be interpreted as follows: on January 2, 2011, an individual working as a *Print Finishing and Binding Worker* (occupation code `7323`) at a *Bookbinding Service* (industry code `1814`) earned 32,000 DKK.
+This record can be interpreted as follows: on January 2, 2011, an individual working as a _Print Finishing and Binding Worker_ (occupation code `7323`) at a _Bookbinding Service_ (industry code `1814`) earned 32,000 DKK.
 
-Health records follow the same basic principle. In Denmark, the vast majority of doctor visits and hospital stays are also logged in a highly structured format. Each encounter is associated with one or more diagnoses encoded in the [ICD-10](https://www.who.int/standards/classifications/classification-of-diseases) classification system. A doctor can pinpoint a diagnosis down to an injury/disease that occurred during "*activities involving arts and handicrafts*" (ICD-10 code `Y93.D`). Yes, the data is that precise.
+Health records follow the same basic principle. In Denmark, the vast majority of doctor visits and hospital stays are also logged in a highly structured format. Each encounter is associated with one or more diagnoses encoded in the [ICD-10](https://www.who.int/standards/classifications/classification-of-diseases) classification system. A doctor can pinpoint a diagnosis down to an injury/disease that occurred during "_activities involving arts and handicrafts_" (ICD-10 code `Y93.D`). Yes, the data is that precise.
 
 By combining these sources, we can piece together detailed timelines of individual lives. However, there is an important catch: at the end of the day, these are still just records in a massive table... some events are rare, others repeat with various frequencies, and **many classical analysis methods require us to simplify this complexity**. For example, we can instead count hospital visits for a specific issue or average yearly salaries.
 
@@ -50,21 +50,21 @@ By combining these sources, we can piece together detailed timelines of individu
 
 One of the central goals of the life2vec project was exactly to preserve the rich context and ordering of life sequences, while still enabling exploratory analysis. That is, both to uncover connections between events and, potentially, to make and interpret life-related predictions.
 
-To approach this problem, we drew inspiration from another field that faced similar challenges: [Natural Language Processing](https://aws.amazon.com/what-is/nlp/) (NLP, for short). Human language, after all, consists of ordered sequences where meaning depends not just on *which* words appear, but *when* they appear and in *what context*.
+To approach this problem, we drew inspiration from another field that faced similar challenges: [Natural Language Processing](https://aws.amazon.com/what-is/nlp/) (NLP, for short). Human language, after all, consists of ordered sequences where meaning depends not just on _which_ words appear, but _when_ they appear and in _what context_.
 
-To demonstrate this, let’s look at a small example. Suppose I tell you that the sentence contains the following words: *and, beautiful, everything, hurt, nothing*. Could you reconstruct the original sentence? Well, yes! You might come up with several plausible sentences:
+To demonstrate this, let’s look at a small example. Suppose I tell you that the sentence contains the following words: _and, beautiful, everything, hurt, nothing_. Could you reconstruct the original sentence? Well, yes! You might come up with several plausible sentences:
 
-* “*Beautiful was nothing, and everything hurt.*”  
-* "*Hurt was everything and nothing was beautiful.*"
-* "*Everything hurt and nothing was beautiful.*"
+- “_Beautiful was nothing, and everything hurt._”
+- "_Hurt was everything and nothing was beautiful._"
+- "_Everything hurt and nothing was beautiful._"
 
-All of these use the same words, yet their meanings differ a lot. The sentence I had in mind is a line from Kurt Vonnegut’s *Slaughterhouse-Five*: "*Everything was beautiful and nothing hurt.*" Did your reconstruction look anything like that? So... I hope it does show that counts alone are not enough.  Order and context shape meaning.
+All of these use the same words, yet their meanings differ a lot. The sentence I had in mind is a line from Kurt Vonnegut’s _Slaughterhouse-Five_: "_Everything was beautiful and nothing hurt._" Did your reconstruction look anything like that? So... I hope it does show that counts alone are not enough. Order and context shape meaning.
 
-For decades,  NLP researchers have focused on developing methods to represent human language so that machines can process, interpret, and generate it. Around 2016,  this line of work gave rise to a particularly powerful class of models: Transformers.[^5] These models forever changed the NLP field, and some might argue that they eventually broke it (that’s for another blog post).
+For decades, NLP researchers have focused on developing methods to represent human language so that machines can process, interpret, and generate it. Around 2016, this line of work gave rise to a particularly powerful class of models: Transformers.[^5] These models forever changed the NLP field, and some might argue that they eventually broke it (that’s for another blog post).
 
 Modern models such as ChatGPT or Gemma are built on the Transformer architecture. You have likely seen this for yourself: they can process quite complex information and generate coherent, human-like text. More importantly for our purposes, Transformers learn rich representations of language that encode how words are related to one another across context and position.
 
-You do not need to understand the inner workings of Transformers for this post (here is a [more technical explainers](https://jalammar.github.io/illustrated-transformer/)[^6] for interested readers). At a basic level, Transformer models convert an input sequence, such as "*The dog runs after the,*" into a compact numerical representation that captures its content. It does so by combining mathematical operations; the important point is not how these operations work, but that they preserve order and context while producing numerical summaries that can be used for prediction and, to a limited extent, interpretation.
+You do not need to understand the inner workings of Transformers for this post (here is a [more technical explainers](https://jalammar.github.io/illustrated-transformer/)[^6] for interested readers). At a basic level, Transformer models convert an input sequence, such as "_The dog runs after the,_" into a compact numerical representation that captures its content. It does so by combining mathematical operations; the important point is not how these operations work, but that they preserve order and context while producing numerical summaries that can be used for prediction and, to a limited extent, interpretation.
 
 This combination of strong predictive performance on structured sequences and interpretability **led us to a simple but ambitious question**: What if we could represent life sequences in a form similar to human-written language, and further adapt the Transformer architecture to learn this life language?
 
@@ -72,14 +72,14 @@ This combination of strong predictive performance on structured sequences and in
 
 To apply Transformers to life-related records, we had to define some sort of language. The language we developed is super simple, and, most importantly, it bears little resemblance to human-written language. This synthetic language is intentionally simple, with only a few basic rules. Unlike human languages, it does not include grammar in the traditional sense: there are no conjugations, inflectional endings, or function words. We left these elements out because they do not add much meaning for our purposes and would only introduce additional structure for the model to learn (i.e., things that are not connected to health or labour).
 
-Instead of words like `dog` or `beautiful`, the vocabulary consists of codes derived  from the data, and we have something similar to sentences (each sentence represents a single record in the data). So, taking my previous example with the labour:
+Instead of words like `dog` or `beautiful`, the vocabulary consists of codes derived from the data, and we have something similar to sentences (each sentence represents a single record in the data). So, taking my previous example with the labour:
 
-* **Date**: January 2, 2011
-* **Income**: 32,000 DKK
-* **Industry**: 1814
-* **Occupation**: 7323
+- **Date**: January 2, 2011
+- **Income**: 32,000 DKK
+- **Industry**: 1814
+- **Occupation**: 7323
 
-In our language, this record becomes a sentence: `[INCOME-32] [INDUSTRY-1814] [OCC-7323]`. An individual life trajectory is then represented as a sequence of such sentences.  A person might have 12 to 100 such sentences, which eventually form a kind of book for that person.
+In our language, this record becomes a sentence: `[INCOME-32] [INDUSTRY-1814] [OCC-7323]`. An individual life trajectory is then represented as a sequence of such sentences. A person might have 12 to 100 such sentences, which eventually form a kind of book for that person.
 
 `[INCOME-32] [INDUSTRY-1814] [OCC-7323] . [AMBULANCE] [HEALTH-S60]. [INCOME-63] [INDUSTRY-1814] [OCC-7323] .`
 
@@ -93,7 +93,7 @@ As should already be clear from the synthetic language, **life2vec is not someth
 
 Most modern transformer-based chat systems (again, ChatGPT as an example) are trained to predict the next token in a sequence. This makes the most sense for the task ChatGPT has to accomplish, namely generating coherent replies.
 
-**Life2vec was trained very differently**. Instead of next-token predictions in a sequence, as in chat-based models, it used a masked modelling objective.[^7] In this setup, parts of the sequence are hidden, and the model is tasked with reconstructing the missing elements from the surrounding context.  Think of it like a puzzle where certain pieces are missing. This approach helps the model understand the relationships and patterns among events in a sequence, rather than focusing solely on what might come next. After seeing thousands of sequences, life2vec gradually learned how to encode life histories into numerical representations. That distinction is crucial: our goal was not to predict “what comes next,” but to learn compact numerical representations that summarise entire life trajectories.
+**Life2vec was trained very differently**. Instead of next-token predictions in a sequence, as in chat-based models, it used a masked modelling objective.[^7] In this setup, parts of the sequence are hidden, and the model is tasked with reconstructing the missing elements from the surrounding context. Think of it like a puzzle where certain pieces are missing. This approach helps the model understand the relationships and patterns among events in a sequence, rather than focusing solely on what might come next. After seeing thousands of sequences, life2vec gradually learned how to encode life histories into numerical representations. That distinction is crucial: our goal was not to predict “what comes next,” but to learn compact numerical representations that summarise entire life trajectories.
 
 ![Compating the training strategies](/images/training_exp.webp)
 
@@ -109,7 +109,7 @@ Now that life2vec was pretrained and learned to operate on sequences, we could p
 
 The task was quite simple. Given a life sequence (or rather its numerical summary) ending on December 31st, 2014, could the life2vec model identify individuals who would die within the following three years? It was a binary classification problem: no predicted dates, no fine-grained timing, a fixed prediction window ending in 2018. A small note: during pretraining, life2vec never saw any information about events that occurred after 2014.
 
-Under this setup, the model performed well, outperforming several classical methods, and identified connections we know lead to higher mortality, such as working in a physically demanding position. Notably, the often-quoted figure of *78\% accuracy* was never emphasised in the main paper. Accuracy is not always the most informative metric, and this number appeared only in the supplementary materials, consistent with reporting practices in our field. To be precise, what this number means is the following: if I take a group of 100 people that consists of 50 people who died within the prediction window and 50 who were still alive by the end of 2018 → life2vec would correctly classify 78 of them (on average).
+Under this setup, the model performed well, outperforming several classical methods, and identified connections we know lead to higher mortality, such as working in a physically demanding position. Notably, the often-quoted figure of _78\% accuracy_ was never emphasised in the main paper. Accuracy is not always the most informative metric, and this number appeared only in the supplementary materials, consistent with reporting practices in our field. To be precise, what this number means is the following: if I take a group of 100 people that consists of 50 people who died within the prediction window and 50 who were still alive by the end of 2018 → life2vec would correctly classify 78 of them (on average).
 
 To summarise the arguments above, the **life2vec model cannot do the following**:
 
@@ -149,7 +149,7 @@ The material in this blog post is based on multiple slide decks I have presented
 
 ### What life2vec is not
 
-1. **Not an online tool**, app, or "*AI death calculator.*"
+1. **Not an online tool**, app, or "_AI death calculator._"
 2. **Not a chatbot**, and not designed for interaction in English.
 3. **Not trained to predict personal death dates** or individual future life paths.
 4. **Not available for public use or deployment**, due to strict privacy rules governing the data.
@@ -159,7 +159,7 @@ The only official page related to our project is [life2vec.dk](https://life2vec.
 
 {{< /callout >}}
 
-[^1]: Germans Savcisens, et al. "[Using sequences of life-events to predict human lives](https://www.nature.com/articles/s43588-023-00573-5)." *Nature Computational Science* 4.1, published January 17, 2024, 43–56.
+[^1]: Germans Savcisens, et al. "[Using sequences of life-events to predict human lives](https://www.nature.com/articles/s43588-023-00573-5)." _Nature Computational Science_ 4.1, published January 17, 2024, 43–56.
 
 [^2]: Danmarks Statistik. "[Statistics Denmark — Official National Statistical Authority](https://dst.dk/en)."
 
@@ -167,12 +167,12 @@ The only official page related to our project is [life2vec.dk](https://life2vec.
 
 [^4]: Danmarks Statistik. "[Dansk Branchekode DB07 — Danish Industry Classification](https://www.dst.dk/en/Statistik/dokumentation/nomenklaturer/db07)."
 
-[^5]: Ashish Vaswani, et al. “[Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf).” *NeurIPS*, 2017.
+[^5]: Ashish Vaswani, et al. “[Attention Is All You Need](https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf).” _NeurIPS_, 2017.
 
-[^6]: Jay Alammar. "[The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)." *Blog post*, published June 27, 2018.
+[^6]: Jay Alammar. "[The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)." _Blog post_, published June 27, 2018.
 
-[^7]: Jacob Devlin, et al. “[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805).” *NAACL*, 2019.
+[^7]: Jacob Devlin, et al. “[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805).” _NAACL_, 2019.
 
-[^8]: Germans Savcisens and Sune Lehmann. "[life2vec — Official Model and Publication Source](https://life2vec.dk/)." *Webpage*, Published January 6, 2024.
+[^8]: Germans Savcisens and Sune Lehmann. "[life2vec — Official Model and Publication Source](https://life2vec.dk/)." _Webpage_, Published January 6, 2024.
 
-[^9]: Germans Savcisens. "[Life2vec: Foundation models for registry data @ Complexity Science Hub](https://doi.org/10.5281/zenodo.17639200)." *Zenodo record*, published November 18, 2025.
+[^9]: Germans Savcisens. "[Life2vec: Foundation models for registry data @ Complexity Science Hub](https://doi.org/10.5281/zenodo.17639200)." _Zenodo record_, published November 18, 2025.

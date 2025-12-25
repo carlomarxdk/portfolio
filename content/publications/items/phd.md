@@ -10,16 +10,15 @@ pub_link: https://orbit.dtu.dk/en/publications/life-trajectories-as-symbolic-lan
 hidden: true
 highlight: false
 misc:
-- name: Abstract
-  background: secondary
-  link: https://findit.dtu.dk/en/catalog/6675796ce1f9ed17d3fb1a5f
-- name: Slides
-  background: success
-  link: https://doi.org/10.5281/zenodo.14580405
+  - name: Abstract
+    background: secondary
+    link: https://findit.dtu.dk/en/catalog/6675796ce1f9ed17d3fb1a5f
+  - name: Slides
+    background: success
+    link: https://doi.org/10.5281/zenodo.14580405
 
 allow_fact: true
 fact_id: "2"
-
 ---
 
 Here are the **five** tracks that kept me rocking while I finished the thesis:

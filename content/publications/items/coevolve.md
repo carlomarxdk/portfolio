@@ -10,7 +10,7 @@ venue: TBA
 abstract: ""
 pub_link: https://github.com/carlomarxdk/coevolve-sim
 misc:
-- name: Code
-  background: primary
-  link: https://github.com/carlomarxdk/coevolve-sim
+  - name: Code
+    background: primary
+    link: https://github.com/carlomarxdk/coevolve-sim
 ---

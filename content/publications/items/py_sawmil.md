@@ -9,13 +9,13 @@ pub_link: https://pypi.org/project/sawmil/
 hidden: true
 highlight: false
 misc:
-- name: GitHub
-  background: primary
-  link: https://github.com/carlomarxdk/sawmil
-- name: Documentation
-  background: primary 
-  link: https://sawmil.readthedocs.io/en/latest/
-- name: DOI
-  background: primary 
-  link: https://zenodo.org/records/17055044
+  - name: GitHub
+    background: primary
+    link: https://github.com/carlomarxdk/sawmil
+  - name: Documentation
+    background: primary
+    link: https://sawmil.readthedocs.io/en/latest/
+  - name: DOI
+    background: primary
+    link: https://zenodo.org/records/17055044
 ---

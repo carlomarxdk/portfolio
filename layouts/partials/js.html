@@ -5,11 +5,11 @@
 
 {{ range .Site.Params.customJS }}
 <script src="{{ $.Site.BaseURL }}{{ . }}"></script>
-{{ end }}
-
-{{ if .Site.Params.enablePlausible }}
-<script defer data-domain="{{.Site.Params.PlausibleID }}" src="https://plausible.io/js/script.outbound-links.js"></script>
+{{ end }} {{ if .Site.Params.enablePlausible }}
+<script
+  defer
+  data-domain="{{.Site.Params.PlausibleID }}"
+  src="https://plausible.io/js/script.outbound-links.js"
+></script>
 <!-- static -->
 {{ end }}
-
-

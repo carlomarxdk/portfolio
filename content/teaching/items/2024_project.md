@@ -2,9 +2,8 @@
 date: 2024-02-01
 hidden: true
 
-
 title: "Predictive Modelling of Mobile App Usage"
-url: 
+url:
 course_url: https://dtu.dk
 course_type: 1
 

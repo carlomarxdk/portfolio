@@ -1,14 +1,10 @@
 <section id="wrapper">
-    <div class="container max-w-screen-md">
-        {{ $pages := sort .Pages.ByDate.Reverse }}
-        {{ if eq (len $pages) 0 }}
-            <p class="mb-2 md:mb-4 italic font-cabin text-center">No blog posts yet. Stay tuned!</p>
-        {{ else }}
-            {{ range $pages }}
-                {{ if ne .Params.hidden true }}
-                    {{partial "blog/blog-post.html" .}}
-                {{ end }}
-            {{ end }}
-        {{ end }}
-    </div>
+  <div class="container max-w-screen-md">
+    {{ $pages := sort .Pages.ByDate.Reverse }} {{ if eq (len $pages) 0 }}
+    <p class="mb-2 md:mb-4 italic font-cabin text-center">
+      No blog posts yet. Stay tuned!
+    </p>
+    {{ else }} {{ range $pages }} {{ if ne .Params.hidden true }} {{partial
+    "blog/blog-post.html" .}} {{ end }} {{ end }} {{ end }}
+  </div>
 </section>
