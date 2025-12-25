@@ -23,24 +23,24 @@ fact_id: "2"
 
 Here are the **five** tracks that kept me rocking while I finished the thesis:
 
-<p>(1) 
+<p>(1)
   <a href="https://youtu.be/0KOZ3VbPB0k?si=EShZQ9fdm90t7nJf" target="_blank" rel="noreferrer">
     <u><strong>Purpose is Glorious</strong></u>
   </a> by Natalie Holt
 </p>
-<p>(2) 
+<p>(2)
   <a href="https://youtu.be/U85AY5o189Y?si=n9I5fJWwRhPWHlZG" target="_blank" rel="noreferrer">
     <u><strong>The Constant</strong></u>
   </a> by Michael Giacchino
 </p>
 
-<p>(3) 
+<p>(3)
   <a href="https://youtu.be/tlNUKfC8GVU?si=1aYiftSa_FHLkqDV" target="_blank" rel="noreferrer">
     <u><strong>You Have to Let Me Go</strong></u>
   </a> by Max Richter
 </p>
 
-<p>(4) 
+<p>(4)
   <a href="https://youtu.be/Bv9qC6a2B8c?si=_n2QWhurHWsgrMGj" target="_blank" rel="noreferrer">
     <u><strong>Matter of Dust</strong></u>
   </a> by Lorne Balfe

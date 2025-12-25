@@ -26,19 +26,19 @@ fact_id: "3"
 
 Here are the some tracks that kept me up:
 
-<p>(1) 
+<p>(1)
   <a href="https://youtu.be/oOjNnOKDutY?si=Yy4iZhhCOQ1Rg5g_" target="_blank" rel="noreferrer">
     <u><strong>Full Moon Party</strong></u>
   </a> by Cristobal Tapia de Veer
 </p>
 
-<p>(2) 
+<p>(2)
   <a href="https://youtu.be/mTGN4WHpwK0?si=yZjT9cL9CfBudQRd" target="_blank" rel="noreferrer">
     <u><strong>Corridor of Love</strong></u>
   </a> by Jung Jaeil
 </p>
 
-<p>(3) 
+<p>(3)
   <a href="https://youtu.be/WxLBOwdTKjI?si=8IFNYtippBXNW6GB" target="_blank" rel="noreferrer">
     <u><strong>Niamos!</strong></u>
   </a> by Nicholas Britel
