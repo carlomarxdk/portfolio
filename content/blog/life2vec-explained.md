@@ -59,11 +59,11 @@ To demonstrate this, let’s look at a small example. Suppose I tell you that th
 - "_Hurt was everything and nothing was beautiful._"
 - "_Everything hurt and nothing was beautiful._"
 
-All of these use the same words, yet their meanings differ a lot. The sentence I had in mind is a line from Kurt Vonnegut’s _Slaughterhouse-Five_: "_Everything was beautiful and nothing hurt._" Did your reconstruction look anything like that? So... I hope it does show that counts alone are not enough when it comes to English language: **order and context shape meaning**.
+All of these use the same words, yet their meanings differ a lot. The sentence I had in mind is a line from Kurt Vonnegut’s _Slaughterhouse-Five_: "_Everything was beautiful and nothing hurt._" Did your reconstruction look anything like that? So... I hope it does show that counts alone are not enough when it comes to the English language: **order and context shape meaning**.
 
 For decades, NLP researchers have focused on developing methods to represent human language so that machines can process, interpret, and generate it. Around 2016, this line of work gave rise to a particularly powerful class of models: Transformers.[^5] These models forever changed the NLP field, and some might argue that they eventually broke it (that’s for another blog post).
 
-Modern models such as ChatGPT or [Gemma](https://deepmind.google/models/gemma/) are built on the Transformer architecture, and it makes them quite powerfull. You have likely seen this for yourself: they can process quite complex information and generate coherent, human-like text. More importantly for _our_ purposes, Transformers learn rich representations of language that encode how words are related to one another across context and position.
+Modern models such as ChatGPT or [Gemma](https://deepmind.google/models/gemma/) are built on the Transformer architecture, which makes them quite powerful. You have likely seen this for yourself: they can process quite complex information and generate coherent, human-like text. More importantly for _our_ purposes, Transformers learn rich representations of language that encode how words are related to one another across context and position.
 
 You do not need to understand the inner workings of Transformers for this post (here is a [more technical explainers](https://jalammar.github.io/illustrated-transformer/)[^6] for interested readers). At a basic level, Transformer models convert an input sequence, such as "_The dog runs after the,_" into a compact numerical representation that captures its content. It does so by combining mathematical operations; the important point is not how these operations work, but that they preserve order and context while producing numerical summaries that can be used for prediction and, to a limited extent, interpretation.
 
@@ -73,7 +73,7 @@ This combination of strong predictive performance on structured sequences and in
 
 To apply Transformers to life-related records, we had to define some sort of language. The language we developed is super simple, and, most importantly, it **bears little resemblance to human-written language**. This synthetic language is intentionally simple, with only a few basic rules. Unlike human languages, it does not include grammar in the traditional sense: there are no conjugations, inflectional endings, or function words. We left these elements out because they do not add much meaning for our purposes and would only introduce additional structure for the model to learn (i.e., things that are not connected to health or labour).
 
-Instead of words like `dog` or `beautiful`, the vocabulary consists of codes derived from the data (like `INDUSTRY-1814`), and we have something similar to sentences (each sentence represents a single record in the data). The vocabulary contains only of 2 000 words (way fewer than in English).
+Instead of words like `dog` or `beautiful`, the vocabulary consists of codes derived from the data (like `INDUSTRY-1814`), and we have something similar to sentences (each sentence represents a single record in the data). The vocabulary contains only 2 000 words (way fewer than in English).
 
 So, taking my previous example with the labour record:
 
