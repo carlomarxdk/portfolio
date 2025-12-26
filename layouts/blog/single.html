@@ -50,8 +50,8 @@
                 <div class="lg:grid lg:grid-cols-12 lg:gap-8">
                     {{ if $hasToc }}
                     <aside class="lg:col-span-3 mb-8 lg:mb-0">
-                        <nav class="toc bg-white border border-gray-200 rounded-lg p-4 lg:sticky lg:top-20 shadow-sm" aria-label="Table of Contents">
-                            <h2 class="text-base font-semibold text-gray-900 mb-3 font-funnel">Table of Contents</h2>
+                        <nav class="toc bg-white sm:bg-transparent sm:bg-none rounded-lg p-4 lg:sticky lg:top-20 shadow-sm md:shadow-none" aria-label="Table of Contents">
+                            <h2 class="text-base font-semibold text-gray-800 mb-3 font-funnel">Table of Contents</h2>
                             <div class="toc-content text-sm">
                                 {{ .TableOfContents }}
                             </div>
