@@ -157,8 +157,8 @@ The material in this blog post is based on multiple slide decks I have presented
 1. **Not an online tool**, app, or "_AI death calculator._"
 2. **Not a chatbot**, and not designed for interaction in English.
 3. **Not trained to predict personal death dates** or individual future life paths.
-4. **Not available for public use or deployment**, due to strict privacy rules governing the data.
-5. Not connected to any services, or products currently claiming to use life2vec.
+4. **Not available for public use or deployment** due to strict privacy rules governing the data.
+5. Not connected to any services or products currently claiming to use life2vec.
 
 The only official page related to our project is [life2vec.dk](https://life2vec.dk). **Everything here reflects only my own views**, not those of any institution or co-author.
 
