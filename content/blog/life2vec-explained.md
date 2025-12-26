@@ -86,7 +86,7 @@ In our language, this record becomes a sentence: `[INCOME-32] [INDUSTRY-1814] [O
 
 `[INCOME-32] [INDUSTRY-1814] [OCC-7323] . [AMBULANCE] [HEALTH-S60]. [INCOME-63] [INDUSTRY-1814] [OCC-7323] .`
 
-This is a slightly simplified example, since we have many more categories and code types, but you get the idea. You should also understand that, since we have used such detailed records, we cannot make the data public (the same argument goes for the life2vec model), which would constitute a huge privacy violation.
+This is a slightly simplified example, since we had many more categories and code types, but you get the idea. You should also understand that, since we have used such detailed records, we cannot make them public (the same argument applies to the life2vec model), which would constitute a significant privacy violation.
 
 Some have proposed representing life sequences directly in English and further using pretrained models such as ChatGPT or [Llama](https://www.llama.com/) to make predictions. At first glance, it might sound like a low-hanging fruit. However, it comes with a **fundamental issue**: we have no idea what went into the pretraining of these models, nor the biases they may have accumulated along the way. To put it into perspective, ask yourself the following: Would you want a model trained partly on posts from **r/WhatWrongWithYourDog** to make predictions about your future career?
 
