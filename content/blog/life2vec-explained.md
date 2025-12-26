@@ -15,7 +15,7 @@ image: "/images/life2vec-hero.png"
 Tell them stories. They need the truth, you must tell them true stories \[...\].
 {{< /quote >}} -->
 
-Over the past two years, online death calculators have flooded the internet. I think the craze really took off after the introduction of the [life2vec](https://www.nature.com/articles/s43588-023-00573-5),[^1] a model developed by a team of scientists, including myself, trained on life sequences from millions of Danish residents. Since then, life2vec has been often mentioned for its ability to predict “_when you are going to die with 78% accuracy,_” alongside the claims that it is powered by the same architecture as ChatGPT.
+Over the past two years, online death calculators have flooded the internet. I think the craze really took off after the introduction of the [life2vec](https://www.nature.com/articles/s43588-023-00573-5),[^1] a model developed by a team of scientists, including myself, trained on life sequences from millions of Danish residents. Since then, life2vec has often been mentioned for its ability to predict “_when you are going to die with 78% accuracy,_” alongside claims that it is powered by the same architecture as [ChatGPT](https://openai.com/index/chatgpt/).
 
 Chances are, you have stumbled across one of these calculators. They often claim to use life2vec under the hood, with names like "_Life2vec AI Death Calculator._" They quite often appear at the top of the search results and even make their way into news coverage. Maybe you have even tried one. Perhaps it promised you a century of life, or informed you that your time is up tomorrow... In either case, it likely left you with questions: "_How accurate is it?_” “_Is this really THE death calculator everyone’s talking about?_" "_Is this the model with the 78% accuracy?_"
 
@@ -56,10 +56,10 @@ To approach this problem, we drew inspiration from another field that faced simi
 To demonstrate this, let’s look at a small example. Suppose I tell you that the sentence contains the following words: _and, beautiful, everything, hurt, nothing_. Could you reconstruct the original sentence? Well, yes! You might come up with several plausible sentences:
 
 - “_Beautiful was nothing, and everything hurt._”
-- "_Hurt was everything and nothing was beautiful._"
-- "_Everything hurt and nothing was beautiful._"
+- "_Hurt was everything, and nothing was beautiful._"
+- "_Everything hurt, and nothing was beautiful._"
 
-All of these use the same words, yet their meanings differ a lot. The sentence I had in mind is a line from Kurt Vonnegut’s _Slaughterhouse-Five_: "_Everything was beautiful and nothing hurt._" Did your reconstruction look anything like that? So... I hope it does show that counts alone are not enough when it comes to the English language: **order and context shape meaning**.
+All of these use the same words, yet their meanings differ a lot. The sentence I had in mind is a line from Kurt Vonnegut’s _Slaughterhouse-Five_: "_Everything was beautiful, and nothing hurt._" Did your reconstruction look anything like that? So... I hope it does show that counts alone are not enough when it comes to the English language: **order and context shape meaning**.
 
 For decades, NLP researchers have focused on developing methods to represent human language so that machines can process, interpret, and generate it. Around 2016, this line of work gave rise to a particularly powerful class of models: Transformers.[^5] These models forever changed the NLP field, and some might argue that they eventually broke it (that’s for another blog post).
 
@@ -100,19 +100,19 @@ Most modern transformer-based chat systems (again, ChatGPT as an example) are tr
 
 ![Comparing training strategies](/images/training_exp.webp)
 
-These representations can then be used for downstream analysis: to study how health and labour events are interconnected, to explore hidden structure in life trajectories, and to provide carefully defined prediction tasks. What they cannot do (and were never designed to do) is hold a conversation or generate a personalised life trajectory.
+These representations can then be used for _downstream analysis_ and _predictions_: to study how health and labour events are interconnected, to explore hidden structure in life trajectories, and to provide carefully defined prediction tasks. What they cannot do (and were never designed to do) is hold a conversation or generate a personalised life trajectory.
 
-I will dedicate a separate blog post to explain what life2vec actually learned about this language; it did surprise us a lot. Long story short, the life2vec model learned to navigate this symbolic language and identified meaningful connections. For example, certain occupations, such as kitchen work, were indeed associated with the development of pain. Many of the patterns the model learned aligned well with established findings in labour and health research. Given that life2vec was a proof-of-concept, this was an encouraging outcome.
+I will dedicate a separate blog post to explain what life2vec learned about this language; it surprised us a lot. Long story short, the life2vec model learned to navigate this symbolic language and identified meaningful connections. For example, certain occupations, such as kitchen work, were indeed associated with the development of pain. Many of the patterns the model learned aligned well with established findings in labour and health research. Given that life2vec was a proof-of-concept, this was an encouraging outcome.
 
 ## On Mortality
 
 That said, this post is about death predictions, so let’s get back to that.
 
-Now that life2vec was pretrained and learned to operate on sequences, we could use it to summarize the input. Given a complete life-sequence, Life2vec produced a numerical representation of that sequence. The question that remained: do these compressed representations of sequences carry any meaningful information? 
+Now that life2vec has been pretrained and learned to operate on sequences, we can use it to summarize the input. Given a complete life-sequence, Life2vec produced a numerical representation of that sequence. The question that remained: _do these compressed representations of sequences carry any meaningful information?_
 
-Death prediction entered the picture not as an end goal, but as a **validation task**. Mortality is a well-studied phenomenon, and if life2vec could provide insights that align with our knowledge and match (or outperform) existing approaches, it would support the idea that Transformer models and textual representations of life sequences can be useful for computational social science.  We settled on a simple downstream task: given a life sequence ending on December 31st, 2014, could the life2vec model identify individuals who would die within the following three years? It was a binary classification problem: no predicted dates, no fine-grained timing, a fixed prediction window ending in 2018 \(A small note: during pretraining, life2vec never saw any information about events that occurred after 2014/).
+Death prediction entered the picture not as an end goal, but as a **validation task**. Mortality is a well-studied phenomenon, and if life2vec could provide insights that align with our knowledge and match (or outperform) existing approaches, it would support the idea that Transformer models and textual representations of life sequences can be useful for computational social science.  We settled on a simple downstream task: given a life sequence ending on December 31st, 2014, could the life2vec model identify individuals who would die within the following three years? It was a binary classification problem: no predicted dates, no fine-grained timing, a fixed prediction window ending in 2018.[^8]
 
-Under this setup, the model performed well, outperforming several classical methods, and identified connections we know lead to higher mortality, such as working in a physically demanding position. Notably, the often-quoted figure of _78\% accuracy_ was never emphasised in the main paper. Accuracy is not always the most informative metric, and this number appeared only in the supplementary materials, consistent with practices in our field. To be precise, what this number means is the following: if I take a group of 100 people that consists of 50 people who died within the prediction window and 50 who were still alive by the end of 2018 → life2vec would correctly classify 78 of them (on average).
+Under this setup, the model performed well, outperforming several classical methods, and identified connections we know lead to higher mortality, such as working in a physically demanding position. Notably, the often-quoted figure of _78\% accuracy_ was never emphasised in the main paper. Accuracy is not always the most informative metric, and this number appeared only in the supplementary materials, consistent with practices in our field. To be precise, what this number means is the following: if I take a group of 100 people that consists of 50 people who died within the prediction window and 50 who were still alive by the end of 2018 → life2vec would correctly classify 78 of them (_on average_).
 
 To summarise the arguments above, the **life2vec model cannot do the following**:
 
@@ -126,7 +126,7 @@ To summarise the arguments above, the **life2vec model cannot do the following**
 
 Let’s return to where we started.
 
-The online death calculators circulating today are not built with life2vec. They do not have access to the data, the representations, or the training setup of our project. They are not simplified versions of the model, nor are they rough deployments of the same ideas. They are entirely separate tools, borrowing a name and a narrative without the substance behind it. We do have a page online[^8] that answers additional questions on the aim, privacy, and data, but again, it is not a calculator.
+The online death calculators circulating today are not built with life2vec. They do not have access to the data, the representations, or the training setup of our project. They are not simplified versions of the model, nor are they rough deployments of the same ideas. They are entirely separate tools, borrowing a name and a narrative without the substance behind it. We do have a page online[^9] that answers additional questions on the aim, privacy, and data, but again, it is not a calculator.
 
 Life2vec itself was never designed to predict individual death dates, and certainly not to be queried interactively online. It was a proof-of-concept: an exploration of whether rich, time-ordered life trajectories could be represented as sequences without flattening their structure, and whether Transformer-based models could learn meaningful representations from them. Death prediction was used in this work only as a validation task.
 
@@ -134,15 +134,15 @@ Life2vec itself was never designed to predict individual death dates, and certai
 
 ### Afterwords
 
-This post ended up being longer than I initially planned (and still did not cover even half of what I originally intended). If all goes well, I will dive deeper into specific aspects of the life2vec model in future posts, including a more detailed discussion of death prediction and other tasks we explored, such as self-reported personality assessment.
+This post ended up being longer than I initially planned (and still did not cover even half of what I originally intended to cover). If all goes well, I will dive deeper into specific aspects of the life2vec model in future posts, including a more detailed discussion of death prediction and other tasks we explored, such as self-reported personality assessment.
 
 Why talk about this now, long after the paper came out? This year, I had the chance to travel and share the project with the public, industry leaders, and scientists. I discovered that many genuinely believe these online models are tied to our research. There’s even a Life2vec crypto coin (again, not connected to our project) claiming fuel for the Life2vec ecosystem. Clearly, it’s time to set the record straight.
 
-The material in this blog post is based on multiple slide decks I have presented over the past years.[^9] **Everything here reflects only my own views**, not those of any institution or co-author. Finally, I used Grammarly AI and ChatGPT to look for synonyms and phrases that streamline the flow.
+The material in this blog post is based on multiple slide decks I have presented over the past years.[^10] **Everything here reflects only my own views**, not those of any institution or co-author. Finally, I used Grammarly AI and ChatGPT to look for synonyms and phrases that streamline the flow.
 
-## TL;DR: What life2vec is and isn't
+## TL;DR
 
-{{< callout type="tip" >}}
+{{< callout type="tip" title="What life2vec is and isn't" >}}
 
 ### What life2vec is
 
@@ -178,6 +178,8 @@ The only official page related to our project is [life2vec.dk](https://life2vec.
 
 [^7]: Jacob Devlin, et al. “[BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding](https://arxiv.org/abs/1810.04805).” _NAACL_, 2019.
 
-[^8]: Germans Savcisens and Sune Lehmann. "[life2vec — Official Model and Publication Source](https://life2vec.dk/)." _Webpage_, Published January 6, 2024.
+[^8]: During pretraining, life2vec never saw any information about events that occurred after 2014.
 
-[^9]: Germans Savcisens. "[Life2vec: Foundation models for registry data @ Complexity Science Hub](https://doi.org/10.5281/zenodo.17639200)." _Zenodo record_, published November 18, 2025.
+[^9]: Germans Savcisens and Sune Lehmann. "[life2vec — Official Model and Publication Source](https://life2vec.dk/)." _Webpage_, Published January 6, 2024.
+
+[^10]: Germans Savcisens. "[Life2vec: Foundation models for registry data @ Complexity Science Hub](https://doi.org/10.5281/zenodo.17639200)." _Zenodo record_, published November 18, 2025.
