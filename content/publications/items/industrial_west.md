@@ -2,13 +2,7 @@
 title: "An Industrial West? A Mixed-Methods Analysis of Newspapers Discourses about Technology over One Hundred and Ten Years (1830-1940)"
 date: 2024-02-01
 publishDate: 2024-08-19
-authors:
-  [
-    Emmanuelle Denove,
-    Elisa Michelet,
-    Germans Savcisens,
-    Elena Fernández Fernández,
-  ]
+authors: [Emmanuelle Denove, Elisa Michelet, Germans Savcisens, Elena Fernández Fernández]
 publication_type: 1
 hidden: true
 highlight: false

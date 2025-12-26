@@ -1,3 +1,20 @@
-# Ignore Hugo template partials that have complex Go template syntax
-layouts/partials/schema.html
-layouts/partials/blog-schema.html
+# Hugo output
+public/
+resources/
+
+# Node
+node_modules/
+
+# Build artifacts
+dist/
+build/
+
+# Cache
+.hugo_build.lock
+
+# Vendor
+themes/**/assets/
+themes/**/layouts/
+
+# Generated CSS
+static/css/output.css

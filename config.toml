@@ -1,10 +1,8 @@
 # Site settings
 baseURL = "https://savcisens.com/"
-languageCode = "en-us"
+languageCode = "en"
 title = "Scholar | Germans Savcisens"
 publishDir = "public"
-# Set the value to true if your site include CJK (Chinese, Japanese, and Korean languages) characters
-hasCJKLanguage = false
 enableRobotsTXT = true
 
 disableRSS = true
@@ -12,12 +10,12 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 
 [params]
 	author = "Germans Savcisens"
+
 	description = "I am a Computational Social Scientist at Northeastern University. My research focuses on stability of beliefs and knowledge in Large Language Models."
-	keywords = "life2vec, germans, savcisens, савчишен, scholar, life2vec, academic, northeastern"
+	keywords = ["life2vec", "germans savcisens", "savcisens","scholar","academic","northeastern","computational social science"]
 	bio = "PhD, Computational Social Science"
 	twitter = "germansave"
 	
-	enableRSS = false
 	enableToc = true
 	enableDisqus = false
 	disqusShortname = "" #disqus shortname here
@@ -29,14 +27,6 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 	enableTwitterCard = true
 	# The url for twitter card image, default is avatar.png in static/images directory
 	twitterCardImage = "images/avatar.jpg"
-	
-	# Structured Data for schema.org
-	[params.structuredData]
-		orcid = "https://orcid.org/0000-0002-5811-3230"
-		googleScholar = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
-		jobTitle = "Postdoctoral Research Associate"
-		scopusID = "58312119300"
-		affiliation = "Northeastern University"
 
 	# Add custom assets with their paths relative to the static folder
 	customCSS = []
@@ -68,14 +58,21 @@ disableKinds = ['RSS', 'taxonomy', 'term']
     socialIconStyle = "rounded"
 
 	githubRepo = "https://github.com/carlomarxdk/portfolio"
-	[params.social]
-		bluesky = "https://bsky.app/profile/savcisens.com"
-		github = "https://github.com/carlomarxdk"
-		linkedin = "https://www.linkedin.com/in/germans-savcisens"
-		envelope = "mailto:germans@savcisens.com"
-		google-scholar = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
-		file = "/docs/Resume.pdf"
 
+[params.structuredData]
+	orcid = "https://orcid.org/0000-0002-5811-3230"
+	googleScholar = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
+	jobTitle = "Postdoctoral Research Associate"
+	scopusID = "58312119300"
+	affiliation = "Northeastern University"
+
+[params.social]
+	bluesky = "https://bsky.app/profile/savcisens.com"
+	github = "https://github.com/carlomarxdk"
+	linkedin = "https://www.linkedin.com/in/germans-savcisens"
+	envelope = "mailto:germans@savcisens.com"
+	google-scholar = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
+	file = "/docs/Resume.pdf"
 
 [menus]
   [[menus.main]]

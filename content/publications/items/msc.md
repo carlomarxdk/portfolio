@@ -2,10 +2,7 @@
 title: "Analyzing Health Data Records Using Neural Networks: Predicting Diabetes-Related Clinical Outcomes"
 date: 2020-04-01
 publishDate: 2020-04-01
-authors:
-  [
-    Supervised by Sune Lehmann | Developed in collaboration with Novo Nordisk (Data Science),
-  ]
+authors: [Supervised by Sune Lehmann | Developed in collaboration with Novo Nordisk (Data Science)]
 publication_type: 2
 venue: "Master Thesis (Technical University of Denmark)"
 abstract: ""

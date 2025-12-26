@@ -15,47 +15,45 @@
     {{ end }}
   </div>
   <div class="mb-1">
-    {{ if .Site.Params.Social }} {{ partial "social.html" . }} {{ end }}
-    <p class="my-4 md:my-2 text-opacity-60 text-sm tracking-wide">
-      {{ with .Site.Params.copyright }} {{ . | markdownify }} {{ else }} © {{
-      now.Format "2006"}}. Crafted with
-      <i class="fa fa-heart" aria-hidden="true"> </i> by Germans Savcisens.
-      Powered by
-      <a href="https://gohugo.io" target="_blank" class="a-hov">Hugo</a> (<a
-        href="https://github.com/arhen/hugo-cereus-pro-theme"
-        target="_blank"
-        class="a-hov"
-        >Ceres-Pro</a
-      >) and
-      <a href="https://tailwindcss.com" target="_blank" class="a-hov"
-        >TailwindCSS</a
-      >.
-      <!-- {{ .Site.Params.Author }} -->
-      {{ end }} Licensed under
+{{ with .Site.Params.social }}
+  {{ partial "social.html" $ }}
+{{ end }}    
+<p class="my-4 md:my-2  text-gray-600 text-opacity-60 text-sm tracking-wide">
+  
+Licensed under
       <a
         href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1"
         class="a-hov"
         target="_blank"
         rel="license noopener noreferrer"
         >CC BY 4.0</a
-      >
+      >     © {{ now.Format "2006" }}.
+    Crafted with <span aria-hidden="true">♥</span> by Germans Savcisens.
+    Powered by
+    <a href="https://gohugo.io" target="_blank" class="a-hov">Hugo</a>
+    (<a href="https://github.com/arhen/hugo-cereus-pro-theme" target="_blank" class="a-hov">Ceres-Pro</a>)
+    and
+    <a href="https://tailwindcss.com" target="_blank" class="a-hov">TailwindCSS</a>.
     </p>
-  </div>
+
+
 </footer>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menu-toggle");
-    const navbar = document.getElementById("navbar-default");
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("navbar-default");
 
-    if (menuToggle && navbar) {
-      menuToggle.addEventListener("click", () => {
-        const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
-        menuToggle.setAttribute("aria-expanded", !isExpanded);
-        navbar.classList.toggle("hidden");
-      });
-    }
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener("click", () => {
+    nav.classList.toggle("hidden");
+    toggle.setAttribute(
+      "aria-expanded",
+      toggle.getAttribute("aria-expanded") !== "true"
+    );
   });
+});
 </script>
 
 <script src="https://unpkg.com/flowbite@1.6.3/dist/flowbite.js" defer></script>
