@@ -23,6 +23,8 @@ I have to admit: the title was a bit of a tease, and for that, I owe you an apol
 
 This is written for **curious readers**, **journalists**, **policymakers**, and **scientists**. You might ask why this explanation should differ from similar pieces you have seen elsewhere. My answer is simple: I was the first author of the life2vec paper, and I spent three years, alongside brilliant co-authors, bringing this project to life.
 
+![Title Image](/images/life2vec_expainer.webp)
+
 ## Data
 
 Our work on life2vec aimed to enhance understanding of life trajectories, opening the way to improve public health strategies and social policies. To make this concrete, it helps to start with the data, since it is easier to put life2vec into perspective once you understand what goes into it.
