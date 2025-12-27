@@ -2,7 +2,7 @@
 title: "Is Life2vec a Mess?"
 subtitle: "What’s Wrong with AI Death Calculators?"
 date: 2025-12-24
-lastmod: 2025-12-25
+lastmod: 2025-12-26
 description: "A public-facing explanation of life2vec: its data, design, and limits, and why claims about '78% accuracy' and online death prediction are deeply misleading."
 tags: ["life2vec", "research", "explainer"]
 categories: ["science"]
@@ -53,7 +53,7 @@ One of the central goals of the life2vec project was exactly to preserve the ric
 
 To approach this problem, we drew inspiration from another field that faced similar challenges: [Natural Language Processing](https://aws.amazon.com/what-is/nlp/) (NLP, for short). Human language, after all, consists of ordered sequences where meaning depends not just on _which_ words appear, but _when_ they appear and in _what context_.
 
-To demonstrate this, let’s look at a small example. Suppose I tell you that the sentence contains the following words: _and, beautiful, everything, hurt, nothing_. Could you reconstruct the original sentence? Well, yes! You might come up with several plausible sentences:
+To demonstrate this, let’s look at a small example. Suppose I tell you that the sentence contains the following words: _and, beautiful, everything, was, hurt, nothing_. Could you reconstruct the original sentence? Well, yes! You might come up with several plausible sentences:
 
 - “_Beautiful was nothing, and everything hurt._”
 - "_Hurt was everything, and nothing was beautiful._"
