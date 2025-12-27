@@ -23,7 +23,7 @@ I have to admit: the title was a bit of a tease, and for that, I owe you an apol
 
 This is written for **curious readers**, **journalists**, **policymakers**, and **scientists**. You might ask why this explanation should differ from similar pieces you have seen elsewhere. My answer is simple: I was the first author of the life2vec paper, and I spent three years, alongside brilliant co-authors, bringing this project to life.
 
-![Title Image](/images/life2vec_expainer.webp)
+![Title Image](/images/life2vec-hero.webp)
 
 ## Data
 
