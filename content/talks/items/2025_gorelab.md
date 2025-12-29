@@ -1,5 +1,5 @@
 ---
-date: 2025-08-29
+date: 2025-09-12
 event_date: 2025-09-12
 title: "Trilemma of Truth in Large Language Models: An Overview"
 url:

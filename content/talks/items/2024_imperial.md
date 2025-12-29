@@ -1,7 +1,7 @@
 ---
 date: 2024-03-12
 event_date: 2024-03-12
-title: "Seminar talk"
+title: "Seminar Talk"
 url:
 event_url: https://imperial.ac.uk/data-science/research/research-themes/datalearning/
 

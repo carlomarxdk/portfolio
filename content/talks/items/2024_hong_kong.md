@@ -1,7 +1,7 @@
 ---
-date: 2024-08-10
+date: 2024-11-14
 event_date: 2024-11-14
-title: "life2vec: Life trajectories in high dimensional spaces"
+title: "Life2vec: Life Trajectories in High-dimensional Spaces"
 url:
 event_url: https://cssl.socsc.cuhk.edu.hk/events-highlights/monthly-webinar/
 

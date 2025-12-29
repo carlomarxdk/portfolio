@@ -1,5 +1,5 @@
 ---
-date: 2024-12-23
+date: 2025-02-04
 event_date: 2025-02-04
 title: "Workshop on the '(Un)predictability in the Social Sciences'"
 url:

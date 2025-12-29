@@ -1,7 +1,7 @@
 ---
-date: 2025-08-08
+date: 2025-09-01
 event_date: 2025-09-01
-title: "From life-courses to representations: Foundation models for registry data"
+title: "From Life-Courses to Representations: Foundation Models for Registry Data"
 url:
 event_url: https://swecov.se/
 subtitle: Keynote Speaker

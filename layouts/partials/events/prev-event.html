@@ -18,9 +18,9 @@
     {{if .Params.misc}}
     <p class="mt-1">
       {{range .Params.misc}} {{if or (eq .name "Slides") (eq .name
-      "Recording")}}
+      "Recording") (eq .name "Poster")}}
       <a href="{{ .link }}" 
-      class="inline-block px-2 py-1.5 text-xs font-semibold border hover:border-gray-200 rounded-xl 
+      class="inline-block px-2 py-1.5 text-xs font-semibold border hover:border-gray-200 rounded-full
       hover:bg-clip-text hover:text-transparent bg-gradient-to-tr from-blue-500 to-pink-500
       transition-all duration-200
       bg-clip-border text-white hover:shadow-sm"

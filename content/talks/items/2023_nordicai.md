@@ -1,7 +1,7 @@
 ---
 date: 2023-10-22
 event_date: 2023-10-22
-title: "Learning pepresentations of socio-economic data"
+title: "Learning Representations of Socio-economic Data"
 url:
 event_url: https://nordicaimeet.com/
 

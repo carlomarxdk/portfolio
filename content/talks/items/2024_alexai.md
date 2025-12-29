@@ -1,7 +1,7 @@
 ---
-date: 2024-04-04
+date: 2024-04-05
 event_date: 2024-04-05
-title: "Life2vec presentation"
+title: "Life2vec Presentation"
 url:
 event_url: https://alexandra.dk/about-the-alexandra-institute/
 
