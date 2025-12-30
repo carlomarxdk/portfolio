@@ -2,7 +2,7 @@
 date: 2025-11-17
 event_date: 2025-11-17
 title: "Life2vec: Foundation Models for Registry Data"
-url: 
+url:
 event_url: https://csh.ac.at/
 subtitle: "Speaker at Networks for Healthy Aging Workshop"
 

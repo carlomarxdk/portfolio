@@ -1,28 +1,42 @@
-{{- /* Callout shortcode for info boxes, warnings, tips, etc. Usage: {{< callout
-type="info" title="Note" >}} Your content here {{< /callout >}} Types: info,
-warning, success, tip, danger */ -}} {{- $type := .Get "type" | default "info"
--}} {{- $title := .Get "title" -}} {{- $bgColor := "" -}} {{- $borderColor := ""
--}} {{- $textColor := "" -}} {{- $icon := "" -}} {{- if eq $type "info" -}} {{-
-$bgColor = "bg-blue-50" -}} {{- $borderColor = "border-blue-400" -}} {{-
-$textColor = "text-blue-800" -}} {{- $icon = "fa-circle-info" -}} {{- else if eq
-$type "warning" -}} {{- $bgColor = "bg-yellow-50" -}} {{- $borderColor =
-"border-yellow-400" -}} {{- $textColor = "text-yellow-800" -}} {{- $icon =
-"fa-triangle-exclamation" -}} {{- else if eq $type "success" -}} {{- $bgColor =
-"bg-green-50" -}} {{- $borderColor = "border-green-400" -}} {{- $textColor =
-"text-green-800" -}} {{- $icon = "fa-circle-check" -}} {{- else if eq $type
-"tip" -}} {{- $bgColor = "bg-purple-50" -}} {{- $borderColor =
-"border-purple-400" -}} {{- $textColor = "text-purple-800" -}} {{- $icon =
-"fa-lightbulb" -}} {{- else if eq $type "danger" -}} {{- $bgColor = "bg-red-50"
--}} {{- $borderColor = "border-red-400" -}} {{- $textColor = "text-red-800" -}}
-{{- $icon = "fa-circle-xmark" -}} {{- end -}}
+{{- /*
+Callout shortcode for info boxes, warnings, tips, etc.
+
+Usage:
+  {{< callout type="example" title="Labour Record" >}}
+  Content
+  {{< /callout >}}
+
+Types:
+  info, note, example, warning, success, tip, danger
+*/ -}}
+
+{{- $type := .Get "type" | default "info" -}}
+{{- $title := .Get "title" -}}
+
+{{- $styles := dict
+  "info"     (dict "bg" "bg-blue-50"    "border" "border-blue-400"    "text" "text-blue-800"    "icon" "fa-circle-info")
+  "note"     (dict "bg" "bg-slate-50"   "border" "border-slate-400"   "text" "text-slate-800"   "icon" "fa-note-sticky")
+  "example"  (dict "bg" "bg-amber-50"   "border" "border-amber-400"   "text" "text-amber-800"   "icon" "fa-book-open")
+  "warning"  (dict "bg" "bg-yellow-50"  "border" "border-yellow-400"  "text" "text-yellow-800"  "icon" "fa-triangle-exclamation")
+  "success"  (dict "bg" "bg-green-50"   "border" "border-green-400"   "text" "text-green-800"   "icon" "fa-circle-check")
+  "tip"      (dict "bg" "bg-purple-50"  "border" "border-purple-400"  "text" "text-purple-800"  "icon" "fa-lightbulb")
+  "danger"   (dict "bg" "bg-red-50"     "border" "border-red-400"     "text" "text-red-800"     "icon" "fa-circle-xmark")
+-}}
+
+{{- $style := index $styles $type | default (index $styles "info") -}}
+
+{{- $bgColor := $style.bg -}}
+{{- $borderColor := $style.border -}}
+{{- $textColor := $style.text -}}
+{{- $icon := $style.icon -}}
 
 <aside
-  class="callout {{ $bgColor }} border-l-4 {{ $borderColor }} p-4 my-4 rounded-r"
+  class="callout {{ $bgColor }} border-l-4 {{ $borderColor }} p-3 my-4 rounded-r-lg"
   role="note"
   aria-label="{{ $type | title }}"
 >
   <div class="flex items-start">
-    <div class="flex-shrink-0">
+    <div class="shrink-0 mt-1">
       <i
         class="fa-solid {{ $icon }} {{ $textColor }} text-xl"
         aria-hidden="true"
@@ -30,7 +44,7 @@ $type "warning" -}} {{- $bgColor = "bg-yellow-50" -}} {{- $borderColor =
     </div>
     <div class="ml-3 flex-1">
       {{- with $title -}}
-      <p class="font-semibold {{ $textColor }} mb-1">{{ . }}</p>
+        <h3 class="mt-0 inline leading-none">{{ . }}</h3>
       {{- end -}}
       <div class="{{ $textColor }} prose prose-sm max-w-none">
         {{ .Inner | markdownify }}

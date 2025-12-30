@@ -18,3 +18,10 @@ themes/**/layouts/
 
 # Generated CSS
 static/css/output.css
+
+# Custom
+layouts/**/*.html
+partials/**/*.html
+static/**/*.html
+
+

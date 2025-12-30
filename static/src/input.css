@@ -21,10 +21,7 @@
 @utility prose-blog {
   font-family: var(--font-merriweather);
 
-  &
-    :where(h1, h2, h3, h4, h5, h6):not(
-      :where([class~="not-prose"], [class~="not-prose"] *)
-    ) {
+  & :where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
     font-family: var(--font-funnel);
   }
 
@@ -243,19 +240,19 @@
   & > nav {
     @apply space-y-2;
   }
-  
+
   & ul {
     @apply list-none pl-0 space-y-2;
   }
-  
+
   & li {
     @apply text-sm;
   }
-  
+
   & a {
     @apply text-gray-700 hover:text-indigo-600 transition-colors no-underline hover:underline block py-1;
   }
-  
+
   & ul ul {
     @apply pl-4 mt-1;
   }

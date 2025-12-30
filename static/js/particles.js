@@ -107,8 +107,7 @@ function connect() {
   for (let i = 0; i < particlesArray.length; i++) {
     for (let j = i; j < particlesArray.length; j++) {
       let distance =
-        Math.pow(particlesArray[i].x - particlesArray[j].x, 2) +
-        Math.pow(particlesArray[i].y - particlesArray[j].y, 2);
+        Math.pow(particlesArray[i].x - particlesArray[j].x, 2) + Math.pow(particlesArray[i].y - particlesArray[j].y, 2);
 
       let opacity = 1 - distance / 15000;
       //actually the square of distance

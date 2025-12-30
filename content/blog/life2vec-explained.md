@@ -2,7 +2,7 @@
 title: "Is Life2vec a Mess?"
 subtitle: "What’s Wrong with AI Death Calculators?"
 date: 2025-12-24
-lastmod: 2025-12-26
+lastmod: 2025-12-29
 description: "A public-facing explanation of life2vec: its data, design, and limits, and why claims about '78% accuracy' and online death prediction are deeply misleading."
 tags: ["life2vec", "research", "explainer"]
 categories: ["science"]
@@ -32,11 +32,13 @@ Crucially, this **data is time-ordered for each individual**, capturing how heal
 Let's consider income records. Whenever a Danish resident receives taxable income (whether from a salary, pension, social benefits, or sick pay), it is documented as a single record in a table. Each record includes basic demographic attributes such as age, sex, and place of residence, along with the type of income received. If the income comes from employment, the record further specifies the employer’s industry[^3] and the individual’s job role[^4], both encoded in a highly structured way.
 
 A typical record might look like this:
+{{< callout type="example" title="Labour Record">}}
 
 - **Date**: January 2, 2011
 - **Income**: 32,000 DKK
 - **Industry**: 1814
 - **Occupation**: 7323
+{{< /callout >}}
 
 This record can be interpreted as follows: on January 2, 2011, an individual working as a _Print Finishing and Binding Worker_ (occupation code `7323`) at a _Bookbinding Service_ (industry code `1814`) earned 32,000 DKK.
 
@@ -76,10 +78,13 @@ Instead of words like `dog` or `beautiful`, the vocabulary consists of codes der
 
 So, taking my previous example with the labour record:
 
+{{< callout type="example" title="Labour Record">}}
+
 - **Date**: January 2, 2011
 - **Income**: 32,000 DKK
 - **Industry**: 1814
 - **Occupation**: 7323
+{{</callout>}}
 
 In our language, this record becomes a sentence: `[INCOME-32] [INDUSTRY-1814] [OCC-7323]`. An individual life trajectory is then represented as a sequence of such sentences. A person might have 12 to 100 such sentences, which eventually form a kind of book for that person.
 
@@ -113,6 +118,8 @@ Death prediction entered the picture not as an end goal, but as a **validation t
 
 Under this setup, the model performed well, outperforming several classical methods, and identified connections we know lead to higher mortality, such as working in a physically demanding position. Notably, the often-quoted figure of _78\% accuracy_ was never emphasised in the main paper. Accuracy is not always the most informative metric, and this number appeared only in the supplementary materials, consistent with practices in our field. To be precise, what this number means is the following: if I take a group of 100 people that consists of 50 people who died within the prediction window and 50 who were still alive by the end of 2018 → life2vec would correctly classify 78 of them (_on average_).
 
+{{< callout type="info" title="Life2vec Capabilities">}}
+
 To summarise the arguments above, the **life2vec model cannot do the following**:
 
 1. accept free-text English input
@@ -120,6 +127,7 @@ To summarise the arguments above, the **life2vec model cannot do the following**
 3. predict individual death dates
 4. be deployed online
 5. generate personalised life narratives
+{{</callout>}}
 
 ## Conclusion
 
@@ -141,9 +149,9 @@ The material in this blog post is based on multiple slide decks I have presented
 
 ## TL;DR
 
-{{< callout type="tip" title="What life2vec is and isn't" >}}
+{{< callout type="tip" title="What life2vec is and isn't">}}
 
-### What life2vec is
+#### What life2vec is
 
 1. A research prototype created by scientists to study the sequence of life events using national registry data.
 2. A Transformer-based model trained on coded health, labor, and demographic records (not natural language).
@@ -151,7 +159,7 @@ The material in this blog post is based on multiple slide decks I have presented
 4. A tool evaluated on broad, population-level predictions (such as short-term mortality risk), strictly for research validation (not as a commercial product).
 5. A **proof-of-concept** showing how modern AI models can support social science without oversimplifying individual life histories.
 
-### What life2vec is not
+#### What life2vec is not
 
 1. **Not an online tool**, app, or "_AI death calculator._"
 2. **Not a chatbot**, and not designed for interaction in English.
