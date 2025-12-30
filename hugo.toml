@@ -3,10 +3,10 @@ baseURL = "https://savcisens.com/"
 languageCode = "en"
 title = "Scholar | Germans Savcisens"
 publishDir = "public"
+enableRSS = true
 enableRobotsTXT = true
 
-disableRSS = true
-disableKinds = ['RSS', 'taxonomy', 'term']
+disableKinds = [ 'taxonomy', 'term']
 
 [params]
 	author = "Germans Savcisens"
@@ -74,31 +74,6 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 	google-scholar = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
 	file = "/docs/Resume.pdf"
 
-[menus]
-  [[menus.main]]
-    name = 'Publications'
-    pageRef = '/publications'
-    weight = 10
-  [[menus.main]]
-    name = 'Talks'
-    pageRef = '/talks'
-    weight = 20
-  [[menus.main]]
-    name = 'Teaching & Services'
-    pageRef = '/teaching'
-    weight = 30
-  [[menus.main]]
-    name = 'Blog'
-    pageRef = '/blog'
-    weight = 35
-  [[menus.main]]
-    name = 'Now'
-    pageRef = '/now'
-    weight = 40
-  [[menus.main]]
-    name = 'Contact'
-    pageRef = '/contact'
-    weight = 50
 
 [taxonomies]
     category = "categories"
@@ -109,28 +84,3 @@ disableKinds = ['RSS', 'taxonomy', 'term']
 	filename = "sitemap.xml"  # Sitemap file name
 	priority = 0.5  # Default priority for pages
 
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-    [markup.goldmark.extensions]
-      table = true
-      strikethrough = true
-      linkify = true
-      taskList = true
-      typographer = true
-      definitionList = true
-      footnote = true
-	  fencedDiv = true
-
-    [markup.goldmark.parser]
-      autoHeadingID = true
-      autoHeadingIDType = "github"
-      [markup.goldmark.parser.attribute]
-        block = true
-        title = true
-  [markup.tableOfContents]
-    startLevel = 2
-    endLevel = 4
-    ordered = false

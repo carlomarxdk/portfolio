@@ -33,22 +33,32 @@
       </svg>
     </button>
     <div class="hidden w-full md:w-auto md:block" id="navbar-default">
-      <ul
-        class="font-medium text-lg md:text-base flex flex-col p-3 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent"
-      >
-        {{ $url := replace .Permalink .Site.BaseURL "" }}
-        <li class="pb-3 md:pb-0">
-          <a href="{{ .Site.BaseURL }}" class="nav-item">About</a>
-        </li>
+<ul
+  class="font-medium text-lg md:text-base flex flex-col p-3 md:p-0 mt-4
+         border border-gray-100 rounded-lg bg-gray-50
+         md:flex-row md:space-x-8 rtl:space-x-reverse
+         md:mt-0 md:border-0 md:bg-transparent"
+>
+  {{ $current := .RelPermalink }}
 
-        {{ range .Site.Menus.main.ByWeight }}
-        <li class="pb-3 md:pb-0">
-          <a href="{{ .URL }}" class="nav-item whitespace-nowrap"
-            >{{ .Name }}</a
-          >
-        </li>
-        {{ end }}
-      </ul>
+  {{ range .Site.Menus.main.ByWeight }}
+    {{ $target := .URL }}
+    {{ with .Page }}
+      {{ $target = .RelPermalink }}
+    {{ end }}
+
+    <li class="pb-3 md:pb-0">
+      <a
+        href="{{ $target }}"
+        class="nav-item whitespace-nowrap
+               {{ if eq $current $target }} nav-item-active {{ end }}"
+      >
+        {{ .Name }}
+      </a>
+    </li>
+  {{ end }}
+</ul>
+
 
       {{ range $key, $val := .Site.Params.Links }}
       <a href="{{ $val }}">{{ $key }}</a>

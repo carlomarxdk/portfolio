@@ -1,0 +1,28 @@
+[[main]]
+name = "About"
+pageRef = "/"
+weight = 1
+[[main]]
+name = "Publications"
+pageRef = "/publications"
+weight = 10
+[[main]]
+name = "Talks"
+pageRef = "/talks"
+weight = 20
+[[main]]
+name = "Teaching & Services"
+pageRef = "/teaching"
+weight = 30
+[[main]]
+name = "Blog"
+pageRef = "/blog"
+weight = 35
+[[main]]
+name = "Now"
+pageRef = "/now"
+weight = 40
+[[main]]
+name = "Contact"
+pageRef = "/contact"
+weight = 50

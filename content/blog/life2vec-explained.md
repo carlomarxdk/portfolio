@@ -9,6 +9,7 @@ categories: ["science"]
 author: Germans Savcisens
 hidden: false
 image: "/images/life2vec-hero.png"
+commentsOn: true
 ---
 
 Over the past two years, online death calculators have flooded the internet. I think the craze really took off after the introduction of the [life2vec](https://www.nature.com/articles/s43588-023-00573-5),[^1] a model developed by a team of scientists, including myself, trained on life sequences from millions of Danish residents. Since then, life2vec has often been mentioned for its ability to predict “_when you are going to die with 78% accuracy,_” alongside claims that it is powered by the same architecture as [ChatGPT](https://openai.com/index/chatgpt/).

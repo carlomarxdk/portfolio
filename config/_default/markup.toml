@@ -1,0 +1,25 @@
+[goldmark.renderer]
+    unsafe = true
+    
+[goldmark.extensions]
+    table = true
+    strikethrough = true
+    linkify = true
+    linkifyProtocol = 'https'
+    taskList = true
+    typographer = true
+    definitionList = true
+    footnote = true
+    fencedDiv = true
+
+[goldmark.parser]
+    autoHeadingID = true
+    autoHeadingIDType = "github"
+[goldmark.parser.attribute]
+    block = true
+    title = true
+
+[tableOfContents]
+    startLevel = 2
+    endLevel = 4
+    ordered = false
