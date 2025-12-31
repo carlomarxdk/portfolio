@@ -4,12 +4,15 @@
 <!-- <script src="{{ .Site.BaseURL }}js/main.js"></script> -->
 
 {{ range .Site.Params.customJS }}
-<script src="{{ $.Site.BaseURL }}{{ . }}"></script>
-{{ end }} {{ if .Site.Params.enablePlausible }}
-<script
-  defer
-  data-domain="{{.Site.Params.PlausibleID }}"
-  src="https://plausible.io/js/script.outbound-links.js"
-></script>
+  <script src="{{ $.Site.BaseURL }}{{ . }}"></script>
+{{ end }} 
+{{ if .Site.Params.enablePlausible }}
+  <script async src="young-mode-bc7f.germans-savcisens.workers.dev/js/script.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init({
+      endpoint: "young-mode-bc7f.germans-savcisens.workers.dev/api/event"
+    })
+  </script>
 <!-- static -->
 {{ end }}
