@@ -4,7 +4,7 @@ date: 2025-12-10
 description: "Introducing a new space for sharing thoughts on research, technology, and the journey of a computational social scientist."
 tags: ["meta", "blogging"]
 categories: ["announcements"]
-hidden: false
+hidden: true
 author: Germans Savcisens
 sitemap:
   changefreq: monthly

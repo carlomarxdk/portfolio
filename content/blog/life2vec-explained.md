@@ -31,7 +31,7 @@ This is written for **curious readers**, **journalists**, **policymakers**, and 
 
 ![Title Image](/images/life2vec-hero.webp)
 
-## Data
+## Data: From Complexity to Structure
 
 Our work on life2vec aimed to enhance understanding of life trajectories, opening the way to improve public health strategies and social policies. To make this concrete, it helps to start with the data, since it is easier to put life2vec into perspective once you understand what goes into it.
 
@@ -117,7 +117,7 @@ These representations can then be used for _downstream analysis_ and _prediction
 
 I will dedicate a separate blog post to explain what life2vec learned about this language; it surprised us a lot. Long story short, the life2vec model learned to navigate this symbolic language and identified meaningful connections. For example, certain occupations, such as kitchen work, were indeed associated with the development of pain. Many of the patterns the model learned aligned well with established findings in labour and health research. Given that life2vec was a proof-of-concept, this was an encouraging outcome.
 
-## On Mortality
+## On Mortality and Interpretation
 
 That said, this post is about death predictions, so let’s get back to that.
 
