@@ -2,7 +2,7 @@
 title: "Is Life2vec a Mess?"
 subtitle: "What’s Wrong with AI Death Calculators?"
 date: 2025-12-24
-lastmod: 2025-12-29
+lastmod: 2026-01-01
 description: "A public-facing explanation of life2vec: its data, design, and limits, and why claims about '78% accuracy' and online death prediction are deeply misleading."
 tags: ["life2vec", "research", "explainer"]
 categories: ["science"]
