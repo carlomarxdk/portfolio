@@ -8,11 +8,7 @@
   </div>
   <div class="card-content">
     <h3 class="mb-1 md:mb-1.5 text-lg font-bold tracking-normal text-gray-950">
-      {{ if .Params.pub_link }}
-        <a href="{{ .Params.pub_link }}" target="_blank" rel="noopener" class="a-hov">{{ .Title }}</a>
-      {{ else }} 
-        {{ .Title }}
-      {{ end }}
+      <a href="{{ .Permalink }}" class="a-hov">{{ .Title }}</a>
     </h3>
    <!-- <p class="authors">{{ .Params.authors }}</p> -->
    <p class=" text-sm tracking-tight text-gray-700">

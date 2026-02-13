@@ -1,0 +1,296 @@
+<!doctype html>
+<html
+  {{
+  with
+  .Site.LanguageCode
+  }}lang="{{ . }}"
+  {{
+  end
+  }}
+  class="scroll-smooth focus:scroll-auto"
+>
+  <head>
+    {{ partial "head.html" . }}
+    <meta name="description" content="{{ .Params.abstract | default .Summary }}" />
+    {{ if .Params.keywords }}
+      <meta name="keywords" content="{{ delimit .Params.keywords ", " }}" />
+    {{ end }}
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:description" content="{{ .Params.abstract | default .Summary }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ .Permalink }}" />
+    {{ if .Params.pub_link }}
+      <meta property="og:url" content="{{ .Params.pub_link }}" />
+    {{ end }}
+  </head>
+
+  <body class="bg-stone-50 scroll-smooth focus:scroll-auto">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white"
+      >Skip to main content</a
+    >
+    {{ partial "nav.html" . }}
+    <main id="main-content" class="max-w-screen-lg px-4 py-8 mx-auto">
+      <article class="max-w-screen-md mx-auto">
+        <!-- Breadcrumb -->
+        <div class="mb-6 text-sm">
+          <a href="/publications/" class="text-indigo-600 hover:text-indigo-700">← Back to Publications</a>
+        </div>
+
+        <!-- Header -->
+        <header class="mb-8 pb-8 border-b border-gray-200">
+          <div class="mb-3">
+            <time datetime="{{ .Params.publishDate.Format "2006-01" }}" class="text-sm font-semibold text-gray-600">
+              {{ .Params.publishDate.Format "January 2006" }}
+            </time>
+          </div>
+          
+          <h1 class="text-4xl font-bold mb-4 text-gray-950">{{ .Title }}</h1>
+          
+          <!-- Authors -->
+          {{ if .Params.authors }}
+            <p class="text-gray-700 mb-3">
+              {{$len := len .Params.authors}}
+              {{ range $index, $element := .Params.authors }}
+                {{ if eq $element "Germans Savcisens" }}
+                  <strong class="font-bold">{{ $element }}</strong>
+                {{ else }}
+                  {{ $element }}
+                {{ end }}
+                {{ if ne (add $index 1) $len }},{{ end }}
+              {{ end }}
+            </p>
+          {{ end }}
+          
+          <!-- Venue -->
+          {{ if .Params.venue }}
+            <p class="text-lg font-semibold text-indigo-600">{{ .Params.venue }}</p>
+          {{ end }}
+          
+          <!-- Keywords -->
+          {{ if .Params.keywords }}
+            <div class="mt-4 flex flex-wrap gap-2">
+              {{ range .Params.keywords }}
+                <span class="inline-block px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700">{{ . }}</span>
+              {{ end }}
+            </div>
+          {{ end }}
+        </header>
+
+        <!-- Abstract -->
+        {{ if .Params.abstract }}
+          <section class="mb-8 pb-8 border-b border-gray-200">
+            <h2 class="text-2xl font-bold mb-4">Abstract</h2>
+            <p class="text-gray-700 leading-relaxed">{{ .Params.abstract }}</p>
+          </section>
+        {{ end }}
+
+        <!-- Links and Resources -->
+        {{ if or .Params.pub_link .Params.pdf_link .Params.code_link .Params.misc }}
+          <section class="mb-8 pb-8 border-b border-gray-200">
+            <h2 class="text-2xl font-bold mb-4">Resources</h2>
+            <div class="flex flex-wrap gap-3">
+              {{ if .Params.pub_link }}
+                <a
+                  href="{{ .Params.pub_link }}"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-block px-4 py-2 bg-indigo-600 text-white font-semibold rounded-lg hover:bg-indigo-700 transition"
+                >
+                  Official Publication
+                </a>
+              {{ end }}
+              
+              {{ if .Params.pdf_link }}
+                <a
+                  href="{{ .Params.pdf_link }}"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-block px-4 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition"
+                >
+                  PDF
+                </a>
+              {{ end }}
+              
+              {{ if .Params.code_link }}
+                <a
+                  href="{{ .Params.code_link }}"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-block px-4 py-2 bg-gray-800 text-white font-semibold rounded-lg hover:bg-gray-900 transition"
+                >
+                  Code
+                </a>
+              {{ end }}
+              
+              {{ if .Params.misc }}
+                {{ range .Params.misc }}
+                  <a
+                    href="{{ .link }}"
+                    target="_blank"
+                    rel="noopener"
+                    class="inline-block px-4 py-2 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 transition"
+                  >
+                    {{ .name }}
+                  </a>
+                {{ end }}
+              {{ end }}
+            </div>
+          </section>
+        {{ end }}
+
+        <!-- Main Content -->
+        {{ if .Content }}
+          <section class="mb-8 pb-8 border-b border-gray-200 prose prose-sm max-w-none">
+            {{ .Content }}
+          </section>
+        {{ end }}
+
+        <!-- Workshops -->
+        {{ if .Params.workshops }}
+          {{ if gt (len .Params.workshops) 0 }}
+            <section class="mb-8 pb-8 border-b border-gray-200">
+              <h2 class="text-2xl font-bold mb-4">Workshops</h2>
+              <ul class="space-y-4">
+                {{ range .Params.workshops }}
+                  <li class="flex flex-col">
+                    <h3 class="font-semibold text-gray-900">
+                      {{ if .link }}
+                        <a href="{{ .link }}" target="_blank" rel="noopener" class="text-indigo-600 hover:text-indigo-700">
+                          {{ .title }}
+                        </a>
+                      {{ else }}
+                        {{ .title }}
+                      {{ end }}
+                    </h3>
+                    <p class="text-sm text-gray-600">{{ .venue }}</p>
+                    {{ if .date }}
+                      <time class="text-sm text-gray-500">{{ .date }}</time>
+                    {{ end }}
+                  </li>
+                {{ end }}
+              </ul>
+            </section>
+          {{ end }}
+        {{ end }}
+
+        <!-- Presentations -->
+        {{ if .Params.presentations }}
+          {{ if gt (len .Params.presentations) 0 }}
+            <section class="mb-8 pb-8 border-b border-gray-200">
+              <h2 class="text-2xl font-bold mb-4">Presentations</h2>
+              <ul class="space-y-4">
+                {{ range .Params.presentations }}
+                  <li class="flex flex-col">
+                    <h3 class="font-semibold text-gray-900">
+                      {{ if .link }}
+                        <a href="{{ .link }}" target="_blank" rel="noopener" class="text-indigo-600 hover:text-indigo-700">
+                          {{ .title }}
+                        </a>
+                      {{ else }}
+                        {{ .title }}
+                      {{ end }}
+                    </h3>
+                    <p class="text-sm text-gray-600">{{ .event }}</p>
+                    {{ if .date }}
+                      <time class="text-sm text-gray-500">{{ .date }}</time>
+                    {{ end }}
+                  </li>
+                {{ end }}
+              </ul>
+            </section>
+          {{ end }}
+        {{ end }}
+
+        <!-- Related Papers -->
+        {{ if .Params.related_papers }}
+          {{ if gt (len .Params.related_papers) 0 }}
+            <section class="mb-8 pb-8 border-b border-gray-200">
+              <h2 class="text-2xl font-bold mb-4">Related Papers</h2>
+              <ul class="space-y-2">
+                {{ range .Params.related_papers }}
+                  <li>
+                    <a href="{{ .link }}" class="text-indigo-600 hover:text-indigo-700">{{ .title }}</a>
+                  </li>
+                {{ end }}
+              </ul>
+            </section>
+          {{ end }}
+        {{ end }}
+
+        <!-- Datasets -->
+        {{ if .Params.datasets }}
+          {{ if gt (len .Params.datasets) 0 }}
+            <section class="mb-8 pb-8 border-b border-gray-200">
+              <h2 class="text-2xl font-bold mb-4">Datasets</h2>
+              <ul class="space-y-2">
+                {{ range .Params.datasets }}
+                  <li>
+                    <a href="{{ .link }}" target="_blank" rel="noopener" class="text-indigo-600 hover:text-indigo-700">
+                      {{ .name }}
+                    </a>
+                  </li>
+                {{ end }}
+              </ul>
+            </section>
+          {{ end }}
+        {{ end }}
+
+        <!-- Media Coverage -->
+        {{ if .Params.media_coverage }}
+          {{ if gt (len .Params.media_coverage) 0 }}
+            <section class="mb-8 pb-8 border-b border-gray-200">
+              <h2 class="text-2xl font-bold mb-4">Media Coverage</h2>
+              <ul class="space-y-3">
+                {{ range .Params.media_coverage }}
+                  <li>
+                    <a href="{{ .link }}" target="_blank" rel="noopener" class="text-indigo-600 hover:text-indigo-700 font-semibold">
+                      {{ .source }}
+                    </a>
+                    {{ if .title }}
+                      <p class="text-sm text-gray-600">{{ .title }}</p>
+                    {{ end }}
+                  </li>
+                {{ end }}
+              </ul>
+            </section>
+          {{ end }}
+        {{ end }}
+
+        <!-- Related Talks -->
+        {{ if .Params.related_talks }}
+          {{ if gt (len .Params.related_talks) 0 }}
+            <section class="mb-8 pb-8 border-b border-gray-200">
+              <h2 class="text-2xl font-bold mb-4">Talks & Presentations</h2>
+              <ul class="space-y-4">
+                {{ range .Params.related_talks }}
+                  {{ with site.GetPage (printf "/talks/items/%s" .) }}
+                    <li class="flex flex-col">
+                      <h3 class="font-semibold text-gray-900">
+                        <a href="{{ .Permalink }}" class="text-indigo-600 hover:text-indigo-700">{{ .Title }}</a>
+                      </h3>
+                      {{ if .Params.venue }}
+                        <p class="text-sm text-gray-600">{{ .Params.venue }}</p>
+                      {{ end }}
+                      {{ if .Params.location }}
+                        <p class="text-sm text-gray-600">{{ .Params.location }}</p>
+                      {{ end }}
+                      {{ if .Params.event_date }}
+                        <time class="text-sm text-gray-500">{{ .Params.event_date }}</time>
+                      {{ end }}
+                      {{ if .Params.event_url }}
+                        <a href="{{ .Params.event_url }}" target="_blank" rel="noopener" class="text-sm text-indigo-600 hover:text-indigo-700 mt-1">Event Website →</a>
+                      {{ end }}
+                    </li>
+                  {{ end }}
+                {{ end }}
+              </ul>
+            </section>
+          {{ end }}
+        {{ end }}
+      </article>
+    </main>
+    {{ partial "footer.html" . }} {{ partial "js.html" . }}
+  </body>
+</html>
