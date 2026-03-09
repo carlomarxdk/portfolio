@@ -53,7 +53,7 @@ disableKinds = [ 'taxonomy', 'term']
 	subtitle404 = "You entered in the wrong room buddy! Go back."
 
 	# Choose a font for the social icons in the footer. Either "mono-social" or "font-awesome"
-	iconFont = "font-awesome"
+	iconFont = "default"
     # The social icons can be styled differently if you use mono as font - circle, rounded, or empty
     socialIconStyle = "rounded"
 
@@ -70,10 +70,24 @@ disableKinds = [ 'taxonomy', 'term']
 	bluesky = "https://bsky.app/profile/savcisens.com"
 	github = "https://github.com/carlomarxdk"
 	linkedin = "https://www.linkedin.com/in/germans-savcisens"
-	envelope = "mailto:germans@savcisens.com"
-	google-scholar = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
-	file = "/docs/Resume.pdf"
+	email = "mailto:germans@savcisens.com"
+	scholar = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
+	resume = "/docs/Resume.pdf"
 
+[params.footer_social]
+  BlueSky = "https://bsky.app/profile/savcisens.com"
+  LinkedIn = "https://www.linkedin.com/in/germans-savcisens/"
+  "Google Scholar" = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
+  ResearchGate = "https://www.researchgate.net/profile/Germans_Savcisens2"
+  GitHub = "https://github.com/carlomarxdk"
+  ORCID = "https://orcid.org/0000-0002-5811-3230"
+  Email = "mailto:germans@savcisens.com"
+
+[params.footer_address]
+  institute = "Network Science Institute"
+  university = "Northeastern University"
+  street = "177 Huntington Ave."
+  city = "Boston, MA 02115"
 
 [taxonomies]
     category = "categories"

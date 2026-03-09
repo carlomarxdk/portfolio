@@ -1,0 +1,63 @@
+<article class="card {{ if .Params.highlight }}bg-amber-50{{ end }}">
+  <div class="card-date">
+    {{ if .Params.publishDate }}
+      <p>{{ .Params.publishDate.Format "Jan 2006" }}</p>
+    {{ else if .Date }}
+      <p>{{ .Date.Format "Jan 2006" }}</p>
+    {{ end }}
+  </div>
+  <div class="card-content">
+
+    <h3 class="card-title">
+      {{ if .Params.pub_link }}
+        <a href="{{ .Params.pub_link }}" target="_blank" rel="noopener" class="a-hov">{{ .Title }}</a>
+      {{ else }}
+        <a href="{{ .Permalink }}" class="a-hov">{{ .Title }}</a>
+      {{ end }}
+    </h3>
+
+    {{ if .Params.venue }}
+      <p class="card-subtitle">{{ .Params.venue }}</p>
+    {{ end }}
+
+    {{ if .Params.authors }}
+      <p class="card-meta">
+        {{ $len := len .Params.authors }}
+        {{ range $i, $author := .Params.authors }}
+          {{ if eq $author "Germans Savcisens" }}<strong>{{ $author }}</strong>{{ else }}{{ $author }}{{ end }}{{ if ne (add $i 1) $len }}, {{ end }}
+        {{ end }}
+      </p>
+    {{ end }}
+
+    {{ if or .Params.misc .Params.allow_fact }}
+      <div class="card-tags">
+        {{ range .Params.misc }}
+          <a href="{{ .link }}" target="_blank" rel="noopener"
+             class="card-tag hover:border-amber-400 hover:text-amber-700 transition-colors duration-150"
+             aria-label="{{ .name }} for {{ $.Title }}">{{ .name }}</a>
+        {{ end }}
+        {{ if .Params.allow_fact }}
+          <button
+            data-popover-target="{{ printf "popover-%s" .Params.fact_id }}"
+            type="button"
+            class="card-tag hover:border-amber-400 hover:text-amber-700 transition-colors duration-150"
+            aria-label="Show random information about this publication">
+            Random Info
+          </button>
+    <div data-popover id="{{ printf "popover-%s" .Params.fact_id }}"
+        role="tooltip"
+        class="absolute z-10 invisible inline-block w-64 text-sm transition-opacity duration-300 bg-white border border-stone-200 rounded-sm shadow-lg opacity-0">
+      <div class="px-3 py-2 bg-amber-700 border-b border-stone-200 rounded-t-sm">
+        <h4 class="font-cabin font-bold text-xs tracking-widest uppercase text-white">Random Facts</h4>
+      </div>
+      <div class="px-3 py-2 pt-0.5 font-merriweather text-stone-700 text-sm leading-relaxed">
+        <p>{{ .Content }}</p>
+      </div>
+      <div data-popper-arrow></div>
+    </div>
+        {{ end }}
+      </div>
+    {{ end }}
+
+  </div>
+</article>

@@ -1,41 +1,45 @@
-<footer
-  class="m-4 p-4 max-w-screen-lg mx-auto text-center flex flex-col items-center prose font-cabin"
->
-  <div class="justify-items-center mb-2 leading-tight" id="navbar-footer">
-    {{ $url := replace .Permalink .Site.BaseURL "" }} {{ if not .IsHome }}
-    <a
-      href="{{ .Site.BaseURL }}"
-      class="font-light px-1 text-sm decoration-dotted a-hov"
-      >{{ with .Site.Params.home }}{{ . }}{{ else }}About{{ end }}</a
-    >
-    {{ end }} {{ range .Site.Menus.main.ByWeight }}
-    <a href="{{ .URL }}" class="font-light px-1 text-sm decoration-dotted a-hov"
-      >{{ .Name }}</a
-    >
-    {{ end }}
-  </div>
-  <div class="mb-1">
-{{ with .Site.Params.social }}
-  {{ partial "social.html" $ }}
-{{ end }}    
-<p class="my-4 md:my-2  text-gray-600 text-opacity-60 text-sm tracking-wide">
-  
-Licensed under
-      <a
-        href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1"
-        class="a-hov"
-        target="_blank"
-        rel="license noopener noreferrer"
-        >CC BY 4.0</a
-      >     © {{ now.Format "2006" }}.
-    Crafted with <span aria-hidden="true">♥</span> by Germans Savcisens.
-    Powered by
-    <a href="https://gohugo.io" target="_blank" class="a-hov">Hugo</a>
-    (<a href="https://github.com/arhen/hugo-cereus-pro-theme" target="_blank" class="a-hov">Ceres-Pro</a>)
-    and
-    <a href="https://tailwindcss.com" target="_blank" class="a-hov">TailwindCSS</a>.
-    </p>
+<footer class="mx-auto max-w-screen-lg px-4 mt-16">
 
+  <div class="border-t border-stone-200"></div>
+
+  <div class="py-6">
+
+    <!-- Nav links -->
+    <ul class="flex flex-wrap items-center justify-center gap-0 mb-8">
+      {{ if not .IsHome }}
+        <li>
+          <a href="{{ .Site.BaseURL }}" class="nav-item">
+            {{ with .Site.Params.home }}{{ . }}{{ else }}About{{ end }}
+          </a>
+        </li>
+      {{ end }}
+      {{ range .Site.Menus.main.ByWeight }}
+        <li><a href="{{ .URL }}" class="nav-item">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+
+    <!-- Social + Address row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {{ partial "footer-social.html" . }}
+      {{ partial "footer-address.html" . }}
+    </div>
+
+  </div>
+
+  <!-- Credits -->
+  <div class="border-t border-stone-200 py-4">
+    <p class="font-cabin text-xs tracking-wide text-stone-400 text-center leading-relaxed">
+      Licensed under
+      <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1"
+         class="a-hov" target="_blank" rel="license noopener noreferrer">CC BY 4.0</a>
+      © {{ now.Format "2006" }}.
+      Crafted with <span aria-hidden="true">♥</span> by Germans Savcisens.
+      Powered by
+      <a href="https://gohugo.io" target="_blank" class="a-hov">Hugo</a>
+      and
+      <a href="https://tailwindcss.com" target="_blank" class="a-hov">TailwindCSS</a>.
+    </p>
+  </div>
 
 </footer>
 
@@ -43,15 +47,10 @@ Licensed under
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("menu-toggle");
   const nav = document.getElementById("navbar-default");
-
   if (!toggle || !nav) return;
-
   toggle.addEventListener("click", () => {
     nav.classList.toggle("hidden");
-    toggle.setAttribute(
-      "aria-expanded",
-      toggle.getAttribute("aria-expanded") !== "true"
-    );
+    toggle.setAttribute("aria-expanded", toggle.getAttribute("aria-expanded") !== "true");
   });
 });
 </script>

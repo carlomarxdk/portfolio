@@ -1,32 +1,52 @@
-<section id="wrapper">
-  <div class="container max-w-screen-md">
-    <div class="inline-flex w-full">
-      <h2 class="font-bold text-xl my-5 font-cabin">Pre-prints</h2>
-    </div>
-    {{$hasPreprints :=false}} {{ range sort .Pages.ByDate.Reverse}} {{ if eq
-    .Params.publication_type 3}} {{$hasPreprints = true}} {{partial
-    "publications/pub.html" .}} {{ end }} {{ end }} {{ if not $hasPreprints }}
-    <!-- Check if no talks were found -->
-    <p class="mb-2 md:mb-4 italic font-cabin">
-      Working on the new projects. Stay tuned!
-    </p>
-    <!-- Display message if there are no upcoming talks -->
-    {{ end }}
-    <div class="inline-flex w-full">
-      <h2 class="font-bold text-xl my-2 md:my-5 font-cabin">Published</h2>
-    </div>
-    {{ range sort .Pages.ByDate.Reverse}} {{ if eq .Params.publication_type 1}}
-    {{partial "publications/pub.html" .}} {{ end }} {{ end }}
-    <div class="inline-flex w-full">
-      <h2 class="font-bold text-xl my-5 font-cabin">Software</h2>
-    </div>
-    {{ range sort .Pages.ByDate.Reverse}} {{ if eq .Params.publication_type 4}}
-    {{partial "publications/pub.html" .}} {{ end }} {{ end }}
+<section>
+  <div class="container max-w-3xl">
 
-    <div class="inline-flex w-full">
-      <h2 class="font-bold text-xl my-5 font-cabin">Theses</h2>
-    </div>
-    {{ range sort .Pages.ByDate.Reverse}} {{ if eq .Params.publication_type 2}}
-    {{partial "publications/pub.html" .}} {{ end }} {{ end }}
-  </div>
+  <h2 class="section-heading">Pre-prints</h2>
+  {{ $hasPreprints := false }}
+  {{ range .Pages.ByDate.Reverse }}
+    {{ if eq .Params.publication_type 3 }}
+      {{ $hasPreprints = true }}
+      {{ partial "elements/pub-card.html" . }}
+    {{ end }}
+  {{ end }}
+  {{ if not $hasPreprints }}
+    <p class="font-cabin text-sm italic text-stone-400">Working on new projects. Stay tuned!</p>
+  {{ end }}
+
+  <h2 class="section-heading mt-8">Published</h2>
+  {{ $hasPublished := false }}
+  {{ range .Pages.ByDate.Reverse }}
+    {{ if eq .Params.publication_type 1 }}
+      {{ $hasPublished = true }}
+      {{ partial "elements/pub-card.html" . }}
+    {{ end }}
+  {{ end }}
+  {{ if not $hasPublished }}
+    <p class="font-cabin text-sm italic text-stone-400">No publications yet.</p>
+  {{ end }}
+
+  <h2 class="section-heading mt-8">Software</h2>
+  {{ $hasSoftware := false }}
+  {{ range .Pages.ByDate.Reverse }}
+    {{ if eq .Params.publication_type 4 }}
+      {{ $hasSoftware = true }}
+      {{ partial "elements/pub-card.html" . }}
+    {{ end }}
+  {{ end }}
+  {{ if not $hasSoftware }}
+    <p class="font-cabin text-sm italic text-stone-400">No software yet.</p>
+  {{ end }}
+
+  <h2 class="section-heading mt-8">Theses</h2>
+  {{ $hasTheses := false }}
+  {{ range .Pages.ByDate.Reverse }}
+    {{ if eq .Params.publication_type 2 }}
+      {{ $hasTheses = true }}
+      {{ partial "elements/pub-card.html" . }}
+    {{ end }}
+  {{ end }}
+  {{ if not $hasTheses }}
+    <p class="font-cabin text-sm italic text-stone-400">No theses yet.</p>
+  {{ end }}
+</div>
 </section>

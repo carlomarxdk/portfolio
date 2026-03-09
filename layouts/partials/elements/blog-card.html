@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-date">
+    {{ if .Date }}
+      <p>{{ .Date.Format "Jan 2, 2006" }}</p>
+    {{ end }}
+  </div>
+  <div class="card-content">
+
+    {{/* Title */}}
+    <h3 class="card-title">
+      <a href="{{ .Permalink }}" class="a-hov">{{ .Title }}</a>
+    </h3>
+
+    {{/* Subtitle — venue, conference, journal */}}
+    {{ if .Params.subtitle }}
+      <p class="card-subtitle">{{ .Params.subtitle }}</p>
+    {{ end }}
+
+    {{/* Authors */}}
+    {{ if .Params.authors }}
+      <p class="card-meta">
+        {{ delimit .Params.authors ", " }}
+      </p>
+    {{ end }}
+
+    {{/* Description / abstract */}}
+    {{ if .Params.description }}
+      <p class="card-description">{{ .Params.description | plainify | truncate 200}}</p>
+        {{ else if .Summary }}
+    <p class="text-sm tracking-tight text-gray-600 mt-1">
+      {{ .Summary | plainify | truncate 200 }}
+    </p>
+    {{ end }}
+
+    {{/* Tags / badges — e.g. type of paper, status */}}
+    {{ if .Params.tags }}
+      <div class="card-tags">
+        {{ range .Params.tags }}
+          <span class="card-tag">{{ . }}</span>
+        {{ end }}
+      </div>
+    {{ end }}
+
+  </div>
+</div>

@@ -1,38 +1,42 @@
-{{$date := time .Params.event_date}}
-{{$today := time.Now.AddDate 0 0 -1}}
-<article
-  class="card md:grid-cols-6 shadow-inner">
-  <div class="card-date md:justify-end">
-    <time datetime="{{ $date.Format "2006-01-02" }}" class="text-center tracking-tighter text-zinc-500 text-sm font-semibold">{{ $date.Format "Jan 2, 2006" }}</time>
+{{ $date := time .Params.event_date }}
+
+<article class="card card-past bg-stone-50">
+  <div class="card-date">
+    <time datetime="{{ $date.Format "2006-01-02" }}">{{ $date.Format "2 Jan 2006" }}</time>
   </div>
-  <div class="card-content md:col-span-5">
-    <h3 class="mb-0.5 text-lg font-semibold tracking-normal text-zinc-600">
+  <div class="card-content">
+
+    <h3 class="card-title text-stone-600">
       {{ if .Params.event_url }}
-      <a href="{{ .Params.event_url }}" target="_blank" rel="noopener" class="a-hov">{{ .Title }} </a>
+        <a href="{{ .Params.event_url }}" target="_blank" rel="noopener" class="a-hov text-stone-600">{{ .Title }}</a>
       {{ else }}
-      {{ .Title }}
+        {{ .Title }}
       {{ end }}
     </h3>
-    <p class=" text-sm tracking-tight text-zinc-500">
-      {{ .Params.venue }} | <em>{{ .Params.location }}</em> </p>
-    {{if .Params.misc}}
-    <p class="mt-1">
-      {{range .Params.misc}} {{if or (eq .name "Slides") (eq .name
-      "Recording") (eq .name "Poster")}}
-      <a href="{{ .link }}" 
-      class="inline-block px-2 py-1.5 text-xs font-semibold border hover:border-gray-200 rounded-full
-      hover:bg-clip-text hover:text-transparent bg-gradient-to-tr from-blue-500 to-pink-500
-      transition-all duration-200
-      bg-clip-border text-white hover:shadow-sm"
-      target="_blank"
-      rel="noopener"
-      aria-label="{{.name}} for {{ $.Title }}">
-        {{.name}}
-        <i class="fa-solid fa-link" aria-hidden="true"></i></a>
-      {{end}} 
-      {{end}}
-    </p>
 
-    {{end}}
+    {{ if .Params.subtitle }}
+      <p class="card-subtitle text-stone-500">{{ .Params.subtitle }}</p>
+    {{ end }}
+
+    {{ if .Params.venue }}
+      <p class="card-meta text-stone-500">
+        {{ .Params.venue }}{{ if .Params.location }}, <em>{{ .Params.location }}</em>{{ end }}
+      </p>
+    {{ end }}
+
+    {{ if .Params.misc }}
+      <div class="card-tags">
+        {{ range .Params.misc }}
+          {{ if or (eq .name "Slides") (eq .name "Recording") (eq .name "Poster") }}
+            <a href="{{ .link }}"
+               target="_blank"
+               rel="noopener"
+               class="card-tag text-stone-400 hover:border-amber-400 hover:text-amber-700 transition-colors duration-150"
+               aria-label="{{ .name }} for {{ $.Title }}">{{ .name }}</a>
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ end }}
+
   </div>
 </article>

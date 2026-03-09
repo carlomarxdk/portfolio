@@ -1,0 +1,13 @@
+<div>
+  <ul class="flex flex-wrap gap-y-3  gap-x-1.5 my-2 justify-center">
+    {{ range $key, $val := .Site.Params.footer_social }}
+      <li>
+        <a href="{{ $val }}"
+      aria-label="Visit {{ $key }} profile"
+      target="_blank"
+      rel="noopener"
+      class="social-pill">{{ $key }}</a>
+      </li>
+    {{ end }}
+  </ul>
+</div>

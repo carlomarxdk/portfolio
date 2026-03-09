@@ -76,9 +76,9 @@
   crossorigin="anonymous"
   defer
 ></script>
-{{ else }}
-""
-{{ end }}{{ if .Site.Params.enableRSS }}
+{{ end }}
+
+{{ if .Site.Params.enableRSS }}
 <link
   href="{{ .Site.RSSLink }}"
   rel="alternate"

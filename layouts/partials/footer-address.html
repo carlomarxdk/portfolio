@@ -1,0 +1,10 @@
+{{ with .Site.Params.footer_address }}
+<div>
+  <address class="font-cabin text-xs text-stone-400 not-italic leading-relaxed">
+    {{ with .institute }}{{ . }}<br>{{ end }}
+    {{ with .university }}{{ . }}<br>{{ end }}
+    {{ with .street }}{{ . }}<br>{{ end }}
+    {{ with .city }}{{ . }}{{ end }}
+  </address>
+</div>
+{{ end }}
