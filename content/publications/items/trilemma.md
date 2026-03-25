@@ -15,9 +15,11 @@ misc:
   - name: Data
     background: success
     link: https://huggingface.co/datasets/carlomarxx/trilemma-of-truth
-  - name: Poster
+  - name: Poster (IC2S2)
     link: https://zenodo.org/records/16053456
-  - name: NeurIPS MechInterp
+  - name: Poster (NeurIPS)
+    link: https://doi.org/10.5281/zenodo.17725915
+  - name: NeurIPS MechInterp PDF
     link: https://openreview.net/forum?id=z7dLG2ycRf
 
 allow_fact: true
