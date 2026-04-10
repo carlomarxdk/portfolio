@@ -11,7 +11,7 @@ location: "Santa Fe, USA"
 description: ""
 hidden: true
 misc:
-  - name: Presentation
+  - name: Slides
     background: primary
     link: https://doi.org/10.5281/zenodo.19499832
 ---
