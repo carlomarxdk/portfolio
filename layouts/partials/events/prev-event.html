@@ -1,9 +1,12 @@
 {{ $date := time .Params.event_date }}
 
 <article class="card card-past bg-stone-50">
-  <div class="card-date">
-    <time datetime="{{ $date.Format "2006-01-02" }}">{{ $date.Format "2 Jan 2006" }}</time>
-  </div>
+ <div class="card-date">
+  <time datetime="{{ $date.Format "2006-01-02" }}">{{ $date.Format "2 Jan 2006" }}</time>
+  {{ with .Params.event_type }}
+    <span class="card-type-badge">{{ . }}</span>
+  {{ end }}
+</div>
   <div class="card-content">
 
     <h3 class="card-title text-stone-600">
@@ -31,7 +34,7 @@
             <a href="{{ .link }}"
                target="_blank"
                rel="noopener"
-               class="card-tag text-stone-400 hover:border-amber-400 hover:text-amber-700 transition-colors duration-150"
+               class="card-tag text-stone-600 hover:border-amber-400 hover:text-amber-700 transition-colors duration-150"
                aria-label="{{ .name }} for {{ $.Title }}">{{ .name }}</a>
           {{ end }}
         {{ end }}

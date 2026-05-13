@@ -5,6 +5,8 @@ event_date: 2024-01-29
 title: "Seminar Talk"
 url:
 event_url: https://www.demography.ox.ac.uk/
+event_type: Talk
+
 venue: "Centre for Demographic Science (University of Oxford)"
 location: "Oxford, UK"
 description: ""

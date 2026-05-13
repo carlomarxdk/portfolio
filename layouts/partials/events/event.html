@@ -3,6 +3,9 @@
 <article class="card">
   <div class="card-date">
     <time datetime="{{ $date.Format "2006-01-02" }}">{{ $date.Format "2 Jan 2006" }}</time>
+    {{ with .Params.event_type }}
+      <span class="card-type-badge">{{ . }}</span>
+    {{ end }}
   </div>
   <div class="card-content">
 

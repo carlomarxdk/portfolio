@@ -4,6 +4,8 @@ event_date: 2024-02-22
 title: "Seminar Talk on Life2vec"
 url:
 event_url: https://cdanfort.w3.uvm.edu/
+event_type: Talk
+
 
 venue: "Vermont Complex Systems Center (University of Vermont)"
 venue_url: ""

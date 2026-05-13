@@ -4,6 +4,8 @@ event_date: 2023-10-22
 title: "Learning Representations of Socio-economic Data"
 url:
 event_url: https://nordicaimeet.com/
+event_type: Talk
+
 
 venue: "NordicAI Meet"
 location: "Copenhagen, Denmark"

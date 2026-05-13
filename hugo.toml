@@ -82,6 +82,7 @@ disableKinds = [ 'taxonomy', 'term']
   GitHub = "https://github.com/carlomarxdk"
   ORCID = "https://orcid.org/0000-0002-5811-3230"
   Email = "mailto:germans@savcisens.com"
+  "OpenReview" = "https://openreview.net/profile?id=%7EGermans_Savcisens1"
 
 [params.footer_address]
   institute = "Network Science Institute"

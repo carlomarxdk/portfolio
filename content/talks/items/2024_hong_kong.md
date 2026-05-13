@@ -4,6 +4,8 @@ event_date: 2024-11-14
 title: "Life2vec: Life Trajectories in High-dimensional Spaces"
 url:
 event_url: https://cssl.socsc.cuhk.edu.hk/events-highlights/monthly-webinar/
+event_type: Talk
+
 
 venue: "Computational Social Science Lab at the Chinese University of Hong Kong"
 venue_url: ""

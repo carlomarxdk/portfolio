@@ -19,8 +19,8 @@ misc:
     link: https://zenodo.org/records/16053456
   - name: Poster (NeurIPS)
     link: https://doi.org/10.5281/zenodo.17725915
-  - name: NeurIPS MechInterp PDF
-    link: https://openreview.net/forum?id=z7dLG2ycRf
+  # - name: NeurIPS MechInterp PDF
+  #   link: https://openreview.net/forum?id=z7dLG2ycRf
 
 allow_fact: true
 fact_id: "3"

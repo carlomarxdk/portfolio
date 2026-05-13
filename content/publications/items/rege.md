@@ -13,7 +13,7 @@ misc:
   - name: Code
     background: primary
     link: https://github.com/zohairshafi/REGE
-  - name: Poster
-    background: primary
-    link: https://graphex.mit.edu/sites/default/files/images/2024%20GraphEx%20Poster%20-%20Shafi.pdf
+  # - name: Poster
+  #   background: primary
+  #   link: https://graphex.mit.edu/sites/default/files/images/2024%20GraphEx%20Poster%20-%20Shafi.pdf
 ---

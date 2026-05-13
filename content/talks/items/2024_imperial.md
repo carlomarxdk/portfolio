@@ -4,6 +4,7 @@ event_date: 2024-03-12
 title: "Seminar Talk"
 url:
 event_url: https://imperial.ac.uk/data-science/research/research-themes/datalearning/
+event_type: Talk
 
 venue: "DataLearning Working Group (Imperial College London)"
 location: "London, UK"
