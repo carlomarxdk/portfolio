@@ -1,0 +1,24 @@
+# Germans Savcisens
+
+> Computational Social Scientist at Northeastern University (Network Science Institute). Research focuses on the stability of beliefs and knowledge in Large Language Models, and on modeling human lives as sequences (life2vec).
+
+PhD, Computational Social Science. Postdoctoral Research Associate, Northeastern University.
+
+## Key sections
+
+- [Publications](https://savcisens.com/publications/): Peer-reviewed papers and preprints, including life2vec, tab2seq, and related work.
+- [Blog](https://savcisens.com/blog/): Longer-form writing on research and methods, including a life2vec explainer.
+- [Talks](https://savcisens.com/talks/): Invited talks, conference presentations, and seminars.
+- [Teaching](https://savcisens.com/teaching/): Courses taught and reviewing activity.
+- [Now](https://savcisens.com/now/): Current activities and updates.
+- [Contact](https://savcisens.com/contact/): How to get in touch.
+
+## Profiles
+
+- [ORCID](https://orcid.org/0000-0002-5811-3230)
+- [Google Scholar](https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en)
+- [GitHub](https://github.com/carlomarxdk)
+
+## Notes
+
+This site is a personal academic portfolio. It does not expose an API, OAuth-protected resources, or MCP tools.
