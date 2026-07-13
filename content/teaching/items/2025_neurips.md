@@ -5,7 +5,7 @@ hidden: true
 
 title: "NeurIPS 2025"
 url:
-course_url: https://neurips.cc/Conferences/2025
+course_url: https://neurips.cc/Conferences/2025/ProgramCommittee
 course_type: 2
 
 role: Ethics Reviewer
