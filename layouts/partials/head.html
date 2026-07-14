@@ -33,14 +33,6 @@
 <meta name="title" content="{{ $title }}" />
 
 
-{{/* -----------------------------
-   Open Graph image (blog only)
------------------------------- */}}
-{{- if and (eq .Section "blog") .Params.image -}}
-  <meta property="og:image" content="{{ .Params.image }}" />
-{{- end -}}
-
-
 <meta name="keywords" content="{{ .Site.Params.Keywords}}" />
 <meta name="robots" content="index, follow" />
 <meta name="googlebot" content="index, follow" />
@@ -54,7 +46,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect" crossorigin />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Funnel+Display:wght@300..800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Funnel+Display:wght@300..800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
   rel="stylesheet"
 />
 <link

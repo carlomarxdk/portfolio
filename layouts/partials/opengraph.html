@@ -22,7 +22,7 @@
 <meta property="og:image" content="{{ .Site.BaseURL }}images/avatar.jpg" />
 {{ end }}
 <meta property="og:site_name" content="{{ .Site.Title }}" />
-<meta property="og:locale" content="{{ .Site.LanguageCode | default "en_US" }}" />
+<meta property="og:locale" content="{{ .Site.Language.Locale | default "en_US" }}" />
 
 {{ if .IsPage }}
 {{ if not .PublishDate.IsZero }}

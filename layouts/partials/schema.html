@@ -85,7 +85,7 @@
   "name" (.Title | default .Site.Title)
   "description" (cond (and (isset .Params "description") (ne .Params.description "")) .Params.description (.Site.Params.description | default ""))
   "isPartOf" (dict "@id" (printf "%s#website" (.Site.BaseURL | absURL)))
-  "inLanguage" (.Site.LanguageCode | default "en-us")
+  "inLanguage" (.Site.Language.Locale | default "en-us")
 -}}
 
 {{- if not .IsHome -}}

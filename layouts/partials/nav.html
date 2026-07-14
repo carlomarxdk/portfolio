@@ -17,8 +17,8 @@
   </div>
 
   <!-- Mobile -->
-  <div class="md:hidden flex items-center justify-center py-3">
-    <ul class="flex flex-wrap justify-center gap-0">
+  <div class="md:hidden flex items-center justify-center py-2">
+    <ul class="flex flex-wrap justify-center gap-y-1">
       {{ $current := .RelPermalink }}
       {{ range .Site.Menus.main.ByWeight }}
         {{ $target := .URL }}

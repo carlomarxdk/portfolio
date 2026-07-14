@@ -10,7 +10,6 @@
       sizes="(max-width: 640px) 192px, (max-width: 768px) 384px, 442px"
       type="image/webp"
       class="my-0 w-48 sm:w-36 md:w-48 lg:w-48 max-w-lg rounded-full mx-auto"
-      aria-label="Profile Picture"
     />
     <img
       class="my-0 w-48 sm:w-36 md:w-48 lg:w-48 max-w-lg rounded-full mx-auto grayscale-[15%]"
@@ -23,9 +22,8 @@
       src="{{ .Site.BaseURL }}images/avatar-192.jpg"
       width="442"
       height="442"
-      alt="Profile Picture"
+      alt="{{ .Site.Params.Author }}"
       loading="lazy"
-      aria-label="Profile Picture"
     />
   </picture>
 
@@ -35,14 +33,14 @@
   </h1>
 
   <!-- Role: small-caps label -->
-  <p class="font-cabin text-xs font-semibold uppercase tracking-widest text-stone-400 leading-relaxed">
+  <p class="font-cabin text-xs font-semibold uppercase tracking-widest text-stone-500 leading-relaxed">
     {{ with .Site.Params.bio }}{{ . | markdownify }}{{ end }}
   </p>
     <hr class="w-full border-t border-stone-200" />
 
 
   <!-- Alternate names: italic serif -->
-  <span class="font-merriweather italic text-xs text-stone-400 leading-loose text-center">
+  <span class="font-merriweather italic text-xs text-stone-500 leading-loose text-center">
     Germans Savčišens<br>
     Герман Савчiшен<br>
     Герман Савчишен<br>
@@ -61,7 +59,7 @@
 
   <!-- Current Projects: editorial list -->
   <div class="w-full text-left">
-    <div class="section-heading">Current Projects</div>
+    <h2 class="section-heading">Current Projects</h2>
     <ul class="projects-list">
       <li data-n="I">Veracity and Truth Tracking in LLMs</li>
       <li data-n="II">Chains, Trees, and Graphs-of-Thought</li>

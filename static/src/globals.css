@@ -70,7 +70,7 @@
   font-weight: 600;
   letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
-  color: var(--color-stone-400);
+  color: var(--color-stone-500);
   border: 1px solid var(--color-stone-200);
   padding: 0.4rem 1rem;  /* ← explicit values, guaranteed to work */
   border-radius: 2px;
@@ -80,6 +80,14 @@
   &:hover {
     color: var(--color-amber-600);
     border-color: var(--color-amber-400);
+  }
+
+  /* Quieter, borderless treatment on mobile so social links don't
+     out-weigh the main nav — same info, lower visual priority. */
+  @media (width < 48rem) {
+    font-size: 0.65rem;
+    border: none;
+    padding: 0.2rem 0.5rem;
   }
 }
 
@@ -102,6 +110,11 @@
 
   &:hover {
     color: var(--color-amber-600);
+  }
+
+  /* Larger touch target on mobile (WCAG target size ~44px). */
+  @media (width < 48rem) {
+    padding: 0.7rem 0.85rem;
   }
 }
 
@@ -360,11 +373,98 @@
     margin-top: calc(var(--spacing) * 2);
   }
   & .card-type-badge {
-      color: var(--color-stone-500);
+      color: var(--color-stone-600);
       background-color: var(--color-stone-100);
       border-color: var(--color-stone-200);
     }
 }
+}
+
+/* ── CV PAGE ─────────────────────────────────────────────── */
+@utility cv-heading {
+  font-family: var(--font-funnel);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-stone-900);
+  border-top: 3px solid var(--color-stone-900);
+  border-bottom: 1px solid var(--color-stone-300);
+  padding-block: calc(var(--spacing) * 1.25);
+  margin-top: calc(var(--spacing) * 7);
+  margin-bottom: calc(var(--spacing) * 2);
+
+  &:first-of-type {
+    margin-top: calc(var(--spacing) * 4);
+  }
+}
+
+@utility cv-subheading {
+  font-family: var(--font-cabin);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-amber-800);
+  margin-top: calc(var(--spacing) * 3);
+  margin-bottom: calc(var(--spacing) * 1);
+}
+
+@utility cv-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@utility cv-entry {
+  font-family: var(--font-cabin);
+  padding-block: calc(var(--spacing) * 1.25);
+  border-bottom: 1px solid var(--color-stone-100);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+@utility cv-entry-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: calc(var(--spacing) * 2);
+}
+
+@utility cv-entry-title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--color-stone-900);
+  line-height: 1.35;
+}
+
+@utility cv-entry-venue {
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--color-stone-600);
+  line-height: 1.4;
+  margin-top: calc(var(--spacing) * 0.25);
+}
+
+@utility cv-entry-date {
+  flex: 0 0 auto;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-stone-500);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+@utility cv-entry-meta {
+  font-size: 0.78rem;
+  color: var(--color-stone-500);
+  line-height: 1.4;
+  margin-top: calc(var(--spacing) * 0.5);
 }
 
 /* Container customization (was center: true in v3 config) */

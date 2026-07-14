@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(hugo version *)",
+      "Bash(npm run *)",
+      "Bash(hugo --gc)",
+      "Read(//Applications/**)",
+      "Bash(python3 -c \"import playwright\")",
+      "Bash(npx --yes playwright --version)",
+      "Bash(npx --yes playwright install chromium --with-deps)",
+      "Bash(brew list *)",
+      "Bash(node perf.mjs)",
+      "Bash(npm install *)",
+      "Bash(hugo --gc --minify)",
+      "Bash(node shot.mjs)",
+      "Bash(node crop3.mjs)",
+      "Bash(lsof -ti:1313)",
+      "Bash(xargs kill -9)",
+      "Bash(node axe-check.mjs)",
+      "Bash(node popover-check.mjs)",
+      "Bash(curl -s http://localhost:1313/blog/markdown-showcase/)",
+      "Bash(node axe-showcase.mjs)",
+      "Bash(node axe-check2.mjs)"
+    ]
+  }
+}

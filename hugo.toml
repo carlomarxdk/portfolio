@@ -1,12 +1,18 @@
 # Site settings
 baseURL = "https://savcisens.com/"
-languageCode = "en"
 title = "Scholar | Germans Savcisens"
 publishDir = "public"
 enableRSS = true
 enableRobotsTXT = true
 
 disableKinds = [ 'taxonomy', 'term']
+
+defaultContentLanguage = "en"
+
+[languages.en]
+	locale = "en"
+	label = "English"
+	weight = 1
 
 [params]
 	author = "Germans Savcisens"
@@ -87,7 +93,7 @@ disableKinds = [ 'taxonomy', 'term']
 [params.footer_address]
   institute = "Network Science Institute"
   university = "Northeastern University"
-  street = "177 Huntington Ave."
+  street = "101 Belvidere St"
   city = "Boston, MA 02115"
 
 [taxonomies]

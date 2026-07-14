@@ -6,7 +6,7 @@
   {{ $blogPages = first 3 ($blogPages.ByDate.Reverse) }}
 
   {{ if eq (len $blogPages) 0 }}
-    <p class="font-cabin text-sm italic text-stone-400">No blog posts yet. Stay tuned!</p>
+    <p class="font-cabin text-sm italic text-stone-500">No blog posts yet. Stay tuned!</p>
   {{ else }}
     {{ range $blogPages }}
       {{ partial "elements/card.html" . }}

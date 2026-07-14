@@ -82,7 +82,7 @@
   "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
   "image" (dict "@type" "ImageObject" "url" $image "width" 1200 "height" 627)
   "url" .Permalink
-  "inLanguage" (.Site.LanguageCode | default "en-us")
+  "inLanguage" (.Site.Language.Locale | default "en-us")
   "wordCount" .WordCount
   "isPartOf" (dict "@type" "Blog" "@id" (printf "%sblog/" .Site.BaseURL | absURL) "name" "Blog")
 -}}

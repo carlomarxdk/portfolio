@@ -5,7 +5,15 @@
 
 {{ range .Site.Params.customJS }}
   <script src="{{ $.Site.BaseURL }}{{ . }}"></script>
-{{ end }} 
+{{ end }}
+
+<script>
+document.querySelectorAll("li > input[type=checkbox][disabled]").forEach((cb) => {
+  const text = cb.parentElement.textContent.trim();
+  if (text) cb.setAttribute("aria-label", text);
+});
+</script>
+
 {{ if .Site.Params.enablePlausible }}
   <script async src="https://young-mode-bc7f.germans-savcisens.workers.dev/js/script.js"></script>
   <script>
