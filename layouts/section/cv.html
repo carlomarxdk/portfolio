@@ -1,0 +1,172 @@
+<!doctype html>
+<html
+  {{ with .Site.Language.Locale }}lang="{{ . }}"{{ end }}
+  class="scroll-smooth focus:scroll-auto"
+>
+  <head>
+    {{ partial "head.html" . }}
+    <style>
+      @media print {
+        @page {
+          size: letter;
+          margin: 0.6in;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-stone-50 print:bg-white">
+    <div class="print:hidden">{{ partial "nav.html" . }}</div>
+
+    <main
+      id="main-content"
+      class="max-w-screen-md mx-auto px-4 py-8 print:max-w-none print:p-0 font-cabin text-stone-800 print:text-black"
+    >
+      <div class="flex justify-end mb-6 print:hidden">
+        <button
+          onclick="window.print()"
+          type="button"
+          class="card-tag hover:border-amber-400 hover:text-amber-700 transition-colors duration-150"
+        >
+          Print / Save as PDF
+        </button>
+      </div>
+
+      <!-- Header -->
+      <header
+        class="mb-8 print:mb-4 text-center print:text-left border-b border-stone-200 print:border-black pb-6 print:pb-3"
+      >
+        <h1 class="text-3xl font-funnel font-extrabold text-stone-900">
+          {{ .Site.Params.Author }}
+        </h1>
+        {{ if or .Site.Params.structuredData.jobTitle .Site.Params.structuredData.affiliation }}
+        <p class="text-lg text-stone-600 print:text-black">
+          {{ .Site.Params.structuredData.jobTitle }}{{ if and
+          .Site.Params.structuredData.jobTitle
+          .Site.Params.structuredData.affiliation }}, {{ end }}{{
+          .Site.Params.structuredData.affiliation }}
+        </p>
+        {{ end }}
+        <p class="text-sm text-stone-500 print:text-black mt-2">
+          {{ $contact := slice }} {{ with .Site.Params.footer_address.city }}{{
+          $contact = $contact | append . }}{{ end }} {{ with
+          .Site.Params.social.email }}{{ $contact = $contact | append (printf
+          "<a class=\"a-hov\" href=\"%s\">%s</a>" . (replace . "mailto:" ""))
+          }}{{ end }} {{ with .Site.Params.social.linkedin }}{{ $contact =
+          $contact | append (printf "<a class=\"a-hov\" href=\"%s\">LinkedIn</a>"
+          .) }}{{ end }} {{ with .Site.Params.social.github }}{{ $contact =
+          $contact | append (printf "<a class=\"a-hov\" href=\"%s\">GitHub</a>"
+          .) }}{{ end }} {{ with .Site.Params.social.scholar }}{{ $contact =
+          $contact | append (printf
+          "<a class=\"a-hov\" href=\"%s\">Google Scholar</a>" .) }}{{ end }}
+          {{ with .Site.Params.structuredData.orcid }}{{ $contact = $contact |
+          append (printf "<a class=\"a-hov\" href=\"%s\">ORCID</a>" .) }}{{
+          end }} {{ delimit $contact " | " | safeHTML }}
+        </p>
+      </header>
+
+      <!-- Free-form content (education, skills, awards, etc.) -->
+      {{ if .Content }}
+      <section class="prose prose-sm max-w-none font-cabin mb-8 print:mb-4">
+        {{ .Content }}
+      </section>
+      {{ end }}
+
+      <!-- Publications -->
+      {{ $pubs := .Site.GetPage "/publications" }} {{ if $pubs }}
+      <section class="mb-8 print:mb-4">
+        <h2 class="cv-heading">Publications</h2>
+
+        {{ $pubTypes := slice (dict "label" "Peer-Reviewed Articles" "id" 1)
+        (dict "label" "Preprints" "id" 3) (dict "label" "Theses" "id" 2) (dict
+        "label" "Software" "id" 4) }} {{ range $pubTypes }} {{ $items := where
+        $pubs.Pages "Params.publication_type" .id }} {{ if $items }}
+        <h3 class="cv-subheading">{{ .label }}</h3>
+        <ul class="cv-list">
+          {{ range $items.ByDate.Reverse }}
+          <li class="cv-entry">
+            {{ if .Params.authors }}
+            <div class="cv-entry-meta">
+              {{ $len := len .Params.authors }} {{ range $i, $author :=
+              .Params.authors }}{{ if eq $author "Germans Savcisens" }}<strong
+                >{{ $author }}</strong
+              >{{ else }}{{ $author }}{{ end }}{{ if ne (add $i 1) $len }}, {{
+              end }}{{ end }}
+            </div>
+            {{ end }}
+            <div class="cv-entry-row">
+              <span class="cv-entry-title">{{ .Title }}</span>
+              <span class="cv-entry-date">
+                {{ if .Params.publishDate }}{{
+                .Params.publishDate.Format "2006" }}{{ else }}{{
+                .Date.Format "2006" }}{{ end }}
+              </span>
+            </div>
+            {{ with .Params.venue }}
+            <p class="cv-entry-venue">{{ . }}</p>
+            {{ end }}
+          </li>
+          {{ end }}
+        </ul>
+        {{ end }} {{ end }}
+      </section>
+      {{ end }}
+
+      <!-- Talks & Presentations -->
+      {{ $talks := .Site.GetPage "/talks" }} {{ if $talks }}
+      <section class="mb-8 print:mb-4">
+        <h2 class="cv-heading">Talks &amp; Presentations</h2>
+        <ul class="cv-list">
+          {{ range $talks.Pages.ByDate.Reverse }} {{ $date := time
+          .Params.event_date }}
+          <li class="cv-entry">
+            <div class="cv-entry-row">
+              <span class="cv-entry-title">{{ .Title }}</span>
+              <span class="cv-entry-date">{{ $date.Format "Jan 2, 2006" }}</span>
+            </div>
+            <p class="cv-entry-venue">
+              {{ .Params.venue }}{{ with .Params.location }}, {{ . }}{{ end }}
+              {{ with .Params.event_type }}&nbsp;({{ . }}){{ end }}
+            </p>
+          </li>
+          {{ end }}
+        </ul>
+      </section>
+      {{ end }}
+
+      <!-- Teaching & Service -->
+      {{ $teaching := .Site.GetPage "/teaching" }} {{ if $teaching }}
+      <section class="mb-8 print:mb-4">
+        <h2 class="cv-heading">Teaching &amp; Service</h2>
+
+        {{ $teachTypes := slice (dict "label" "Lecturing" "id" 0) (dict
+        "label" "Supervision" "id" 1) (dict "label" "Community Service" "id"
+        2) }} {{ range $teachTypes }} {{ $items := where $teaching.Pages
+        "Params.course_type" .id }} {{ if $items }}
+        <h3 class="cv-subheading">{{ .label }}</h3>
+        <ul class="cv-list">
+          {{ range $items.ByDate.Reverse }}
+          <li class="cv-entry">
+            <div class="cv-entry-row">
+              <span class="cv-entry-title"
+                >{{ .Title }}{{ if or .Params.role .Params.project_type }} —
+                <span class="font-normal">{{ .Params.role
+                }}{{ .Params.project_type }}</span
+                >{{ end }}</span
+              >
+              <span class="cv-entry-date">{{ .Date.Format "2006" }}</span>
+            </div>
+            {{ with .Params.venue }}
+            <p class="cv-entry-venue">{{ . }}</p>
+            {{ end }}
+          </li>
+          {{ end }}
+        </ul>
+        {{ end }} {{ end }}
+      </section>
+      {{ end }}
+    </main>
+
+    <div class="print:hidden">{{ partial "footer.html" . }}</div>
+  </body>
+</html>
