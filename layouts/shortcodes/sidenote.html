@@ -7,5 +7,5 @@ not $id -}} {{- errorf "sidenote shortcode requires an 'id' parameter at %s"
 .Position -}} {{- end -}}
 
 <label for="{{ $id }}" class="sidenote-toggle sidenote-number"></label>
-<input type="checkbox" id="{{ $id }}" class="sidenote-checkbox" />
+<input type="checkbox" id="{{ $id }}" class="sidenote-checkbox" aria-label="Show side note" />
 <span class="sidenote"> {{ .Inner | markdownify }} </span>
