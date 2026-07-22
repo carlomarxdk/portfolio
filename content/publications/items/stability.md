@@ -1,5 +1,5 @@
 ---
-title: "Representational and Behavioral Stability of Truth in Large Language Models"
+title: "Epistemic Familiarity is Associated With Belief Stability in Large Language Models"
 date: 2025-11-24
 publishDate: 2025-11-24
 authors: [Samantha Dies, Courtney Maynard, Germans Savcisens, Tina Eliassi-Rad]
