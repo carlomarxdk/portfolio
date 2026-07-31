@@ -5,7 +5,7 @@ publishDate: 2026-07-30
 authors: [Germans Savcisens, Samantha Dies, Courtney Maynard, Tina Eliassi-Rad]
 publication_type: 3
 hidden: true
-highlight: false
+highlight: true
 venue: "arXiv:2607.27512"
 abstract: ""
 pub_link: https://arxiv.org/abs/2607.27512
