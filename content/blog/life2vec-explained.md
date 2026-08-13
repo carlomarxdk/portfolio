@@ -186,7 +186,7 @@ The material in this blog post is based on multiple slide decks I have presented
 
 {{< callout type="tip" title="What life2vec is and isn't">}}
 
-#### What life2vec is
+### What life2vec is
 
 1. A research prototype created by scientists to study the sequence of life events using national registry data.
 2. A Transformer-based model trained on coded health, labor, and demographic records (not natural language).
@@ -194,7 +194,7 @@ The material in this blog post is based on multiple slide decks I have presented
 4. A tool evaluated on broad, population-level predictions (such as short-term mortality risk), strictly for research validation (not as a commercial product).
 5. A **proof-of-concept** showing how modern AI models can support social science without oversimplifying individual life histories.
 
-#### What life2vec is not
+### What life2vec is not
 
 1. **Not an online tool**, app, or "_AI death calculator._"
 2. **Not a chatbot**, and not designed for interaction in English.

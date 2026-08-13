@@ -1326,7 +1326,7 @@
     text-decoration: none;
     transition: color 0.15s, border-color 0.15s;
     &:hover {
-      color: var(--color-amber-600);
+      color: var(--color-amber-700);
       border-color: var(--color-amber-400);
     }
     @media (width < 48rem) {
@@ -1456,7 +1456,7 @@
       border-right: none;
     }
     &:hover {
-      color: var(--color-amber-600);
+      color: var(--color-amber-700);
     }
     @media (width < 48rem) {
       padding: 0.7rem 0.85rem;

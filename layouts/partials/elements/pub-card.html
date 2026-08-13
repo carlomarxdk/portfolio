@@ -41,7 +41,8 @@
             data-popover-target="{{ printf "popover-%s" .Params.fact_id }}"
             type="button"
             class="card-tag hover:border-amber-400 hover:text-amber-700 transition-colors duration-150"
-            aria-label="Show random information about this publication">
+            aria-label="Show random information about this publication"
+            aria-describedby="{{ printf "popover-%s" .Params.fact_id }}">
             Random Info
           </button>
     <div data-popover id="{{ printf "popover-%s" .Params.fact_id }}"

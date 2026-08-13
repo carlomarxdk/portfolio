@@ -11,3 +11,9 @@ node_modules/
 hugo
 LICENSE
 README
+
+# Claude Code (local dev/session state — keep out of public repo)
+.claude/
+CLAUDE.local.md
+.claude.json
+.claude.json.backup

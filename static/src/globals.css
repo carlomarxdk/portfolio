@@ -78,7 +78,7 @@
   transition: color 0.15s, border-color 0.15s;
 
   &:hover {
-    color: var(--color-amber-600);
+    color: var(--color-amber-700);
     border-color: var(--color-amber-400);
   }
 
@@ -109,7 +109,7 @@
   }
 
   &:hover {
-    color: var(--color-amber-600);
+    color: var(--color-amber-700);
   }
 
   /* Larger touch target on mobile (WCAG target size ~44px). */

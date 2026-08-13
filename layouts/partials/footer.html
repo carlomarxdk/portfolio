@@ -6,13 +6,6 @@
 
     <!-- Nav links -->
     <ul class="flex flex-wrap items-center justify-center gap-0 mb-8">
-      {{ if not .IsHome }}
-        <li>
-          <a href="{{ .Site.BaseURL }}" class="nav-item">
-            {{ with .Site.Params.home }}{{ . }}{{ else }}About{{ end }}
-          </a>
-        </li>
-      {{ end }}
       {{ range .Site.Menus.main.ByWeight }}
         <li><a href="{{ .URL }}" class="nav-item">{{ .Name }}</a></li>
       {{ end }}
