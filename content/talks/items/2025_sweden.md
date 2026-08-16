@@ -5,9 +5,9 @@ title: "From Life-Courses to Representations: Foundation Models for Registry Dat
 url:
 event_url: https://swecov.se/
 event_type: Keynote
-subtitle: Keynote Speaker
+subtitle: SWECOV workshop
 
-venue: " SWECOV workshop"
+venue: " Lund University"
 location: "Stockholm, Sweden"
 description: ""
 hidden: true

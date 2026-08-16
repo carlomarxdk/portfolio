@@ -5,9 +5,9 @@ title: "Life2vec: Foundation Models for Registry Data"
 url:
 event_url: https://csh.ac.at/
 event_type: Talk
-subtitle: "Speaker at Networks for Healthy Aging Workshop"
+subtitle: "Networks for Healthy Aging Workshop"
 
-venue: "Networks for Healthy Aging Workshop | Complexity Science Hub"
+venue: "Complexity Science Hub"
 location: "Vienna, Austria"
 description: ""
 hidden: true
