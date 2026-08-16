@@ -7,7 +7,6 @@ event_url: https://mit.edu
 subtitle: Gore Laboratory
 event_type: Talk
 
-
 venue: "Gore Laboratory @ MIT"
 location: "Boston, US"
 description: ""

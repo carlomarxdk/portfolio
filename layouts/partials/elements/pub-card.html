@@ -9,7 +9,7 @@
   <div class="card-content">
 
     <h3 class="card-title">
-      {{ if .Params.pub_link }}
+      {{ if and (eq .Params.create_page false) .Params.pub_link }}
         <a href="{{ .Params.pub_link }}" target="_blank" rel="noopener" class="a-hov">{{ .Title }}</a>
       {{ else }}
         <a href="{{ .Permalink }}" class="a-hov">{{ .Title }}</a>
@@ -29,9 +29,11 @@
       </p>
     {{ end }}
 
-    {{ if or .Params.misc .Params.allow_fact }}
+    {{ $cardResources := slice }}
+    {{ with .Params.resources }}{{ $cardResources = where . "on-card" true }}{{ end }}
+    {{ if or $cardResources .Params.allow_fact }}
       <div class="card-tags">
-        {{ range .Params.misc }}
+        {{ range $cardResources }}
           <a href="{{ .link }}" target="_blank" rel="noopener"
              class="card-tag hover:border-amber-400 hover:text-amber-700 transition-colors duration-150"
              aria-label="{{ .name }} for {{ $.Title }}">{{ .name }}</a>

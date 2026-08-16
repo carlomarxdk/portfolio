@@ -1,0 +1,156 @@
+<!doctype html>
+<html
+  {{
+  with
+  .Site.Language.Locale
+  }}lang="{{ . }}"
+  {{
+  end
+  }}
+  class="scroll-smooth focus:scroll-auto"
+>
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+
+  <body class="bg-stone-50 scroll-smooth focus:scroll-auto">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white"
+      >Skip to main content</a
+    >
+    {{ partial "nav.html" . }}
+    <main id="main-content" class="max-w-screen-lg px-4 py-8 mx-auto">
+      <article>
+        <header class="max-auto text-center">
+          <h1 class="page-title text-center">{{ .Title }}</h1>
+          {{ if .Params.venue }}
+            <p class="card-subtitle text-center">{{ .Params.venue }}</p>
+          {{ end }}
+          {{ if .Params.authors }}
+            <p class="card-meta text-center">
+              {{ $len := len .Params.authors }}
+              {{ range $i, $author := .Params.authors }}
+                {{ if eq $author "Germans Savcisens" }}<strong>{{ $author }}</strong>{{ else }}{{ $author }}{{ end }}{{ if ne (add $i 1) $len }}, {{ end }}
+              {{ end }}
+            </p>
+          {{ end }}
+        </header>
+
+        <div class="pub-columns mt-8">
+          <div class="pub-main">
+            {{ if .Params.abstract }}
+              <section>
+                <h2 class="section-heading">Abstract</h2>
+                <p class="prose-abstract">{{ .Params.abstract }}</p>
+              </section>
+            {{ end }}
+
+            {{ if or .Params.talks .Params.extra_talks }}
+              <section class="mt-8">
+                <h2 class="section-heading">Related Talks</h2>
+                {{ $items := slice }}
+                {{ range .Params.talks }}
+                  {{ $entry := . }}
+                  {{ with $.Site.GetPage (printf "/talks/items/%s" $entry.talk) }}
+                    {{ $items = $items | append (dict "kind" "own" "page" . "entry" $entry "date" (time .Params.event_date).Unix) }}
+                  {{ end }}
+                {{ end }}
+                {{ range .Params.extra_talks }}
+                  {{ $items = $items | append (dict "kind" "extra" "entry" . "date" (time .date).Unix) }}
+                {{ end }}
+                {{ range sort $items "date" "desc" }}
+                  {{ $item := . }}
+                  {{ if eq $item.kind "own" }}
+                    <div>
+                      {{ partial "events/prev-event.html" $item.page }}
+                      {{ with $item.entry.link }}
+                        <p class="mt-1 mb-4 pl-2 text-sm">
+                          <a href="{{ . }}" target="_blank" rel="noopener" class="link-row-title">{{ $item.entry.label | default "Poster" }}<span class="sr-only"> (opens in new tab)</span><span aria-hidden="true"> ↗</span></a>
+                        </p>
+                      {{ end }}
+                    </div>
+                  {{ else }}
+                    {{ $e := $item.entry }}
+                    <article class="card card-past">
+                      <div class="card-date">
+                        {{ with $e.date }}<time datetime="{{ (time .).Format "2006-01-02" }}">{{ (time .).Format "2 Jan 2006" }}</time>{{ end }}
+                      </div>
+                      <div class="card-content">
+                        <h3 class="card-title text-stone-500">
+                          <a href="{{ $e.link }}" target="_blank" rel="noopener" class="a-hov text-stone-500">{{ $e.title }}<span class="sr-only"> (opens in new tab)</span></a>
+                        </h3>
+                        {{ if $e.venue }}
+                          <p class="card-subtitle text-stone-500">{{ $e.venue }}</p>
+                        {{ end }}
+                        {{ with $e.author }}
+                          <p class="card-meta text-stone-500">Presented by {{ . }}</p>
+                        {{ end }}
+                      </div>
+                    </article>
+                  {{ end }}
+                {{ end }}
+              </section>
+            {{ end }}
+          </div>
+
+          <aside class="pub-sidebar" aria-label="Publication details">
+            {{ if .Params.versions }}
+              <section>
+                <h2 class="section-heading">Versions</h2>
+                <ul class="link-list">
+                  {{ range .Params.versions }}
+                    <li class="link-row">
+                      <a href="{{ .link }}" target="_blank" rel="noopener" class="link-row-title">{{ .label }}<span class="sr-only"> (opens in new tab)</span><span aria-hidden="true"> ↗</span></a>
+                      {{ with .subtitle }}<span class="link-row-subtitle">{{ . }}</span>{{ end }}
+                      {{ with .date }}<span class="link-row-meta">{{ (time .).Format "Jan 2006" }}</span>{{ end }}
+                    </li>
+                  {{ end }}
+                </ul>
+              </section>
+            {{ end }}
+
+            {{ $pageResources := slice }}
+            {{ with .Params.resources }}{{ $pageResources = where . "on-page" true }}{{ end }}
+            {{ if $pageResources }}
+              <section class="mt-8">
+                <h2 class="section-heading">Resources</h2>
+                <ul class="link-list">
+                  {{ range $pageResources }}
+                    <li class="link-row">
+                      <a href="{{ .link }}" target="_blank" rel="noopener" class="link-row-title">{{ .name }}<span class="sr-only"> (opens in new tab)</span><span aria-hidden="true"> ↗</span></a>
+                    </li>
+                  {{ end }}
+                </ul>
+              </section>
+            {{ end }}
+
+            {{ if .Params.media }}
+              <section class="mt-8">
+                <h2 class="section-heading">Media Coverage</h2>
+                <ul class="press-list">
+                  {{ range .Params.media }}
+                    <li>
+                      <a href="{{ .link }}" target="_blank" rel="noopener" class="press-title">{{ .name }}<span class="sr-only"> (opens in new tab)</span></a>
+                      <p class="press-meta">
+                        {{ .outlet }}{{ with .date }} · {{ (time .).Format "Jan 2006" }}{{ end }}
+                      </p>
+                    </li>
+                  {{ end }}
+                </ul>
+              </section>
+            {{ end }}
+
+            {{ if .Params.allow_fact }}
+              <section class="mt-8">
+                <h2 class="section-heading">Random Info</h2>
+                <div class="prose-abstract">{{ .Content }}</div>
+              </section>
+            {{ end }}
+          </aside>
+        </div>
+      </article>
+    </main>
+    {{ partial "footer.html" . }} {{ partial "js.html" . }}
+  </body>
+</html>

@@ -5,9 +5,9 @@ title: "The Trilemma of Truth in LLMs"
 url:
 event_url: https://mechinterpworkshop.com/
 event_type: Poster
-subtitle: Poster Presentation
+subtitle: NeurIPS Mechanistic Interpretability Workshop
 
-venue: "NeurIPS Mechanistic Interpretability Workshop"
+venue: ""
 location: "San Diego, USA"
 description: ""
 hidden: true

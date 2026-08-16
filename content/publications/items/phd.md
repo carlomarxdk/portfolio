@@ -5,17 +5,24 @@ publishDate: 2023-12-01
 authors: [Supervised by Sune Lehmann and Lars Kai Hansen]
 publication_type: 2
 venue: "PhD Thesis (Technical University of Denmark, Cognitive Systems)"
+create_page: false
 abstract: ""
 pub_link: https://orbit.dtu.dk/en/publications/life-trajectories-as-symbolic-language
+versions:
+  - label: "PhD Thesis (Technical University of Denmark, Cognitive Systems)"
+    link: https://orbit.dtu.dk/en/publications/life-trajectories-as-symbolic-language
+    date: 2023-12-01
 hidden: true
 highlight: false
-misc:
+resources:
   - name: Abstract
-    background: secondary
     link: https://findit.dtu.dk/en/catalog/6675796ce1f9ed17d3fb1a5f
+    on-card: true
+    on-page: false
   - name: Slides
-    background: success
     link: https://doi.org/10.5281/zenodo.14580405
+    on-card: true
+    on-page: false
 
 allow_fact: true
 fact_id: "2"

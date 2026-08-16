@@ -4,7 +4,7 @@ event_date: 2025-02-04
 title: "Workshop on the '(Un)predictability in the Social Sciences'"
 url:
 event_url: https://tint-helsinki.fi/
-subtitle: Participant
+subtitle: ""
 event_type: Talk
 
 venue: "University of Helsinki"

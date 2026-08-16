@@ -14,25 +14,65 @@ authors:
     Sune Lehmann,
   ]
 publication_type: 1
+create_page: true
 venue: "Nature Computational Science"
 abstract: "Here we represent human lives in a way that shares structural similarity to language, and we exploit this similarity to adapt natural language processing techniques to examine the evolution and predictability of human lives based on detailed event sequences. We do this by drawing on a comprehensive registry dataset, which is available for Denmark across several years, and that includes information about life-events related to health, education, occupation, income, address and working hours, recorded with day-to-day resolution. We create embeddings of life-events in a single vector space, showing that this embedding space is robust and highly structured. Our models allow us to predict diverse outcomes ranging from early mortality to personality nuances, outperforming state-of-the-art models by a wide margin. Using methods for interpreting deep learning models, we probe the algorithm to understand the factors that enable our predictions. Our framework allows researchers to discover potential mechanisms that impact life outcomes as well as the associated possibilities for personalized interventions."
 pub_link: https://www.nature.com/articles/s43588-023-00573-5
+versions:
+  - label: "Nature Computational Science"
+    link: https://www.nature.com/articles/s43588-023-00573-5
+    date: 2024-01-18
+  - label: "Free Access"
+    link: https://rdcu.be/egpwe
+    date: 2024-01-18
+
+resources:
+  - name: Free PDF
+    link: https://rdcu.be/egpwe
+    on-card: True
+    on-page: False
+  - name: "Code"
+    link: https://www.github.com/SocialComplexityLab/life2vec
+    on-card: True
+    on-page: True
+  - name: "Code (Light)"
+    link: https://github.com/carlomarxdk/life2vec-light
+    on-card: False
+    on-page: True
+  - name: "Official Page"
+    link: https://www.life2vec.dk
+    on-card: True
+    on-page: True
+  - name: "Slides"
+    link: https://doi.org/10.5281/zenodo.14580405
+    on-card: True
+    on-page: True
+
+talks:
+  - talk: 2021_mils
+  - talk: 2021_ns
+  - talk: 2021_sodas
+  - talk: 2022_mit
+  - talk: 2023_nordicai
+  - talk: 2023_odissei
+  - talk: 2024_alexai
+  - talk: 2024_db
+  - talk: 2024_genlife
+  - talk: 2024_hong_kong
+  - talk: 2024_imperial
+  - talk: 2024_oxford
+  - talk: 2024_phd
+  - talk: 2024_rice
+  - talk: 2024_scor
+  - talk: 2024_vermont
+  - talk: 2025_finland
+  - talk: 2025_max
+  - talk: 2025_sweden
+  - talk: 2025_vienna
+  - talk: 2026_rising
+
 hidden: true
 highlight: true
-misc:
-  - name: Free PDF
-    background: primary
-    link: https://rdcu.be/egpwe
-  - name: Code
-    background: primary
-    link: https://www.github.com/SocialComplexityLab/life2vec
-  - name: Official Page
-    background: success
-    link: https://www.life2vec.dk
-  - name: Slides
-    background: success
-    link: https://doi.org/10.5281/zenodo.14580405
-
 allow_fact: true
 fact_id: "1"
 ---

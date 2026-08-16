@@ -4,25 +4,65 @@ date: 2025-11-25
 publishDate: 2025-11-20
 authors: [Germans Savcisens, Tina Eliassi-Rad]
 publication_type: 3
-venue: "NeurIPS 2025 Workshop MechInterp | arXiv:2506.23921"
-pub_link: https://arxiv.org/abs/2506.23921
 hidden: true
 highlight: true
-misc:
+venue: "NeurIPS 2025 Workshop MechInterp | arXiv:2506.23921"
+abstract: "The public often attributes human-like qualities to large language models (LLMs), assuming that they \"know\" certain things. In reality, LLMs encode information retained during training as internal probabilistic knowledge. This study examines existing methods for probing the veracity of that knowledge and identifies three flawed underlying assumptions. To address these flaws, we introduce sAwMIL (Sparse-Aware Multiple-Instance Learning), a multiclass probing framework that combines multiple-instance learning with conformal prediction. sAwMIL leverages LLMs' internal representations to classify statements as true, false, or neither. We evaluate sAwMIL across 16 open-source LLMs, including default and chat-based variants, using three new curated datasets. Our results show that (1) common probing methods fail to provide a reliable and transferable veracity direction and, in some settings, perform worse than zero-shot prompting; (2) truth and falsehood are not encoded symmetrically; and (3) LLMs encode a third type of signal that is distinct from both true and false."
+pub_link: https://arxiv.org/abs/2506.23921
+versions:
+  - label: "Latest arXiv"
+    link: https://arxiv.org/abs/2506.23921
+    date: 2026-06-22
+  - label: "NeurIPS MechInterp Version"
+    link: https://openreview.net/forum?id=z7dLG2ycRf
+    date: 2025-11-20
+  # - label: "(Poster) NeurIPS MechInterp"
+  #   link: https://zenodo.org/records/17725915
+  #   date: 2025-11-20
+  # - label: "(Poster) IC2S2"
+  #   link: https://zenodo.org/records/16053456
+  #   date: 2025-07-01
+
+resources:
+  - name: ArXiv
+    link: https://arxiv.org/abs/2506.23921
+    on-card: true
+    on-page: false
   - name: Code
-    background: primary
     link: https://github.com/carlomarxdk/trilemma-of-truth
+    on-card: true
+    on-page: true
   - name: Data
-    background: success
     link: https://huggingface.co/datasets/carlomarxx/trilemma-of-truth
-  - name: Poster (IC2S2)
-    link: https://zenodo.org/records/16053456
-  - name: Poster (NeurIPS)
-    link: https://doi.org/10.5281/zenodo.17725915
-  # - name: NeurIPS MechInterp PDF
-  #   link: https://openreview.net/forum?id=z7dLG2ycRf
+    on-card: true
+    on-page: true
+  - name: "(Poster) NeurIPS"
+    link: https://zenodo.org/records/17725915
+    on-card: true
+    on-page: true
+  - name: "(Poster) IC2S2"
+    link: https://zenodo.org/records/17725915
+    on-card: true
+    on-page: true
+
+
+talks:
+  - talk: 2026_rising
+  - talk: 2026_copenhagen
+  - talk: 2025_neurips
+  - talk: 2025_nemi
+  - talk: 2025_ic2s2
+  - talk: 2025_gorelab
+
+extra_talks: #mentions and talks by others
+  - title: The Trilemma of Truth in Large Language Models
+    venue: Harvard John A. Paulson School of Engineering and Applied Sciences
+    date: 2025-11-07
+    author: Tina Eliassi-Rad
+    link: https://econcs.seas.harvard.edu/event/trilemma-truth-large-language-models
 
 allow_fact: true
+create_page: true
 fact_id: "3"
 ---
 
