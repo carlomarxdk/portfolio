@@ -18,6 +18,7 @@ versions:
 talks:
   - talk: 202606_netsci
   - talk: 202608_nemi
+  - talk: 202609_icsc2
 
 
 resources:

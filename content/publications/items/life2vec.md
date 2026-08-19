@@ -70,6 +70,7 @@ talks:
   - talk: 2025_sweden
   - talk: 2025_vienna
   - talk: 2026_rising
+  - talk: 202609_icsc
 
 hidden: true
 highlight: true

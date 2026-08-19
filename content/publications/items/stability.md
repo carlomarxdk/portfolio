@@ -27,6 +27,9 @@ resources:
     on-card: true
     on-page: true
 
+talks:
+  - talk: 202609_icsc2
+
 allow_fact: false
 fact_id: "3"
 ---

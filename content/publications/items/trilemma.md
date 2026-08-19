@@ -53,6 +53,8 @@ talks:
   - talk: 2025_nemi
   - talk: 2025_ic2s2
   - talk: 2025_gorelab
+  - talk: 202609_icsc
+  - talk: 202609_icsc2
 
 extra_talks: #mentions and talks by others
   - title: The Trilemma of Truth in Large Language Models
