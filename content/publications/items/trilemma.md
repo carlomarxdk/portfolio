@@ -1,7 +1,7 @@
 ---
 title: "The Trilemma of Truth in Large Language Models"
-date: 2025-11-25
-publishDate: 2026-10-01
+date: 2026-08-02
+publishDate: 2026-08-02
 authors: [Germans Savcisens, Tina Eliassi-Rad]
 publication_type: 1
 hidden: true
@@ -18,7 +18,7 @@ versions:
   - label: "NeurIPS MechInterp Version"
     link: https://openreview.net/forum?id=z7dLG2ycRf
     date: 2025-11-20
-    
+
 resources:
   - name: ArXiv
     link: https://arxiv.org/abs/2506.23921
