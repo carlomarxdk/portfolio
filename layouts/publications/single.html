@@ -29,10 +29,7 @@
           {{ end }}
           {{ if .Params.authors }}
             <p class="card-meta text-center">
-              {{ $len := len .Params.authors }}
-              {{ range $i, $author := .Params.authors }}
-                {{ if eq $author "Germans Savcisens" }}<strong>{{ $author }}</strong>{{ else }}{{ $author }}{{ end }}{{ if ne (add $i 1) $len }}, {{ end }}
-              {{ end }}
+              {{ partial "elements/author-list.html" (dict "authors" .Params.authors "max" 25 "lead" 6 "tail" 3) }}
             </p>
           {{ end }}
         </header>

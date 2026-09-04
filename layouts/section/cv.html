@@ -92,11 +92,8 @@
           <li class="cv-entry">
             {{ if .Params.authors }}
             <div class="cv-entry-meta">
-              {{ $len := len .Params.authors }} {{ range $i, $author :=
-              .Params.authors }}{{ if eq $author "Germans Savcisens" }}<strong
-                >{{ $author }}</strong
-              >{{ else }}{{ $author }}{{ end }}{{ if ne (add $i 1) $len }}, {{
-              end }}{{ end }}
+              {{ partial "elements/author-list.html" (dict "authors"
+              .Params.authors) }}
             </div>
             {{ end }}
             <div class="cv-entry-row">

@@ -1,0 +1,41 @@
+{{- /*
+  Renders an author list, bolding the site author and collapsing very long lists.
+
+  Params (dict):
+    authors (required) — slice of author-name strings, in paper order
+    max     (optional) — collapse once the list is longer than this (default 10)
+    lead    (optional) — leading authors kept when collapsing (default 3)
+    tail    (optional) — trailing authors kept when collapsing (default 2)
+
+  When collapsed, the site author stays visible, each omitted run becomes an
+  ellipsis carrying the number of hidden names, and the full count is appended.
+*/ -}}
+{{- $authors := .authors -}}
+{{- $max := .max | default 10 -}}
+{{- $lead := .lead | default 3 -}}
+{{- $tail := .tail | default 2 -}}
+{{- $me := site.Params.author | default "Germans Savcisens" -}}
+{{- $len := len $authors -}}
+{{- $shown := slice -}}
+{{- range $i, $author := $authors -}}
+  {{- if or (le $len $max) (lt $i $lead) (ge $i (sub $len $tail)) (eq $author $me) -}}
+    {{- $shown = $shown | append $i -}}
+  {{- end -}}
+{{- end -}}
+{{- $parts := slice -}}
+{{- $prev := -1 -}}
+{{- range $n, $i := $shown -}}
+  {{- $author := index $authors $i -}}
+  {{- if and (gt $n 0) (gt $i (add $prev 1)) -}}
+    {{- $parts = $parts | append (printf `<span title="%d more authors">&hellip;</span>` (sub (sub $i $prev) 1)) -}}
+  {{- end -}}
+  {{- $name := htmlEscape $author -}}
+  {{- if eq $author $me -}}{{- $name = printf "<strong>%s</strong>" $name -}}{{- end -}}
+  {{- $parts = $parts | append $name -}}
+  {{- $prev = $i -}}
+{{- end -}}
+{{- $html := delimit $parts ", " -}}
+{{- if lt (len $shown) $len -}}
+  {{- $html = printf `%s <span class="whitespace-nowrap">(%d authors)</span>` $html $len -}}
+{{- end -}}
+{{- $html | safeHTML -}}
