@@ -3,7 +3,7 @@ date: 2025-12-07
 event_date: 2025-12-07
 title: "The Trilemma of Truth in LLMs"
 url:
-event_url: https://mechinterpworkshop.com/
+event_url: https://mechinterpworkshop.com/neurips2025/
 event_type: Poster
 subtitle: NeurIPS Mechanistic Interpretability Workshop
 
