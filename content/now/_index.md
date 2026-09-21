@@ -16,9 +16,9 @@ Last updated on _25th April 2026_, while visiting _Liepaja, Latvia_.
 I have this silly dream of writing a screenplay for a series. Imagine, a bunch of academics arrive to _Lake Cuomo_ or _Côte d'Azur_ for a five-day workshop.
 A slightly _White Lotus-y_ setup... but it is a perfect backdrop for a glimpse at some of the quite catastrophes of academia.
 
-The viewers would never have an idea what the research topic is (or what the workshop is really about), just hints at some insane scientific discovery (I do want to make it a bit over-the-top). We start with the keynote speaker, naturally, arriving by helicopter, while the other forty get a bus with a broken AC and a driver who takes the scenic route.
+<!-- The viewers would never have an idea what the research topic is (or what the workshop is really about), just hints at some insane scientific discovery (I do want to make it a bit over-the-top). We start with the keynote speaker, naturally, arriving by helicopter, while the other forty get a bus with a broken AC and a driver who takes the scenic route.
 
-If you ever feel like discussing this, you have plenty of ways of contacting me.
+If you ever feel like discussing this, you have plenty of ways of contacting me. -->
 
 ## Books
 
