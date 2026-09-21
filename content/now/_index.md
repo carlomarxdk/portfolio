@@ -23,8 +23,7 @@ If you ever feel like discussing this, you have plenty of ways of contacting me.
 ## Books
 
 Honestly, I couldn’t get myself to finish a book in the past year or so
-Every time I picked one up, it felt like too much... maybe because of all the heavy work-related reading.
-But [On Writing: A Memoir of the Craft](https://www.goodreads.com/book/show/10569.On_Writing) by _Stephen King_ is slowly pulling me out of that weird slump.
+Every time I picked one up, it felt like too much... but [On Writing: A Memoir of the Craft](https://www.goodreads.com/book/show/10569.On_Writing) by _Stephen King_ is slowly pulling me out of that weird slump.
 
 The list of cool books that inspired me in one way or another (aka _I recommend_ to read; btw, my [GoodReads Profile](https://www.goodreads.com/converge)):
 
