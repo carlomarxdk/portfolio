@@ -1,7 +1,13 @@
 <section>
   <div class="container max-w-3xl">
 
-    <h2 class="section-heading">Lecturing</h2>
+
+    <h2 class="section-heading">Community Service</h2>
+    {{ range sort .Pages.ByDate.Reverse }}
+      {{ if eq .Params.course_type 2 }}{{ partial "teaching/community.html" . }}{{ end }}
+    {{ end }}
+
+    <h2 class="section-heading mt-8">Lecturing</h2>
     {{ range sort .Pages.ByDate.Reverse }}
       {{ if eq .Params.course_type 0 }}{{ partial "teaching/course.html" . }}{{ end }}
     {{ end }}
@@ -11,10 +17,6 @@
       {{ if eq .Params.course_type 1 }}{{ partial "teaching/project.html" . }}{{ end }}
     {{ end }}
 
-    <h2 class="section-heading mt-8">Community Service</h2>
-    {{ range sort .Pages.ByDate.Reverse }}
-      {{ if eq .Params.course_type 2 }}{{ partial "teaching/community.html" . }}{{ end }}
-    {{ end }}
 
   </div>
 </section>
