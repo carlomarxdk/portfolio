@@ -1,6 +1,6 @@
 <article class="card">
   <div class="card-date">
-    <p>{{ .Params.date.Format "2006" }}</p>
+    <p>{{ with .Params.run_date }}{{ . }}{{ else }}{{ .Date.Format "2006" }}{{ end }}</p>
   </div>
   <div class="card-content">
     <h3 class="card-title">
