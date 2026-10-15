@@ -115,7 +115,7 @@ authors:
   - Malvina Nissim
   - Matthew J. Salganik
   - Gert Stulp
-publication_type: 3
+publication_type: preprint
 hidden: true
 highlight: false
 venue: "arXiv:2609.01194"

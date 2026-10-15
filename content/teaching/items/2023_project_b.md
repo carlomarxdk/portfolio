@@ -5,9 +5,9 @@ hidden: true
 title: "Compliance Rule Detection from Unstructured Documents "
 url:
 course_url: https://findit.dtu.dk/en/catalog/64111ad76db2563abbc2013d
-course_type: 1
+course_type: supervision
 
-project_type: MSc Thesis
+supervision_kind: msc-thesis
 
 venue: Technical University of Denmark
 venue_url: https://dtu.dk

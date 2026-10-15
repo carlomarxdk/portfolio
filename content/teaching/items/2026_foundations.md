@@ -6,7 +6,7 @@ hidden: true
 title: "Foundations of Artificial Intelligence"
 url:
 course_url: https://catalog.northeastern.edu/course-descriptions/cs/
-course_type: 0
+course_type: teaching
 
 role: Guest Lecturer
 

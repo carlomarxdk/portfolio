@@ -1,0 +1,5 @@
+{{- /* Year of a content item: `year` param, else the year in `run_date`, else the year of `date`. */ -}}
+{{- $y := .Params.year -}}
+{{- if not $y -}}{{- with findRE `\d{4}` (string (.Params.run_date | default "")) 1 -}}{{- $y = index . 0 -}}{{- end -}}{{- end -}}
+{{- if not $y -}}{{- $y = .Date.Year -}}{{- end -}}
+{{- return int $y -}}

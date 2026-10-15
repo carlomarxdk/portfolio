@@ -5,10 +5,11 @@ title: "Workshop on the '(Un)predictability in the Social Sciences'"
 url:
 event_url: https://tint-helsinki.fi/
 subtitle: ""
-event_type: Talk
+event_type: [invited]
 
 venue: "University of Helsinki"
 location: "Helsinki, Finland"
 description: ""
 hidden: true
+cv: true
 ---

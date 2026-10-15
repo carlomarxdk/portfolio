@@ -1,0 +1,4 @@
+{{- /* Year span of a list of years: "2021--2024", or "2024" when they are all the same. */ -}}
+{{- $ys := sort . -}}
+{{- $min := index $ys 0 -}}{{- $max := index $ys (sub (len $ys) 1) -}}
+{{- return cond (eq $min $max) (string $min) (printf "%d--%d" $min $max) -}}

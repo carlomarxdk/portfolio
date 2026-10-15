@@ -1,0 +1,4 @@
+{{- /* Look up display text for a type slug in data/labels.yaml.
+       Usage: partial "elements/label.html" (dict "group" "event_type" "key" "keynote" "field" "web") */ -}}
+{{- $field := .field | default "web" -}}
+{{- with index hugo.Data.labels .group .key -}}{{ index . $field }}{{- else -}}{{ .key }}{{- end -}}

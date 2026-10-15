@@ -3,7 +3,7 @@ title: " (alpha) sAwMIL: Multiple-Instance Learning SVMs in Python"
 date: 2025-09-01
 publishDate: 2025-09-01
 authors: [Germans Savcisens]
-publication_type: 4
+publication_type: software
 create_page: false
 venue: ""
 pub_link: https://pypi.org/project/sawmil/

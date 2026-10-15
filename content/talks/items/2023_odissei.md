@@ -6,11 +6,13 @@ title: "Using Life-sequences to Predict Human Lives"
 url:
 event_url: https://odissei-data.nl/en/2023/09/odissei-lecture-using-sequences-of-life-events-to-predict-human-lives/
 venue: "ODISSEI Lecture"
-event_type: Talk+Lecture
+event_type: [lecture]
 
 location: "Netherlands"
 description: ""
 hidden: true
+cv: true
+remote: true
 misc:
   - name: Recording
     background: primary

@@ -1,0 +1,14 @@
+{{- /* Format a list of years: consecutive runs become "2023--2026", the rest are comma-separated. */ -}}
+{{- $ys := sort (uniq .) -}}
+{{- $out := slice -}}
+{{- $start := 0 -}}{{- $prev := 0 -}}
+{{- range $i, $y := $ys -}}
+  {{- if eq $i 0 -}}{{- $start = $y -}}
+  {{- else if ne $y (add $prev 1) -}}
+    {{- $out = $out | append (cond (eq $start $prev) (string $start) (printf "%d--%d" $start $prev)) -}}
+    {{- $start = $y -}}
+  {{- end -}}
+  {{- $prev = $y -}}
+{{- end -}}
+{{- if $ys -}}{{- $out = $out | append (cond (eq $start $prev) (string $start) (printf "%d--%d" $start $prev)) -}}{{- end -}}
+{{- return delimit $out ", " -}}

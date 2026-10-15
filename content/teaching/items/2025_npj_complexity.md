@@ -6,9 +6,11 @@ hidden: true
 title: "npj Complexity"
 url:
 course_url: https://www.nature.com/npjcomplex/
-course_type: 2
+course_type: service
 
 role: Reviewer
+service_kind: journal-review
+series: "npj Complexity"
 
 venue:
 venue_url:

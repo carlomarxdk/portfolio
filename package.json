@@ -8,7 +8,8 @@
     "build:css:prod": "cross-env NODE_ENV=production npx postcss static/src/globals.css -o static/src/output.css",
     "build": "npm run build:css:prod && hugo --gc --minify",
     "dev:css": "npx postcss static/src/globals.css -o static/src/output.css --watch",
-    "dev": "hugo server -D"
+    "dev": "hugo server -D",
+    "build:cv": "hugo --gc --minify && cd public/cv && lualatex -interaction=nonstopmode -halt-on-error resume.tex >/dev/null && lualatex -interaction=nonstopmode -halt-on-error resume.tex && cp resume.pdf ../../static/docs/Resume.pdf"
   },
   "engines": {
     "node": ">=20"

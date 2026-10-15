@@ -6,9 +6,11 @@ hidden: true
 title: "Nature Computational Science"
 url:
 course_url: https://www.nature.com/natcomputsci
-course_type: 2
+course_type: service
 
 role: Reviewer
+service_kind: journal-review
+series: "Nature Computational Science"
 
 venue:
 venue_url:

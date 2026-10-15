@@ -7,6 +7,7 @@ title: "CV"
 date: 2026-07-13
 description: "Curriculum vitae of Germans Savcisens — publications, talks, and teaching."
 hidden: true
+outputs: [html, resume]
 ---
 
 <!-- ## Education

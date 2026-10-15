@@ -3,7 +3,7 @@ title: "Life Trajectories as Symbolic Language: Exploring Human Behaviour with L
 date: 2023-12-01
 publishDate: 2023-12-01
 authors: [Supervised by Sune Lehmann and Lars Kai Hansen]
-publication_type: 2
+publication_type: thesis
 venue: "PhD Thesis (Technical University of Denmark, Cognitive Systems)"
 create_page: false
 abstract: ""

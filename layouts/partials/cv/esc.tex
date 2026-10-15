@@ -1,0 +1,10 @@
+{{- /* Escape a plain string for LaTeX. Usage: partial "cv/esc.tex" "R&D 100%" */ -}}
+{{- $s := . | default "" | string -}}
+{{- $s = replace $s `\` "@@BACKSLASH@@" -}}
+{{- $s = replace $s "{" `\{` -}}
+{{- $s = replace $s "}" `\}` -}}
+{{- range slice "&" "%" "$" "#" "_" -}}{{- $s = replace $s . (printf `\%s` .) -}}{{- end -}}
+{{- $s = replace $s "~" `\textasciitilde{}` -}}
+{{- $s = replace $s "^" `\textasciicircum{}` -}}
+{{- $s = replace $s "@@BACKSLASH@@" `\textbackslash{}` -}}
+{{- return $s -}}

@@ -3,7 +3,7 @@ title: "tab2seq: A Python Package for Table-to-Sequence Conversion"
 date: 2026-02-23
 publishDate: 2026-02-23
 authors: [Germans Savcisens]
-publication_type: 4
+publication_type: software
 create_page: false
 venue: ""
 pub_link: https://pypi.org/project/tab2seq/

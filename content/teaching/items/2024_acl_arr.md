@@ -6,9 +6,11 @@ hidden: true
 title: "Conference on Empirical Methods in Natural Language Processing 2024"
 url:
 course_url: https://aclanthology.org/2024.emnlp-main.0.pdf
-course_type: 2
+course_type: service
 
 role: Reviewer
+service_kind: conference-review
+series: "EMNLP"
 
 venue:
 venue_url:

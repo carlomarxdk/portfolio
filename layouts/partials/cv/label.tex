@@ -1,0 +1,5 @@
+{{- /* CV display text for a type slug in data/labels.yaml, falling back to the slug.
+       Plain-text twin of elements/label.html. Usage: partial "cv/label.tex" (dict "group" "event_type" "key" "keynote") */ -}}
+{{- $out := .key -}}
+{{- with index hugo.Data.labels .group .key -}}{{- with .cv -}}{{- $out = . -}}{{- end -}}{{- end -}}
+{{- return $out -}}

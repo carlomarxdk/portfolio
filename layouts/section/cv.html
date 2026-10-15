@@ -82,9 +82,9 @@
       <section class="mb-8 print:mb-4">
         <h2 class="cv-heading">Publications</h2>
 
-        {{ $pubTypes := slice (dict "label" "Peer-Reviewed Articles" "id" 1)
-        (dict "label" "Preprints" "id" 3) (dict "label" "Theses" "id" 2) (dict
-        "label" "Software" "id" 4) }} {{ range $pubTypes }} {{ $items := where
+        {{ $pubTypes := slice (dict "label" "Peer-Reviewed Articles" "id" "published")
+        (dict "label" "Preprints" "id" "preprint") (dict "label" "Theses" "id" "thesis") (dict
+        "label" "Software" "id" "software") }} {{ range $pubTypes }} {{ $items := where
         $pubs.Pages "Params.publication_type" .id }} {{ if $items }}
         <h3 class="cv-subheading">{{ .label }}</h3>
         <ul class="cv-list">
@@ -128,7 +128,7 @@
             </div>
             <p class="cv-entry-venue">
               {{ .Params.venue }}{{ with .Params.location }}, {{ . }}{{ end }}
-              {{ with .Params.event_type }}&nbsp;({{ . }}){{ end }}
+              {{ with .Params.event_type }}&nbsp;({{ range $i, $t := partial "elements/event-types.html" . }}{{ if $i }}, {{ end }}{{ partial "elements/label.html" (dict "group" "event_type" "key" $t) }}{{ end }}){{ end }}
             </p>
           </li>
           {{ end }}
@@ -141,19 +141,19 @@
       <section class="mb-8 print:mb-4">
         <h2 class="cv-heading">Teaching &amp; Service</h2>
 
-        {{ $teachTypes := slice (dict "label" "Lecturing" "id" 0) (dict
-        "label" "Supervision" "id" 1) (dict "label" "Community Service" "id"
-        2) }} {{ range $teachTypes }} {{ $items := where $teaching.Pages
-        "Params.course_type" .id }} {{ if $items }}
+        {{ $teachTypes := slice (dict "label" "Lecturing" "id" "teaching") (dict
+        "label" "Supervision" "id" "supervision") (dict "label" "Community Service" "id"
+        "service") }} {{ range $teachTypes }} {{ $items := where (where $teaching.Pages
+        "Params.course_type" .id) "Params.cv" "ne" false }} {{ if $items }}
         <h3 class="cv-subheading">{{ .label }}</h3>
         <ul class="cv-list">
           {{ range $items.ByDate.Reverse }}
           <li class="cv-entry">
             <div class="cv-entry-row">
               <span class="cv-entry-title"
-                >{{ .Title }}{{ if or .Params.role .Params.project_type }} —
+                >{{ .Title }}{{ if or .Params.role .Params.supervision_kind }} —
                 <span class="font-normal">{{ .Params.role
-                }}{{ .Params.project_type }}</span
+                }}{{ with .Params.supervision_kind }}{{ partial "elements/label.html" (dict "group" "supervision_kind" "key" .) }}{{ end }}</span
                 >{{ end }}</span
               >
               <span class="cv-entry-date">{{ .Date.Format "2006" }}</span>
