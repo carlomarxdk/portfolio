@@ -1,0 +1,334 @@
+\DocumentMetadata{
+  lang=en-US,
+  pdfversion=2.0,
+  pdfstandard=UA-2,
+  tagging=on
+}
+\documentclass[10.5pt]{article}
+% ---------- Page geometry (tighter than 1in to reduce empty space, per explicit request) ----------
+\usepackage[a4paper, top=1cm, bottom=1.1cm, left=1.5cm, right=1.7cm, footskip=14pt]{geometry}
+
+% ---------- Fonts (standard, embedded, no ATS font-substitution risk) ----------
+\usepackage[xcharter]{fontsetup}
+% \input{glyphtounicode}
+
+% Ensure PDF is machine readable
+\pdfgentounicode=1
+
+% ---------- Core packages ----------
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[skip=3pt]{parskip}
+\usepackage{xcolor}
+\usepackage{pagecolor}
+% \usepackage{unicode-math}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{needspace}
+% \tagpdfsetup{math/mathml/luamml/load=false}
+% No multicol, no tabular-based page layout anywhere in this file.
+% Everything below is single-column, linear reading order.
+
+% ---------- Editorial palette: FT-style cream tint, oxblood masthead rule ----------
+\definecolor{masthead}{HTML}{6E1423}
+\definecolor{paper}{HTML}{FFF6EC}
+\definecolor{offwhite}{HTML}{FFFDF7}
+\definecolor{ink}{HTML}{1A1A1A}
+\pagecolor{offwhite}
+\color{ink}
+
+
+\definecolor{linkcol}{HTML}{6E1423}
+\hypersetup{
+    colorlinks=true, 
+    linkcolor=linkcol, 
+    urlcolor=linkcol,
+    pdftitle={Germans Savcisens - Curriculum Vitae},
+    pdfsubject={Germans Savcisens - Resume},
+    pdfkeywords={postdoc, researcher, computational},
+    pdfauthor={Germans Savcisens},
+    pdflang={en-US}}
+
+% ---------- Section headings: tracked small caps + oxblood rule (real \section, styled) ----------
+\titleformat{\section}{\bfseries}{}{0em}{}[{\color{masthead}\vspace{1pt}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{5pt}{5pt}
+
+\titleformat{\subsection}{\bfseries\itshape}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{5pt}{2pt}
+
+\newcounter{cvbm}
+\newcommand{\cvsection}[1]{%
+  \refstepcounter{cvbm}%
+  \phantomsection\pdfbookmark[1]{#1}{bm\thecvbm}%
+  \section*{\textls[60]{\MakeUppercase{#1}}}%
+}
+
+\setlist[itemize]{leftmargin=1.1em, itemsep=2pt, topsep=0pt, parsep=0pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\footnotesize\color{masthead}\textls[60]{\MakeUppercase{Germans Savcisens}} \textperiodcentered\ Curriculum Vitae \textperiodcentered\ \thepage
+}
+
+\newcommand{\entry}[4]{%
+  \noindent\textbf{#1} \hfill \textit{\small #3}\\
+  \textit{#2} \hfill \textit{\small #4}\par
+}
+
+% Author, Author, & Author (Year). Title. \textit{Venue}. links
+\newcommand{\pubentry}[5]{%
+  \noindent #1 (#2). #3\ \textit{#4}.\ #5\par\vspace{1pt}%
+}
+
+\begin{document}
+% ================= MASTHEAD (compact) =================
+% Personal Data
+\begingroup\setlength{\parskip}{0pt}%
+\centering
+\fontsize{20}{22}\selectfont\textls[60]{Germans Savcisens, PhD}\\[1pt]%
+\small\itshape Postdoctoral Research Associate, Northeastern University\par
+\vspace{-2pt}
+\noindent{\color{masthead}\rule{\linewidth}{0.5pt}}
+\small
+Boston, MA, USA 
+\;\textperiodcentered\; 
+% \href{mailto:germans@savcisens.com}{germans@savcisens.com} 
+% \;\textperiodcentered\;
+\href{https://savcisens.com}{Portfolio} 
+\;\textperiodcentered\;
+\href{https://www.linkedin.com/in/germans-savcisens/}{LinkedIn}
+\;\textperiodcentered\;
+\href{https://github.com/carlomarxdk}{GitHub} 
+\;\textperiodcentered\;
+\href{https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en}{Google Scholar}
+\;\textperiodcentered\;
+\href{https://orcid.org/0000-0002-5811-3230}{ORCID}
+\;\textperiodcentered\;
+\href{https://www.semanticscholar.org/author/Germans-Savcisens/2218892062}{Semantic Scholar}
+\;\textperiodcentered\;
+\href{https://www.scopus.com/authid/detail.uri?authorId=58312119300}{Scopus}
+\;\textperiodcentered\;
+\href{https://www.webofscience.com/wos/author/record/KPB-7881-2024}{Web of Science}
+\par
+\vspace{-6pt}
+\noindent{\color{masthead}\rule{\linewidth}{0.5pt}}
+\endgroup
+
+
+% ================= PROFILE =================
+\needspace{3\baselineskip}
+\cvsection{Profile}
+Postdoctoral researcher (PhD, Applied Mathematics and Computer Science) specializing in statistical and machine-learning modeling of registry-scale health \& behavior data, and in the robustness, and stability assessment of AI systems. Investigated transformer-based systems for nation-scale health/socioeconomic trajectory prediction (\href{https://life2vec.dk}{life2vec}, trained on national registry and electronic health records), veracity probing of LLMs and multi-agent LLM simulation (CoevolveSim), with end-to-end Python experience from data extraction and cleaning to modeling and interpretability analysis. Works across multidisciplinary teams and mentors graduate researchers in interpretable ML and AI auditing.
+
+\textbf{Areas of interest:} population-scale health \& behavior modeling, explainable AI \& AI auditing, bias \& robustness assessment, transformer architectures, agent-based simulation, evaluation of predictive models.
+
+
+% ================= EDUCATION =================
+\needspace{3\baselineskip}
+\cvsection{Education}
+
+\entry{Technical University of Denmark}{PhD, Applied Mathematics and Computer Science}{2020--2024}{Copenhagen, Denmark}
+\begin{itemize}
+  \item Dissertation: \textit{Life Trajectories as Symbolic Language: Exploring Human Behaviour with Language Models}
+  \item Committee: S{\o}ren Hauberg (chair), Mads Nielsen, Arkadiusz Stopczynski
+\end{itemize}
+
+\entry{Technical University of Denmark}{MSc, Human-Centered Artificial Intelligence}{2018--2020}{Copenhagen, Denmark}
+\begin{itemize}
+  \item Thesis (Collaboration with Novo Nordisk): \textit{Analyzing Health Data Records Using Neural Networks}
+  \item Thesis Advisors: Sune Lehmann (DTU) and Adam Lenart (Novo Nordisk)
+\end{itemize}
+
+\entry{Aalto University}{Visiting Student, Digital Ethics \& Statistical Natural Language Processing}{2021}{Helsinki, Finland}
+
+\entry{Aalborg University}{BSc, Human-Computer Interaction (Medialogy)}{2013--2016}{Copenhagen, Denmark}
+
+% ================= RESEARCH EXPERIENCE =================
+\needspace{3\baselineskip}
+\cvsection{Research Experience}
+
+\entry{Northeastern University}{\textbf{Postdoctoral Research Associate} | Mentor: Tina Eliassi-Rad}{May 2024--present}{Boston, USA}
+\begin{itemize}
+  \item Developed LLM probing frameworks for knowledge representation and belief stability~\href{https://github.com/carlomarxdk/trilemma-of-truth}{[sAwMIL]}.
+  \item Designed a multi-agent framework (using R and Python) to study opinion dynamics in networks of LLM agents~\href{https://github.com/carlomarxdk/coevolve-sim}{[CoevolveSim]}.
+  \item Supervised graduate researchers in interpretable machine learning and LLM auditing; coordinated research on multi-agent interactions.
+  \item Presented projects at the NeurIPS Mechanistic Interpretability Workshop, IC2S2, and NEMI Workshop.
+\end{itemize}
+
+\entry{Technical University of Denmark \& University of Copenhagen}{\textbf{PhD Student \& Research Assistant} | Advisors: Sune Lehmann, Lars Kai Hansen}{Sep 2020--Apr 2024}{Copenhagen, Denmark}
+\begin{itemize}
+  \item Led modeling of nation-scale socioeconomic and health trajectories using transformer-based models~\href{https://life2vec.dk}{[life2vec]}.
+  \item Developed and evaluated life-outcome prediction models, with emphasis on interpretability.
+  \item Taught and developed course materials for a graduate-level course in Social Network Science.
+  \item Invited talks at MIT, University of Oxford, NordicAI and Complexity Science Hub.
+\end{itemize}
+
+\entry{Statistics Denmark, Data Science Lab}{\textbf{Guest Researcher}}{Sep 2020--Apr 2024}{Copenhagen, Denmark}
+\begin{itemize}
+  \item Collaborated with economists and social scientists to conduct quantitative and qualitative analyses of demographic and socioeconomic patterns in observational registry data.
+  \item Led modeling of large-scale longitudinal datasets.
+\end{itemize}
+
+\entry{Network Science Institute, Northeastern University}{\textbf{Visiting PhD Student}}{Sep 2022--Feb 2023}{Boston, USA}
+\begin{itemize}
+  \item Analyzed ethical and societal risks of deep learning applied to socioeconomic data.
+  \item Investigated methods for enhancing transparency and fairness in algorithmic systems.
+\end{itemize}
+
+\entry{Novo Nordisk, R\&D (Real World Evidence)}{\textbf{Researcher (Student Assistant)}}{Sep 2019--Apr 2020}{Copenhagen, Denmark}
+\begin{itemize}
+  \item Conducted research on predictive models for medical adherence using large-scale Electronic Health Records (EHRs), addressing missing data and selection bias in the observational cohort.
+  \item Developed hierarchical attention-based neural models for health outcome prediction.
+  \item Led preprocessing and integration of behavioral and clinical data sources.
+\end{itemize}
+
+
+% ================= PUBLICATIONS =================
+\needspace{3\baselineskip}
+\cvsection{Publications}
+
+\vspace{1pt}
+{\color{masthead}\textbf{PEER REVIEWED \& PUBLISHED}}
+
+\pubentry{\textbf{G. Savcisens} \& T. Eliassi-Rad}
+  {2026}{Trilemma of Truth in Large Language Models.}{\textbf{To appear} in Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing}
+  {\href{https://arxiv.org/abs/2506.23921}{[arXiv]} \href{https://github.com/carlomarxdk/trilemma-of-truth}{[Code]} \href{https://zenodo.org/records/17725915}{[NeurIPS Poster]}}
+
+\pubentry{S. Dies, C. Maynard, \textbf{G. Savcisens} \& T. Eliassi-Rad}
+  {2026}{Epistemic Familiarity is Associated With Belief Stability in Large Language Models.}{\textbf{To appear} in Findings of the 2026 Conference on Empirical Methods in Natural Language Processing}
+  {\href{https://arxiv.org/abs/2511.19166}{[arXiv]}}
+
+\pubentry{\textbf{G. Savcisens}}
+  {2025}{Large language models act as if they are part of a group.}{Nature Computational Science}
+  {\href{https://www.nature.com/articles/s43588-024-00750-0}{[DOI]}}
+
+\pubentry{Z. Shafi, \textbf{G. Savcisens} \& T. Eliassi-Rad}
+  {2025}{REGE: A method for incorporating uncertainty in graph embeddings.}{SIAM International Conference on Data Mining}
+  {\href{https://doi.org/10.1137/1.9781611978520.40}{[DOI]}}
+
+\pubentry{E. Denove, E. Michelet, \textbf{G. Savcisens} \& E. F. Fern\'andez}
+  {2024}{An Industrial West? A Mixed-Methods Analysis of Newspapers Discourses about Technology.}{Journal of Data Mining \& Digital Humanities}
+  {\href{https://doi.org/10.46298/jdmdh.11741}{[DOI]}} 
+
+\pubentry{E. F. Fern\'andez \& \textbf{G. Savcisens}}
+  {2024}{Quantifying Western Discourses about Technology.}{Digital Humanities in the Nordic and Baltic Countries}
+  {\href{https://doi.org/10.5617/dhnbpub.11513}{[DOI]}} 
+
+\pubentry{\textbf{G. Savcisens}, T. Eliassi-Rad, L. Kai Hansen, L.H. Mortensen, L. Lilleholt, A. Rogers, I. Zettler \& S. Lehmann}
+  {2024}{Using sequences of life-events to predict human lives.}{Nature Computational Science}
+  {\href{https://www.nature.com/articles/s43588-023-00573-5}{[DOI]} \href{https://life2vec.dk}{[Official Page]}}
+
+\pubentry{E. F. Fern\'andez \& \textbf{G. Savcisens}}
+  {2023}{A Sustainable West? Analyzing Clusters of Public Opinion in Sustainability.}{Digital Humanities in the Nordic and Baltic Countries}
+  {\href{http://dx.doi.org/10.5617/dhnbpub.10660}{[DOI]}} 
+
+\vspace{1pt}
+{\color{masthead}\textbf{PREPRINTS}}
+
+\pubentry{M. Laber, Z. Shafi, \textbf{G. Savcisens}, M. Chinazzi, S. V. Scarpino, A.-L. Barabási \& T. Eliassi-Rad}
+  {2026}{Scaling of Capability and Efficiency at Inference Time in Large Reasoning Models.}{arXiv}
+  {\href{https://arxiv.org/abs/2609.27166}{[arXiv]}}
+
+\pubentry{\textbf{G. Savcisens}, S. Dies, C. Maynard \& T. Eliassi-Rad}
+  {2026}{Belief coevolution in a social network of generalist and specialist large language models.}{arXiv}
+  {\href{https://arxiv.org/abs/2607.27512}{[arXiv]} \href{https://github.com/carlomarxdk/coevolve-sim}{[Code]} \href{https://zenodo.org/records/20482272}{[NetSci Poster]}}
+
+\pubentry{E. Sivak,\dots,\textbf{G. Savcisens}, et al. (112 authors)}
+  {2026}{Births are difficult to predict even with rich survey and full-population register data.}{arXiv}
+  {\href{https://doi.org/10.48550/arXiv.2609.01194}{[arXiv]}}
+
+\vspace{1pt}
+{\color{masthead}\textbf{BLOGPOST}}
+
+\pubentry{\textbf{G. Savcisens}}
+  {2026}{Is Life2vec a Mess? What’s Wrong with AI Death Calculators?}{Personal Page}
+  {\href{https://savcisens.com/blog/life2vec-explained/}{[Source]}}
+
+\vspace{1pt}
+{\color{masthead}\textbf{THESES}}
+
+\pubentry{\textbf{G. Savcisens}}
+  {2023}{Life Trajectories as Symbolic Language: Exploring Human Behaviour with Language Models.}{PhD Thesis}
+  {\href{https://orbit.dtu.dk/en/publications/life-trajectories-as-symbolic-language/}{[DTU]}}
+
+\pubentry{\textbf{G. Savcisens}}
+  {2020}{Analyzing Health Data Records Using Neural Networks: Predicting Diabetes-Related Clinical Outcomes.}{MSc Thesis}
+  {\href{https://findit.dtu.dk/en/catalog/5ece4aecd9001d01696236a1}{[DTU]}}
+
+
+
+% ================= TEACHING & MENTORING =================
+\needspace{5\baselineskip}
+\cvsection{Teaching \& Mentoring}
+
+\entry{Northeastern University}{\textbf{Guest Lecturer} | Foundations of AI (2026); Machine Learning with Graphs (2024 \& 2025)}{2024--2026}{}
+\entry{IT University of Copenhagen}{\textbf{Principal Lecturer} (2023); \textbf{Assistant Lecturer} (2022) | Algorithmic Fairness, Accountability and Ethics}{2022--2023}{}
+\entry{Technical University of Denmark}{\textbf{Teaching Assistant} | Advanced Machine Learning; Social Data Analysis; Social Graphs and Interactions}{2019--2021}{}
+
+\subsection*{Mentoring \& Supervision}
+Co-supervised 5 MSc thesis and term projects on NLP for legal/compliance documents and longitudinal app-usage modeling, Technical University of Denmark (2021--2024).
+
+% ================= TALKS =================
+\needspace{3\baselineskip}
+\cvsection{Selected Talks \& Presentations}
+
+\entry{Interpretability or Guesswork: What Happens When We Open Up Large Language Models}{International Conference on Social Computing (Keynote Speaker)}{Sep 2026}{Oxford, UK}
+
+\entry{Transformer Architectures for Computational Social Science
+\href{https://carlomarxdk.github.io/workshop-transformers/}{[Page]}}{International Conference on Social Computing (Workshop Lead}{Sep 2026}{Oxford, UK}
+
+\entry{Belief Coevolution in a Social Network of LLMs}{New England Mechanistic Interpretability Workshop (Poster)}{Aug 2026}{Boston, USA}
+
+\entry{Belief Coevolution in a Social Network of LLMs}{International Conference on Network Science (Lightning Talk)}{Jun 2026}{Boston, USA}
+
+\entry{Formal Epistemology of Large Language Models}{Social Complexity Lab, University of Copenhagen (Talk)}{Apr 2026}{Copenhagen, Denmark}
+
+\entry{From Human Lives to Machine Minds \href{https://doi.org/10.5281/zenodo.19499832}{[Slides]}}{Rising Stars in Computational \& Data Science, Santa Fe Institute (Talk)}{Apr 2026}{Santa Fe, USA}
+
+\entry{The Trilemma of Truth in LLMs}{NeurIPS Mechanistic Interpretability Workshop (Poster)}{Dec 2025}{San Diego, USA}
+
+\entry{Life2vec: Foundation Models for Registry Data \href{https://doi.org/10.5281/zenodo.17639200}{[Slides]}}{Networks for Healthy Aging Workshop (Invited Speaker)}{Nov 2025}{Vienna, Austria}
+
+\entry{From Life-Courses to Representations: Foundation Models for Registry Data}{SWECOV Workshop (Keynote Speaker)}{Sep 2025}{Stockholm, Sweden}
+
+\entry{The Trilemma of Truth in Large Language Models}{New England Mechanistic Interpretability Workshop (Poster)}{Aug 2025}{Boston, US}
+
+\entry{Improving Probes that Track Veracity in LLMs}{Conference on Computational Social Science (Poster)}{Jul 2025}{Norrkoping, Sweden}
+
+\entry{Workshop on the '(Un)predictability in the Social Sciences'}{ University of Helsinki (Invited Speaker)}{Feb 2025}{Helsinki, Finland}
+
+\entry{LLMs for Health and Labor Data}{Max Planck Institute (Invited Speaker)}{Jan 2025}{Rostock, Germany}
+
+\entry{Life2vec: Life Trajectories in High-dimensional Spaces \href{life2vec: Life trajectories in high dimensional spaces}{[Recording]}}{Chinese University of Hong Kong (Invited Speaker)}{Nov 2024}{Hong Kong, HK (Remote)}
+
+\entry{Life2vec: Life Trajectories in High-dimensional Spaces (Invited Speaker)}{GenLife}{Apr 2024}{Copenhagen, Denmark}
+
+% \entry{Seminar Talk on Life2vec}{Alexandra Institute (Invited Speaker)}{Apr 2024}{Copenhagen, Denmark}
+
+\entry{Seminar Talk on Life2vec}{University of Oxford (Invited Speaker)}{Jan 2024}{Oxford, UK (Remote)}
+
+% \entry{Learning Representations of Socio-economic Data}{NordicAI Meet (Invited Speaker)}{Oct 2023}{Copenhagen, Denmark}
+
+\entry{Learning Representations of Socio-economic Data}{ODISSEI Lecture (Invited Speaker)}{Sep 2023}{Netherlands (Remote)}
+
+\entry{Danish Registry Data and Life Trajectories}{Human Dynamics Lab (MIT)}{Oct 2022}{Boston, US}
+
+% ================= PROFESSIONAL SERVICE =================
+\cvsection{Professional Service}
+
+\textbf{Senior Program Committee:} AAAI (Special Track on AI Alignment) 2027.
+
+\noindent\textbf{Session Chair:} Conference on Empirical Methods in Natural Language Processing (EMNLP) 2026, International Conference on Network Science (ML \& AI track) 2026.
+
+\noindent\textbf{Journals (reviewer):} Artificial Intelligence Review, EPJ Data Science, Humanities and Social Sciences Communications, Nature Computational Science, npj Complexity, Science Advances, Scientific Reports.
+
+\noindent\textbf{Conferences \& Workshops (reviewer):} NeurIPS (Ethics Reviewer 2023--2026; AXIOM Workshop 2026; Mechanistic Interpretability Workshop 2025), Workshop on NLP and Computational Social Science 2026, IC2S2 2025, Digital Humanities in the Nordic and Baltic Countries 2025, Conference on Complex Networks and Their Applications 2025, EMNLP 2024.
+
+% ================= AWARDS =================
+\cvsection{Awards \& Grants}
+\entry{Rising Stars in Computational and Data Sciences 2026}{Santa Fe Institute}{2026}{USA}
+\entry{Travel Grants}{Otto M{\o}nsted Fond, STIBO Foundation, William Demant Fonden}{2022}{Denmark}
+
+\end{document}

@@ -52,6 +52,25 @@ jobs:
           HUGO_ENVIRONMENT: production
         run: hugo --gc --minify
 
+      # Hugo renders public/cv/resume.tex from content/ (layouts/cv/section.resume.tex)
+      # Non-blocking: if LaTeX fails, the site still deploys with the committed static/docs/Resume.pdf
+      - name: Compile resume PDF
+        continue-on-error: true
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: resume.tex
+          working_directory: public/cv
+          latexmk_use_lualatex: true
+
+      - name: Publish resume PDF
+        run: |
+          if [ -f public/cv/resume.pdf ]; then
+            cp public/cv/resume.pdf public/docs/Resume.pdf
+          else
+            echo "::warning::Resume compile failed; keeping the committed Resume.pdf"
+          fi
+          rm -f public/cv/resume.*
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

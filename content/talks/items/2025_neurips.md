@@ -4,13 +4,14 @@ event_date: 2025-12-07
 title: "The Trilemma of Truth in LLMs"
 url:
 event_url: https://mechinterpworkshop.com/neurips2025/
-event_type: Poster
+event_type: [poster]
 subtitle: NeurIPS Mechanistic Interpretability Workshop
 
 venue: ""
 location: "San Diego, USA"
 description: ""
 hidden: true
+cv: true
 misc:
   - name: Poster
     background: primary

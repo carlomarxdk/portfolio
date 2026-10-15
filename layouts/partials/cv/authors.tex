@@ -1,0 +1,30 @@
+{{- /* Abbreviated author list ("G. Savcisens & T. Eliassi-Rad"), site author in bold.
+       Lists longer than 10 collapse to "First, \dots, Me, et al. (N authors)". */ -}}
+{{- $me := site.Params.author -}}
+{{- $names := slice -}}
+{{- range . -}}
+  {{- $parts := split . " " -}}
+  {{- $name := . -}}
+  {{- if gt (len $parts) 1 -}}
+    {{- $given := slice -}}
+    {{- range first (sub (len $parts) 1) $parts -}}
+      {{- $initials := slice -}}
+      {{- range split . "-" -}}{{- $initials = $initials | append (printf "%s." (substr . 0 1)) -}}{{- end -}}
+      {{- $given = $given | append (delimit $initials "-") -}}
+    {{- end -}}
+    {{- $name = printf "%s %s" (delimit $given " ") (index $parts (sub (len $parts) 1)) -}}
+  {{- end -}}
+  {{- $name = partial "cv/esc.tex" $name -}}
+  {{- if eq . $me -}}{{- $name = printf `\textbf{%s}` $name -}}{{- end -}}
+  {{- $names = $names | append $name -}}
+{{- end -}}
+{{- $n := len $names -}}
+{{- $out := "" -}}
+{{- if gt $n 10 -}}
+  {{- $out = index $names 0 -}}
+  {{- range $i, $a := . -}}{{- if and (gt $i 0) (eq $a $me) -}}{{- $out = printf `%s, \dots, %s` $out (index $names $i) -}}{{- end -}}{{- end -}}
+  {{- $out = printf `%s, et al. (%d authors)` $out $n -}}
+{{- else if eq $n 1 -}}{{- $out = index $names 0 -}}
+{{- else if gt $n 1 -}}{{- $out = printf `%s \& %s` (delimit (first (sub $n 1) $names) ", ") (index $names (sub $n 1)) -}}
+{{- end -}}
+{{- return $out -}}

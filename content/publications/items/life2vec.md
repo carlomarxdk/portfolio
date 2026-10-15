@@ -13,11 +13,12 @@ authors:
     Ingo Zettler,
     Sune Lehmann,
   ]
-publication_type: 1
+publication_type: published
 create_page: true
 venue: "Nature Computational Science"
 abstract: "Here we represent human lives in a way that shares structural similarity to language, and we exploit this similarity to adapt natural language processing techniques to examine the evolution and predictability of human lives based on detailed event sequences. We do this by drawing on a comprehensive registry dataset, which is available for Denmark across several years, and that includes information about life-events related to health, education, occupation, income, address and working hours, recorded with day-to-day resolution. We create embeddings of life-events in a single vector space, showing that this embedding space is robust and highly structured. Our models allow us to predict diverse outcomes ranging from early mortality to personality nuances, outperforming state-of-the-art models by a wide margin. Using methods for interpreting deep learning models, we probe the algorithm to understand the factors that enable our predictions. Our framework allows researchers to discover potential mechanisms that impact life outcomes as well as the associated possibilities for personalized interventions."
 pub_link: https://www.nature.com/articles/s43588-023-00573-5
+doi: "10.1038/s43588-023-00573-5"
 versions:
   - label: "Nature Computational Science"
     link: https://www.nature.com/articles/s43588-023-00573-5
@@ -43,13 +44,14 @@ resources:
     link: https://www.life2vec.dk
     on-card: True
     on-page: True
+    on-cv: true
   - name: "Slides"
     link: https://doi.org/10.5281/zenodo.14580405
     on-card: True
     on-page: True
 
 talks:
-  - talk: 2021_mils
+  - talk: 2021_mlls
   - talk: 2021_ns
   - talk: 2021_sodas
   - talk: 2022_mit

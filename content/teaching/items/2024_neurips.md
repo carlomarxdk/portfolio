@@ -6,9 +6,11 @@ hidden: true
 title: "NeurIPS 2024"
 url:
 course_url: https://neurips.cc/Conferences/2024/ProgramCommittee
-course_type: 2
+course_type: service
 
 role: Ethics Reviewer
+service_kind: ethics-review
+series: "NeurIPS"
 
 venue:
 venue_url:

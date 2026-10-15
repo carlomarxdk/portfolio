@@ -4,7 +4,7 @@
   <h2 class="section-heading">Pre-prints</h2>
   {{ $hasPreprints := false }}
   {{ range .Pages.ByDate.Reverse }}
-    {{ if eq .Params.publication_type 3 }}
+    {{ if eq .Params.publication_type "preprint" }}
       {{ $hasPreprints = true }}
       {{ partial "elements/pub-card.html" . }}
     {{ end }}
@@ -16,7 +16,7 @@
   <h2 class="section-heading mt-8">Published</h2>
   {{ $hasPublished := false }}
   {{ range .Pages.ByDate.Reverse }}
-    {{ if eq .Params.publication_type 1 }}
+    {{ if eq .Params.publication_type "published" }}
       {{ $hasPublished = true }}
       {{ partial "elements/pub-card.html" . }}
     {{ end }}
@@ -28,7 +28,7 @@
   <h2 class="section-heading mt-8">Software</h2>
   {{ $hasSoftware := false }}
   {{ range .Pages.ByDate.Reverse }}
-    {{ if eq .Params.publication_type 4 }}
+    {{ if eq .Params.publication_type "software" }}
       {{ $hasSoftware = true }}
       {{ partial "elements/pub-card.html" . }}
     {{ end }}
@@ -40,7 +40,7 @@
   <h2 class="section-heading mt-8">Theses</h2>
   {{ $hasTheses := false }}
   {{ range .Pages.ByDate.Reverse }}
-    {{ if eq .Params.publication_type 2 }}
+    {{ if eq .Params.publication_type "thesis" }}
       {{ $hasTheses = true }}
       {{ partial "elements/pub-card.html" . }}
     {{ end }}

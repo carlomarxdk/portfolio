@@ -6,9 +6,11 @@ hidden: true
 title: "Conference on Complex Networks and their Applications"
 url:
 course_url: https://complexnetworks.org/
-course_type: 2
+course_type: service
 
 role: Reviewer
+service_kind: conference-review
+series: "Conference on Complex Networks and Their Applications"
 
 venue:
 venue_url:

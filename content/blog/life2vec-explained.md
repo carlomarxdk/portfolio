@@ -8,6 +8,7 @@ tags: ["life2vec", "research", "explainer"]
 categories: ["science"]
 author: Germans Savcisens
 hidden: false
+cv: true
 image: "/images/life2vec-hero.png"
 commentsOn: true
 ---

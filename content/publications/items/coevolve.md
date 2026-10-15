@@ -3,7 +3,7 @@ title: "Belief Coevolution in a Social Network of Generalist and Specialist Larg
 date: 2026-07-30
 publishDate: 2026-07-30
 authors: [Germans Savcisens, Samantha Dies, Courtney Maynard, Tina Eliassi-Rad]
-publication_type: 3
+publication_type: preprint
 hidden: true
 highlight: true
 create_page: true
@@ -30,6 +30,7 @@ resources:
     link: https://github.com/carlomarxdk/coevolve-sim
     on-card: true
     on-page: true
+    on-cv: true
   - name: "(Poster) NEMI"
     link: https://zenodo.org/records/21878347
     on-card: true
@@ -38,4 +39,5 @@ resources:
     link: https://doi.org/10.5281/zenodo.20482271
     on-card: true
     on-page: true
+    on-cv: true
 ---

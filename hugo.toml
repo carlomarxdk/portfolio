@@ -105,3 +105,13 @@ defaultContentLanguage = "en"
 	filename = "sitemap.xml"  # Sitemap file name
 	priority = 0.5  # Default priority for pages
 
+
+# Generated LaTeX resume (layouts/section/cv.resume.tex -> public/cv/resume.tex)
+[mediaTypes."text/x-tex"]
+	suffixes = ["tex"]
+
+[outputFormats.resume]
+	mediaType = "text/x-tex"
+	baseName = "resume"
+	isPlainText = true
+	notAlternative = true

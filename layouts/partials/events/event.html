@@ -4,7 +4,7 @@
   <div class="card-date">
     <time datetime="{{ $date.Format "2006-01-02" }}">{{ $date.Format "2 Jan 2006" }}</time>
     {{ with .Params.event_type }}
-      <span class="card-type-badge">{{ . }}</span>
+      <span class="card-type-badge">{{ range $i, $t := partial "elements/event-types.html" . }}{{ if $i }} · {{ end }}{{ partial "elements/label.html" (dict "group" "event_type" "key" $t) }}{{ end }}</span>
     {{ end }}
   </div>
   <div class="card-content">

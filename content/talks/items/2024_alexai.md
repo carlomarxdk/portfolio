@@ -4,7 +4,7 @@ event_date: 2024-04-05
 title: "Life2vec Presentation"
 url:
 event_url: https://alexandra.dk/about-the-alexandra-institute/
-event_type: Talk
+event_type: [invited]
 
 venue: "AI Lab (Alexandra Institute)"
 location: "Copenhagen, Denmark"

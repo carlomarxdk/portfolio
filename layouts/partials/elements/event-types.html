@@ -1,0 +1,4 @@
+{{- /* Normalize `event_type` to a list, so both `event_type: poster` and `event_type: [poster, lightning]` work. */ -}}
+{{- $t := . | default slice -}}
+{{- if not (reflect.IsSlice $t) -}}{{- $t = slice $t -}}{{- end -}}
+{{- return $t -}}

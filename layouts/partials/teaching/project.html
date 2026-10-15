@@ -10,7 +10,7 @@
         {{ .Title }}
       {{ end }}
     </h3>
-    <p class="card-subtitle">{{ .Params.project_type }}</p>
+    <p class="card-subtitle">{{ with .Params.supervision_kind }}{{ partial "elements/label.html" (dict "group" "supervision_kind" "key" .) }}{{ end }}</p>
     {{ if .Params.venue }}
       <p class="card-meta">
         {{ if .Params.venue_url }}

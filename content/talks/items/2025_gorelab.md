@@ -5,7 +5,7 @@ title: "Trilemma of Truth in Large Language Models: An Overview"
 url:
 event_url: https://mit.edu
 subtitle: Gore Laboratory
-event_type: Talk
+event_type: [invited]
 
 venue: "Gore Laboratory @ MIT"
 location: "Boston, US"

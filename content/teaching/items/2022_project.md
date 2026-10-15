@@ -5,9 +5,9 @@ hidden: true
 title: "Exploring, Modelling and Forecasting Smartphone App Usage Behaviour"
 url:
 course_url: https://orbit.dtu.dk/en/activities/exploring-modelling-and-forecasting-smartphone-app-usage-behaviou
-course_type: 1
+course_type: supervision
 
-project_type: MSc Thesis
+supervision_kind: msc-thesis
 
 venue: Technical University of Denmark
 venue_url: https://dtu.dk

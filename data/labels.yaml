@@ -1,0 +1,36 @@
+# Display text for the type slugs used in content front matter.
+# `web` is shown on the website, `cv` in the generated resume (layouts/cv/).
+
+event_type:
+  keynote: { web: "Keynote", cv: "Keynote Speaker" }
+  invited: { web: "Invited Talk", cv: "Invited Speaker" }
+  talk: { web: "Talk", cv: "Talk" }
+  lightning: { web: "Lightning Talk", cv: "Lightning Talk" }
+  poster: { web: "Poster", cv: "Poster" }
+  workshop: { web: "Workshop", cv: "Workshop Lead" }
+  lecture: { web: "Lecture", cv: "Lecture" }
+  defense: { web: "PhD Defense", cv: "PhD Defense" }
+  panel: { web: "Panel", cv: "Panelist" }
+  tutorial: { web: "Tutorial", cv: "Tutorial" }
+
+publication_type:
+  published: { web: "Published", cv: "Peer Reviewed & Published" }
+  preprint: { web: "Pre-prints", cv: "Preprints" }
+  software: { web: "Software", cv: "Software" }
+  thesis: { web: "Theses", cv: "Theses" }
+
+course_type:
+  teaching: { web: "Lecturing", cv: "Teaching" }
+  supervision: { web: "Supervision", cv: "Mentoring & Supervision" }
+  service: { web: "Community Service", cv: "Professional Service" }
+
+supervision_kind:
+  msc-thesis: { web: "MSc Thesis", cv: "MSc thesis", cv_plural: "MSc theses" }
+  term-project: { web: "Term Project", cv: "term project", cv_plural: "term projects" }
+
+service_kind:
+  committee: { web: "Program Committee", cv: "Program Committee" }
+  chair: { web: "Session Chair", cv: "Session Chair" }
+  journal-review: { web: "Reviewer", cv: "Journals (reviewer)" }
+  conference-review: { web: "Reviewer", cv: "Conferences \\& Workshops (reviewer)" }
+  ethics-review: { web: "Ethics Reviewer", cv: "Ethics Reviewer" }

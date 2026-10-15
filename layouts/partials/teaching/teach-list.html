@@ -4,17 +4,17 @@
 
     <h2 class="section-heading">Community Service</h2>
     {{ range sort .Pages.ByDate.Reverse }}
-      {{ if eq .Params.course_type 2 }}{{ partial "teaching/community.html" . }}{{ end }}
+      {{ if eq .Params.course_type "service" }}{{ partial "teaching/community.html" . }}{{ end }}
     {{ end }}
 
     <h2 class="section-heading mt-8">Lecturing</h2>
     {{ range sort .Pages.ByDate.Reverse }}
-      {{ if eq .Params.course_type 0 }}{{ partial "teaching/course.html" . }}{{ end }}
+      {{ if eq .Params.course_type "teaching" }}{{ partial "teaching/course.html" . }}{{ end }}
     {{ end }}
 
     <h2 class="section-heading mt-8">Supervision</h2>
     {{ range sort .Pages.ByDate.Reverse }}
-      {{ if eq .Params.course_type 1 }}{{ partial "teaching/project.html" . }}{{ end }}
+      {{ if eq .Params.course_type "supervision" }}{{ partial "teaching/project.html" . }}{{ end }}
     {{ end }}
 
 

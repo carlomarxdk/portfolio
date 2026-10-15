@@ -3,7 +3,7 @@ title: "Scaling of Capability and Efficiency at Inference Time in Large Reasonin
 date: 2026-09-23
 publishDate: 2026-09-23
 authors: [Moritz Laber, Zohair Shafi, Germans Savcisens, Brennan Klein, Matteo Chinazzi, Samuel V. Scarpino, Albert-László Barabási, Tina Eliassi-Rad]
-publication_type: 3
+publication_type: preprint
 hidden: true
 highlight: false
 create_page: true

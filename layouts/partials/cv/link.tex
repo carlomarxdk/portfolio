@@ -1,0 +1,5 @@
+{{- /* \href with a bracketed label. Usage: partial "cv/link.tex" (dict "url" $u "label" "DOI") */ -}}
+{{- $url := .url | string -}}
+{{- if hasPrefix $url "/" -}}{{- $url = printf "%s%s" (strings.TrimSuffix "/" site.BaseURL) $url -}}{{- end -}}
+{{- $url = replace (replace $url "%" `\%`) "#" `\#` -}}
+{{- return printf `\href{%s}{[%s]}` $url (partial "cv/esc.tex" .label) -}}
