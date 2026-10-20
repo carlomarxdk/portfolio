@@ -39,16 +39,16 @@
           <button
             data-popover-target="{{ printf "popover-%s" .Params.fact_id }}"
             type="button"
-            class="card-tag hover:border-amber-400 hover:text-amber-700 transition-colors duration-150"
-            aria-label="Show random information about this publication"
+            class="card-tag bg-stone-700 text-white border-stone-700 hover:bg-amber-700 hover:border-amber-700 transition-colors duration-150"
+            aria-label="Show the mixtape for this publication"
             aria-describedby="{{ printf "popover-%s" .Params.fact_id }}">
-            Random Info
+            Mixtape
           </button>
     <div data-popover id="{{ printf "popover-%s" .Params.fact_id }}"
         role="tooltip"
         class="absolute z-10 invisible inline-block w-64 text-sm transition-opacity duration-300 bg-white border border-stone-200 rounded-sm shadow-lg opacity-0">
-      <div class="px-3 py-2 bg-amber-700 border-b border-stone-200 rounded-t-sm">
-        <h4 class="font-cabin font-bold text-xs tracking-widest uppercase text-white">Random Facts</h4>
+      <div class="px-3 py-2 bg-white border-b border-stone-200 rounded-t-sm">
+        <h4 class="font-cabin font-bold text-xs tracking-widest uppercase text-amber-700">Mixtape</h4>
       </div>
       <div class="px-3 py-2 pt-0.5 font-merriweather text-stone-700 text-sm leading-relaxed">
         <p>{{ .Content }}</p>

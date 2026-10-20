@@ -40,4 +40,33 @@ resources:
     on-card: true
     on-page: true
     on-cv: true
+
+allow_fact: true
+fact_id: "4"
 ---
+
+Here are the some tracks that kept me up:
+
+<p>(1)
+  <a href="https://youtu.be/IQBgVjQ1roc?si=pz-DRQVyUQgnYdlS" target="_blank" rel="noreferrer">
+    <u><strong>Tyrant of the Mellow Moon</strong></u>
+  </a> by The Strokes
+</p>
+
+<p>(2)
+  <a href="https://youtu.be/yJ9qrpFEP_A?si=M6maYPMLo4jUDy_0" target="_blank" rel="noreferrer">
+    <u><strong>Interlude: Chknagh Yeraz</strong></u>
+  </a> by Pomegranates
+</p>
+
+<p>(3)
+  <a href="https://youtu.be/Ok1GljT-KKQ?si=G4Gcs3WcogA_DcNi" target="_blank" rel="noreferrer">
+    <u><strong>Don’t Leave Me on the Dance Floor</strong></u>
+  </a> by Carly Rae Jepsen
+</p>
+
+<p>(4)
+  <a href="https://youtu.be/MPXeGOOmbFo?si=P3gPJr0JPqJJV0Yk" target="_blank" rel="noreferrer">
+    <u><strong>Amore Che Vieni, Amore Che Vai</strong></u>
+  </a> by Franco Battiato
+</p>
