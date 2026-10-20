@@ -68,7 +68,7 @@ create_page: true
 fact_id: "3"
 ---
 
-Here are the some tracks that kept me up:
+Here are some tracks that kept me up:
 
 <p>(1)
   <a href="https://youtu.be/oOjNnOKDutY?si=Yy4iZhhCOQ1Rg5g_" target="_blank" rel="noreferrer">

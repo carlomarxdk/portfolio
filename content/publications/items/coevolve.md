@@ -45,7 +45,7 @@ allow_fact: true
 fact_id: "4"
 ---
 
-Here are the some tracks that kept me up:
+Here are some tracks that kept me up:
 
 <p>(1)
   <a href="https://youtu.be/IQBgVjQ1roc?si=pz-DRQVyUQgnYdlS" target="_blank" rel="noreferrer">
