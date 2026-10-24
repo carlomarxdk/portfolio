@@ -5,21 +5,22 @@ publishDate: 2026-08-01
 authors: [Samantha Dies, Courtney Maynard, Germans Savcisens, Tina Eliassi-Rad]
 abstract: "Large language models (LLMs) are widely used as information sources, yet small changes in semantic assumptions can destabilize their beliefs. We introduce P-StaT (Perturbation Stability of Truth), a framework for evaluating belief stability under matched semantic perturbations in both representational and behavioral settings. Across 21 LLMs and three domains, we compare perturbations involving familiar Fictional statements against synthetically generated and unfamiliar Synthetic statements. Unfamiliar Synthetic perturbations generally induce greater epistemic instability than familiar Fictional perturbations, with behavioral belief retraction rates frequently exceeding 0.5 (50%). Finally, exploratory clustering analyses reveal recurring themes among retracted statements, including ambiguity, technical terminology, and obscure concepts. These results show that epistemic familiarity is systematically associated with stability under semantic reframing, suggesting that stability-based analyses can complement accuracy-based benchmarks when evaluating LLM robustness and reliability."
 publication_type: published
-venue: "To appear at EMNLP 2026 (Findings)"
+venue: "Findings of the 2026 Conference on EMNLP"
 to_appear: true
 venue_full: "Findings of the 2026 Conference on Empirical Methods in Natural Language Processing"
-pub_link: https://arxiv.org/abs/2511.19166
+pub_link: https://aclanthology.org/2026.findings-emnlp.532/
 versions:
-  - label: "EMNLP 2026 (TBA)"
-    link: ""
-  - label: "arXiv:2511.19166"
+  - label: "EMNLP 2026 (Findings)"
+    link: https://aclanthology.org/2026.findings-emnlp.532/
+    date:  2026-10-21
+  - label: "arXiv"
     link: https://arxiv.org/abs/2511.19166
     date: 2025-11-24
 hidden: true
 highlight: false
 resources:
-  - name: "arXiv"
-    link: https://arxiv.org/abs/2511.19166
+  - name: Latest
+    link: https://aclanthology.org/2026.findings-emnlp.532/
     on-card: true
     on-page: false
   - name: Code

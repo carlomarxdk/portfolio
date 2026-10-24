@@ -6,25 +6,30 @@ authors: [Germans Savcisens, Tina Eliassi-Rad]
 publication_type: published
 hidden: true
 highlight: true
-venue: "To appear at EMNLP 2026 (Main Conference)"
+venue: "Proceedings of the 2026 Conference on EMNLP"
 to_appear: true
 venue_full: "Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing"
 abstract: "The public often attributes human-like qualities to large language models (LLMs), assuming that they \"know\" certain things. In reality, LLMs encode information retained during training as internal probabilistic knowledge. This study examines existing methods for probing the veracity of that knowledge and identifies three flawed underlying assumptions. To address these flaws, we introduce sAwMIL (Sparse-Aware Multiple-Instance Learning), a multiclass probing framework that combines multiple-instance learning with conformal prediction. sAwMIL leverages LLMs' internal representations to classify statements as true, false, or neither. We evaluate sAwMIL across 16 open-source LLMs, including default and chat-based variants, using three new curated datasets. Our results show that (1) common probing methods fail to provide a reliable and transferable veracity direction and, in some settings, perform worse than zero-shot prompting; (2) truth and falsehood are not encoded symmetrically; and (3) LLMs encode a third type of signal that is distinct from both true and false."
-pub_link: https://arxiv.org/abs/2506.23921
+pub_link: https:/aclanthology.org/2026.emnlp-main.7/
 versions:
-  - label: "EMNLP 2026 (TBA)"
-    link: ""
-  - label: "Latest arXiv"
+  - label: "EMNLP 2026"
+    link: https:/aclanthology.org/2026.emnlp-main.7/
+    date: 2026-10-21
+  - label: "arXiv (v6)"
     link: https://arxiv.org/abs/2506.23921
-    date: 2026-06-22
-  - label: "NeurIPS MechInterp Version"
+    date: 2026-10-19
+  - label: "NeurIPS MechInterp 2025"
     link: https://openreview.net/forum?id=z7dLG2ycRf
     date: 2025-11-20
 
 resources:
+  - name: Latest
+    link: https:/aclanthology.org/2026.emnlp-main.7/
+    on-card: true
+    on-page: false
   - name: ArXiv
     link: https://arxiv.org/abs/2506.23921
-    on-card: true
+    on-card: false
     on-page: false
   - name: Code
     link: https://github.com/carlomarxdk/trilemma-of-truth
