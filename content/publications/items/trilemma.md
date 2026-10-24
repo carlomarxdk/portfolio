@@ -24,7 +24,7 @@ versions:
 
 resources:
   - name: Latest
-    link: https:/aclanthology.org/2026.emnlp-main.7/
+    link: https://aclanthology.org/2026.emnlp-main.7/
     on-card: true
     on-page: false
   - name: ArXiv
