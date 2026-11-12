@@ -1,0 +1,29 @@
+{{/* Homepage News feed — reads data/news.yaml, sorted newest first by full date.
+     `date` may be YYYY-MM-DD or YYYY-MM (treated as the 1st of the month). */}}
+{{ $items := slice }}
+{{ range hugo.Data.news | default slice }}
+  {{ $d := .date }}
+  {{ if and (eq (printf "%T" $d) "string") (eq (len $d) 7) }}{{ $d = printf "%s-01" $d }}{{ end }}
+  {{ $items = $items | append (merge . (dict "t" (time.AsTime $d))) }}
+{{ end }}
+{{ $items = sort $items "t" "desc" }}
+{{ $visible := site.Params.news_visible | default 6 }}
+{{ with $items }}
+<section class="mt-8" aria-labelledby="news-heading">
+  <h2 id="news-heading" class="section-heading">Updates</h2>
+  <ul class="news-list">
+    {{ range first $visible . }}{{ partial "news-item.html" . }}{{ end }}
+  </ul>
+  {{ if gt (len .) $visible }}
+  <details class="mt-2 group">
+    <summary class="social-pill inline-block cursor-pointer list-none">
+      <span class="group-open:hidden">Older news ↓</span>
+      <span class="hidden group-open:inline">Hide older news ↑</span>
+    </summary>
+    <ul class="news-list mt-2">
+      {{ range after $visible . }}{{ partial "news-item.html" . }}{{ end }}
+    </ul>
+  </details>
+  {{ end }}
+</section>
+{{ end }}

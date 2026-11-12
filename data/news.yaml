@@ -1,0 +1,25 @@
+# date: YYYY-MM-DD (or YYYY-MM = 1st of month) — used for ordering; shown as "Sep 2026".
+# text: Markdown (inline links allowed).
+# The homepage shows the latest `site.Params.news_visible` (default 6); the rest fold into "Older news".
+
+- date: 2026-09-01
+  text: >-
+    **New preprint:** [Births are difficult to predict even with rich survey and full-population register data](https://arxiv.org/abs/2609.01194).
+
+- date: 2026-09-23
+  text: >-
+    [Scaling of Capability and Efficiency at Inference Time in Large Reasoning Models](https://openreview.net/forum?id=JM8lUtn7Fu)
+    accepted at the AXIOM workshop (NeurIPS 2026).
+
+- date: 2026-10-24
+  text: >-
+   **Two papers at EMNLP 2026:**
+    [The Trilemma of Truth in Large Language Models](https://aclanthology.org/2026.emnlp-main.7/) (Main) and
+    [Epistemic Familiarity is Associated With Belief Stability in LLMs](https://aclanthology.org/2026.findings-emnlp.532/) (Findings).
+
+- date: 2026-07-01
+  text: >-
+    **New preprint:** [Belief Coevolution in a Social Network of Generalist and Specialist LLMs](https://arxiv.org/abs/2607.27512).
+
+
+

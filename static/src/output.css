@@ -1257,8 +1257,14 @@
   .animate-blob {
     animation: var(--animate-blob);
   }
+  .cursor-pointer {
+    cursor: pointer;
+  }
   .resize {
     resize: both;
+  }
+  .list-none {
+    list-style-type: none;
   }
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
@@ -1786,6 +1792,16 @@
   .duration-300 {
     --tw-duration: 300ms;
     transition-duration: 300ms;
+  }
+  .group-open\:hidden {
+    &:is(:where(.group):is([open], :popover-open, :open) *) {
+      display: none;
+    }
+  }
+  .group-open\:inline {
+    &:is(:where(.group):is([open], :popover-open, :open) *) {
+      display: inline;
+    }
   }
   .hover\:border-amber-400 {
     &:hover {
@@ -2836,6 +2852,38 @@
   .prose .footnote-ref {
     text-decoration: none;
   }
+}
+.news-list {
+  font-family: var(--font-cabin);
+  font-size: var(--text-sm);
+  color: var(--color-stone-700);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.news-item {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: calc(var(--spacing) * 3);
+  padding-block: calc(var(--spacing) * 2);
+  border-bottom: 1px solid var(--color-stone-200);
+}
+.news-date {
+  font-weight: 700;
+  color: var(--color-stone-900);
+  font-variant-numeric: tabular-nums;
+}
+.news-text a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--color-stone-300);
+}
+.news-text a:hover {
+  color: var(--color-amber-700);
+  text-decoration-color: var(--color-amber-400);
+}
+details > summary.social-pill::-webkit-details-marker {
+  display: none;
 }
 @layer components {
   .projects-list {

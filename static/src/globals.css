@@ -64,6 +64,38 @@
   margin-bottom: calc(var(--spacing) * 0.75) ;
 }
 
+/* Homepage News feed (layouts/partials/news.html) */
+.news-list {
+  font-family: var(--font-cabin);
+  font-size: var(--text-sm);
+  color: var(--color-stone-700);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.news-item {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: calc(var(--spacing) * 3);
+  padding-block: calc(var(--spacing) * 2);
+  border-bottom: 1px solid var(--color-stone-200);
+}
+.news-date {
+  font-weight: 700;
+  color: var(--color-stone-900);
+  font-variant-numeric: tabular-nums;
+}
+.news-text a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--color-stone-300);
+}
+.news-text a:hover {
+  color: var(--color-amber-700);
+  text-decoration-color: var(--color-amber-400);
+}
+details > summary.social-pill::-webkit-details-marker { display: none; }
+
 @utility social-pill {
   font-family: var(--font-cabin);
   font-size: 0.70rem;

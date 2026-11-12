@@ -1,0 +1,4 @@
+<li class="news-item">
+  <time datetime="{{ .t.Format "2006-01-02" }}" class="news-date">{{ .t.Format "Jan 2006" }}</time>
+  <span class="news-text">{{ .text | markdownify }}</span>
+</li>
