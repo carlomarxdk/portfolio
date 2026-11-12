@@ -73,6 +73,7 @@ talks:
   - talk: 2025_vienna
   - talk: 2026_rising
   - talk: 202609_icsc
+  - talk: 202610_yale
 
 hidden: true
 highlight: true

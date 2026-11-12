@@ -60,6 +60,7 @@ talks:
   - talk: 2025_gorelab
   - talk: 202609_icsc
   - talk: 202609_icsc2
+  - talk: 202610_emnlp
 
 extra_talks: #mentions and talks by others
   - title: The Trilemma of Truth in Large Language Models
