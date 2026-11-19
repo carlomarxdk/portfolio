@@ -1,19 +1,7 @@
 {{- if and (eq .Section "blog") (not .IsHome) (not .IsNode) -}}
 
-{{- /* Build sameAs array from config */ -}}
-{{- $sameAs := slice -}}
-{{- with .Site.Params.structuredData.orcid -}}
-  {{- $sameAs = $sameAs | append . -}}
-{{- end -}}
-{{- with .Site.Params.structuredData.googleScholar -}}
-  {{- $sameAs = $sameAs | append . -}}
-{{- end -}}
-{{- with .Site.Params.social.linkedin -}}
-  {{- $sameAs = $sameAs | append . -}}
-{{- end -}}
-{{- with .Site.Params.social.github -}}
-  {{- $sameAs = $sameAs | append . -}}
-{{- end -}}
+{{- /* sameAs is shared with schema.html */ -}}
+{{- $sameAs := partial "func/person-same-as.html" . -}}
 
 {{- /* Organization */ -}}
 {{- $org := dict
@@ -65,7 +53,7 @@
 {{- else if .Site.Params.twitterCardImage -}}
   {{- $image = .Site.Params.twitterCardImage | absURL -}}
 {{- else -}}
-  {{- $image = "/images/avatar.jpg" | absURL -}}
+  {{- $image = "images/og-default.jpg" | absURL -}}
 {{- end -}}
 
 {{- /* BlogPosting */ -}}

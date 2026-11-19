@@ -1,4 +1,5 @@
 ---
+noindex: true
 sitemap:
   changefreq: weekly
   disable: true

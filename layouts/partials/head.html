@@ -6,12 +6,7 @@
 {{/* -----------------------------
    Description
 ------------------------------ */}}
-{{- $description := "" -}}
-{{- if .IsHome -}}
-  {{- $description = .Site.Params.Description | default "" -}}
-{{- else -}}
-  {{- $description = .Params.description | default (.Summary | plainify | truncate 160) -}}
-{{- end -}}
+{{- $description := partial "func/page-description.html" . -}}
 
 <meta name="description" content="{{ $description }}" />
 
@@ -34,8 +29,10 @@
 
 
 <meta name="keywords" content="{{ .Site.Params.Keywords}}" />
-<meta name="robots" content="index, follow" />
-<meta name="googlebot" content="index, follow" />
+{{- /* Set `noindex: true` in front matter (or via a section cascade) to keep a page out of search */ -}}
+{{- $robots := cond (or .Params.noindex (eq .Kind "404")) "noindex, follow" "index, follow" -}}
+<meta name="robots" content="{{ $robots }}" />
+<meta name="googlebot" content="{{ $robots }}" />
 <link rel="canonical" href="{{ .Permalink }}" />
 
 {{ hugo.Generator }}

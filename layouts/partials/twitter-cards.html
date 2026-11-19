@@ -10,7 +10,7 @@
   {{ end }}
 
   <meta name="twitter:description"
-        content="{{ .Description | default .Summary | default .Site.Params.description }}" />
+        content="{{ partial "func/page-description.html" . }}" />
 
   {{ with .Site.Params.twitter }}
     <meta name="twitter:site" content="@{{ . }}" />
@@ -24,7 +24,7 @@
   {{ else if .Site.Params.twitterCardImage }}
     <meta name="twitter:image" content="{{ .Site.Params.twitterCardImage | absURL }}" />
   {{ else }}
-    <meta name="twitter:image" content="{{ "/images/avatar.png" | absURL }}" />
+    <meta name="twitter:image" content="{{ "images/og-default.jpg" | absURL }}" />
   {{ end }}
 
 {{ else }}
@@ -43,7 +43,7 @@
   {{ if .Site.Params.twitterCardImage }}
     <meta name="twitter:image" content="{{ .Site.Params.twitterCardImage | absURL }}" />
   {{ else }}
-    <meta name="twitter:image" content="{{ "/images/avatar.png" | absURL }}" />
+    <meta name="twitter:image" content="{{ "images/og-default.jpg" | absURL }}" />
   {{ end }}
 
 {{ end }}

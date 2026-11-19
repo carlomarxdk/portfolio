@@ -31,8 +31,8 @@ defaultContentLanguage = "en"
 	enablePlausible = true
 	PlausibleID = "savcisens.com"
 	enableTwitterCard = true
-	# The url for twitter card image, default is avatar.png in static/images directory
-	twitterCardImage = "images/avatar.jpg"
+	# Default 1200x630 share image (OpenGraph + Twitter) for pages without their own image
+	twitterCardImage = "images/og-default.jpg"
 
 	# Add custom assets with their paths relative to the static folder
 	customCSS = []
@@ -70,6 +70,9 @@ defaultContentLanguage = "en"
 	googleScholar = "https://scholar.google.com/citations?user=60I1M-oAAAAJ&hl=en"
 	jobTitle = "Postdoctoral Research Associate"
 	scopusID = "58312119300"
+	wikidata = "https://www.wikidata.org/wiki/Q124519652"
+	# Square portrait used as Person.image in JSON-LD
+	avatarImage = "images/avatar-442.jpg"
 	affiliation = "Northeastern University"
 
 [params.social]

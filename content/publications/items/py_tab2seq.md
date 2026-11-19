@@ -1,4 +1,7 @@
 ---
+noindex: true
+sitemap:
+  disable: true
 title: "tab2seq: A Python Package for Table-to-Sequence Conversion"
 date: 2026-02-23
 publishDate: 2026-02-23

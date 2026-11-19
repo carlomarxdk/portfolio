@@ -7,4 +7,10 @@ title: Teaching & Services
 date: 2025-09-08
 description: Check out my teaching activities and student supervisions, including courses taught, mentorship, and academic guidance in computational social science and AI.
 hidden: false
+noindex: false
+# Item pages are thin, unlinked stubs: keep them out of the sitemap and search
+cascade:
+  noindex: true
+  sitemap:
+    disable: true
 ---

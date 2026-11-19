@@ -1,0 +1,25 @@
+{{- /*
+  Returns the plain-text description for a page, used by meta, OpenGraph,
+  Twitter and JSON-LD so they always agree.
+
+  Order: home -> site description; else front matter `description`,
+  then `abstract` (publications), then the content summary, then the
+  site description as a last resort.
+*/ -}}
+{{- $d := "" -}}
+{{- if .IsHome -}}
+  {{- $d = site.Params.description -}}
+{{- else -}}
+  {{- with .Params.description -}}
+    {{- $d = . | plainify -}}
+  {{- else with .Params.abstract -}}
+    {{- $d = . | plainify | truncate 160 -}}
+  {{- else -}}
+    {{- $d = .Summary | plainify | truncate 160 -}}
+  {{- end -}}
+{{- end -}}
+{{- $d = trim (string $d) " \n" -}}
+{{- if not $d -}}
+  {{- $d = site.Params.description | default "" -}}
+{{- end -}}
+{{- return $d -}}

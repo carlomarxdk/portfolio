@@ -1,4 +1,7 @@
 ---
+noindex: true
+sitemap:
+  disable: true
 title: "Life Trajectories as Symbolic Language: Exploring Human Behaviour with Language Models"
 date: 2023-12-01
 publishDate: 2023-12-01

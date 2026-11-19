@@ -1,4 +1,7 @@
 ---
+noindex: true
+sitemap:
+  disable: true
 title: " (alpha) sAwMIL: Multiple-Instance Learning SVMs in Python"
 date: 2025-09-01
 publishDate: 2025-09-01

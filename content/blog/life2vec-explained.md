@@ -84,7 +84,7 @@ To approach this problem, we drew inspiration from another field that faced simi
 
 To demonstrate this, let’s look at a small example. Suppose I tell you that the sentence contains the following words: _and, beautiful, everything, was, hurt, nothing_. Could you reconstruct the original sentence? Well, yes! You might reconstruct:  "_Everything was beautiful, and nothing hurt._ (Kurt Vonnegut's line from _Slaughterhouse-Five_). But you could also reconstruct it as "_Everything hurt, and nothing was beautiful._" Same words, but quite different meaning. **Order and context shape meaning.**"
 
-For decades, NLP researchers have focused on developing methods to represent human language so that machines can process, interpret, and generate it. Around 2016, this line of work gave rise to a particularly powerful class of models: Transformers.[^5] These models forever changed the NLP field, and some might argue that they eventually broke it (that’s for another blog post).
+For decades, NLP researchers have focused on developing methods to represent human language so that machines can process, interpret, and generate it. Around 2017, this line of work gave rise to a particularly powerful class of models: Transformers.[^5] These models forever changed the NLP field, and some might argue that they eventually broke it (that’s for another blog post).
 
 Modern models such as ChatGPT or [Gemma](https://deepmind.google/models/gemma/) are built on the Transformer architecture, which makes them quite powerful. You have likely experienced it yourself: ChatGPT can process complex information and generate coherent, human-like text. More importantly for _our_ purposes, Transformers learn rich representations of language that encode how words are related to one another across context and position.
 
@@ -144,7 +144,7 @@ Death prediction entered the picture not as an end goal, but as a **validation t
 Under this setup, the model performed well, outperforming several classical methods, and identified connections we know lead to higher mortality, such as working in a physically demanding position. Notably, the often-quoted figure of _78\% accuracy_ was never emphasised in the main paper.
 
 {{<callout type="note" title="Accuracy is a problematic metric">}}
-**Accuracy is a problematic metric** for mortality prediction since death is a relatively rare event. If only 2\% of people die within three years, the  model that simply predicts '_everyone survives_' would achieve 96\% accuracy while being completely useless.
+**Accuracy is a problematic metric** for mortality prediction since death is a relatively rare event. If only 2\% of people die within three years, the  model that simply predicts '_everyone survives_' would achieve 98\% accuracy while being completely useless.
 {{</callout>}}
 
 In the main paper, we emphasize the Matthew's Correlation Coefficient.[^mcc] Accuracy appears only in the supplementary material. When interpreted correctly, the reported accuracy simply means the following: if I take a group of 100 people that consists of 50 people who died within the prediction window and 50 who were still alive by the end of 2018 → life2vec would correctly classify 78 of them.

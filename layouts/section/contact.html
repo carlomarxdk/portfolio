@@ -85,13 +85,16 @@
               </address>
             </div>
             <div class="md:col-span-3 font-cabin">
+              {{- /* Same source as the footer: [params.footer_address] in hugo.toml */ -}}
+              {{ with .Site.Params.footer_address }}
               <address class="not-italic">
-                <strong>Network Science Institute</strong><br />
-                Northeastern University<br />
-                177 Huntington Ave.<br />
-                Boston, Massachusetts 02115<br />
+                {{ with .institute }}<strong>{{ . }}</strong><br />{{ end }}
+                {{ with .university }}{{ . }}<br />{{ end }}
+                {{ with .street }}{{ . }}<br />{{ end }}
+                {{ with .city }}{{ . }}<br />{{ end }}
                 USA
               </address>
+              {{ end }}
             </div>
           </div>
         </div>

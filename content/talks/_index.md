@@ -7,4 +7,10 @@ title: "Talks & Events"
 date: 2025-09-08
 description: Explore my scientific talks, showcasing presentations, lectures, and knowledge-sharing on computational social science, AI, and human behavior analysis.
 hidden: false
+noindex: false
+# Item pages are thin, unlinked stubs: keep them out of the sitemap and search
+cascade:
+  noindex: true
+  sitemap:
+    disable: true
 ---

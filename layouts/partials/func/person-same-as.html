@@ -1,0 +1,15 @@
+{{- /*
+  Returns the Person `sameAs` list shared by every JSON-LD graph on the
+  site (schema.html and blog-schema.html), so the #person node is identical
+  on all pages.
+*/ -}}
+{{- $sameAs := slice -}}
+{{- with site.Params.structuredData.orcid -}}{{- $sameAs = $sameAs | append . -}}{{- end -}}
+{{- with site.Params.structuredData.wikidata -}}{{- $sameAs = $sameAs | append . -}}{{- end -}}
+{{- with site.Params.structuredData.googleScholar -}}{{- $sameAs = $sameAs | append . -}}{{- end -}}
+{{- with site.Params.social.github -}}{{- $sameAs = $sameAs | append . -}}{{- end -}}
+{{- with site.Params.social.bluesky -}}{{- $sameAs = $sameAs | append . -}}{{- end -}}
+{{- with site.Params.social.linkedin -}}{{- $sameAs = $sameAs | append . -}}{{- end -}}
+{{- with index site.Params.footer_social "researchgate" -}}{{- $sameAs = $sameAs | append . -}}{{- end -}}
+{{- with index site.Params.footer_social "openreview" -}}{{- $sameAs = $sameAs | append . -}}{{- end -}}
+{{- return $sameAs -}}

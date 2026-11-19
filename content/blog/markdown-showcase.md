@@ -1,4 +1,7 @@
 ---
+noindex: true
+sitemap:
+  disable: true
 title: "Markdown Rendering Showcase"
 date: 2025-12-16
 description: "A comprehensive showcase of the enhanced Markdown rendering capabilities including typography, shortcodes, and semantic features."

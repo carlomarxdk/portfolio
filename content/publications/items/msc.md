@@ -1,4 +1,7 @@
 ---
+noindex: true
+sitemap:
+  disable: true
 title: "Analyzing Health Data Records Using Neural Networks: Predicting Diabetes-Related Clinical Outcomes"
 date: 2020-04-01
 publishDate: 2020-04-01

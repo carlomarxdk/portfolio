@@ -8,23 +8,11 @@
   "description" (.Site.Params.description | default "Germans Savcisens is a postdoctoral researcher at Northeastern University. His research focuses on enhancing the transparency and safety of machine learning algorithms.")
   "url" (.Site.BaseURL | absURL)
   "email" "mailto:germans@savcisens.com"
-  "image" ((.Site.Params.twitterCardImage | default "/images/avatar.webp") | absURL)
+  "image" ((.Site.Params.structuredData.avatarImage | default "images/avatar-442.jpg") | absURL)
 -}}
 
-{{- /* Build sameAs array from config */ -}}
-{{- $sameAs := slice -}}
-{{- with .Site.Params.structuredData.googleScholar -}}
-  {{- $sameAs = $sameAs | append . -}}
-{{- end -}}
-{{- with .Site.Params.social.github -}}
-  {{- $sameAs = $sameAs | append . -}}
-{{- end -}}
-{{- with .Site.Params.social.bluesky -}}
-  {{- $sameAs = $sameAs | append . -}}
-{{- end -}}
-{{- with .Site.Params.social.linkedin -}}
-  {{- $sameAs = $sameAs | append . -}}
-{{- end -}}
+{{- /* sameAs is shared with blog-schema.html */ -}}
+{{- $sameAs := partial "func/person-same-as.html" . -}}
 {{- if gt (len $sameAs) 0 -}}
   {{- $person = merge $person (dict "sameAs" $sameAs) -}}
 {{- end -}}
@@ -83,7 +71,7 @@
   "@id" .Permalink
   "url" .Permalink
   "name" (.Title | default .Site.Title)
-  "description" (cond (and (isset .Params "description") (ne .Params.description "")) .Params.description (.Site.Params.description | default ""))
+  "description" (partial "func/page-description.html" .)
   "isPartOf" (dict "@id" (printf "%s#website" (.Site.BaseURL | absURL)))
   "inLanguage" (.Site.Language.Locale | default "en-us")
 -}}
@@ -109,10 +97,86 @@
   -}}
 {{- end -}}
 
+{{- /* Publication detail pages: ScholarlyArticle / Thesis / SoftwareSourceCode */ -}}
+{{- $work := dict -}}
+{{- if and (eq .Section "publications") .IsPage -}}
+  {{- $personID := printf "%s#person" (.Site.BaseURL | absURL) -}}
+  {{- $me := .Site.Params.author | default "Germans Savcisens" -}}
+  {{- $workType := "ScholarlyArticle" -}}
+  {{- if eq .Params.publication_type "thesis" -}}{{- $workType = "Thesis" -}}{{- end -}}
+  {{- if eq .Params.publication_type "software" -}}{{- $workType = "SoftwareSourceCode" -}}{{- end -}}
+
+  {{- $authors := slice -}}
+  {{- range .Params.authors -}}
+    {{- if eq . $me -}}
+      {{- $authors = $authors | append (dict "@id" $personID) -}}
+    {{- else -}}
+      {{- $authors = $authors | append (dict "@type" "Person" "name" .) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if eq (len $authors) 0 -}}
+    {{- $authors = slice (dict "@id" $personID) -}}
+  {{- end -}}
+
+  {{- $pubDate := .PublishDate -}}
+  {{- if $pubDate.IsZero -}}{{- $pubDate = .Date -}}{{- end -}}
+
+  {{- $work = dict
+    "@type" $workType
+    "@id" (printf "%s#work" .Permalink)
+    "name" (trim .Title " ")
+    "headline" (trim .Title " " | truncate 110)
+    "author" $authors
+    "datePublished" ($pubDate.Format "2006-01-02")
+    "url" .Permalink
+    "mainEntityOfPage" (dict "@id" .Permalink)
+    "inLanguage" (.Site.Language.Locale | default "en")
+    "description" (partial "func/page-description.html" .)
+  -}}
+  {{- with .Params.abstract -}}
+    {{- $work = merge $work (dict "abstract" (. | plainify)) -}}
+  {{- end -}}
+  {{- with .Params.venue -}}
+    {{- $work = merge $work (dict "isPartOf" (dict "@type" "CreativeWork" "name" .)) -}}
+  {{- end -}}
+  {{- with .Params.publication_type -}}
+    {{- if eq . "preprint" -}}
+      {{- $work = merge $work (dict "creativeWorkStatus" "Preprint") -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- /* sameAs: DOI resolver, publisher page, other versions, Wikidata item */ -}}
+  {{- $workSameAs := slice -}}
+  {{- with .Params.doi -}}
+    {{- $doiURL := printf "https://doi.org/%s" . -}}
+    {{- $workSameAs = $workSameAs | append $doiURL -}}
+    {{- $work = merge $work (dict "identifier" (dict "@type" "PropertyValue" "propertyID" "DOI" "value" . "url" $doiURL)) -}}
+  {{- end -}}
+  {{- with .Params.pub_link -}}
+    {{- if not (in $workSameAs .) -}}{{- $workSameAs = $workSameAs | append . -}}{{- end -}}
+  {{- end -}}
+  {{- range .Params.versions -}}
+    {{- with .link -}}
+      {{- if not (in $workSameAs .) -}}{{- $workSameAs = $workSameAs | append . -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with .Params.wikidata -}}
+    {{- $workSameAs = $workSameAs | append (printf "https://www.wikidata.org/wiki/%s" .) -}}
+  {{- end -}}
+  {{- if gt (len $workSameAs) 0 -}}
+    {{- $work = merge $work (dict "sameAs" $workSameAs) -}}
+  {{- end -}}
+
+  {{- $webpage = merge $webpage (dict "mainEntity" (dict "@id" (printf "%s#work" .Permalink))) -}}
+{{- end -}}
+
 {{- /* Build final graph */ -}}
 {{- $graph := slice $person $website $webpage -}}
 {{- if not .IsHome -}}
   {{- $graph = $graph | append $breadcrumb -}}
+{{- end -}}
+{{- if $work -}}
+  {{- $graph = $graph | append $work -}}
 {{- end -}}
 
 {{- $schema := dict "@context" "https://schema.org" "@graph" $graph -}}
