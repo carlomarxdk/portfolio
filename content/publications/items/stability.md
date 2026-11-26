@@ -10,7 +10,7 @@ venue_full: "Findings of the Association for Computational Linguistics: EMNLP 20
 pub_link: https://aclanthology.org/2026.findings-emnlp.532/
 doi: "10.18653/2026.findings-emnlp.532"
 wikidata: "Q142228160"
-arxiv: "2511.19166"
+# arxiv: "2511.19166"
 bib_type: inproceedings
 editors: [Hung-Yi Lee, Sunipa Dev, Jessy Li, Desmond Elliott]
 versions:

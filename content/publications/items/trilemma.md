@@ -12,7 +12,7 @@ abstract: "The public often attributes human-like qualities to large language mo
 pub_link: https://aclanthology.org/2026.emnlp-main.7/
 doi: "10.18653/2026.emnlp-main.7"
 wikidata: "Q142228032"
-arxiv: "2506.23921"
+# arxiv: "2506.23921"
 bib_type: inproceedings
 editors: [Hung-Yi Lee, Sunipa Dev, Junyi Jessy Li, Desmond Elliott]
 other_ids:

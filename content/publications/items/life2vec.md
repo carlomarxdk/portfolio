@@ -21,7 +21,6 @@ pub_link: https://www.nature.com/articles/s43588-023-00573-5
 bib_type: article
 doi: "10.1038/s43588-023-00573-5"
 wikidata: "Q123952057"
-arxiv: "2306.03009"
 versions:
   - label: "Nature Computational Science"
     link: https://www.nature.com/articles/s43588-023-00573-5

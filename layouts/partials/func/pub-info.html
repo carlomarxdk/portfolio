@@ -8,7 +8,8 @@
                          (guessed from publication_type + venue when unset)
     doi                — bare DOI, e.g. "10.1038/s43588-023-00573-5"
     wikidata           — Wikidata QID, e.g. "Q123952057"
-    arxiv              — arXiv ID, e.g. "2506.23921"
+    arxiv              — arXiv ID, e.g. "2506.23921" — preprints only; for published
+                         papers list the arXiv copy under `versions` (with its doi)
     citekey            — BibTeX key override
     editors            — list of "First Last" proceedings/volume editors
     versions[].doi     — DOI of an earlier/alternate version (sidebar link + schema sameAs)
