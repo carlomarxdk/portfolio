@@ -8,10 +8,13 @@ venue: "Nature Computational Science (News & Views)"
 venue_full: "Nature Computational Science"
 abstract: "An extensive audit of large language models reveals that numerous models mirror the ‘us versus them’ thinking seen in human behavior. These social prejudices are likely captured from the biased contents of the training data."
 pub_link: https://www.nature.com/articles/s43588-024-00750-0
+bib_type: article
 doi: "10.1038/s43588-024-00750-0"
+wikidata: "Q142229741"
 versions:
   - label: "Nature Computational Science"
     link: https://www.nature.com/articles/s43588-024-00750-0
+    doi: "10.1038/s43588-024-00750-0"
     date: 2025-01-01
   - label: Free PDF
     link: https://rdcu.be/d5ovo

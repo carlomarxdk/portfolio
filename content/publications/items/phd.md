@@ -11,6 +11,7 @@ venue: "PhD Thesis (Technical University of Denmark, Cognitive Systems)"
 create_page: false
 abstract: ""
 pub_link: https://orbit.dtu.dk/en/publications/life-trajectories-as-symbolic-language
+bib_type: phdthesis
 versions:
   - label: "PhD Thesis (Technical University of Denmark, Cognitive Systems)"
     link: https://orbit.dtu.dk/en/publications/life-trajectories-as-symbolic-language

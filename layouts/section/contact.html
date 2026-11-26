@@ -23,6 +23,9 @@
     <main id="main-content" class="max-w-screen-lg px-4 py-8 mx-auto">
       <div class="max-auto text-center">
         <h1 class="page-title text-center">{{.Title}}</h1>
+        {{ with .Params.intro }}
+          <p class="font-cabin text-stone-700 max-w-xl mx-auto mb-8">{{ . }}</p>
+        {{ end }}
       </div>
       <section id="wrapper">
         <div class="container max-w-screen-md mx-auto justify-center">

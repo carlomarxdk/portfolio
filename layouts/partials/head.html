@@ -105,6 +105,10 @@
   href="{{ "images/safari-pinned-tab.svg" | relURL }}"
   color="#ffffff"
 />
+{{- /* Highwire citation_* tags for publication detail pages (Google Scholar) */ -}}
+{{ if and (eq .Section "publications") .IsPage }}
+  {{ partial "publications/citation-meta.html" . }}
+{{ end }}
 {{- /* Schema.org structured data */ -}}
 {{ if and (eq .Section "blog") (not .IsNode) }}
   {{- /* Blog post pages get blog-specific schema */ -}}

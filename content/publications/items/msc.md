@@ -11,6 +11,7 @@ venue: "Master Thesis (Technical University of Denmark)"
 create_page: false
 abstract: ""
 pub_link: https://findit.dtu.dk/en/catalog/5ece4aecd9001d01696236a1
+bib_type: mastersthesis
 versions:
   - label: "Master Thesis (Technical University of Denmark)"
     link: https://findit.dtu.dk/en/catalog/5ece4aecd9001d01696236a1

@@ -10,6 +10,7 @@ publication_type: software
 create_page: false
 venue: ""
 pub_link: https://pypi.org/project/tab2seq/
+bib_type: software
 versions:
   - label: "PyPI"
     link: https://pypi.org/project/tab2seq/

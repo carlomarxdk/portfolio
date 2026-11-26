@@ -1,0 +1,24 @@
+{{- /*
+  Highwire Press citation_* tags (read by Google Scholar, Zotero, etc.),
+  mirroring what aclanthology.org emits. Only rendered on publication pages.
+*/ -}}
+{{- $info := partial "func/pub-info.html" . -}}
+<meta name="citation_title" content="{{ trim .Title " " }}" />
+{{- range .Params.authors }}
+<meta name="citation_author" content="{{ . }}" />
+{{- end }}
+<meta name="citation_publication_date" content="{{ $info.date.Format "2006/01/02" }}" />
+{{- with $info.venue }}
+  {{- if eq $info.bibType "inproceedings" }}
+<meta name="citation_conference_title" content="{{ . }}" />
+  {{- else if eq $info.bibType "article" }}
+<meta name="citation_journal_title" content="{{ . }}" />
+  {{- end }}
+{{- end }}
+{{- with .Params.doi }}
+<meta name="citation_doi" content="{{ . }}" />
+{{- end }}
+{{- with .Params.arxiv }}
+<meta name="citation_arxiv_id" content="{{ . }}" />
+{{- end }}
+<meta name="citation_abstract_html_url" content="{{ .Permalink }}" />

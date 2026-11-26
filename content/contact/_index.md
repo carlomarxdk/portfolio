@@ -3,10 +3,11 @@ sitemap:
   changefreq: monthly
   disable: false
   priority: 0.8
-title: Contacts
-description: Get in touch with me for collaborations, research inquiries, or general questions. Find my contact details and connect through email or social platforms.
+title: Contact
+description: "Contact Germans Savcisens, postdoctoral researcher at the Network Science Institute, Northeastern University (Boston). Email, Bluesky, LinkedIn, Google Scholar, GitHub and ORCID."
 date: 2025-03-27
 hidden: false
+intro: "I am happy to hear about research collaborations, talk invitations, and questions about my work. Email is the fastest way to reach me; I am also on the platforms below."
 ---
 
 ### Socials

@@ -9,11 +9,14 @@ hidden: true
 highlight: false
 create_page: true
 venue: Digital Humanities in the Nordic and Baltic Countries
+venue_full: "Digital Humanities in the Nordic and Baltic Countries Publications"
 pub_link: https://doi.org/10.5617/dhnbpub.11513
+bib_type: article
 doi: "10.5617/dhnbpub.11513"
 versions:
   - label: "Digital Humanities in the Nordic and Baltic Countries"
     link: https://doi.org/10.5617/dhnbpub.11513
+    doi: "10.5617/dhnbpub.11513"
     date: 2024-09-18
 resources:
   - name: "Latest"

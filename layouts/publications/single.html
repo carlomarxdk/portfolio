@@ -21,6 +21,7 @@
     >
     {{ partial "nav.html" . }}
     <main id="main-content" class="max-w-screen-lg px-4 py-8 mx-auto">
+      {{ partial "breadcrumbs.html" . }}
       <article>
         <header class="max-auto text-center">
           <h1 class="page-title text-center">{{ .Title }}</h1>
@@ -42,6 +43,8 @@
                 <p class="prose-abstract">{{ .Params.abstract }}</p>
               </section>
             {{ end }}
+
+            {{ partial "publications/cite.html" . }}
 
             {{ if or .Params.talks .Params.extra_talks }}
               <section class="mt-8">
@@ -92,8 +95,10 @@
           </div>
 
           <aside class="pub-sidebar" aria-label="Publication details">
+            {{ partial "publications/details.html" . }}
+
             {{ if .Params.versions }}
-              <section>
+              <section class="mt-8">
                 <h2 class="section-heading">Versions</h2>
                 <ul class="link-list">
                   {{ range .Params.versions }}
@@ -101,6 +106,7 @@
                       <a href="{{ .link }}" target="_blank" rel="noopener" class="link-row-title">{{ .label }}<span class="sr-only"> (opens in new tab)</span><span aria-hidden="true"> ↗</span></a>
                       {{ with .subtitle }}<span class="link-row-subtitle">{{ . }}</span>{{ end }}
                       {{ with .date }}<span class="link-row-meta">{{ (time .).Format "Jan 2006" }}</span>{{ end }}
+                      {{ if and .doi (ne (lower .doi) (lower ($.Params.doi | default ""))) }}{{ with .doi }}<a href="https://doi.org/{{ . }}" target="_blank" rel="noopener" class="link-row-meta">DOI: {{ . }}<span class="sr-only"> (opens in new tab)</span></a>{{ end }}{{ end }}
                     </li>
                   {{ end }}
                 </ul>

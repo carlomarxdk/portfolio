@@ -1,0 +1,51 @@
+{{- /*
+  Derived citation facts for a publication page, shared by the Highwire meta
+  tags, the on-page Details/Cite blocks, and the JSON-LD schema.
+
+  Front matter it reads (all optional except title):
+    venue_full / venue — full venue name is preferred for citations
+    bib_type           — article | inproceedings | misc | phdthesis | mastersthesis | software
+                         (guessed from publication_type + venue when unset)
+    doi                — bare DOI, e.g. "10.1038/s43588-023-00573-5"
+    wikidata           — Wikidata QID, e.g. "Q123952057"
+    arxiv              — arXiv ID, e.g. "2506.23921"
+    citekey            — BibTeX key override
+    editors            — list of "First Last" proceedings/volume editors
+    versions[].doi     — DOI of an earlier/alternate version (sidebar link + schema sameAs)
+    other_ids          — list of {type, value, url?}; schema identifier only, e.g. Scopus EID
+
+  Returns a dict: venue, bibType, date (time.Time), citekey, year.
+*/ -}}
+{{- $p := . -}}
+{{- $venue := $p.Params.venue_full | default $p.Params.venue | default "" -}}
+
+{{- $date := $p.PublishDate -}}
+{{- if $date.IsZero -}}{{- $date = $p.Date -}}{{- end -}}
+
+{{- $bibType := $p.Params.bib_type -}}
+{{- if not $bibType -}}
+  {{- $type := $p.Params.publication_type -}}
+  {{- if eq $type "preprint" -}}{{- $bibType = "misc" -}}
+  {{- else if eq $type "software" -}}{{- $bibType = "software" -}}
+  {{- else if eq $type "thesis" -}}
+    {{- $bibType = cond (strings.Contains (lower $venue) "phd") "phdthesis" "mastersthesis" -}}
+  {{- else if findRE `(?i)proceedings|conference|workshop|findings` $venue 1 -}}{{- $bibType = "inproceedings" -}}
+  {{- else -}}{{- $bibType = "article" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $citekey := $p.Params.citekey -}}
+{{- if not $citekey -}}
+  {{- $first := "anon" -}}
+  {{- with $p.Params.authors -}}
+    {{- $first = index (split (index . 0) " ") (sub (len (split (index . 0) " ")) 1) -}}
+  {{- end -}}
+  {{- $word := "" -}}
+  {{- range split (lower $p.Title) " " -}}
+    {{- $w := replaceRE `[^a-z0-9]` "" . -}}
+    {{- if and (not $word) (gt (len $w) 3) -}}{{- $word = $w -}}{{- end -}}
+  {{- end -}}
+  {{- $citekey = printf "%s%s%s" (replaceRE `[^a-z0-9]` "" (lower $first)) ($date.Format "2006") $word -}}
+{{- end -}}
+
+{{- return dict "venue" $venue "bibType" $bibType "date" $date "year" ($date.Format "2006") "citekey" $citekey -}}

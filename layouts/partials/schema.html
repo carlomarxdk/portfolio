@@ -80,15 +80,12 @@
   {{- $webpage = merge $webpage (dict "breadcrumb" (dict "@id" (printf "%s#breadcrumb" .Permalink))) -}}
 {{- end -}}
 
-{{- /* Build breadcrumb for non-home pages */ -}}
+{{- /* Breadcrumb for non-home pages (same trail as the visible nav) */ -}}
 {{- $breadcrumb := dict -}}
 {{- if not .IsHome -}}
-  {{- $items := slice (dict "@type" "ListItem" "position" 1 "name" "Home" "item" (.Site.BaseURL | absURL)) -}}
-  {{- if .Section -}}
-    {{- $items = $items | append (dict "@type" "ListItem" "position" 2 "name" (.Section | title) "item" (printf "%s%s/" .Site.BaseURL .Section | absURL)) -}}
-    {{- if not .IsNode -}}
-      {{- $items = $items | append (dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink) -}}
-    {{- end -}}
+  {{- $items := slice -}}
+  {{- range $i, $c := partial "func/breadcrumbs.html" . -}}
+    {{- $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "name" $c.name "item" $c.url) -}}
   {{- end -}}
   {{- $breadcrumb = dict
     "@type" "BreadcrumbList"
@@ -136,8 +133,14 @@
   {{- with .Params.abstract -}}
     {{- $work = merge $work (dict "abstract" (. | plainify)) -}}
   {{- end -}}
-  {{- with .Params.venue -}}
-    {{- $work = merge $work (dict "isPartOf" (dict "@type" "CreativeWork" "name" .)) -}}
+  {{- with (.Params.venue_full | default .Params.venue) -}}
+    {{- $host := dict "@type" "CreativeWork" "name" . -}}
+    {{- with $.Params.editors -}}
+      {{- $eds := slice -}}
+      {{- range . -}}{{- $eds = $eds | append (dict "@type" "Person" "name" .) -}}{{- end -}}
+      {{- $host = merge $host (dict "editor" $eds) -}}
+    {{- end -}}
+    {{- $work = merge $work (dict "isPartOf" $host) -}}
   {{- end -}}
   {{- with .Params.publication_type -}}
     {{- if eq . "preprint" -}}
@@ -145,12 +148,31 @@
     {{- end -}}
   {{- end -}}
 
-  {{- /* sameAs: DOI resolver, publisher page, other versions, Wikidata item */ -}}
+  {{- /* identifier + sameAs: DOI, Wikidata QID, arXiv, publisher page, other versions */ -}}
   {{- $workSameAs := slice -}}
+  {{- $ids := slice -}}
   {{- with .Params.doi -}}
     {{- $doiURL := printf "https://doi.org/%s" . -}}
     {{- $workSameAs = $workSameAs | append $doiURL -}}
-    {{- $work = merge $work (dict "identifier" (dict "@type" "PropertyValue" "propertyID" "DOI" "value" . "url" $doiURL)) -}}
+    {{- $ids = $ids | append (dict "@type" "PropertyValue" "propertyID" "DOI" "value" . "url" $doiURL) -}}
+  {{- end -}}
+  {{- with .Params.wikidata -}}
+    {{- $qURL := printf "https://www.wikidata.org/entity/%s" . -}}
+    {{- $workSameAs = $workSameAs | append $qURL -}}
+    {{- $ids = $ids | append (dict "@type" "PropertyValue" "propertyID" "Wikidata" "value" . "url" $qURL) -}}
+  {{- end -}}
+  {{- with .Params.arxiv -}}
+    {{- $aURL := printf "https://arxiv.org/abs/%s" . -}}
+    {{- $workSameAs = $workSameAs | append $aURL -}}
+    {{- $ids = $ids | append (dict "@type" "PropertyValue" "propertyID" "arXiv" "value" . "url" $aURL) -}}
+  {{- end -}}
+  {{- /* other_ids: schema-only identifiers, e.g. Scopus EID (not shown on the page) */ -}}
+  {{- range .Params.other_ids -}}
+    {{- if and .type .value -}}
+      {{- $oid := dict "@type" "PropertyValue" "propertyID" .type "value" .value -}}
+      {{- with .url -}}{{- $oid = merge $oid (dict "url" .) -}}{{- end -}}
+      {{- $ids = $ids | append $oid -}}
+    {{- end -}}
   {{- end -}}
   {{- with .Params.pub_link -}}
     {{- if not (in $workSameAs .) -}}{{- $workSameAs = $workSameAs | append . -}}{{- end -}}
@@ -159,9 +181,13 @@
     {{- with .link -}}
       {{- if not (in $workSameAs .) -}}{{- $workSameAs = $workSameAs | append . -}}{{- end -}}
     {{- end -}}
+    {{- with .doi -}}
+      {{- $vURL := printf "https://doi.org/%s" . -}}
+      {{- if not (in $workSameAs $vURL) -}}{{- $workSameAs = $workSameAs | append $vURL -}}{{- end -}}
+    {{- end -}}
   {{- end -}}
-  {{- with .Params.wikidata -}}
-    {{- $workSameAs = $workSameAs | append (printf "https://www.wikidata.org/wiki/%s" .) -}}
+  {{- if gt (len $ids) 0 -}}
+    {{- $work = merge $work (dict "identifier" $ids) -}}
   {{- end -}}
   {{- if gt (len $workSameAs) 0 -}}
     {{- $work = merge $work (dict "sameAs" $workSameAs) -}}

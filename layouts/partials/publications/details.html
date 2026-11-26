@@ -1,0 +1,31 @@
+{{- /* "Details" list for the publication sidebar: venue, date, DOI, Wikidata, arXiv */ -}}
+{{- $info := partial "func/pub-info.html" . -}}
+{{- if or $info.venue .Params.doi .Params.wikidata .Params.arxiv }}
+<section>
+  <h2 class="section-heading">Details</h2>
+  <dl class="pub-meta">
+    {{- with $info.venue }}
+    <dt>Venue</dt>
+    <dd>{{ . }}{{ if $.Params.to_appear }} <em>(to appear)</em>{{ end }}</dd>
+    {{- end }}
+    {{- with .Params.editors }}
+    <dt>Editors</dt>
+    <dd>{{ delimit . ", " }}</dd>
+    {{- end }}
+    <dt>Published</dt>
+    <dd><time datetime="{{ $info.date.Format "2006-01-02" }}">{{ $info.date.Format "January 2006" }}</time></dd>
+    {{- with .Params.doi }}
+    <dt>DOI</dt>
+    <dd><a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">{{ . }}<span class="sr-only"> (opens in new tab)</span></a></dd>
+    {{- end }}
+    {{- with .Params.arxiv }}
+    <dt>arXiv</dt>
+    <dd><a href="https://arxiv.org/abs/{{ . }}" target="_blank" rel="noopener">{{ . }}<span class="sr-only"> (opens in new tab)</span></a></dd>
+    {{- end }}
+    {{- with .Params.wikidata }}
+    <dt>Wikidata</dt>
+    <dd><a href="https://www.wikidata.org/wiki/{{ . }}" target="_blank" rel="noopener">{{ . }}<span class="sr-only"> (opens in new tab)</span></a></dd>
+    {{- end }}
+  </dl>
+</section>
+{{- end }}

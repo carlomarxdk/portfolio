@@ -121,9 +121,14 @@ highlight: false
 venue: "arXiv:2609.01194"
 abstract: "Major life events have proven difficult to predict. Does this reflect limits of theory, data, and algorithms, or the large role of chance? We examine one outcome — having a child within three years — through a near-ideal setting for prediction: a data challenge where 147 researchers predicted births for Dutch residents aged 18–45, using survey data and full-population registers. Methods ranged from logistic regression to a large language model and transformers. Predictions were moderately accurate (best F1: register 0.59, survey 0.76); advanced models did not outperform classical ones; and the larger registers did not beat the survey. Simulating the stochastic biology of conception and pregnancy, we estimated a predictive ceiling (survey F1 ~ 0.86–0.94, register 0.88–0.96). Observed performance falls short of this ceiling, implicating imperfect data, methods, and unmodelled chance, while the ceiling itself shows that chance in reproduction alone sets a non-trivial limit on predicting individual lives."
 pub_link: https://arxiv.org/abs/2609.01194
+bib_type: misc
+arxiv: "2609.01194"
+wikidata: "Q142235581"
+doi: "10.48550/arXiv.2609.01194"
 versions:
   - label: "arXiv"
     link: https://arxiv.org/abs/2609.01194
+    doi: "10.48550/arXiv.2609.01194"
     date: 2026-09-01
 resources:
   - name: ArXiv

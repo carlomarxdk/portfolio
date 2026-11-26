@@ -1,0 +1,18 @@
+{{- /*
+  Breadcrumb trail for a page: Home › Section › Page.
+  Shared by the visible nav (partials/breadcrumbs.html) and the JSON-LD
+  BreadcrumbList (schema.html) so Google sees exactly what readers see.
+  The section crumb uses the section page's title ("Teaching & Services"),
+  and the `items/` folder is skipped (it has no page of its own).
+  Returns a slice of dicts: {name, url}.
+*/ -}}
+{{- $crumbs := slice (dict "name" "Home" "url" site.Home.Permalink) -}}
+{{- if not .IsHome -}}
+  {{- with .FirstSection -}}
+    {{- if ne .Permalink $.Permalink -}}
+      {{- $crumbs = $crumbs | append (dict "name" .LinkTitle "url" .Permalink) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $crumbs = $crumbs | append (dict "name" (trim .LinkTitle " ") "url" .Permalink) -}}
+{{- end -}}
+{{- return $crumbs -}}

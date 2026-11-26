@@ -1,0 +1,16 @@
+{{- /* Visible breadcrumb nav; mirrors the JSON-LD BreadcrumbList */ -}}
+{{- $crumbs := partial "func/breadcrumbs.html" . -}}
+{{- $last := sub (len $crumbs) 1 -}}
+<nav aria-label="Breadcrumb" class="breadcrumbs">
+  <ol>
+    {{- range $i, $c := $crumbs }}
+    <li>
+      {{- if eq $i $last }}
+      <span aria-current="page">{{ $c.name }}</span>
+      {{- else }}
+      <a href="{{ $c.url }}">{{ $c.name }}</a>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ol>
+</nav>
