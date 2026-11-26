@@ -45,6 +45,7 @@ resources:
     on-page: True
   - name: "Code (Light)"
     link: https://github.com/carlomarxdk/life2vec-light
+    doi: "10.5281/zenodo.10680995"
     on-card: False
     on-page: True
   - name: "Official Page"

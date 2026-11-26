@@ -41,15 +41,18 @@ resources:
     on-page: false
   - name: ArXiv
     link: https://arxiv.org/abs/2506.23921
+    doi: "10.48550/arXiv.2506.23921"
     on-card: false
     on-page: false
   - name: Code
     link: https://github.com/carlomarxdk/trilemma-of-truth
+    doi: "10.5281/zenodo.15779092"
     on-card: true
     on-page: true
     on-cv: true
   - name: Data
     link: https://huggingface.co/datasets/carlomarxx/trilemma-of-truth
+    doi: "10.57967/hf/11273"
     on-card: true
     on-page: true
   - name: "(Poster) NeurIPS"

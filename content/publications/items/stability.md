@@ -35,6 +35,7 @@ resources:
     on-page: true
   - name: Data
     link: https://huggingface.co/datasets/samanthadies/representational_stability
+    doi: "10.57967/hf/7040"
     on-card: true
     on-page: true
 
