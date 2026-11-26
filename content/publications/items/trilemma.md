@@ -54,11 +54,13 @@ resources:
     on-page: true
   - name: "(Poster) NeurIPS"
     link: https://zenodo.org/records/17725915
+    doi: "10.5281/zenodo.17725915"
     on-card: true
     on-page: true
     on-cv: true
   - name: "(Poster) IC2S2"
     link: https://zenodo.org/records/16053456
+    doi: "10.5281/zenodo.16053456"
     on-card: true
     on-page: true
 

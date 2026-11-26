@@ -54,6 +54,7 @@ resources:
     on-cv: true
   - name: "Slides"
     link: https://doi.org/10.5281/zenodo.14580405
+    doi: "10.5281/zenodo.14580405"
     on-card: True
     on-page: True
 

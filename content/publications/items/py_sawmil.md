@@ -28,6 +28,7 @@ resources:
     on-page: false
   - name: DOI
     link: https://zenodo.org/records/17055044
+    doi: "10.5281/zenodo.17055044"
     on-card: true
     on-page: false
 ---

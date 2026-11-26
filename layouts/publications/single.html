@@ -119,8 +119,10 @@
                 <h2 class="section-heading">Resources</h2>
                 <ul class="link-list">
                   {{ range $pageResources }}
+                    {{ $href := .link }}{{ if and (not $href) .doi }}{{ $href = printf "https://doi.org/%s" .doi }}{{ end }}
                     <li class="link-row">
-                      <a href="{{ .link }}" target="_blank" rel="noopener" class="link-row-title">{{ .name }}<span class="sr-only"> (opens in new tab)</span><span aria-hidden="true"> ↗</span></a>
+                      <a href="{{ $href }}" target="_blank" rel="noopener" class="link-row-title">{{ .name }}<span class="sr-only"> (opens in new tab)</span><span aria-hidden="true"> ↗</span></a>
+                      {{ with .doi }}<a href="https://doi.org/{{ . }}" target="_blank" rel="noopener" class="link-row-meta">DOI: {{ . }}<span class="sr-only"> (opens in new tab)</span></a>{{ end }}
                     </li>
                   {{ end }}
                 </ul>

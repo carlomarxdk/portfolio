@@ -38,10 +38,12 @@ resources:
     on-cv: true
   - name: "(Poster) NEMI"
     link: https://zenodo.org/records/21878347
+    doi: "10.5281/zenodo.21878347"
     on-card: true
     on-page: true
   - name: "(Poster) NetSci"
     link: https://doi.org/10.5281/zenodo.20482271
+    doi: "10.5281/zenodo.20482271"
     on-card: true
     on-page: true
     on-cv: true

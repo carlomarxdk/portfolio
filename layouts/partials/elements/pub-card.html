@@ -31,7 +31,7 @@
     {{ if or $cardResources .Params.allow_fact }}
       <div class="card-tags">
         {{ range $cardResources }}
-          <a href="{{ .link }}" target="_blank" rel="noopener"
+          <a href="{{ .link | default (printf "https://doi.org/%s" (.doi | default "")) }}" target="_blank" rel="noopener"
              class="card-tag hover:border-amber-400 hover:text-amber-700 transition-colors duration-150"
              aria-label="{{ .name }} for {{ $.Title }}">{{ .name }}</a>
         {{ end }}

@@ -24,6 +24,7 @@ resources:
     on-page: false
   - name: DOI
     link: https://doi.org/10.5281/zenodo.18752504
+    doi: "10.5281/zenodo.18752504"
     on-card: true
     on-page: false
 ---

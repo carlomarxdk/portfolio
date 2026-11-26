@@ -214,7 +214,7 @@ Postdoctoral researcher (PhD, Applied Mathematics and Computer Science) speciali
     {{- if index . "on-cv" }}
       {{- $name := .name }}
       {{- with findRESubmatch `^\((.+)\)\s*(.+)$` $name 1 }}{{ $name = printf "%s %s" (index (index . 0) 2) (index (index . 0) 1) }}{{ end }}
-      {{- $links = $links | append (partial "cv/link.tex" (dict "url" .link "label" $name)) }}
+      {{- $links = $links | append (partial "cv/link.tex" (dict "url" (.link | default (printf "https://doi.org/%s" (.doi | default ""))) "label" $name)) }}
     {{- end }}
   {{- end }}
 \pubentry{ {{- $authors -}} }

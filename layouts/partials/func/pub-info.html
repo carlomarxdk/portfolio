@@ -13,6 +13,8 @@
     citekey            — BibTeX key override
     editors            — list of "First Last" proceedings/volume editors
     versions[].doi     — DOI of an earlier/alternate version (sidebar link + schema sameAs)
+    resources[].doi    — DOI of a resource (slides, poster, code archive); shown under
+                         the link; `link` falls back to https://doi.org/<doi> when omitted
     other_ids          — list of {type, value, url?}; schema identifier only, e.g. Scopus EID
 
   Returns a dict: venue, bibType, date (time.Time), citekey, year.
