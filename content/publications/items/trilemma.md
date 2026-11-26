@@ -27,9 +27,9 @@ versions:
     link: https://arxiv.org/abs/2506.23921
     doi: "10.48550/arXiv.2506.23921"
     date: 2026-10-19
-  - label: "SSRN"
-    link: https://www.ssrn.com/abstract=5331504
-    doi: "10.2139/SSRN.5331504"
+  # - label: "SSRN"
+  #   link: https://www.ssrn.com/abstract=5331504
+  #   doi: "10.2139/SSRN.5331504"
   - label: "NeurIPS MechInterp 2025"
     link: https://openreview.net/forum?id=z7dLG2ycRf
     date: 2025-11-20

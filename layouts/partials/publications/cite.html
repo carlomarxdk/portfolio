@@ -21,7 +21,8 @@
   {{- end -}}
   {{- $lines = $lines | append (printf "  year = {%s}" $info.year) -}}
   {{- with .Params.doi -}}{{- $lines = $lines | append (printf "  doi = {%s}" .) -}}{{- end -}}
-  {{- with .Params.arxiv -}}{{- $lines = $lines | append (printf "  eprint = {%s}" .) "  archivePrefix = {arXiv}" -}}{{- end -}}
+  {{- /* eprint only for unpublished work; a published paper is cited by its version of record */ -}}
+  {{- with and (ne .Params.publication_type "published") .Params.arxiv -}}{{- $lines = $lines | append (printf "  eprint = {%s}" .) "  archivePrefix = {arXiv}" -}}{{- end -}}
   {{- with .Params.pub_link -}}{{- $lines = $lines | append (printf "  url = {%s}" .) -}}{{- end -}}
   {{- $bib = printf "@%s{%s,\n%s\n}" $type $info.citekey (delimit $lines ",\n") -}}
 {{- end }}

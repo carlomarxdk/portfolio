@@ -18,7 +18,7 @@
 {{- with .Params.doi }}
 <meta name="citation_doi" content="{{ . }}" />
 {{- end }}
-{{- with .Params.arxiv }}
+{{- with and (ne .Params.publication_type "published") .Params.arxiv }}
 <meta name="citation_arxiv_id" content="{{ . }}" />
 {{- end }}
 <meta name="citation_abstract_html_url" content="{{ .Permalink }}" />
